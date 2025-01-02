@@ -1,9 +1,9 @@
 ---
 ---
 
-# LucasCJYSDL's Website
+# Research Areas
 
-An engaging 1-3 sentence description of your lab.
+Our team at the Department of Data and Systems Engineering, The University of Hong Kong, is dedicated to advancing research in Machine Learning, Sequential Decision Making, and Embodied AI.
 
 {% include section.html %}
 
