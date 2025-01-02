@@ -9,23 +9,34 @@ We are particularly interested in advancing the following research areas:
 
 - Theoretical foundations, algorithm design, and applications of (Multi-agent) Reinforcement Learning;  
 - Developing a unified theoretical framework for Reinforcement Learning, Optimal Control, and Stochastic Optimization;  
-- Scaling Laws in sequential decision-making, with a special emphasis on efficient (Multi-agent) Monte Carlo Tree Search algorithms;  
+- Scaling Laws in sequential decision-making, with a special emphasis on efficient (Multi-agent) Monte Carlo Tree Search algorithms and advanced Reasoning Models;  
 - Robotic Foundation Models;  
 - End-to-end multi-modal learning for Humanoid Robotic Control and its industrial applications;  
-- Post-training techniques for Large Language Model agents and their applications in sequential decision-making.  
+- Post-training techniques for Large Language Model agents and their applications in sequential decision-making;
+- Artificial General Intelligence grounded in the principles of [The Alberta Plan](http://www.incompleteideas.net/Talks/AlbertaPlan.pdf).
 
 
 {% include section.html %}
 
 ## How to join us
 
-Current Openinings: (Please directly contact [Dr. Jiayu Chen](https://agentic-intelligence-lab.org/members/jiayu-chen.html), if interested.)
+**Current Openings**  
+(If interested, please contact [Dr. Jiayu Chen](https://agentic-intelligence-lab.org/members/jiayu-chen.html) directly.)  
 
-- I have **TWO fully funded PhD** positions starting at Fall 2025;
-- Positions for postdoc researchers, self-financed Ph.D., part-time Ph.D., research assistants, and visiting scholars are open year round.
+- **Two fully funded Ph.D. positions** starting in **Fall 2025**  
+- Openings for **postdoctoral researchers**, **self-financed Ph.D. students**, **part-time Ph.D. students**, **research assistants**, and **visiting scholars** are available **year-round**  
 
-Ph.D. and postoc researchers are expected to be proficient at Math or Programming and be self-motivated and resilient. Applicants with background on Humanoid Robots, Large Language Models, Control Theory, Optimization Theory, or Statistical Machine Leanring are strongly preferred. Please check the following categories for more information.
+**Qualifications for Ph.D. and Postdoctoral Researchers:**  
+Candidates should possess strong proficiency in **mathematics** or **programming**, as well as demonstrate self-motivation and resilience. Applicants with backgrounds in the following areas are highly preferred:  
+- Humanoid Robots  
+- Large Language Models, Reasoning Models
+- Control Theory  
+- Optimization Theory  
+- Statistical Machine Learning  
 
+For more information, please refer to the respective categories below.  
+
+---
 
 {% capture text %}
 
