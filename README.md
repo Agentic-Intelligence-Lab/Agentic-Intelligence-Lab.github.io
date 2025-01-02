@@ -1,5 +1,5 @@
 
-# LucasCJYSDL's Website
+# The Website of Agentic Intelligence Lab
 
 Visit **[agentic-intelligence-lab.org](http://agentic-intelligence-lab.org)** 🚀
 
