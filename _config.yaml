@@ -3,17 +3,15 @@ title: Agentic Intelligence Lab
 subtitle: 
 description: Our team at the Department of Data and Systems Engineering, The University of Hong Kong, is dedicated to advancing research in Machine Learning, Sequential Decision Making, and Embodied AI.
 header: images/header.jpg
-footer: images/footer.png
+footer: images/header.jpg
 proofer: false
 
 # site social media and other links
 links:
-  email: contact@LucasCJYSDL.com
-  orcid: 0000-0001-8713-9213
-  google-scholar: ETJoidYAAAAJ
-  github: LucasCJYSDL
-  twitter: LucasCJYSDL
-  youtube: LucasCJYSDL
+  email: jiayuchen98666@gmail.com
+  google-scholar: k0KJm7kAAAAJ
+  github: Agentic-Intelligence-Lab
+  twitter: JiayuChen98666
 
 ### jekyll settings
 
