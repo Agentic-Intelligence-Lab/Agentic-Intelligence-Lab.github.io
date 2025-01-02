@@ -3,7 +3,17 @@
 
 # Research Areas
 
-Our team at the Department of Data and Systems Engineering, The University of Hong Kong, is dedicated to advancing research in Machine Learning, Sequential Decision Making, and Embodied AI.
+Our team at the Department of Data and Systems Engineering, The University of Hong Kong, specializes in **Learning for Sequential Decision-Making and Continuous Control.**  
+
+We are particularly interested in advancing the following research areas:  
+
+- Theoretical foundations, algorithm design, and applications of (multi-agent) reinforcement learning;  
+- Developing a unified theoretical framework for reinforcement learning, optimal control, and stochastic optimization;  
+- Scaling laws in sequential decision-making, with a special emphasis on efficient (multi-agent) Monte Carlo Tree Search algorithms;  
+- Robotic foundation models;  
+- End-to-end multi-modal learning for humanoid robotic control and its industrial applications;  
+- Post-training techniques for large language model agents and their applications in sequential decision-making.  
+
 
 {% include section.html %}
 
