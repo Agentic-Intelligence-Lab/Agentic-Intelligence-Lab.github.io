@@ -1,1 +1,1 @@
-Sitemap: https://agentic-intelligence-lab.com/sitemap.xml
+Sitemap: http://agentic-intelligence-lab.org/sitemap.xml
