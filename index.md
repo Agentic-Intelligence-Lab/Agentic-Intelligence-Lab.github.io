@@ -7,19 +7,50 @@ Our team at the Department of Data and Systems Engineering, The University of Ho
 
 We are particularly interested in advancing the following research areas:  
 
-- Theoretical foundations, algorithm design, and applications of (multi-agent) reinforcement learning;  
-- Developing a unified theoretical framework for reinforcement learning, optimal control, and stochastic optimization;  
-- Scaling laws in sequential decision-making, with a special emphasis on efficient (multi-agent) Monte Carlo Tree Search algorithms;  
-- Robotic foundation models;  
-- End-to-end multi-modal learning for humanoid robotic control and its industrial applications;  
-- Post-training techniques for large language model agents and their applications in sequential decision-making.  
+- Theoretical foundations, algorithm design, and applications of (Multi-agent) Reinforcement Learning;  
+- Developing a unified theoretical framework for Reinforcement Learning, Optimal Control, and Stochastic Optimization;  
+- Scaling Laws in sequential decision-making, with a special emphasis on efficient (Multi-agent) Monte Carlo Tree Search algorithms;  
+- Robotic Foundation Models;  
+- End-to-end multi-modal learning for Humanoid Robotic Control and its industrial applications;  
+- Post-training techniques for Large Language Model agents and their applications in sequential decision-making.  
 
 
 {% include section.html %}
 
-## Highlights
+## How to join us
+
+Current Openinings: (Please directly contact [Dr. Jiayu Chen](https://agentic-intelligence-lab.org/members/jiayu-chen.html), if interested.)
+
+- I have **TWO fully funded PhD** positions starting at Fall 2025;
+- Positions for postdoc researchers, self-financed Ph.D., part-time Ph.D., research assistants, and visiting scholars are open year round.
+
+Ph.D. and postoc researchers are expected to be proficient at Math or Programming and be self-motivated and resilient. Applicants with background on Humanoid Robots, Large Language Models, Control Theory, Optimization Theory, or Statistical Machine Leanring are strongly preferred. Please check the following categories for more information.
+
 
 {% capture text %}
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+
+{%
+  include button.html
+  link="team"
+  text="Meet our team"
+  icon="fa-solid fa-arrow-right"
+  flip=true
+  style="bare"
+%}
+
+{% endcapture %}
+
+{%
+  include feature.html
+  image="images/photo.jpg"
+  link="team"
+  title="Our Team"
+  text=text
+%}
+
+<!-- {% capture text %}
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
 
@@ -65,27 +96,4 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
   flip=true
   style="bare"
   text=text
-%}
-
-{% capture text %}
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-
-{%
-  include button.html
-  link="team"
-  text="Meet our team"
-  icon="fa-solid fa-arrow-right"
-  flip=true
-  style="bare"
-%}
-
-{% endcapture %}
-
-{%
-  include feature.html
-  image="images/photo.jpg"
-  link="team"
-  title="Our Team"
-  text=text
-%}
+%} -->
