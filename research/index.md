@@ -11,19 +11,8 @@ For the most up-to-date list of publications, please visit our [Google Scholar p
 
 {% include section.html %}
 
-<!-- ## Highlighted
-
-{% include citation.html lookup="Open collaborative writing with Manubot" style="rich" %}
-
-{% include section.html %} -->
-
 ## All
 
-<!-- {% include search-box.html %}
-
-{% include search-info.html %}
-
-{% include list.html data="citations" component="citation" style="rich" %} -->
 
 ### Preprints and In-Submission Works:
 
