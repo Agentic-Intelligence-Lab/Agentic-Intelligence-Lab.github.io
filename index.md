@@ -24,7 +24,7 @@ We are particularly interested in advancing the following research areas:
 **Current Openings**  
 (If interested, please contact [Dr. Jiayu Chen](https://agentic-intelligence-lab.org/members/jiayu-chen.html) directly. The Ph.D. application system accepts submissions year-round.)  
 
-- **Two fully funded Ph.D. positions** starting in **Fall 2025**
+- **Two fully funded Ph.D. positions** starting in **Fall 2025 (as early as July)**
 - Openings for **postdoctoral researchers**, **self-financed Ph.D. students**, **part-time Ph.D. students**, **research assistants**, and **visiting scholars** are available **year-round** 
 
 **Qualifications for Ph.D. and Postdoctoral Researchers:**  
