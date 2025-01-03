@@ -2,12 +2,16 @@
 title: Research
 nav:
   order: 1
-  tooltip: Published works
+  tooltip: Published Works
 ---
 
-# {% include icon.html icon="fa-solid fa-microscope" %}Research
+# {% include icon.html icon="fa-regular fa-newspaper" %}Research
 
 For the most up-to-date list of publications, please visit our [Google Scholar profile](https://scholar.google.com/citations?user=k0KJm7kAAAAJ&hl=en). Below, we highlight our representative works in each active research direction. Following that, we provide a categorized list of our publications based on their type.
+
+<center>
+<img src="../images/research.png" alt="An illustrative figure" style="width:600px"/>
+</center>
 
 {% include section.html %}
 

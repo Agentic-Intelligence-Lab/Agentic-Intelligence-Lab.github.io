@@ -3,7 +3,9 @@
 
 # Research Areas
 
-Our team at the Department of Data and Systems Engineering, The University of Hong Kong, specializes in **Learning for Sequential Decision-Making and Continuous Control.**  
+Our team at the Department of Data and Systems Engineering, The University of Hong Kong, specializes in **Learning for Sequential Decision-Making and Continuous Control.**
+
+{% capture col1 %}
 
 We are particularly interested in advancing the following research areas:  
 
@@ -14,6 +16,19 @@ We are particularly interested in advancing the following research areas:
 - End-to-end multi-modal learning for Humanoid Robotic Control and its industrial applications;  
 - Post-training techniques for Large Language Model agents and their applications in sequential decision-making;
 - Artificial General Intelligence grounded in the principles of [The Alberta Plan](http://www.incompleteideas.net/Talks/AlbertaPlan.pdf).
+
+{% endcapture %}
+
+{% capture col2 %}
+
+{%
+  include figure.html
+  image="images/homepage.png"
+%}
+
+{% endcapture %}
+
+{% include cols.html col1=col1 col2=col2%}
 
 
 {% include section.html %}

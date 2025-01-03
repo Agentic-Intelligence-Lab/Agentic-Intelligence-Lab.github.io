@@ -2,7 +2,7 @@
 title: Openings
 nav:
   order: 2
-  tooltip: Software, datasets, and more
+  tooltip: Available Positions
 ---
 
 # Join Us Now
