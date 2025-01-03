@@ -42,6 +42,8 @@ Our lab is part of the Department of [Department of Data and Systems Engineering
   caption="The University of Hong Kong"
 %}
 
+{% endcapture %}
+
 {% capture col3 %}
 
 {%
@@ -49,7 +51,6 @@ Our lab is part of the Department of [Department of Data and Systems Engineering
   image="images/hw_building.jpeg"
   caption="The University of Hong Kong"
 %}
-
 
 {% endcapture %}
 
