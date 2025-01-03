@@ -18,7 +18,7 @@ We are particularly interested in advancing the following research areas:
 
 {% include section.html %}
 
-## How to join us
+# How to join us
 
 **Current Openings**  
 (If interested, please contact [Dr. Jiayu Chen](https://agentic-intelligence-lab.org/members/jiayu-chen.html) directly. The Ph.D. application system accepts submissions year-round.)  
@@ -27,20 +27,22 @@ We are particularly interested in advancing the following research areas:
 - Openings for **postdoctoral researchers**, **self-financed Ph.D. students**, **part-time Ph.D. students**, **research assistants**, and **visiting scholars** are available **year-round** 
 
 **Qualifications for Ph.D. and Postdoctoral Researchers:**  
-Candidates should possess strong proficiency in **mathematics** or **programming**, as well as demonstrate self-motivation and resilience. Applicants with backgrounds in the following areas are highly preferred: Humanoid Robots, Large Language/Reasoning Models, Control Theory, Optimization Theory, Statistical Machine Learning.
+Candidates should possess strong proficiency in mathematics or programming, as well as demonstrate self-motivation and resilience. Applicants with backgrounds in the following areas are highly preferred: Humanoid Robots, Large Language/Reasoning Models, Control Theory, Optimization Theory, Statistical Machine Learning.
 
 For more information, please refer to the respective categories below.  
 
-**Ph.D. students:**  
+---
 
-Typically, we offer positions for **Spring** and **Fall admissions** each year. If you are interested in joining us, please review the [Admission Requirements](https://www.dase.hku.hk/teaching-and-learning/prospective-students/mphil-phd) and [Financial Support Information](https://gradsch.hku.hk/prospective_students/fees_scholarships_and_financial_support/postgraduate_scholarships), and reach out with the following materials:  
+**Ph.D. Students:**  
+
+Typically, we offer positions for Spring and Fall admissions each year. If you are interested in joining us, please review the [Admission Requirements](https://www.dase.hku.hk/teaching-and-learning/prospective-students/mphil-phd) and [Scholarship Information](https://gradsch.hku.hk/prospective_students/fees_scholarships_and_financial_support/postgraduate_scholarships), and reach out with the following materials:  
 
 - Your **CV** (including a publication list, your GPA/ranking);  
 - **Transcripts** of your BS/MS programs;  
 - Your **representative publications**;  
 - (Optional) A **cover letter** detailing your research interests and how they align with the lab's research directions.  
 
-**Exceptionally qualified students** are **strongly encouraged** to apply for the [HKU Presidential PhD Scholar Programme (HKUPS)](https://gradsch.hku.hk/prospective_students/fees_scholarships_and_financial_support/hku_presidential_phd_scholar_programme) and the [Hong Kong PhD Fellowship Scheme (HKPFS)](https://gradsch.hku.hk/prospective_students/fees_scholarships_and_financial_support/hong_kong_phd_fellowship_scheme), both open from **1st September to 1st December** each year.  
+Exceptionally qualified students are **strongly encouraged** to apply for the [HKU Presidential PhD Scholar Programme (HKUPS)](https://gradsch.hku.hk/prospective_students/fees_scholarships_and_financial_support/hku_presidential_phd_scholar_programme) and the [Hong Kong PhD Fellowship Scheme (HKPFS)](https://gradsch.hku.hk/prospective_students/fees_scholarships_and_financial_support/hong_kong_phd_fellowship_scheme), both open from **1st September to 1st December** each year.  
 
 - Each HKUPS awardee will receive a package of up to around HK\$433,300 (US\$55,560) in the first year, and up to around HK\$413,300 (US\$52,990) in each of the subsequent years during the normative study period.
 
@@ -50,8 +52,9 @@ Typically, we offer positions for **Spring** and **Fall admissions** each year. 
 
 We also welcome students to join us through the [Joint Ph.D. Programmes](https://gradsch.hku.hk/prospective_students/programmes/joint_programmes).
 
+---
 
-**Postdoc researchers:**
+**Postdoc Researchers:**
 
 We are actively recruiting postdoctoral researchers **year-round**. Postdoctoral researchers are expected to have a **strong research and publication record** and demonstrate the ability to **conduct independent research** as well as **mentor Ph.D. students**.
 
@@ -70,7 +73,15 @@ For each awardee, the supporting university provides:
 
 For exceptional postdoc candidates who do not secure funding through the PDFS, our lab can provide funding support.  
 
+---
 
+**Visiting Scholars and Research Assistants**  
+
+We welcome **Master’s and Bachelor’s students** (not limited to HKU) interested in working with us as **Research Assistants (RA)**, either online or onsite. A background in our research areas and strong programming skills are highly desirable.  
+
+Positions for visiting research students and scholars are available **year-round**. Please refer to the [HKU Visiting Programme](https://intlaffairs.hku.hk/visiting-programme) for more information.
+
+If interested, please provide your **CV** and **transcripts.**  
 
 <!-- ---
 
