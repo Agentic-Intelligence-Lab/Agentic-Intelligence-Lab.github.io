@@ -27,7 +27,7 @@ We are particularly interested in advancing the following research areas:
 - Openings for **postdoctoral researchers**, **self-financed Ph.D. students**, **part-time Ph.D. students**, **research assistants**, and **visiting scholars** are available **year-round** 
 
 **Qualifications for Ph.D. and Postdoctoral Researchers:**  
-Candidates should possess strong proficiency in mathematics or programming, as well as demonstrate self-motivation and resilience. Applicants with backgrounds in the following areas are highly preferred: Humanoid Robots, Large Language/Reasoning Models, Control Theory, Optimization Theory, Statistical Machine Learning.
+Candidates should possess **strong proficiency in mathematics or programming, as well as demonstrate self-motivation and resilience**. Applicants with backgrounds in the following areas are highly preferred: Humanoid Robots, Large Language/Reasoning Models, Control Theory, Optimization Theory, Statistical Machine Learning.
 
 For more information, please refer to the respective categories below.  
 
