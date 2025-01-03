@@ -46,7 +46,7 @@ Our lab is part of the Department of [Department of Data and Systems Engineering
 
 {%
   include figure.html
-  image="images/hw_building.jpg"
+  image="images/hw_building.jpeg"
 %}
 
 {% endcapture %}
