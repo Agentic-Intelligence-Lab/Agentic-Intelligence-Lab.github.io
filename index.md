@@ -31,11 +31,11 @@ Candidates should possess strong proficiency in **mathematics** or **programming
 
 For more information, please refer to the respective categories below.  
 
-**Ph.D. Applications:**  
+**Ph.D. students:**  
 
 Typically, we offer positions for **Spring** and **Fall admissions** each year. If you are interested in joining us, please review the [Admission Requirements](https://www.dase.hku.hk/teaching-and-learning/prospective-students/mphil-phd) and [Financial Support Information](https://gradsch.hku.hk/prospective_students/fees_scholarships_and_financial_support/postgraduate_scholarships), and reach out with the following materials:  
 
-- Your **CV** (including publication list, GPA, and ranking);  
+- Your **CV** (including a publication list, your GPA/ranking);  
 - **Transcripts** of your BS/MS programs;  
 - Your **representative publications**;  
 - (Optional) A **cover letter** detailing your research interests and how they align with the lab's research directions.  
@@ -50,6 +50,25 @@ Typically, we offer positions for **Spring** and **Fall admissions** each year. 
 
 We also welcome students to join us through the [Joint Ph.D. Programmes](https://gradsch.hku.hk/prospective_students/programmes/joint_programmes).
 
+
+**Postdoc researchers:**
+
+We are actively recruiting postdoctoral researchers **year-round**. Postdoctoral researchers are expected to have a **strong research and publication record** and demonstrate the ability to **conduct independent research** as well as **mentor Ph.D. students**.
+
+If you are interested, please provide the following materials:  
+
+- Your **CV** (including a detailed publication list);  
+- Your **representative publications**;  
+- A **cover letter** outlining your research plan and experience with funding proposal writing;  
+- (Optional) A **recommendation letter**.
+
+Qualified candidates are **strongly encouraged** to apply for the [RGC Postdoctoral Fellowship Scheme (PDFS)](https://www.ugc.edu.hk/eng/rgc/funding_opport/pdfs/). The application deadline typically falls between **September and October** each year.  
+
+For each awardee, the supporting university provides:  
+- An annual stipend of HK\$420,090 for the awardee’s basic salary; 
+- A conference and research-related travel allowance of HK\$13,350 per year inclusively.  
+
+For exceptional postdoc candidates who do not secure funding through the PDFS, our lab can provide funding support.  
 
 
 
