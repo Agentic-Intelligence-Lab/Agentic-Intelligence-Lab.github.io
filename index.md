@@ -42,11 +42,15 @@ Typically, we offer positions for **Spring** and **Fall admissions** each year. 
 
 **Exceptionally qualified students** are **strongly encouraged** to apply for the [HKU Presidential PhD Scholar Programme (HKUPS)](https://gradsch.hku.hk/prospective_students/fees_scholarships_and_financial_support/hku_presidential_phd_scholar_programme) and the [Hong Kong PhD Fellowship Scheme (HKPFS)](https://gradsch.hku.hk/prospective_students/fees_scholarships_and_financial_support/hong_kong_phd_fellowship_scheme), both open from **1st September to 1st December** each year.  
 
-- Each HKUPS awardee will receive a package of up to around HK$433,300 (US$55,560) in the first year, and up to around HK$413,300 (US$52,990) in each of the subsequent years during the normative study period.
+- Each HKUPS awardee will receive a package of up to around HK\$433,300 (US\$55,560) in the first year, and up to around HK\$413,300 (US\$52,990) in each of the subsequent years during the normative study period.
 
-- Each HKPFS awardee will receive a Postgraduate Scholarship of HK$28,100 per month, and conference and research-related travel allowance of HK$14,000 per year for a period up to three years.
+- Each HKPFS awardee will receive a Postgraduate Scholarship of HK\$28,100 per month, and conference and research-related travel allowance of HK\$14,000 per year for a period up to three years.
 
 - For the 2025/26 exercise, all HKPFS holders will be awarded the HKUPS.
+
+We also welcome students to join us through the [Joint Ph.D. Programmes](https://gradsch.hku.hk/prospective_students/programmes/joint_programmes).
+
+
 
 
 <!-- ---
