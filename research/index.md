@@ -9,9 +9,25 @@ nav:
 
 For the most up-to-date list of publications, please visit our [Google Scholar profile](https://scholar.google.com/citations?user=k0KJm7kAAAAJ&hl=en). Below, we highlight our representative works in each active research direction. Following that, we provide a categorized list of our publications based on their type.
 
-<center>
-<img src="../images/research.png" alt="An illustrative figure" style="width:600px"/>
-</center>
+{% capture col1 %}
+
+{%
+  include figure.html
+  image="images/research.png"
+%}
+
+{% endcapture %}
+
+{% capture col2 %}
+
+{%
+  include figure.html
+  image="images/homepage.png"
+%}
+
+{% endcapture %}
+
+{% include cols.html col1=col1 col2=col2%}
 
 {% include section.html %}
 
