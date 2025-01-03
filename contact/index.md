@@ -7,27 +7,19 @@ nav:
 
 # {% include icon.html icon="fa-regular fa-envelope" %}Contact
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
-nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+Our lab is part of the Department of [Department of Data and Systems Engineering, The University of Hong Kong](https://www.dase.hku.hk/). We enthusiastically welcome collaborations with both academic institutions and industry partners, focusing on opportunities such as research publications, machine learning/robotics competitions, and real-world applications. [Dr. Jiayu Chen](https://agentic-intelligence-lab.org/members/jiayu-chen.html) is also available for consulting and delivering tutorials to government and commercial organizations.
 
 {%
   include button.html
   type="email"
-  text="jane@smith.com"
-  link="jane@smith.com"
-%}
-{%
-  include button.html
-  type="phone"
-  text="(555) 867-5309"
-  link="+1-555-867-5309"
+  text="Email"
+  link="agentic.intelligence.lab@gmail.com"
 %}
 {%
   include button.html
   type="address"
   tooltip="Our location on Google Maps for easy navigation"
-  link="https://www.google.com/maps"
+  link="https://www.google.com/maps/place/Haking+Wong+Building/@22.2829656,114.1341462,17z/data=!4m14!1m7!3m6!1s0x3403ff3601d391bd:0x609eb7ea227ceda3!2sHaking+Wong+Building!8m2!3d22.2829607!4d114.1367211!16s%2Fg%2F11p5ljh48v!3m5!1s0x3403ff3601d391bd:0x609eb7ea227ceda3!8m2!3d22.2829607!4d114.1367211!16s%2Fg%2F11p5ljh48v?entry=ttu&g_ep=EgoyMDI0MTIxMS4wIKXMDSoJLDEwMjExMjMzSAFQAw%3D%3D"
 %}
 
 {% include section.html %}
@@ -36,8 +28,8 @@ nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
 
 {%
   include figure.html
-  image="images/photo.jpg"
-  caption="Lorem ipsum"
+  image="images/hk.jpeg"
+  caption="Hong Kong"
 %}
 
 {% endcapture %}
@@ -46,13 +38,22 @@ nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
 
 {%
   include figure.html
-  image="images/photo.jpg"
-  caption="Lorem ipsum"
+  image="images/hku.jpeg"
+  caption="The University of Hong Kong"
 %}
+
+{% capture col3 %}
+
+{%
+  include figure.html
+  image="images/hw_building.jpeg"
+  caption="The University of Hong Kong"
+%}
+
 
 {% endcapture %}
 
-{% include cols.html col1=col1 col2=col2 %}
+<!-- {% include cols.html col1=col1 col2=col2 %}
 
 {% include section.html dark=true %}
 
@@ -74,4 +75,4 @@ consectetur adipiscing elit
 sed do eiusmod tempor
 {% endcapture %}
 
-{% include cols.html col1=col1 col2=col2 col3=col3 %}
+{% include cols.html col1=col1 col2=col2 col3=col3 %} -->

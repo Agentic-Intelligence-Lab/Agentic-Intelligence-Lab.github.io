@@ -7,7 +7,7 @@ nav:
 
 # {% include icon.html icon="fa-solid fa-users" %}Team
 
-Meet our outstanding team members!
+Meet our outstanding team members! Although based in Hong Kong, our team boasts a diverse group of members and contributors from Mainland China and the United States.
 
 <!-- Our lab is made up of a talented mix of graduate students, postdoctoral researchers, programmers, and staff, and their backgrounds range from pure computer science to experimental biology. If you’re interested in joining this diverse and dynamic team, please reach out! -->
 
@@ -16,7 +16,7 @@ Meet our outstanding team members!
 {% include list.html data="members" component="portrait" filter="role == 'pi'" %}
 {% include list.html data="members" component="portrait" filter="role != 'pi'" %}
 
-{% include section.html background="images/background.jpg" dark=true %}
+<!-- {% include section.html background="images/background.jpg" dark=true %}
 
 {% include section.html %}
 
@@ -26,6 +26,6 @@ Meet our outstanding team members!
 {% include figure.html image="images/photo.jpg" %}
 {% include figure.html image="images/photo.jpg" %}
 
-{% endcapture %}
+{% endcapture %} -->
 
 {% include grid.html style="square" content=content %}
