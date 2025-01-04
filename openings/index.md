@@ -55,10 +55,12 @@ For exceptional postdoc candidates who do not secure funding through the PDFS, o
 
 **Visiting Scholars and Research Assistants**  
 
-We welcome **Master’s and Bachelor’s students** (not limited to HKU) interested in working with us as **Research Assistants (RA)**, either online or onsite. A background in our research areas and strong programming skills are highly desirable.  
+We welcome **Master’s and Bachelor’s students** (not limited to HKU) interested in working with us as **Research Assistants** or **Research Interns**, either online or onsite. A background in our research areas and strong programming skills are highly desirable. Outstanding candidates for Research Assistant positions will receive funding support ranging from 15,000 to 18,000 HK dollars  per month.
 
-Positions for visiting research students and scholars are available **year-round**. Please refer to the [HKU Visiting Programme](https://intlaffairs.hku.hk/visiting-programme) for more information.
+Positions for visiting research students and scholars are available **year-round** for PhD students from other universities. 
 
-If interested, please provide your **CV** and **transcripts.**  
+<!-- Please refer to the [HKU Visiting Programme](https://intlaffairs.hku.hk/visiting-programme) for more information. -->
+
+If interested, please provide your **CV** and **transcripts**.  
 
 
