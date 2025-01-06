@@ -45,3 +45,5 @@ We offer competitive remuneration. For Ph.D. students, the basic level of schola
 We also provide opportunities for visiting experiences at top U.S. universities such as UC Berkeley, UIUC, CMU, Purdue, and GWU. For **research assistants**, we offer strong recommendation letters and ample opportunities to publish papers in top machine learning and robotics venues.
 
 For detailed requirements and additional information, please refer to the respective categories in [openings](https://agentic-intelligence-lab.org/openings/).  If interested, please contact [Dr. Jiayu Chen](https://agentic-intelligence-lab.org/members/jiayu-chen.html) directly through <u>jiayuchen98666@gmail.com</u> or <u>jiayuc2@andrew.cmu.edu</u>. The Ph.D. application system at HKU accepts submissions **year-round**.
+
+<u>Deeply sorry that I am unable to respond to every inquiry unless it is to send an interview invitation.</u>
