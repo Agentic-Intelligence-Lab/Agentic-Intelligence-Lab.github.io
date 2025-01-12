@@ -9,6 +9,7 @@ links:
   github: LucasCJYSDL
   email: jiayuchen98666@gmail.com
   twitter: jiayuchen98666
+  home-page: https://www.dase.hku.hk/people/j-y-chen
 ---
 
 <!-- role: phd, programmer, links: home-page, orcid -->

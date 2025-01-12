@@ -36,6 +36,8 @@ International Conference on Learning Representations (ICLR), 2025.
 
 ### Workshop Papers:
 
+1. Wenyan Xu, Jiayu Chen, Chen Li, Yonghong Hu, and Zhonghua Lu, "Mining Intraday Risk Factor Collections via Hierarchical Reinforcement Learning based on Transferred Options", accepted in AAAI 2025 Workshop on AI for Social Impact.
+
 1. Chang-Lin Chen, Jiayu Chen, Tian Lan, Elaine Zhao, Hongbo Dong, and Vaneet Aggarwal, "Rack Position Optimization in Large-Scale Heterogeneous Data Centers", accepted in AAAI/INFORMS Bridge: AI+ORMS, Dec 2024 (**Full presentation**).
 
 1. Wentse Chen, Jiayu Chen, Fahim Tajwar, Hao Zhu, Xintong Duan, Russ Salakhutdinov, and Jeff Schneider, "[Fine-tuning LLM Agents with Retrospective In-Context Online Learning](https://openreview.net/forum?id=dSZ6Wr5qRz)", accepted in NeurIPS Adaptive Foundation Models Workshop, Oct 2024 (**Oral presentation**).
