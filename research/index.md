@@ -36,7 +36,7 @@ International Conference on Learning Representations (ICLR), 2025.
 
 ### Workshop Papers:
 
-1. Wenyan Xu, Jiayu Chen, Chen Li, Yonghong Hu, and Zhonghua Lu, "Mining Intraday Risk Factor Collections via Hierarchical Reinforcement Learning based on Transferred Options", accepted in AAAI 2025 Workshop on AI for Social Impact.
+1. Wenyan Xu, Jiayu Chen, Chen Li, Yonghong Hu, and Zhonghua Lu, "Mining Intraday Risk Factor Collections via Hierarchical Reinforcement Learning based on Transferred Options", accepted in AAAI 2025 Workshop on AI for Social Impact (**Oral presentation**).
 
 1. Chang-Lin Chen, Jiayu Chen, Tian Lan, Elaine Zhao, Hongbo Dong, and Vaneet Aggarwal, "Rack Position Optimization in Large-Scale Heterogeneous Data Centers", accepted in AAAI/INFORMS Bridge: AI+ORMS, Dec 2024 (**Full presentation**).
 
