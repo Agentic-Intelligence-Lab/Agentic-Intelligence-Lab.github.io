@@ -18,7 +18,14 @@ For the most up-to-date list of publications, please visit our [Google Scholar p
 
 ### Preprints and In-Submission Works:
 
-1. Swetha Ganesh, Jiayu Chen, and Vaneet Aggarwal, "Order-Optimal Global Convergence for Average Reward Actor-Critic with General Policy and Neural Critic Parametrization", submitted to International Conference on Machine Learning (ICML), 2025.
+1. Wentse Chen, Jiayu Chen, Fahim Tajwar, Hao Zhu, Xintong Duan, Russ Salakhutdinov, and Jeff Schneider, "Retrospective In-Context Learning for Credit Assignment", submitted to International Conference on Machine Learning (ICML), 2025.
+
+1. Wentse Chen, Shiyu Huang, Jiayu Chen, and Jeff Schneider, "ME-IGM: Integrating Maximum Entropy For Monotonic Value Function Factorization", submitted to International Conference on Machine Learning (ICML), 2025.
+
+1. Jiayu Chen, Wentse Chen, and Jeff Schneider, "[Bayes Adaptive Monte Carlo Tree Search for Offline Model-based Reinforcement Learning](https://arxiv.org/abs/2410.11234)", submitted to 
+International Conference on Machine Learning (ICML), 2025.
+
+1. Swetha Ganesh, Jiayu Chen, and Vaneet Aggarwal, "Improved Sample Complexity for Actor-Critic with Neural Critic Parametrization using Natural Policy Gradient and Data Drop", submitted to International Conference on Machine Learning (ICML), 2025.
 
 1. Jiayu Chen, Bhargav Ganguly, Tian Lan, and Vaneet Aggarwal, "[Variational Offline Multi-agent Skill Discovery](https://arxiv.org/abs/2405.16386)", submitted to International Joint Conferences on Artificial Intelligence (IJCAI), 2025.
 
@@ -27,9 +34,6 @@ For the most up-to-date list of publications, please visit our [Google Scholar p
 1. Wenyan Xu, Jiayu Chen, Chen Li, Yonghong Hu, and Zhonghua Lu, "Mining Intraday Risk Factor Collections via Hierarchical Reinforcement Learning based on Transferred Options", submitted to European Conference on Machine Learning and Principles and Practice of Knowledge Discovery in Databases (ECML-PKDD), 2025.
 
 1. Chang-Lin Chen, Jiayu Chen, Tian Lan, Elaine Zhao, Hongbo Dong, and Vaneet Aggarwal, "Rack Position Optimization in Large-Scale Heterogeneous Data Centers", submitted to International Conference on Automated Planning and Scheduling (ICAPS), 2025.
-
-1. Jiayu Chen, Wentse Chen, and Jeff Schneider, "[Bayes Adaptive Monte Carlo Tree Search for Offline Model-based Reinforcement Learning](https://arxiv.org/abs/2410.11234)", submitted to 
-International Conference on Learning Representations (ICLR), 2025.
 
 1. Bhargav Ganguly, Abhimanyu Shekhar, Chang-Lin Chen, Jiayu Chen, Vaneet Aggarwal, Shweta Singh, "A Deep Reinforcement Learning Approach for Circular Economy Management", submitted to Nature Sustainability.
 
