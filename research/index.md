@@ -25,7 +25,7 @@ For the most up-to-date list of publications, please visit our [Google Scholar p
 1. Jiayu Chen, Wentse Chen, and Jeff Schneider, "[Bayes Adaptive Monte Carlo Tree Search for Offline Model-based Reinforcement Learning](https://arxiv.org/abs/2410.11234)", submitted to 
 International Conference on Machine Learning (ICML), 2025.
 
-1. Swetha Ganesh, Jiayu Chen, and Vaneet Aggarwal, "Improved Sample Complexity for Actor-Critic with Neural Critic Parametrization using Natural Policy Gradient and Data Drop", submitted to International Conference on Machine Learning (ICML), 2025.
+1. Swetha Ganesh, Jiayu Chen, Washim Uddin Mondal, and Vaneet Aggarwal, "Order-Optimal Global Convergence for Average Reward Actor-Critic with General Policy and Neural Critic Parametrization", submitted to Uncertainty in Artificial Intelligence (UAI), 2025.
 
 1. Jiayu Chen, Bhargav Ganguly, Tian Lan, and Vaneet Aggarwal, "[Variational Offline Multi-agent Skill Discovery](https://arxiv.org/abs/2405.16386)", submitted to International Joint Conferences on Artificial Intelligence (IJCAI), 2025.
 
