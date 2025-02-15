@@ -35,8 +35,11 @@ The Agentic Intelligence Lab conducts broad research across Machine Learning, Ro
 
 We have the following openings:
 
-- **Two fully funded Ph.D. positions** starting in **Fall 2025 (as early as July)**
-- Openings for **postdoctoral researchers**, **self-financed Ph.D. students**, **part-time Ph.D. students**, **research assistants**, and **visiting scholars** are available **year-round** 
+<!-- - **Two fully funded Ph.D. positions** starting in **Fall 2025 (as early as July)**
+- Openings for **postdoctoral researchers**, **self-financed Ph.D. students**, **part-time Ph.D. students**, **research assistants**, and **visiting scholars** are available **year-round**  -->
+
+- **Fully funded Ph.D. positions** starting in **Fall 2025** have been taken 
+- Openings for **self-financed Ph.D. students** and  **research assistants** are available **year-round**
 
 Ph.D. and postdoctoral applicants are expected to have **strong proficiency in mathematics or programming, along with demonstrated self-motivation and resilience**. Candidates with expertise in the following areas are highly preferred: Humanoid Robots, Large Language/Reasoning Models, Control Theory, Optimization Theory, Statistical Machine Learning.
 

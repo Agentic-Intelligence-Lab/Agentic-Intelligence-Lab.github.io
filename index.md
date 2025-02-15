@@ -24,8 +24,10 @@ We are particularly interested in advancing the following research areas:
 **Current Openings**  
 (If interested, please contact [Dr. Jiayu Chen](https://agentic-intelligence-lab.org/members/jiayu-chen.html) directly. The Ph.D. application system accepts submissions year-round.)  
 
-- **Two fully funded Ph.D. positions** starting in **Fall 2025 (as early as July)**
-- Openings for **postdoctoral researchers**, **self-financed Ph.D. students**, **part-time Ph.D. students**, **research assistants**, and **visiting scholars** are available **year-round** 
+<!-- - **Two fully funded Ph.D. positions** starting in **Fall 2025 (as early as July)** -->
+<!-- - Openings for **postdoctoral researchers**, **self-financed Ph.D. students**, **part-time Ph.D. students**, **research assistants**, and **visiting scholars** are available **year-round**  -->
+- **Fully funded Ph.D. positions** starting in **Fall 2025** have been taken 
+- Openings for **self-financed Ph.D. students** and  **research assistants** are available **year-round**
 
 **Qualifications for Ph.D. and Postdoctoral Researchers:**  
 Candidates should possess **strong proficiency in mathematics or programming, as well as demonstrate self-motivation and resilience**. Applicants with backgrounds in the following areas are highly preferred: Humanoid Robots, Large Language/Reasoning Models, Control Theory, Optimization Theory, Statistical Machine Learning.
