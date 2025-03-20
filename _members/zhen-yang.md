@@ -5,7 +5,7 @@ role: phd
 affiliation: The University of Hong Kong
 
 links:
-  google-scholar: https://scholar.google.com/citations?user=n-8n85EAAAAJ&hl=en
+  google-scholar: n-8n85EAAAAJ
   github: https://github.com/zcgyang
   email: yangzhen@buaa.edu.cn
   home-page: https://zcgyang.github.io/
