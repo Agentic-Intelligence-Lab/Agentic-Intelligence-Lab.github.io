@@ -18,6 +18,8 @@ For the most up-to-date list of publications, please visit our [Google Scholar p
 
 ### Preprints and In-Submission Works:
 
+1. Hyunsoo Choi, Jiayu Chen, Vaneet Aggarwal, and Zubin Jacob, "TURBO-RL: Turbulence Mitigation Using Reinforcement Learning for Severe Optical Aberrations", submitted to Applied Physics Letters.
+
 1. Wenyan Xu, Dawei Xiang, Rundong Wang, and Jiayu Chen, "FTS-Text-MoE: A Financial Time-Series Text Language Model Based on a Mixture of Experts Mechanism", submitted to the Annual Meeting of the Association for Computational Linguistics (ACL), 2025.
 
 1. Wentse Chen, Jiayu Chen, Fahim Tajwar, Hao Zhu, Xintong Duan, Russ Salakhutdinov, and Jeff Schneider, "Retrospective In-Context Learning for Temporal Credit Assignment with Large Language Models", submitted to International Conference on Machine Learning (ICML), 2025.
