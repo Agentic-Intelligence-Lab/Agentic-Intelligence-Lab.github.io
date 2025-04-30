@@ -33,16 +33,16 @@ International Conference on Machine Learning (ICML), 2025.
 
 1. Jiayu Chen, Tian Lan, and Vaneet Aggarwal, "[Hierarchical Deep Counterfactual Regret Minimization](https://arxiv.org/abs/2305.17327)", submitted to International Joint Conferences on Artificial Intelligence (IJCAI), 2025.
 
-1. Wenyan Xu, Jiayu Chen, Chen Li, Yonghong Hu, and Zhonghua Lu, "Mining Intraday Risk Factor Collections via Hierarchical Reinforcement Learning based on Transferred Options", submitted to European Conference on Machine Learning and Principles and Practice of Knowledge Discovery in Databases (ECML-PKDD), 2025.
+1. Wenyan Xu, Jiayu Chen, Chen Li, Yonghong Hu, and Zhonghua Lu, "[Mining Intraday Risk Factor Collections via Hierarchical Reinforcement Learning based on Transferred Options](https://arxiv.org/abs/2501.07274)", submitted to European Conference on Machine Learning and Principles and Practice of Knowledge Discovery in Databases (ECML-PKDD), 2025.
 
 1. Bhargav Ganguly, Abhimanyu Shekhar, Chang-Lin Chen, Jiayu Chen, Vaneet Aggarwal, Shweta Singh, "A Deep Reinforcement Learning Approach for Circular Economy Management", submitted to Nature Sustainability.
 
 
 ### Workshop Papers:
 
-1. Wenyan Xu, Jiayu Chen, Chen Li, Yonghong Hu, and Zhonghua Lu, "Mining Intraday Risk Factor Collections via Hierarchical Reinforcement Learning based on Transferred Options", accepted in AAAI 2025 Workshop on AI for Social Impact (**Oral presentation**).
+1. Wenyan Xu, Jiayu Chen, Chen Li, Yonghong Hu, and Zhonghua Lu, "[Mining Intraday Risk Factor Collections via Hierarchical Reinforcement Learning based on Transferred Options](https://arxiv.org/abs/2501.07274)", accepted in AAAI 2025 Workshop on AI for Social Impact (**Oral presentation**).
 
-1. Chang-Lin Chen, Jiayu Chen, Tian Lan, Elaine Zhao, Hongbo Dong, and Vaneet Aggarwal, "Rack Position Optimization in Large-Scale Heterogeneous Data Centers", accepted in AAAI/INFORMS Bridge: AI+ORMS, Dec 2024 (**Full presentation**).
+1. Chang-Lin Chen, Jiayu Chen, Tian Lan, Elaine Zhao, Hongbo Dong, and Vaneet Aggarwal, "[Rack Position Optimization in Large-Scale Heterogeneous Data Centers](https://arxiv.org/html/2504.00277v1)", accepted in AAAI/INFORMS Bridge: AI+ORMS, Dec 2024 (**Full presentation**).
 
 1. Wentse Chen, Jiayu Chen, Fahim Tajwar, Hao Zhu, Xintong Duan, Russ Salakhutdinov, and Jeff Schneider, "[Fine-tuning LLM Agents with Retrospective In-Context Online Learning](https://openreview.net/forum?id=dSZ6Wr5qRz)", accepted in NeurIPS Adaptive Foundation Models Workshop, Oct 2024 (**Oral presentation**).
 
@@ -52,7 +52,7 @@ International Conference on Machine Learning (ICML), 2025.
 
 1. Jiayu Chen, Tian Lan, and Vaneet Aggarwal, "[Variational Offline Multi-agent Skill Discovery](https://arxiv.org/abs/2405.16386)", accepted in International Joint Conferences on Artificial Intelligence (IJCAI), 2025.
 
-1. Chang-Lin Chen, Jiayu Chen, Tian Lan, Elaine Zhao, Hongbo Dong, and Vaneet Aggarwal, "Rack Position Optimization in Large-Scale Heterogeneous Data Centers", accepted in International Conference on Automated Planning and Scheduling (ICAPS), 2025 (**Archival and Oral Presentation**).
+1. Chang-Lin Chen, Jiayu Chen, Tian Lan, Elaine Zhao, Hongbo Dong, and Vaneet Aggarwal, "[Rack Position Optimization in Large-Scale Heterogeneous Data Centers](https://arxiv.org/html/2504.00277v1)", accepted in International Conference on Automated Planning and Scheduling (ICAPS), 2025 (**Archival and Oral Presentation**).
 
 1. Jiayu Chen, Vaneet Aggarwal, and Tian Lan, "[A Unified Algorithm Framework for Unsupervised Discovery of Skills based on Determinantal Point Process](https://proceedings.neurips.cc/paper_files/paper/2023/hash/d6938c8e88ef62394d2f4f3fd428e036-Abstract-Conference.html)", accepted in Conference on Neural Information Processing Systems (NeurIPS), Dec 2023.
 
