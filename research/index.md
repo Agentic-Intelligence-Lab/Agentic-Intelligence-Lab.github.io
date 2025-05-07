@@ -29,8 +29,6 @@ For the most up-to-date list of publications, please visit our [Google Scholar p
 1. Jiayu Chen, Wentse Chen, and Jeff Schneider, "[Bayes Adaptive Monte Carlo Tree Search for Offline Model-based Reinforcement Learning](https://arxiv.org/abs/2410.11234)", submitted to 
 International Conference on Machine Learning (ICML), 2025.
 
-1. Swetha Ganesh, Jiayu Chen, Washim Uddin Mondal, and Vaneet Aggarwal, "Order-Optimal Global Convergence for Average Reward Actor-Critic with General Policy and Neural Critic Parametrization", submitted to Uncertainty in Artificial Intelligence (UAI), 2025.
-
 1. Jiayu Chen, Tian Lan, and Vaneet Aggarwal, "[Hierarchical Deep Counterfactual Regret Minimization](https://arxiv.org/abs/2305.17327)", submitted to International Joint Conferences on Artificial Intelligence (IJCAI), 2025.
 
 1. Wenyan Xu, Jiayu Chen, Chen Li, Yonghong Hu, and Zhonghua Lu, "[Mining Intraday Risk Factor Collections via Hierarchical Reinforcement Learning based on Transferred Options](https://arxiv.org/abs/2501.07274)", submitted to European Conference on Machine Learning and Principles and Practice of Knowledge Discovery in Databases (ECML-PKDD), 2025.
@@ -49,6 +47,8 @@ International Conference on Machine Learning (ICML), 2025.
 1. Jiayu Chen, Marina Wagdy Wadea Haliem, Tian Lan, and Vaneet Aggarwal, "[Multi-agent Deep Covering Option Discovery](https://arxiv.org/abs/2210.03269)", accepted in ICML Reinforcement Learning for Real Life Workshop, Jul 2021.
 
 ### Conference Papers:
+
+1. Swetha Ganesh, Jiayu Chen, Washim Uddin Mondal, and Vaneet Aggarwal, "Order-Optimal Global Convergence for Average Reward Actor-Critic with General Policy and Neural Critic Parametrization", accepted in Uncertainty in Artificial Intelligence (UAI), 2025.
 
 1. Jiayu Chen, Tian Lan, and Vaneet Aggarwal, "[Variational Offline Multi-agent Skill Discovery](https://arxiv.org/abs/2405.16386)", accepted in International Joint Conferences on Artificial Intelligence (IJCAI), 2025.
 
