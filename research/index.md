@@ -18,22 +18,29 @@ For the most up-to-date list of publications, please visit our [Google Scholar p
 
 ### Preprints and In-Submission Works:
 
+1. Jiayu Chen, Aravind Venugopal, and Jeff Schneider, "Policy-Driven World Model Adaptation for Robust Offline Model-based Reinforcement Learning", submitted to Conference on Neural Information Processing Systems (NeurIPS), 2025.
+
+1. Jiayu Chen, Tian Lan, and Vaneet Aggarwal, "[Hierarchical Deep Counterfactual Regret Minimization](https://arxiv.org/abs/2305.17327)", submitted to Conference on Neural Information Processing Systems (NeurIPS), 2025.
+
+1. Wentse Chen, Jiayu Chen, Fahim Tajwar, Hao Zhu, Xintong Duan, Russ Salakhutdinov, and Jeff Schneider, "Retrospective In-Context Learning for Temporal Credit Assignment with Large Language Models", submitted to Conference on Neural Information Processing Systems (NeurIPS), 2025.
+
+1. Selina Carter, Jiayu Chen, and Jeff Schneider, "Variance-free Inference of Neural Network Ensembles for Uncertainty Quantification", submitted to Conference on Neural Information Processing Systems (NeurIPS), 2025.
+
+1. Sizhe Tang, Jiayu Chen, and Tian Lan, "MALinZero: Efficient Low-Dimensional Search for Mastering Complex Multi-Agent Planning", submitted to Conference on Neural Information Processing Systems (NeurIPS), 2025.
+
 1. Hyunsoo Choi, Jiayu Chen, Vaneet Aggarwal, and Zubin Jacob, "TURBO-RL: Turbulence Mitigation Using Reinforcement Learning for Severe Optical Aberrations", submitted to Applied Physics Letters.
-
-1. Wenyan Xu, Dawei Xiang, Rundong Wang, and Jiayu Chen, "FTS-Text-MoE: A Financial Time-Series Text Language Model Based on a Mixture of Experts Mechanism", submitted to the Annual Meeting of the Association for Computational Linguistics (ACL), 2025.
-
-1. Wentse Chen, Jiayu Chen, Fahim Tajwar, Hao Zhu, Xintong Duan, Russ Salakhutdinov, and Jeff Schneider, "Retrospective In-Context Learning for Temporal Credit Assignment with Large Language Models", submitted to International Conference on Machine Learning (ICML), 2025.
-
-1. Wentse Chen, Jiayu Chen, Shiyu Huang, and Jeff Schneider, "ME-IGM: Individual-Global-Max in Maximum Entropy Multi-Agent Reinforcement Learning", submitted to International Conference on Machine Learning (ICML), 2025.
-
-1. Jiayu Chen, Wentse Chen, and Jeff Schneider, "[Bayes Adaptive Monte Carlo Tree Search for Offline Model-based Reinforcement Learning](https://arxiv.org/abs/2410.11234)", submitted to 
-International Conference on Machine Learning (ICML), 2025.
-
-1. Jiayu Chen, Tian Lan, and Vaneet Aggarwal, "[Hierarchical Deep Counterfactual Regret Minimization](https://arxiv.org/abs/2305.17327)", submitted to International Joint Conferences on Artificial Intelligence (IJCAI), 2025.
 
 1. Wenyan Xu, Jiayu Chen, Chen Li, Yonghong Hu, and Zhonghua Lu, "[Mining Intraday Risk Factor Collections via Hierarchical Reinforcement Learning based on Transferred Options](https://arxiv.org/abs/2501.07274)", submitted to European Conference on Machine Learning and Principles and Practice of Knowledge Discovery in Databases (ECML-PKDD), 2025.
 
 1. Bhargav Ganguly, Abhimanyu Shekhar, Chang-Lin Chen, Jiayu Chen, Vaneet Aggarwal, Shweta Singh, "A Deep Reinforcement Learning Approach for Circular Economy Management", submitted to Nature Sustainability.
+
+1. Wenyan Xu, Dawei Xiang, Rundong Wang, and Jiayu Chen, "FTS-Text-MoE: A Financial Time-Series Text Language Model Based on a Mixture of Experts Mechanism", in progress.
+
+1. Wentse Chen, Jiayu Chen, Shiyu Huang, and Jeff Schneider, "ME-IGM: Individual-Global-Max in Maximum Entropy Multi-Agent Reinforcement Learning", in progress.
+
+1. Jiayu Chen, Wentse Chen, and Jeff Schneider, "[Bayes Adaptive Monte Carlo Tree Search for Offline Model-based Reinforcement Learning](https://arxiv.org/abs/2410.11234)", in progress.
+
+1. Aravind Venugopal, Jiayu Chen, Chongyi Zheng, Benjamin Eysenbach, and Jeff Schneider, "Deep Occupancy Gradients: Reinforcement Learning as Value-Aware World Model Learning", in progress.
 
 
 ### Workshop Papers:
