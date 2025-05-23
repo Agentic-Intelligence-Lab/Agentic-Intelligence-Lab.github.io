@@ -28,6 +28,8 @@ For the most up-to-date list of publications, please visit our [Google Scholar p
 
 1. Sizhe Tang, Jiayu Chen, and Tian Lan, "MALinZero: Efficient Low-Dimensional Search for Mastering Complex Multi-Agent Planning", submitted to Conference on Neural Information Processing Systems (NeurIPS), 2025.
 
+1. Wentse Chen, Jiayu Chen, Hao Zhu, and Jeff Schneider, "Context-lite Multi-turn Reinforcement Learning for LLM Agents", submitted to ICML Workshop on Efficient Systems for Foundation Models, 2025.
+
 1. Hyunsoo Choi, Jiayu Chen, Vaneet Aggarwal, and Zubin Jacob, "TURBO-RL: Turbulence Mitigation Using Reinforcement Learning for Severe Optical Aberrations", submitted to Applied Physics Letters.
 
 1. Wenyan Xu, Jiayu Chen, Chen Li, Yonghong Hu, and Zhonghua Lu, "[Mining Intraday Risk Factor Collections via Hierarchical Reinforcement Learning based on Transferred Options](https://arxiv.org/abs/2501.07274)", submitted to European Conference on Machine Learning and Principles and Practice of Knowledge Discovery in Databases (ECML-PKDD), 2025.
