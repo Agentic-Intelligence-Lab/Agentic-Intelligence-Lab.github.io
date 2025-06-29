@@ -17,8 +17,9 @@ For the most up-to-date list of publications, please visit our [Google Scholar p
 
 
 ### Preprints and In-Submission Works:
+1. Mingqi Yuan, Tao Yu, Wenqi Ge, Xiuyong Yao, Dapeng Li, Huijiang Wang, Jiayu Chen, Xin Jin, Bo Li, Hua Chen, Wei Zhang, and Wenjun Zeng, "[Behavior Foundation Model: Towards Next-Generation Whole-Body Control System of Humanoid Robots](https://arxiv.org/pdf/2506.20487)", submitted to IEEE Transactions on Pattern Analysis and Machine Intelligence (TPAMI).
 
-1. Jiayu Chen, Aravind Venugopal, and Jeff Schneider, "Policy-Driven World Model Adaptation for Robust Offline Model-based Reinforcement Learning", submitted to Conference on Neural Information Processing Systems (NeurIPS), 2025.
+1. Jiayu Chen, Aravind Venugopal, and Jeff Schneider, "[Policy-Driven World Model Adaptation for Robust Offline Model-based Reinforcement Learning](https://arxiv.org/abs/2505.13709)", submitted to Conference on Neural Information Processing Systems (NeurIPS), 2025.
 
 1. Jiayu Chen, Tian Lan, and Vaneet Aggarwal, "[Hierarchical Deep Counterfactual Regret Minimization](https://arxiv.org/abs/2305.17327)", submitted to Conference on Neural Information Processing Systems (NeurIPS), 2025.
 
@@ -28,15 +29,14 @@ For the most up-to-date list of publications, please visit our [Google Scholar p
 
 1. Sizhe Tang, Jiayu Chen, and Tian Lan, "MALinZero: Efficient Low-Dimensional Search for Mastering Complex Multi-Agent Planning", submitted to Conference on Neural Information Processing Systems (NeurIPS), 2025.
 
-1. Wentse Chen, Jiayu Chen, Hao Zhu, and Jeff Schneider, "Context-lite Multi-turn Reinforcement Learning for LLM Agents", submitted to ICML Workshop on Efficient Systems for Foundation Models, 2025.
+1. Wenyan Xu, Dawei Xiang, Rundong Wang, Yonghong Hu, Jiayu Chen, and Zhonghua Lu, "FTS-Text-MoE: A Financial Time-Series Text Language Model Based on a Mixture of Experts Mechanism", submitted to Empirical Methods in Natural Language Processing (EMNLP), 2025.
+
+1. Wenyan Xu, Jiayu Chen, Dawei Xiang, Chen Li, Yonghong Hu, and Zhonghua Lu, "[Mining Intraday Risk Factor Collections via Hierarchical Reinforcement Learning based on Transferred Options](https://arxiv.org/abs/2501.07274)", submitted to ACM International
+Conference on Information and Knowledge Management (CIKM), 2025.
 
 1. Hyunsoo Choi, Jiayu Chen, Vaneet Aggarwal, and Zubin Jacob, "TURBO-RL: Turbulence Mitigation Using Reinforcement Learning for Severe Optical Aberrations", submitted to Applied Physics Letters.
 
-1. Wenyan Xu, Jiayu Chen, Chen Li, Yonghong Hu, and Zhonghua Lu, "[Mining Intraday Risk Factor Collections via Hierarchical Reinforcement Learning based on Transferred Options](https://arxiv.org/abs/2501.07274)", submitted to European Conference on Machine Learning and Principles and Practice of Knowledge Discovery in Databases (ECML-PKDD), 2025.
-
 1. Bhargav Ganguly, Abhimanyu Shekhar, Chang-Lin Chen, Jiayu Chen, Vaneet Aggarwal, Shweta Singh, "A Deep Reinforcement Learning Approach for Circular Economy Management", submitted to Nature Sustainability.
-
-1. Wenyan Xu, Dawei Xiang, Rundong Wang, and Jiayu Chen, "FTS-Text-MoE: A Financial Time-Series Text Language Model Based on a Mixture of Experts Mechanism", in progress.
 
 1. Wentse Chen, Jiayu Chen, Shiyu Huang, and Jeff Schneider, "ME-IGM: Individual-Global-Max in Maximum Entropy Multi-Agent Reinforcement Learning", in progress.
 
@@ -46,6 +46,8 @@ For the most up-to-date list of publications, please visit our [Google Scholar p
 
 
 ### Workshop Papers:
+
+1. Wentse Chen, Jiayu Chen, Hao Zhu, and Jeff Schneider, "Context-lite Multi-turn Reinforcement Learning for LLM Agents", accepted in ICML Workshop on Efficient Systems for Foundation Models, 2025.
 
 1. Wenyan Xu, Jiayu Chen, Chen Li, Yonghong Hu, and Zhonghua Lu, "[Mining Intraday Risk Factor Collections via Hierarchical Reinforcement Learning based on Transferred Options](https://arxiv.org/abs/2501.07274)", accepted in AAAI 2025 Workshop on AI for Social Impact (**Oral presentation**).
 
@@ -57,7 +59,7 @@ For the most up-to-date list of publications, please visit our [Google Scholar p
 
 ### Conference Papers:
 
-1. Swetha Ganesh, Jiayu Chen, Washim Uddin Mondal, and Vaneet Aggarwal, "Order-Optimal Global Convergence for Average Reward Actor-Critic with General Policy and Neural Critic Parametrization", accepted in Uncertainty in Artificial Intelligence (UAI), 2025.
+1. Swetha Ganesh, Jiayu Chen, Washim Uddin Mondal, and Vaneet Aggarwal, "[Order-Optimal Global Convergence for Average Reward Actor-Critic with General Policy and Neural Critic Parametrization](https://openreview.net/forum?id=HPxElIejA5)", accepted in Uncertainty in Artificial Intelligence (UAI), 2025.
 
 1. Jiayu Chen, Tian Lan, and Vaneet Aggarwal, "[Variational Offline Multi-agent Skill Discovery](https://arxiv.org/abs/2405.16386)", accepted in International Joint Conferences on Artificial Intelligence (IJCAI), 2025.
 
