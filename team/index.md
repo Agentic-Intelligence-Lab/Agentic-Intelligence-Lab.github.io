@@ -20,17 +20,7 @@ Meet our outstanding team members! Although based in Hong Kong, our team boasts 
 
 ## Research Interns
 
-- **John Smith**
-  - University: University of Hong Kong
-  - Degree: Bachelor's
-  - Major: Computer Science
-
-- **Jane Doe**
-  - University: Stanford University
-  - Degree: Master's
-  - Major: Bioengineering
-
-- **Alex Chen**
-  - University: MIT
-  - Degree: PhD Candidate
-  - Major: Computational Biology
+- **Yichen Zhu** (2025.06 -- present) - Zhejiang University, Master's Candidate in Computer Science
+- **Le Xu** (2025.06 -- present) - Tsinghua University, Bachelor's Candidate in Electrical Engineering 
+- **Zhekai Wang** (2025.06 -- present) - Peking Univeristy, Bachelor's Candidate in Theoretical and Applied Mechanics
+- **Yuxuan Li** (2025.06 -- present) - Zhejiang University, Bachelor's Candidate in Computer Science
