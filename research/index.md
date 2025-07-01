@@ -10,11 +10,10 @@ nav:
 For the most up-to-date list of publications, please visit our [Google Scholar profile](https://scholar.google.com/citations?user=k0KJm7kAAAAJ&hl=en). Below, we highlight our representative works in each active research direction. Following that, we provide a categorized list of our publications based on their type.
 
 <center>
-<img src="../images/agent_system.png" alt="A word cloud of publication titles" style="width:600px"/>
+<img src="../images/agent_system.png" alt="A word cloud of publication titles" style="width:900px"/>
 </center>
 
 ## All
-
 <span style="background-color: #e3f2fd; color: #1565c0; padding: 2px 6px; border-radius: 3px; font-size: 0.8em;">RT</span> RL Theory | <span style="background-color: #f3e5f5; color: #7b1fa2; padding: 2px 6px; border-radius: 3px; font-size: 0.8em;">RA</span> RL Algorithm | <span style="background-color: #e8f5e8; color: #2e7d32; padding: 2px 6px; border-radius: 3px; font-size: 0.8em;">RAPP</span> RL Application | <span style="background-color: #fff3e0; color: #ef6c00; padding: 2px 6px; border-radius: 3px; font-size: 0.8em;">LLM</span> Large Language Model | <span style="background-color: #fce4ec; color: #c2185b; padding: 2px 6px; border-radius: 3px; font-size: 0.8em;">RO</span> Robotics | <span style="background-color: #f1f8e9; color: #558b2f; padding: 2px 6px; border-radius: 3px; font-size: 0.8em;">GM</span> Generative Model
 
 ### Preprints and In-Submission Works:
