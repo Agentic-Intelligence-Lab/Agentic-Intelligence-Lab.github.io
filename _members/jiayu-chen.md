@@ -7,7 +7,7 @@ affiliation: The University of Hong Kong
 links:
   google-scholar: k0KJm7kAAAAJ
   github: LucasCJYSDL
-  email: jiayuchen98666@gmail.com
+  email: jiayuc@hku.hk
   twitter: jiayuchen98666
   home-page: https://www.dase.hku.hk/people/j-y-chen
 ---
