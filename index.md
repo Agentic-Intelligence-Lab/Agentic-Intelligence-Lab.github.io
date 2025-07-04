@@ -28,7 +28,7 @@ We are particularly interested in advancing the following research areas:
 <!-- - Openings for **postdoctoral researchers**, **self-financed Ph.D. students**, **part-time Ph.D. students**, **research assistants**, and **visiting scholars** are available **year-round**  -->
 - **Fully funded Ph.D. positions** starting in **Fall 2025** have been taken. 
 - Openings for **self-financed Ph.D. students** and  **research assistants** are available **year-round**.
-- We have an available postdoc position in reinforcement learning and robotic learning.
+- ❗❗❗ We have an available postdoc position in reinforcement learning and robotic learning.
 - ❗❗❗ We need a **remote research intern** for a project to benchmark offline RL and control methods for plasma control in nuclear fusion. Please check this [repo](https://github.com/LucasCJYSDL/Offline-RL-Kit-for-Nuclear-Fusion) for details and reach out to Dr. Jiayu Chen if interested.
 
 **Qualifications for Ph.D. and Postdoctoral Researchers:**  
