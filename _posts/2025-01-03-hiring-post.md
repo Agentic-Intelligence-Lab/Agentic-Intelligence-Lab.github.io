@@ -40,6 +40,8 @@ We have the following openings:
 
 - **Fully funded Ph.D. positions** starting in **Fall 2025** have been taken.
 - Openings for **self-financed Ph.D. students** and  **research assistants** are available **year-round**.
+- ❗❗❗ We have an available postdoc position in reinforcement learning and robotic learning.
+- ❗❗❗ We need a **remote research intern** for a project to benchmark offline RL and control methods for plasma control in nuclear fusion. Please check this [repo](https://github.com/LucasCJYSDL/Offline-RL-Kit-for-Nuclear-Fusion) for details and reach out to Dr. Jiayu Chen if interested.
 
 Ph.D. and postdoctoral applicants are expected to have **strong proficiency in mathematics or programming, along with demonstrated self-motivation and resilience**. Candidates with expertise in the following areas are highly preferred: Humanoid Robots, Large Language/Reasoning Models, Control Theory, Optimization Theory, Statistical Machine Learning.
 
