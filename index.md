@@ -3,18 +3,20 @@
 
 # Research Areas
 
-Our team at the Department of Data and Systems Engineering, The University of Hong Kong, specializes in **Learning for Sequential Decision-Making and Continuous Control.**
+Our team at the Department of Data and Systems Engineering, The University of Hong Kong, specializes in **Learning for Sequential Decision-Making and Robotic Control.**
 
 
-We are particularly interested in advancing the following research areas:  
+We are interested in advancing the following research areas:  
 
-- Theoretical foundations, algorithm design, and applications of (Multi-agent) Reinforcement Learning;  
-- Developing a unified theoretical framework for Reinforcement Learning, Optimal Control, and Stochastic Optimization;  
-- Scaling Laws in sequential decision-making, with a special emphasis on efficient (Multi-agent) Monte Carlo Tree Search algorithms and advanced Reasoning Models;  
-- Robotic Foundation Models;  
-- End-to-end multi-modal learning for Humanoid Robotic Control and its industrial applications;  
-- Post-training techniques for Large Language Model agents and their applications in sequential decision-making;
-- Artificial General Intelligence grounded in the principles of [The Alberta Plan](http://www.incompleteideas.net/Talks/AlbertaPlan.pdf).
+<!-- - Theoretical foundations, algorithm design, and applications of (Multi-agent) Reinforcement Learning;   -->
+- Development of Robotic Foundation Models. 
+- End-to-end multi-modal learning for Humanoid Robotic Control and its industrial applications.
+- Post-training techniques for Large Language Model agents and their applications in complex reasoning or sequential decision-making tasks.
+- Developing a unified theoretical framework for Reinforcement Learning, Optimal Control, and Stochastic Optimization.
+- Investigation of scaling laws in sequential decision-making, with particular emphasis on scaling with data (e.g., data-driven decision-making) and computation (e.g., Monte Carlo Tree Search systems like AlphaZero).
+<!-- - Artificial General Intelligence grounded in the principles of [The Alberta Plan](http://www.incompleteideas.net/Talks/AlbertaPlan.pdf). -->
+
+Currently, we have three active research directions: Offline Reinforcement Learning for Controllable Nuclear Fusion, Continual Reinforcement Learning for Humanoid Robotic Control, and Learning-based Ego-centric Evolution within a Multi-agent System, of which more details are provided in the [introduction](http://agentic-intelligence-lab.org/files/research_topics.pdf).  
 
 
 {% include section.html %}
