@@ -24,7 +24,7 @@ For the most up-to-date list of publications, please visit our [Google Scholar p
 
 1. Jiayu Chen, Le Xu, Wentse Chen, and Jeff Schneider, "[Bayes Adaptive Monte Carlo Tree Search for Offline Model-based Reinforcement Learning](https://arxiv.org/abs/2410.11234)", submitted to Annual AAAI Conference on Artificial Intelligence (AAAI), 2026. <span style="background-color: #f3e5f5; color: #7b1fa2; padding: 2px 6px; border-radius: 3px; font-size: 0.8em;">RA</span> <span style="background-color: #e0f7fa; color: #00838f; padding: 2px 6px; border-radius: 3px; font-size: 0.8em;">FU</span>
 
-1. Wentse Chen, Yuxuan Li, Shiyu Huang, Jiayu Chen, and Jeff Schneider, "ME-IGM: Individual-Global-Max in Maximum Entropy Multi-Agent Reinforcement Learning", submitted to Annual AAAI Conference on Artificial Intelligence (AAAI), 2026. <span style="background-color: #f3e5f5; color: #7b1fa2; padding: 2px 6px; border-radius: 3px; font-size: 0.8em;">RA</span>
+1. Wentse Chen, Yuxuan Li, Shiyu Huang, Jiayu Chen, and Jeff Schneider, "[ME-IGM: Individual-Global-Max in Maximum Entropy Multi-Agent Reinforcement Learning](http://arxiv.org/abs/2406.13930)", submitted to Annual AAAI Conference on Artificial Intelligence (AAAI), 2026. <span style="background-color: #f3e5f5; color: #7b1fa2; padding: 2px 6px; border-radius: 3px; font-size: 0.8em;">RA</span>
 
 1. Ricardo Shousha, Hiro Farre, Peter Steiner, Jaemin Seo, Rohit Sonker, Jiayu Chen, Keith Erickson, Andy Rothstein, SangKyeun Kim, Z.A. Xing, Suk-Ho Hong, Yilun Zhu, and Egemen Kolemen, "Toward ITER-Relevant Robust Plasma Profile Control Using AI-Based RTCAKENN in Diagnostically Challenged Environments", submitted to Annual Meeting of the APS Division of Plasma Physics (APS-DPP), 2025. <span style="background-color: #f1f8e9; color: #558b2f; padding: 2px 6px; border-radius: 3px; font-size: 0.8em;">GM</span> <span style="background-color: #e0f7fa; color: #00838f; padding: 2px 6px; border-radius: 3px; font-size: 0.8em;">FU</span>
 
@@ -43,9 +43,6 @@ For the most up-to-date list of publications, please visit our [Google Scholar p
 1. Sizhe Tang, Jiayu Chen, and Tian Lan, "MALinZero: Efficient Low-Dimensional Search for Mastering Complex Multi-Agent Planning", submitted to Conference on Neural Information Processing Systems (NeurIPS), 2025. <span style="background-color: #f3e5f5; color: #7b1fa2; padding: 2px 6px; border-radius: 3px; font-size: 0.8em;">RA</span>
 
 1. Wenyan Xu, Dawei Xiang, Rundong Wang, Yonghong Hu, Jiayu Chen, and Zhonghua Lu, "FTS-Text-MoE: A Financial Time-Series Text Language Model Based on a Mixture of Experts Mechanism", submitted to Empirical Methods in Natural Language Processing (EMNLP), 2025. <span style="background-color: #fff3e0; color: #ef6c00; padding: 2px 6px; border-radius: 3px; font-size: 0.8em;">LLM</span>
-
-1. Wenyan Xu, Jiayu Chen, Dawei Xiang, Chen Li, Yonghong Hu, and Zhonghua Lu, "[Mining Intraday Risk Factor Collections via Hierarchical Reinforcement Learning based on Transferred Options](https://arxiv.org/abs/2501.07274)", submitted to ACM International
-Conference on Information and Knowledge Management (CIKM), 2025. <span style="background-color: #e8f5e8; color: #2e7d32; padding: 2px 6px; border-radius: 3px; font-size: 0.8em;">RAPP</span>
 
 1. Hyunsoo Choi, Jiayu Chen, Vaneet Aggarwal, and Zubin Jacob, "TURBO-RL: Turbulence Mitigation Using Reinforcement Learning for Severe Optical Aberrations", submitted to Applied Physics Letters. <span style="background-color: #e8f5e8; color: #2e7d32; padding: 2px 6px; border-radius: 3px; font-size: 0.8em;">RAPP</span>
 
