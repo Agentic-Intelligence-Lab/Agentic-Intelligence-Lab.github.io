@@ -39,82 +39,46 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<title>Available Research Positions at the Agentic Intelligence Lab @ The University of Hong Kong | Agentic Intelligence Lab</title>
+<title>Verlog - A Multi-turn RL framework for LLM agents | Agentic Intelligence Lab</title>
 
 <link rel="icon" href="/images/icon.png">
 
-<meta name="title" content="Available Research Positions at the Agentic Intelligence Lab @ The University of Hong Kong">
+<meta name="title" content="Verlog - A Multi-turn RL framework for LLM agents">
 <meta name="description" content="Our team at the Department of Data and Systems Engineering, The University of Hong Kong, is dedicated to advancing research in Machine Learning, Sequential Decision Making, and Embodied AI.">
 
-<meta property="og:title" content="Available Research Positions at the Agentic Intelligence Lab @ The University of Hong Kong">
+<meta property="og:title" content="Verlog - A Multi-turn RL framework for LLM agents">
 <meta property="og:site_title" content="Agentic Intelligence Lab">
 <meta property="og:description" content="Our team at the Department of Data and Systems Engineering, The University of Hong Kong, is dedicated to advancing research in Machine Learning, Sequential Decision Making, and Embodied AI.">
 <meta property="og:url" content="http://agentic-intelligence-lab.org">
 <meta property="og:image" content="/images/share.jpg">
 <meta property="og:locale" content="en_US">
 
-<meta property="twitter:title" content="Available Research Positions at the Agentic Intelligence Lab @ The University of Hong Kong">
+<meta property="twitter:title" content="Verlog - A Multi-turn RL framework for LLM agents">
 <meta property="twitter:description" content="Our team at the Department of Data and Systems Engineering, The University of Hong Kong, is dedicated to advancing research in Machine Learning, Sequential Decision Making, and Embodied AI.">
 <meta property="twitter:url" content="http://agentic-intelligence-lab.org">
 <meta property="twitter:card" content="summary_large_image">
 <meta property="twitter:image" content="/images/share.jpg">
 
 
-  <meta name="author" content='&lt;h2 id="about-the-pi"&gt;About the PI&lt;/h2&gt;
+  <meta name="author" content='&lt;div style="display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 24px; width: 100%;"&gt;
+  &lt;a href="https://github.com/WentseChen/Verlog" target="_blank" style="text-decoration: none; display: flex; align-items: center;"&gt;
+    &lt;img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/github.svg" alt="GitHub" width="30" height="30" style="vertical-align: middle;" /&gt;
+    &lt;span style="vertical-align: middle; font-size: 16px; margin-left: 6px;"&gt;Source Code&lt;/span&gt;
+  &lt;/a&gt;
 
-&lt;p&gt;Jiayu Chen (陈佳玉) is an incoming Tenure-Track Assistant Professor at the &lt;a href="https://www.dase.hku.hk/"&gt;Department of Data and Systems Engineering, The University of Hong Kong&lt;/a&gt;. Currently, he is a Postdoctoral Fellow at the &lt;a href="https://www.cs.cmu.edu/"&gt;School of Computer Science, Carnegie Mellon University&lt;/a&gt;, working under the supervision of &lt;a href="https://www.cs.cmu.edu/~schneide/"&gt;Professor Jeff Schneider&lt;/a&gt; on data-driven profile control for nuclear fusion, as part of a joint research program with the &lt;a href="https://control.princeton.edu/"&gt;Plasma Control Group, Princeton University&lt;/a&gt;.&lt;/p&gt;
+  &lt;a href="https://wandb.ai/cwz19/verlog?nw=nwusercwz19" target="_blank" style="text-decoration: none; display: flex; align-items: center;"&gt;
+    &lt;img src="https://raw.githubusercontent.com/wandb/assets/main/wandb-dots-logo.svg" alt="W&amp;amp;B" width="30" height="30" style="vertical-align: middle;" /&gt;
+    &lt;span style="vertical-align: middle; font-size: 16px; margin-left: 6px;"&gt;Experiment Logs&lt;/span&gt;
+  &lt;/a&gt;
+&lt;/div&gt;
 
-&lt;p&gt;Dr. Chen earned his Ph.D. in Industrial Engineering and Operations Research from the &lt;a href="https://engineering.purdue.edu/IE"&gt;Edwardson School of Industrial Engineering, Purdue University&lt;/a&gt; and a Bachelor of Engineering from the &lt;a href="https://www.coe.pku.edu.cn/"&gt;College of Engineering, Peking University&lt;/a&gt;. During his Ph.D., he was co-advised by &lt;a href="https://engineering.purdue.edu/CLANLabs"&gt;Professor Vaneet Aggarwal (Purdue University)&lt;/a&gt;, an expert in theoretical reinforcement learning, and &lt;a href="https://www2.seas.gwu.edu/~tlan/"&gt;Professor Tian Lan (George Washington University)&lt;/a&gt;, an expert in multi-agent systems.&lt;/p&gt;
+&lt;p&gt;Verlog is a multi-turn reinforcement learning framework built for &lt;strong&gt;long-horizon LLM-agentic tasks with highly variable episode lengths&lt;/strong&gt;. Extending &lt;a href="https://github.com/volcengine/verl"&gt;VeRL&lt;/a&gt; and &lt;a href="https://github.com/balrog-ai/BALROG"&gt;BALROG&lt;/a&gt; while following the proven design principles of &lt;a href="https://github.com/ikostrikov/pytorch-a2c-ppo-acktr-gail"&gt;pytorch-a2c-ppo-acktr-gail&lt;/a&gt;, it introduces specialized optimizations for stable and efficient training when episodes span from short interactions to hundreds of turns. Whereas prior frameworks like &lt;a href="https://github.com/volcengine/verl"&gt;VeRL&lt;/a&gt; and &lt;a href="https://ragen-ai.github.io"&gt;RAGEN&lt;/a&gt; effectively handle tasks with ~10 turns, and &lt;a href="https://github.com/langfengQ/verl-agent"&gt;verl-agent&lt;/a&gt; scales up to 50 turns, Verlog is designed to operate in environments with &lt;strong&gt;over 400 turns&lt;/strong&gt;, making it uniquely suited for complex, long-term decision-making. This capability has been validated across challenging domains such as BabyAI, BabaIsAI, and Crafter, where it consistently achieves strong performance out of the box. In Crafter, for instance, episode lengths range from 70 to 400 steps with an average of about 190.&lt;/p&gt;
 
-&lt;p&gt;He is the director of the &lt;a href="https://agentic-intelligence-lab.org/"&gt;Agentic Intelligence Lab&lt;/a&gt;, where his research focuses on Learning for Sequential Decision-Making and Continuous Control. Dr. Chen has published extensively in top venues such as NeurIPS, ICML, ICRA, ICAPS, AAMAS, TMLR, and IEEE TNNLS as the first author. His work has been recognized with prestigious awards, including the Oracle Research Award and the Purdue Research Grant.&lt;/p&gt;
-
-&lt;h2 id="about-the-universitydepartment"&gt;About the University/Department&lt;/h2&gt;
-
-&lt;p&gt;Founded in 1911, the University of Hong Kong (HKU) is the oldest tertiary education institution in Hong Kong, renowned globally for its excellence in teaching, research, and innovation. According to the QS World University Rankings, HKU is currently ranked &lt;strong&gt;2nd in Asia&lt;/strong&gt; and &lt;strong&gt;17th worldwide.&lt;/strong&gt; Studying at HKU offers unique advantages: its location in the vibrant, internationally connected city of Hong Kong provides unmatched access to global business networks, a multicultural environment, and close proximity to the thriving economies of the Greater Bay Area.&lt;/p&gt;
-
-&lt;p&gt;In the midst of the artificial intelligence and big data revolution, the &lt;a href="https://www.dase.hku.hk/about-us/introduction"&gt;Department of Data and Systems Engineering (DASE)&lt;/a&gt; upholds the philosophy of “computing-in-practice”. The vision is to bridge the cyber and physical worlds by integrating data science methodologies, such as artificial intelligence, with human tools like robots to create greater value for humanity. To achieve this goal, DASE focuses on three key areas: &lt;strong&gt;Data Engineering and Analytics&lt;/strong&gt;, &lt;strong&gt;Human-Machine Cooperation&lt;/strong&gt;, and &lt;strong&gt;Robotics and Automation&lt;/strong&gt;.&lt;/p&gt;
-
-&lt;h2 id="research-areas"&gt;Research Areas&lt;/h2&gt;
-
-&lt;p&gt;The Agentic Intelligence Lab conducts broad research across Machine Learning, Robotics, and Operations Research. At present, our work focuses on advancing the following key areas:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Theoretical foundations, algorithm design, and applications of (Multi-agent) Reinforcement Learning;&lt;/li&gt;
-  &lt;li&gt;Developing a unified theoretical framework for Reinforcement Learning, Optimal Control, and Stochastic Optimization;&lt;/li&gt;
-  &lt;li&gt;Scaling Laws in sequential decision-making, with a special emphasis on efficient (Multi-agent) Monte Carlo Tree Search algorithms and advanced Reasoning Models;&lt;/li&gt;
-  &lt;li&gt;Robotic Foundation Models;&lt;/li&gt;
-  &lt;li&gt;End-to-end multi-modal learning for Humanoid Robotic Control and its industrial applications;&lt;/li&gt;
-  &lt;li&gt;Post-training techniques for Large Language Model agents and their applications in sequential decision-making;&lt;/li&gt;
-  &lt;li&gt;Artificial General Intelligence grounded in the principles of &lt;a href="http://www.incompleteideas.net/Talks/AlbertaPlan.pdf"&gt;The Alberta Plan&lt;/a&gt;.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id="available-positions"&gt;Available Positions&lt;/h2&gt;
-
-&lt;p&gt;We have the following openings:&lt;/p&gt;
-
-&lt;!-- - **Two fully funded Ph.D. positions** starting in **Fall 2025 (as early as July)**
-- Openings for **postdoctoral researchers**, **self-financed Ph.D. students**, **part-time Ph.D. students**, **research assistants**, and **visiting scholars** are available **year-round**  --&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;Fully funded Ph.D. positions&lt;/strong&gt; starting in &lt;strong&gt;Fall 2025&lt;/strong&gt; have been taken.&lt;/li&gt;
-  &lt;li&gt;Openings for &lt;strong&gt;self-financed Ph.D. students&lt;/strong&gt; and  &lt;strong&gt;research assistants&lt;/strong&gt; are available &lt;strong&gt;year-round&lt;/strong&gt;.&lt;/li&gt;
-  &lt;li&gt;❗❗❗ We have an available postdoc position in reinforcement learning and robotic learning.&lt;/li&gt;
-  &lt;li&gt;❗❗❗ We need a &lt;strong&gt;remote research intern&lt;/strong&gt; for a project to benchmark offline RL and control methods for plasma control in nuclear fusion. Please check this &lt;a href="https://github.com/LucasCJYSDL/Offline-RL-Kit-for-Nuclear-Fusion"&gt;repo&lt;/a&gt; for details and reach out to Dr. Jiayu Chen if interested.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Ph.D. and postdoctoral applicants are expected to have &lt;strong&gt;strong proficiency in mathematics or programming, along with demonstrated self-motivation and resilience&lt;/strong&gt;. Candidates with expertise in the following areas are highly preferred: Humanoid Robots, Large Language/Reasoning Models, Control Theory, Optimization Theory, Statistical Machine Learning.&lt;/p&gt;
-
-&lt;p&gt;We offer competitive remuneration. For Ph.D. students, the basic level of scholarship is 18,760 HK dollars per month. For &lt;a href="https://www.hr.hku.hk/career_opportunities/pdf-rap.html"&gt;postdocal researchers&lt;/a&gt;, the basic salary is no less than 30,000 HK dollars per month. Outstanding candidates are encouraged to apply for the &lt;a href="https://gradsch.hku.hk/prospective_students/fees_scholarships_and_financial_support/hku_presidential_phd_scholar_programme"&gt;HKU Presidential PhD Scholar Programme (HKUPS)&lt;/a&gt;, &lt;a href="https://gradsch.hku.hk/prospective_students/fees_scholarships_and_financial_support/hong_kong_phd_fellowship_scheme"&gt;Hong Kong PhD Fellowship Scheme (HKPFS)&lt;/a&gt;, and &lt;a href="https://www.ugc.edu.hk/eng/rgc/funding_opport/pdfs/"&gt;RGC Postdoctoral Fellowship Scheme (PDFS)&lt;/a&gt; to get financial support of approximately 430,000 HK dollars annaly.&lt;/p&gt;
-
-&lt;p&gt;We also provide opportunities for visiting experiences at top U.S. universities such as UC Berkeley, UIUC, CMU, Purdue, and GWU. For &lt;strong&gt;research assistants&lt;/strong&gt;, we offer strong recommendation letters and ample opportunities to publish papers in top machine learning and robotics venues.&lt;/p&gt;
-
-&lt;p&gt;For detailed requirements and additional information, please refer to the respective categories in &lt;a href="https://agentic-intelligence-lab.org/openings/"&gt;openings&lt;/a&gt;.  If interested, please contact &lt;a href="https://agentic-intelligence-lab.org/members/jiayu-chen.html"&gt;Dr. Jiayu Chen&lt;/a&gt; directly through &lt;u&gt;jiayuc@hku.hk&lt;/u&gt;. The Ph.D. application system at HKU accepts submissions &lt;strong&gt;year-round&lt;/strong&gt;.&lt;/p&gt;
-
-&lt;p&gt;&lt;u&gt;Deeply sorry that I am unable to respond to every inquiry unless it is to send an interview invitation.&lt;/u&gt;&lt;/p&gt;
+&lt;p&gt;Please kinldly check https://wentsechen.github.io/Verlog_blogpost/ for details.&lt;/p&gt;
 '>
   <meta property="og:type" content="article">
   <meta property="og:updated_time" content="2025-08-15T02:56:22+00:00">
-  <meta property="article:published_time" content="2025-01-03T00:00:00+00:00">
+  <meta property="article:published_time" content="2025-08-15T00:00:00+00:00">
   <meta property="article:modified_time" content="2025-08-15T02:56:22+00:00">
   <meta name="revised" content="2025-08-15T02:56:22+00:00">
 
@@ -124,13 +88,13 @@
     "@context": "https://schema.org",
     
       "@type": "BlogPosting",
-      "author": { "@type": "Person", "name": "Available Research Positions at the Agentic Intelligence Lab @ The University of Hong Kong" },
-      "datePublished": "2025-01-03T00:00:00+00:00",
+      "author": { "@type": "Person", "name": "Verlog - A Multi-turn RL framework for LLM agents" },
+      "datePublished": "2025-08-15T00:00:00+00:00",
       "dateModified": "2025-08-15T02:56:22+00:00",
     
-    "name": "Available Research Positions at the Agentic Intelligence Lab @ The University of Hong Kong",
+    "name": "Verlog - A Multi-turn RL framework for LLM agents",
     "description": "Our team at the Department of Data and Systems Engineering, The University of Hong Kong, is dedicated to advancing research in Machine Learning, Sequential Decision Making, and Embodied AI.",
-    "headline": "Available Research Positions at the Agentic Intelligence Lab @ The University of Hong Kong",
+    "headline": "Verlog - A Multi-turn RL framework for LLM agents",
     "publisher": {
       "@type": "Organization",
       "logo": { "@type": "ImageObject", "url": "/images/icon.png" }
@@ -481,13 +445,13 @@
 
   <section class="background" data-size="1">
     <!--
-  background: images/logo.png;
+  background: images/babaisai.gif;
   dark: ;
   size: 1;
 -->
 
 
-<h1 class="center">Available Research Positions at the Agentic Intelligence Lab @ The University of Hong Kong</h1>
+<h1 class="center">Verlog - A Multi-turn RL framework for LLM agents</h1>
 
 <div class="post-info">
   
@@ -495,7 +459,7 @@
     
       <span data-tooltip="Author">
         <i class="icon fa-solid fa-feather-pointed"></i>
-        <span>Jiayu Chen</span>
+        <span>Wentse Chen</span>
       </span>
     
   
@@ -506,15 +470,10 @@
   
     <span data-tooltip="Originally published on">
       <i class="icon fa-regular fa-calendar"></i>
-      <span>January 03, 2025</span>
+      <span>August 15, 2025</span>
     </span>
   
 
-  
-    <span data-tooltip="Last updated on">
-      <i class="icon fa-solid fa-clock-rotate-left"></i>
-      <span>August 15, 2025</span>
-    </span>
   
 </div>
 
@@ -524,8 +483,8 @@
 
   <div class="tags" data-link="/blog">
     
-      <a href="blog?search=%22tag:%20hiring%22" class="tag" data-tooltip='Show items with the tag "hiring"'>
-        hiring
+      <a href="blog?search=%22tag:%20technique%22" class="tag" data-tooltip='Show items with the tag "technique"'>
+        technique
       </a>
     
   </div>
@@ -543,58 +502,21 @@
 -->
 
 
-<h2 id="about-the-pi">About the PI</h2>
+<div style="display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 24px; width: 100%;">
+  <a href="https://github.com/WentseChen/Verlog" target="_blank" style="text-decoration: none; display: flex; align-items: center;">
+    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/github.svg" alt="GitHub" width="30" height="30" style="vertical-align: middle;">
+    <span style="vertical-align: middle; font-size: 16px; margin-left: 6px;">Source Code</span>
+  </a>
 
-<p>Jiayu Chen (陈佳玉) is an incoming Tenure-Track Assistant Professor at the <a href="https://www.dase.hku.hk/">Department of Data and Systems Engineering, The University of Hong Kong</a>. Currently, he is a Postdoctoral Fellow at the <a href="https://www.cs.cmu.edu/">School of Computer Science, Carnegie Mellon University</a>, working under the supervision of <a href="https://www.cs.cmu.edu/~schneide/">Professor Jeff Schneider</a> on data-driven profile control for nuclear fusion, as part of a joint research program with the <a href="https://control.princeton.edu/">Plasma Control Group, Princeton University</a>.</p>
+  <a href="https://wandb.ai/cwz19/verlog?nw=nwusercwz19" target="_blank" style="text-decoration: none; display: flex; align-items: center;">
+    <img src="https://raw.githubusercontent.com/wandb/assets/main/wandb-dots-logo.svg" alt="W&amp;B" width="30" height="30" style="vertical-align: middle;">
+    <span style="vertical-align: middle; font-size: 16px; margin-left: 6px;">Experiment Logs</span>
+  </a>
+</div>
 
-<p>Dr. Chen earned his Ph.D. in Industrial Engineering and Operations Research from the <a href="https://engineering.purdue.edu/IE">Edwardson School of Industrial Engineering, Purdue University</a> and a Bachelor of Engineering from the <a href="https://www.coe.pku.edu.cn/">College of Engineering, Peking University</a>. During his Ph.D., he was co-advised by <a href="https://engineering.purdue.edu/CLANLabs">Professor Vaneet Aggarwal (Purdue University)</a>, an expert in theoretical reinforcement learning, and <a href="https://www2.seas.gwu.edu/~tlan/">Professor Tian Lan (George Washington University)</a>, an expert in multi-agent systems.</p>
+<p>Verlog is a multi-turn reinforcement learning framework built for <strong>long-horizon LLM-agentic tasks with highly variable episode lengths</strong>. Extending <a href="https://github.com/volcengine/verl">VeRL</a> and <a href="https://github.com/balrog-ai/BALROG">BALROG</a> while following the proven design principles of <a href="https://github.com/ikostrikov/pytorch-a2c-ppo-acktr-gail">pytorch-a2c-ppo-acktr-gail</a>, it introduces specialized optimizations for stable and efficient training when episodes span from short interactions to hundreds of turns. Whereas prior frameworks like <a href="https://github.com/volcengine/verl">VeRL</a> and <a href="https://ragen-ai.github.io">RAGEN</a> effectively handle tasks with ~10 turns, and <a href="https://github.com/langfengQ/verl-agent">verl-agent</a> scales up to 50 turns, Verlog is designed to operate in environments with <strong>over 400 turns</strong>, making it uniquely suited for complex, long-term decision-making. This capability has been validated across challenging domains such as BabyAI, BabaIsAI, and Crafter, where it consistently achieves strong performance out of the box. In Crafter, for instance, episode lengths range from 70 to 400 steps with an average of about 190.</p>
 
-<p>He is the director of the <a href="https://agentic-intelligence-lab.org/">Agentic Intelligence Lab</a>, where his research focuses on Learning for Sequential Decision-Making and Continuous Control. Dr. Chen has published extensively in top venues such as NeurIPS, ICML, ICRA, ICAPS, AAMAS, TMLR, and IEEE TNNLS as the first author. His work has been recognized with prestigious awards, including the Oracle Research Award and the Purdue Research Grant.</p>
-
-<h2 id="about-the-universitydepartment">About the University/Department</h2>
-
-<p>Founded in 1911, the University of Hong Kong (HKU) is the oldest tertiary education institution in Hong Kong, renowned globally for its excellence in teaching, research, and innovation. According to the QS World University Rankings, HKU is currently ranked <strong>2nd in Asia</strong> and <strong>17th worldwide.</strong> Studying at HKU offers unique advantages: its location in the vibrant, internationally connected city of Hong Kong provides unmatched access to global business networks, a multicultural environment, and close proximity to the thriving economies of the Greater Bay Area.</p>
-
-<p>In the midst of the artificial intelligence and big data revolution, the <a href="https://www.dase.hku.hk/about-us/introduction">Department of Data and Systems Engineering (DASE)</a> upholds the philosophy of “computing-in-practice”. The vision is to bridge the cyber and physical worlds by integrating data science methodologies, such as artificial intelligence, with human tools like robots to create greater value for humanity. To achieve this goal, DASE focuses on three key areas: <strong>Data Engineering and Analytics</strong>, <strong>Human-Machine Cooperation</strong>, and <strong>Robotics and Automation</strong>.</p>
-
-<h2 id="research-areas">Research Areas</h2>
-
-<p>The Agentic Intelligence Lab conducts broad research across Machine Learning, Robotics, and Operations Research. At present, our work focuses on advancing the following key areas:</p>
-
-<ul>
-  <li>Theoretical foundations, algorithm design, and applications of (Multi-agent) Reinforcement Learning;</li>
-  <li>Developing a unified theoretical framework for Reinforcement Learning, Optimal Control, and Stochastic Optimization;</li>
-  <li>Scaling Laws in sequential decision-making, with a special emphasis on efficient (Multi-agent) Monte Carlo Tree Search algorithms and advanced Reasoning Models;</li>
-  <li>Robotic Foundation Models;</li>
-  <li>End-to-end multi-modal learning for Humanoid Robotic Control and its industrial applications;</li>
-  <li>Post-training techniques for Large Language Model agents and their applications in sequential decision-making;</li>
-  <li>Artificial General Intelligence grounded in the principles of <a href="http://www.incompleteideas.net/Talks/AlbertaPlan.pdf">The Alberta Plan</a>.</li>
-</ul>
-
-<h2 id="available-positions">Available Positions</h2>
-
-<p>We have the following openings:</p>
-
-<!-- - **Two fully funded Ph.D. positions** starting in **Fall 2025 (as early as July)**
-- Openings for **postdoctoral researchers**, **self-financed Ph.D. students**, **part-time Ph.D. students**, **research assistants**, and **visiting scholars** are available **year-round**  -->
-
-<ul>
-  <li>
-<strong>Fully funded Ph.D. positions</strong> starting in <strong>Fall 2025</strong> have been taken.</li>
-  <li>Openings for <strong>self-financed Ph.D. students</strong> and  <strong>research assistants</strong> are available <strong>year-round</strong>.</li>
-  <li>❗❗❗ We have an available postdoc position in reinforcement learning and robotic learning.</li>
-  <li>❗❗❗ We need a <strong>remote research intern</strong> for a project to benchmark offline RL and control methods for plasma control in nuclear fusion. Please check this <a href="https://github.com/LucasCJYSDL/Offline-RL-Kit-for-Nuclear-Fusion">repo</a> for details and reach out to Dr. Jiayu Chen if interested.</li>
-</ul>
-
-<p>Ph.D. and postdoctoral applicants are expected to have <strong>strong proficiency in mathematics or programming, along with demonstrated self-motivation and resilience</strong>. Candidates with expertise in the following areas are highly preferred: Humanoid Robots, Large Language/Reasoning Models, Control Theory, Optimization Theory, Statistical Machine Learning.</p>
-
-<p>We offer competitive remuneration. For Ph.D. students, the basic level of scholarship is 18,760 HK dollars per month. For <a href="https://www.hr.hku.hk/career_opportunities/pdf-rap.html">postdocal researchers</a>, the basic salary is no less than 30,000 HK dollars per month. Outstanding candidates are encouraged to apply for the <a href="https://gradsch.hku.hk/prospective_students/fees_scholarships_and_financial_support/hku_presidential_phd_scholar_programme">HKU Presidential PhD Scholar Programme (HKUPS)</a>, <a href="https://gradsch.hku.hk/prospective_students/fees_scholarships_and_financial_support/hong_kong_phd_fellowship_scheme">Hong Kong PhD Fellowship Scheme (HKPFS)</a>, and <a href="https://www.ugc.edu.hk/eng/rgc/funding_opport/pdfs/">RGC Postdoctoral Fellowship Scheme (PDFS)</a> to get financial support of approximately 430,000 HK dollars annaly.</p>
-
-<p>We also provide opportunities for visiting experiences at top U.S. universities such as UC Berkeley, UIUC, CMU, Purdue, and GWU. For <strong>research assistants</strong>, we offer strong recommendation letters and ample opportunities to publish papers in top machine learning and robotics venues.</p>
-
-<p>For detailed requirements and additional information, please refer to the respective categories in <a href="https://agentic-intelligence-lab.org/openings/">openings</a>.  If interested, please contact <a href="https://agentic-intelligence-lab.org/members/jiayu-chen.html">Dr. Jiayu Chen</a> directly through <u>jiayuc@hku.hk</u>. The Ph.D. application system at HKU accepts submissions <strong>year-round</strong>.</p>
-
-<p><u>Deeply sorry that I am unable to respond to every inquiry unless it is to send an interview invitation.</u></p>
+<p>Please kinldly check https://wentsechen.github.io/Verlog_blogpost/ for details.</p>
   </section>
 
   
@@ -612,13 +534,13 @@
 <div class="post-nav">
   <span>
     
+      <i class="icon fa-solid fa-angle-left"></i> Previous post<br>
+      <a href="/2025/01/03/hiring-post.html">
+        Available Research Positions at the Agentic Intelligence Lab @ The University of Hong Kong
+      </a>
+    
   </span>
   <span>
-    
-      Next post <i class="icon fa-solid fa-angle-right"></i><br>
-      <a href="/2025/08/15/technical-post.html">
-        Verlog - A Multi-turn RL framework for LLM agents
-      </a>
     
   </span>
 </div>
