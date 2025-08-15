@@ -39,39 +39,358 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<title>Agentic Intelligence Lab</title>
+<title>Verlog - A Multi-turn RL framework for LLM agents | Agentic Intelligence Lab</title>
 
 <link rel="icon" href="/images/icon.png">
 
-<meta name="title" content="">
+<meta name="title" content="Verlog - A Multi-turn RL framework for LLM agents">
 <meta name="description" content="Our team at the Department of Data and Systems Engineering, The University of Hong Kong, is dedicated to advancing research in Machine Learning, Sequential Decision Making, and Embodied AI.">
 
-<meta property="og:title" content="">
+<meta property="og:title" content="Verlog - A Multi-turn RL framework for LLM agents">
 <meta property="og:site_title" content="Agentic Intelligence Lab">
 <meta property="og:description" content="Our team at the Department of Data and Systems Engineering, The University of Hong Kong, is dedicated to advancing research in Machine Learning, Sequential Decision Making, and Embodied AI.">
 <meta property="og:url" content="http://agentic-intelligence-lab.org">
 <meta property="og:image" content="/images/share.jpg">
 <meta property="og:locale" content="en_US">
 
-<meta property="twitter:title" content="">
+<meta property="twitter:title" content="Verlog - A Multi-turn RL framework for LLM agents">
 <meta property="twitter:description" content="Our team at the Department of Data and Systems Engineering, The University of Hong Kong, is dedicated to advancing research in Machine Learning, Sequential Decision Making, and Embodied AI.">
 <meta property="twitter:url" content="http://agentic-intelligence-lab.org">
 <meta property="twitter:card" content="summary_large_image">
 <meta property="twitter:image" content="/images/share.jpg">
 
 
-  <meta property="og:type" content="website">
+  <meta name="author" content='&lt;div style="display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 24px; width: 100%;"&gt;
+  &lt;a href="https://github.com/WentseChen/Verlog" target="_blank" style="text-decoration: none; display: flex; align-items: center;"&gt;
+    &lt;img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/github.svg" alt="GitHub" width="30" height="30" style="vertical-align: middle;" /&gt;
+    &lt;span style="vertical-align: middle; font-size: 16px; margin-left: 6px;"&gt;Source Code&lt;/span&gt;
+  &lt;/a&gt;
+
+  &lt;a href="https://wandb.ai/cwz19/verlog?nw=nwusercwz19" target="_blank" style="text-decoration: none; display: flex; align-items: center;"&gt;
+    &lt;img src="https://raw.githubusercontent.com/wandb/assets/main/wandb-dots-logo.svg" alt="W&amp;amp;B" width="30" height="30" style="vertical-align: middle;" /&gt;
+    &lt;span style="vertical-align: middle; font-size: 16px; margin-left: 6px;"&gt;Experiment Logs&lt;/span&gt;
+  &lt;/a&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Verlog is a multi-turn reinforcement learning framework built for &lt;strong&gt;long-horizon LLM-agentic tasks with highly variable episode lengths&lt;/strong&gt;. Extending &lt;a href="https://github.com/volcengine/verl"&gt;VeRL&lt;/a&gt; and &lt;a href="https://github.com/balrog-ai/BALROG"&gt;BALROG&lt;/a&gt; while following the proven design principles of &lt;a href="https://github.com/ikostrikov/pytorch-a2c-ppo-acktr-gail"&gt;pytorch-a2c-ppo-acktr-gail&lt;/a&gt;, it introduces specialized optimizations for stable and efficient training when episodes span from short interactions to hundreds of turns. Whereas prior frameworks like &lt;a href="https://github.com/volcengine/verl"&gt;VeRL&lt;/a&gt; and &lt;a href="https://ragen-ai.github.io"&gt;RAGEN&lt;/a&gt; effectively handle tasks with ~10 turns, and &lt;a href="https://github.com/langfengQ/verl-agent"&gt;verl-agent&lt;/a&gt; scales up to 50 turns, Verlog is designed to operate in environments with &lt;strong&gt;over 400 turns&lt;/strong&gt;, making it uniquely suited for complex, long-term decision-making. This capability has been validated across challenging domains such as BabyAI, BabaIsAI, and Crafter, where it consistently achieves strong performance out of the box. In Crafter, for instance, episode lengths range from 70 to 400 steps with an average of about 190.&lt;/p&gt;
+
+&lt;h2 id="key-features"&gt;Key features:&lt;/h2&gt;
+
+&lt;p&gt;🧠 Turn-Level Abstraction: To handle extremely long episodes, we treat each turn as an independent training sample. This eliminates the need to encode the entire trajectory into a single context window and allows for modular, customizable &lt;a href="#memory-mechanism"&gt;memory architectures&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;🎯 Fixed-Turn Batching: To address the high variance in episode lengths across environments, we use &lt;a href="#batch-environment-fixed-turn-batching"&gt;fixed-turn batching&lt;/a&gt;. Each training batch contains a fixed number of turns. For incomplete episodes, we replace final rewards with value function estimates as the supervision signal.&lt;/p&gt;
+
+&lt;p&gt;🛠️ Tailored for Multi-Turn RL: To address the unique challenges of multi-turn RL, we introduce a set of targeted techniques such as &lt;a href="#dual-discounting-gae"&gt;Dual Discounting GAE&lt;/a&gt; and &lt;a href="#critic-warmup"&gt;Critic Pre-training&lt;/a&gt;, combined with carefully tuned hyperparameters to ensure efficient and stable learning.&lt;/p&gt;
+
+&lt;h2 id="main-results"&gt;Main Results&lt;/h2&gt;
+
+&lt;h3 id="crafter-results"&gt;Crafter Results:&lt;/h3&gt;
+
+&lt;div style="display: flex; justify-content: space-between; align-items: flex-start; width: 100%; flex-wrap: nowrap;"&gt;
+  &lt;figure style="flex: 1; text-align: center; margin: 0 10px 20px 10px;"&gt;
+    &lt;img src="images/crafter_zeroshot.gif" style="width: 100%; height: auto; max-width: none; display: block; margin: 0;" /&gt;
+    &lt;figcaption style="margin: 0; padding: 0; font-size: 14px; line-height: 1;"&gt;Zero-shot policy&lt;/figcaption&gt;
+  &lt;/figure&gt;
+  &lt;figure style="flex: 1; text-align: center; margin: 0 10px 20px 10px;"&gt;
+    &lt;img src="images/crafter_finetuned.gif" style="width: 100%; height: auto; max-width: none; display: block; margin: 0;" /&gt;
+    &lt;figcaption style="margin: 0; padding: 0; font-size: 14px; line-height: 1;"&gt;Fine-tuned policy&lt;/figcaption&gt;
+  &lt;/figure&gt;
+&lt;/div&gt;
+
+&lt;div style="overflow-x: auto;"&gt;
+  &lt;table style="width: 100% !important; min-width: 300px !important; border-collapse: collapse !important; font-family: sans-serif !important;"&gt;
+      &lt;thead&gt;
+          &lt;tr&gt;
+              &lt;th style="padding: 8px !important; text-align: center !important; white-space: nowrap !important; border-bottom: 2px solid #cccccc !important; background-color: #cccccc !important; color: #000 !important;"&gt;Metric&lt;/th&gt;
+              &lt;th style="padding: 8px !important; text-align: center !important; white-space: nowrap !important; border-bottom: 2px solid #cccccc !important; background-color: #cccccc !important; color: #000 !important;"&gt;Instruct-model&lt;/th&gt;
+              &lt;th style="padding: 8px !important; text-align: center !important; white-space: nowrap !important; border-bottom: 2px solid #cccccc !important; background-color: #cccccc !important; color: #000 !important;"&gt;Verlog (Ours)&lt;/th&gt;
+          &lt;/tr&gt;
+      &lt;/thead&gt;
+      &lt;tbody&gt;
+          &lt;tr&gt;
+              &lt;td style="padding: 8px !important; text-align: center !important; white-space: nowrap !important; border-bottom: 1px solid #cccccc !important;"&gt;Rewards&lt;/td&gt;
+              &lt;td style="padding: 8px !important; text-align: center !important; white-space: nowrap !important; border-bottom: 1px solid #cccccc !important;"&gt;5.80&lt;/td&gt;
+              &lt;td style="padding: 8px !important; text-align: center !important; white-space: nowrap !important; border-bottom: 1px solid #cccccc !important; font-weight: bold !important;"&gt;10.44&lt;/td&gt;
+          &lt;/tr&gt;
+          &lt;tr&gt;
+              &lt;td style="padding: 8px !important; text-align: center !important; white-space: nowrap !important;"&gt;Trajectory Length&lt;/td&gt;
+              &lt;td style="padding: 8px !important; text-align: center !important; white-space: nowrap !important;"&gt;172.23&lt;/td&gt;
+              &lt;td style="padding: 8px !important; text-align: center !important; white-space: nowrap !important; font-weight: bold !important;"&gt;196.42&lt;/td&gt;
+          &lt;/tr&gt;
+      &lt;/tbody&gt;
+  &lt;/table&gt;
+&lt;/div&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Crafter’s experiments are done with Qwen2.5-7B-Instruct model, using PPO algorithm, trained on 8xH100 GPUs with 82Gb memory for ~36 hours, corresponding to 170 PPO updates.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;div style="display: flex; justify-content: space-between; align-items: flex-start; width: 100%; gap: 20px;"&gt;
+  &lt;figure style="flex: 1; text-align: center; margin: 0;"&gt;
+    &lt;img src="images/babyai.gif" style="width: 100%; height: 300px; object-fit: contain; display: block;" /&gt;
+    &lt;figcaption style="font-size: 14px; line-height: 1;"&gt;BabyAI open&lt;/figcaption&gt;
+  &lt;/figure&gt;
+  &lt;figure style="flex: 1; text-align: center; margin: 0;"&gt;
+    &lt;img src="images/babaisai.gif" style="width: 100%; height: 300px; object-fit: contain; display: block;" /&gt;
+    &lt;figcaption style="font-size: 14px; line-height: 1;"&gt;BabaIsAI two_room-maybe_break_stop-goto_win&lt;/figcaption&gt;
+  &lt;/figure&gt;
+&lt;/div&gt;
+
+&lt;h3 id="babaisai-results-win-rate"&gt;BabaIsAI Results (win rate)&lt;/h3&gt;
+
+&lt;p&gt;goto_win → 🏁; 
+distr_obj → 🎁; 
+two_room → 🚪; 
+distr_obj_rule → 📏;&lt;br /&gt;
+maybe_break_stop → ⚠️;&lt;/p&gt;
+
+&lt;div style="overflow-x: auto;"&gt;
+    &lt;table style="width: 100%; border-collapse: collapse; text-align: center; font-family: sans-serif;"&gt;
+        &lt;thead&gt;
+            &lt;tr&gt;
+                &lt;th style="padding: 10px; border-bottom: 2px solid #ddd; background-color: #cccccc !important; color: #000;"&gt;Model&lt;/th&gt;
+                &lt;th style="padding: 10px; border-bottom: 2px solid #ddd; background-color: #cccccc !important; color: #000;"&gt;🏁+🎁&lt;/th&gt;
+                &lt;th style="padding: 10px; border-bottom: 2px solid #ddd; background-color: #cccccc !important; color: #000;"&gt;🚪+🏁&lt;/th&gt;
+                &lt;th style="padding: 10px; border-bottom: 2px solid #ddd; background-color: #cccccc !important; color: #000;"&gt;🚪+🏁+📏&lt;/th&gt;
+                &lt;th style="padding: 10px; border-bottom: 2px solid #ddd; background-color: #cccccc !important; color: #000;"&gt;🚪+⚠️+🏁&lt;/th&gt;
+            &lt;/tr&gt;
+        &lt;/thead&gt;
+        &lt;tbody&gt;
+            &lt;tr&gt;
+                &lt;td style="padding: 10px; border-bottom: 1px solid #ddd;"&gt;Instruct-model&lt;/td&gt;
+                &lt;td style="padding: 10px; border-bottom: 1px solid #ddd;"&gt;0.66 &amp;plusmn; 0.08&lt;/td&gt;
+                &lt;td style="padding: 10px; border-bottom: 1px solid #ddd;"&gt;0.03 &amp;plusmn; 0.03&lt;/td&gt;
+                &lt;td style="padding: 10px; border-bottom: 1px solid #ddd;"&gt;0.22 &amp;plusmn; 0.07&lt;/td&gt;
+                &lt;td style="padding: 10px; border-bottom: 1px solid #ddd;"&gt;0.19 &amp;plusmn; 0.07&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+                &lt;td style="padding: 10px; border-bottom: 1px solid #ddd; font-weight: bold;"&gt;Verlog (Ours)&lt;/td&gt;
+                &lt;td style="padding: 10px; border-bottom: 1px solid #ddd; font-weight: bold;"&gt;1.00 &amp;plusmn; 0.00&lt;/td&gt;
+                &lt;td style="padding: 10px; border-bottom: 1px solid #ddd; font-weight: bold;"&gt;0.89 &amp;plusmn; 0.17&lt;/td&gt;
+                &lt;td style="padding: 10px; border-bottom: 1px solid #ddd; font-weight: bold;"&gt;0.89 &amp;plusmn; 0.11&lt;/td&gt;
+                &lt;td style="padding: 10px; border-bottom: 1px solid #ddd; font-weight: bold;"&gt;0.36 &amp;plusmn; 0.07&lt;/td&gt;
+            &lt;/tr&gt;
+        &lt;/tbody&gt;
+    &lt;/table&gt;
+&lt;/div&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;BabaIsAI’s experiments are done with Qwen2.5-3B-Instruct model, using PPO algorithm, trained on 4xA40 GPUs with 48Gb memory for ~24 hours, corresponding to 300 PPO updates. The maximum episode length was set to 100.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id="babyai-results-win-rate"&gt;BabyAI Results (win rate)&lt;/h3&gt;
+
+&lt;div style="overflow-x: auto;"&gt;
+  &lt;table style="width: 100%; border-collapse: collapse; text-align: center; font-family: sans-serif;"&gt;
+      &lt;thead&gt;
+          &lt;tr&gt;
+              &lt;th style="padding: 10px; border-bottom: 2px solid #ddd; background-color: #cccccc !important; color: #000;"&gt;Model&lt;/th&gt;
+              &lt;th style="padding: 10px; border-bottom: 2px solid #ddd; background-color: #cccccc !important; color: #000;"&gt;goto&lt;/th&gt;
+              &lt;th style="padding: 10px; border-bottom: 2px solid #ddd; background-color: #cccccc !important; color: #000;"&gt;pickup&lt;/th&gt;
+              &lt;th style="padding: 10px; border-bottom: 2px solid #ddd; background-color: #cccccc !important; color: #000;"&gt;pick_up_seq_go_to&lt;/th&gt;
+              &lt;th style="padding: 10px; border-bottom: 2px solid #ddd; background-color: #cccccc !important; color: #000;"&gt;open&lt;/th&gt;
+          &lt;/tr&gt;
+      &lt;/thead&gt;
+      &lt;tbody&gt;
+          &lt;tr&gt;
+              &lt;td style="padding: 10px; border-bottom: 1px solid #ddd;"&gt;Instruct-model&lt;/td&gt;
+              &lt;td style="padding: 10px; border-bottom: 1px solid #ddd;"&gt;0.88 &amp;plusmn; 0.06&lt;/td&gt;
+              &lt;td style="padding: 10px; border-bottom: 1px solid #ddd;"&gt;0.41 &amp;plusmn; 0.09&lt;/td&gt;
+              &lt;td style="padding: 10px; border-bottom: 1px solid #ddd;"&gt;0.22 &amp;plusmn; 0.07&lt;/td&gt;
+              &lt;td style="padding: 10px; border-bottom: 1px solid #ddd;"&gt;0.09 &amp;plusmn; 0.05&lt;/td&gt;
+          &lt;/tr&gt;
+          &lt;tr&gt;
+              &lt;td style="padding: 10px; border-bottom: 1px solid #ddd; font-weight: bold;"&gt;Verlog (Ours)&lt;/td&gt;
+              &lt;td style="padding: 10px; border-bottom: 1px solid #ddd; font-weight: bold;"&gt;1.00 &amp;plusmn; 0.00&lt;/td&gt;
+              &lt;td style="padding: 10px; border-bottom: 1px solid #ddd; font-weight: bold;"&gt;1.00 &amp;plusmn; 0.00&lt;/td&gt;
+              &lt;td style="padding: 10px; border-bottom: 1px solid #ddd; font-weight: bold;"&gt;0.65 &amp;plusmn; 0.16&lt;/td&gt;
+              &lt;td style="padding: 10px; border-bottom: 1px solid #ddd; font-weight: bold;"&gt;0.94 &amp;plusmn; 0.07&lt;/td&gt;
+          &lt;/tr&gt;
+      &lt;/tbody&gt;
+  &lt;/table&gt;
+&lt;/div&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;BabyAI’s experiments are done with Qwen2.5-3B-Instruct model, using PPO algorithm, trained on 4xA40 GPUs with 48Gb memory for ~24 hours, corresponding to 300 PPO updates. The maximum episode length was set to 128.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id="technical-report"&gt;Technical Report&lt;/h2&gt;
+
+&lt;p&gt;In the following sections, we outline our design choices, implementation details, and explore potential research questions that our framework may help address.&lt;/p&gt;
+
+&lt;h3 id="model--prompt"&gt;Model &amp;amp; Prompt&lt;/h3&gt;
+
+&lt;h4 id="instruct-model"&gt;Instruct Model&lt;/h4&gt;
+
+&lt;p&gt;We begin with the Instruct variant of Qwen-2.5 (Qwen-2.5-3B/7B-Instruct), rather than the base model, for two key reasons. First, it enables seamless integration with &lt;a href="https://github.com/balrog-ai/BALROG"&gt;BALROG&lt;/a&gt;, a framework designed to evaluate the zero-shot performance of instruct models across a range of benchmarks. Second, it allows us to use the benchmark’s prompts with minimal modifications&lt;/p&gt;
+
+&lt;h4 id="memory-mechanism"&gt;Memory Mechanism&lt;/h4&gt;
+
+&lt;p&gt;Rather than placing the entire trajectory into the context window, we include only the latest $$n+1$$ turns. Each turn, i.e., data = $$(\text{history}&lt;em&gt;t, s_t,$$ $$\text{think}_t, a_t)$$ , with $$\text{history}_t = {s&lt;/em&gt;{t-n},$$ $$\text{think}&lt;em&gt;{t-n}, a&lt;/em&gt;{t-n},$$ $$…, s_{t-1},$$ $$\text{think}&lt;em&gt;{t-1}, a&lt;/em&gt;{t-1}}$$, is treated as an individual training data point. As a result, each training batch consists of &lt;code class="language-plaintext highlighter-rouge"&gt;batch_size&lt;/code&gt; individual turns, not &lt;code class="language-plaintext highlighter-rouge"&gt;batch_size&lt;/code&gt; full trajectories.&lt;/p&gt;
+
+&lt;p&gt;The results show that for the 3B Qwen model, performance peaks at $$n = 1$$ or $$2$$ and degrades as $$n$$ increases to $$4$$ or $$8$$. We hypothesize that this decline is due to the 3B model’s limited capacity to handle long contexts—for example, $$n = 8$$ yields a prompt of approximately 4.6k tokens. Whether this trend holds for larger models is an open question. Notably, the tasks we evaluate can be framed as Markov Decision Processes (MDPs). In more complex or partially observable tasks, a larger $$n$$ may help.&lt;/p&gt;
+
+&lt;p&gt;We observed two notable issues related to the multi-turn memory mechanism:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Mimicking prior reasoning patterns:&lt;/strong&gt; The model tends to replicate reasoning styles from earlier turns, reducing the diversity of its thought processes.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Multi-turn hallucinations:&lt;/strong&gt; The model struggles to distinguish between actions imagined during reasoning and actual events in the environment. For example, it may plan to “chop a tree then craft a pickaxe” but fail to find a tree in reality—yet still act as if the plan succeeded. This is a unique challenge for agentic tasks.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;We conducted preliminary experiments to address these issues: (1) We tested a variant that includes only the final action in history: data = $$(\text{history}&lt;em&gt;t, s_t, \text{think}_t, a_t)$$, with $$\text{history}_t = {s&lt;/em&gt;{t-n}, a_{t-n}, …, s_{t-1}, a_{t-1}}$$. (2) We tested a variant that periodically clears the history buffer (every 5 steps). Both approaches led to worse performance.&lt;/p&gt;
+
+&lt;h4 id="prompt-template"&gt;Prompt Template&lt;/h4&gt;
+
+&lt;p&gt;Belows is the prompt template used for BabyAI. The prompts are adapted from &lt;a href="https://github.com/balrog-ai/BALROG"&gt;BALROG&lt;/a&gt;.&lt;/p&gt;
+&lt;div class="language-plaintext highlighter-rouge"&gt;&lt;div class="highlight"&gt;&lt;pre class="highlight"&gt;&lt;code&gt;[SYSTEM] You are an agent playing a simple navigation game. Your goal is to {MISSION}. The following are the possible actions you can take in the game, followed by a short description of each action: {AVAILABLE ACTIONS}. In a moment I will present you an observation. Tips: {TIPS}. PLAY!
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class="language-plaintext highlighter-rouge"&gt;&lt;div class="highlight"&gt;&lt;pre class="highlight"&gt;&lt;code&gt;[USER] {OBSERVATION}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class="language-plaintext highlighter-rouge"&gt;&lt;div class="highlight"&gt;&lt;pre class="highlight"&gt;&lt;code&gt;[ASSISTANT] THINK: {THINK} ACTION: {ACTION}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class="language-plaintext highlighter-rouge"&gt;&lt;div class="highlight"&gt;&lt;pre class="highlight"&gt;&lt;code&gt;[USER] {OBSERVATION}. What will you do next? Please respond in the following format: THINK: step-by-step reasoning. ACTION: One valid action from the allowed set.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;We recommend always examining the model’s zero-shot outputs before training. Specifically, evaluate: (1) Whether reasoning paths are diverse, (2) whether the model reasons sufficiently before selecting an action, (3) the ratio of valid actions, and (4) the types of failure cases. These checks ensure the model understands the environment from the prompt. If not, revise the prompt before fine-tuning.&lt;/p&gt;
+
+&lt;h3 id="environment"&gt;Environment&lt;/h3&gt;
+
+&lt;p&gt;Verlog uses a highly abstract game as its testbed, reducing the need for prompt engineering and allowing researchers to focus on algorithmic design. We detail all engineering aspects below:&lt;/p&gt;
+
+&lt;h4 id="valid-action"&gt;Valid Action&lt;/h4&gt;
+
+&lt;p&gt;Improving the valid action ratio through prompt engineering is the simplest and most effective way to boost performance. In our setup, we ensure the model produces valid actions over 95% of the time using the following strategies:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;Hardcoded action translation: Certain invalid actions are frequently produced by zero-shot LLMs (e.g., “Move forward” and “Go forward”). We implement a hand-crafted translation function to map these to valid actions, preventing them from lowering the valid action ratio.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Replace invalid actions with a default action: When the LLM outputs an invalid action, the environment rejects it and executes a predefined default action instead. Simultaneously, we replace the invalid action with the default one before appending it to the history buffer. This prevents the agent from mimicking the invalid action in subsequent steps.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;We observe that truncating the trajectory upon encountering an invalid action leads to worse performance. Replacing invalid actions with a default action yields better results. In this work, we apply a 0.1 penalty to invalid actions. However, with a high valid action ratio, the format penalty has minimal impact on overall performance.&lt;/p&gt;
+
+&lt;h4 id="reward"&gt;Reward&lt;/h4&gt;
+
+&lt;p&gt;Rewards are rule-based and provided by the environment. In BabyAI and BabaIsAI, we adopt a binary trajectory-level reward scheme: 1 for success trajectory, 0 for failure trajectory. Combined with dual-discount GAE, this setup ensures that earlier steps in suboptimal trajectories receive lower credit compared to those in optimal ones. For Crafter, we use the native environment rewards directly.&lt;/p&gt;
+
+&lt;p&gt;We observed a frustrating issue when training on Crafter:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;the score improvement mainly comes from reinforcing skills that the base model already possessed, rather than learning new skills. For example, before fine-tuning, agents rarely placed furnace, but after fine-tuning, they successfully place furnace almost every episode. However, skills that were previously unknown, such as crafting an iron sword, remain unlearned even after fine-tuning. This suggests that the current version of RL fails to teach agents new skills on these tasks, instead primarily sharpening the action distribution to favor behaviors with higher immediate rewards.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id="batch-environment-fixed-turn-batching"&gt;Batch Environment (Fixed-Turn Batching)&lt;/h4&gt;
+
+&lt;p&gt;&lt;img src="images/system.jpg" alt="Description" style="max-width:100%; height:auto;" /&gt;&lt;/p&gt;
+
+&lt;p&gt;Our framework supports asynchronous rollouts and works with any environment using the OpenAI Gym interface. Each training batch size is: &lt;code class="language-plaintext highlighter-rouge"&gt;n_env&lt;/code&gt; × &lt;code class="language-plaintext highlighter-rouge"&gt;e_len&lt;/code&gt;, where:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class="language-plaintext highlighter-rouge"&gt;n_env&lt;/code&gt; = number of parallel environments&lt;/li&gt;
+  &lt;li&gt;&lt;code class="language-plaintext highlighter-rouge"&gt;e_len&lt;/code&gt; = episode length per rollout&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Note: &lt;code class="language-plaintext highlighter-rouge"&gt;e_len&lt;/code&gt; can be smaller than the environment’s trajectory length. For example, we set &lt;code class="language-plaintext highlighter-rouge"&gt;e_len = 8&lt;/code&gt; and max trajectory length = 128 in BabyAI. For early truncated trajectories, we leverage the value function to guide the training process. A longer &lt;code class="language-plaintext highlighter-rouge"&gt;e_len&lt;/code&gt; (smaller &lt;code class="language-plaintext highlighter-rouge"&gt;n_env&lt;/code&gt;) often leads to better performance, albeit at the cost of lower token throughput.&lt;/p&gt;
+
+&lt;h3 id="algorithm"&gt;Algorithm&lt;/h3&gt;
+
+&lt;h4 id="dual-discounting-gae"&gt;Dual Discounting GAE&lt;/h4&gt;
+
+&lt;div style="width: 100%;"&gt;
+  &lt;img src="images/algo.gif" style="width: 100%; height: auto;" /&gt;
+&lt;/div&gt;
+
+&lt;p&gt;To incentivize agents to solve tasks with fewer environment steps, we decouple token-level discounting $$(\gamma_{\text{token}}, \lambda_{\text{token}})$$ and step-level $$(\gamma_{\text{step}}, \lambda_{\text{step}})$$. We set:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;$$\gamma_{\text{step}} = 0.99$$, $$\lambda_{\text{step}} = 0.95$$&lt;/li&gt;
+  &lt;li&gt;$$\gamma_{\text{token}} = 1.0$$, $$\lambda_{\text{token}} = 1.0$$&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The GAE is computed recursively:&lt;/p&gt;
+
+&lt;p&gt;$$
+\hat{A}&lt;em&gt;t = \gamma\lambda \hat{A}&lt;/em&gt;{t+1} + \delta_t^V
+$$&lt;/p&gt;
+
+&lt;p&gt;where:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;$$\gamma\lambda = \gamma_{\text{step}} \lambda_{\text{step}}$$, if tokens are from different turns&lt;/li&gt;
+  &lt;li&gt;$$\gamma\lambda = \gamma_{\text{token}} \lambda_{\text{token}}$$, otherwise&lt;/li&gt;
+  &lt;li&gt;and $$\delta_t^V = -V(s_t) + r_t + \gamma V(s_{t+1})$$&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The recursion starts from the last token of the final turn and proceeds backward. Once all tokens in the final turn are processed, we move to the last token of the second-to-last turn, and continue this process recursively. During this process, all state tokens are skipped.
+If a trajectory is truncated at step $$T$$, we store the next state $$s_{T+1}$$ but do not sample $$a_{T+1}$$. Instead, we use the final token of $$s_{T+1}$$ to estimate $$V(s_{T+1})$$, used as the bootstrap value in GAE.&lt;/p&gt;
+
+&lt;h4 id="value-function-estimation"&gt;Value Function Estimation&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;When both $$\gamma$$ and $$\lambda$$ are set to 1.0, the value function serves purely as a baseline in PPO’s advantage estimation. Specifically, the advantage for the $$t$$-th token in the last turn is defined as $$A_{-1,t} = r - V_{-1,t}$$, where $$r$$ is the trajectory reward and $$V_{-1,t}$$ is the value estimate for the $$t$$-th token in the last turn.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;When $$\lambda$$ are less than 1.0, the value function contributes to the GAE objective beyond serving as a simple baseline. For instance, in our setting with $$\lambda_{\text{step}} = 0.95$$, $$\gamma_{\text{token}} = 1.0$$, $$\lambda_{\text{token}} = 1.0$$, and the reward $$r$$ that is zero along the trajectory except at the final turn, the advantage for the $$t$$-th token in the second-to-last turn is given by: $$A_{-2,t} = \gamma_{\text{step}}[\lambda_{\text{step}} r + (1-\lambda_{\text{step}}) V_{-1,0}] - V_{-2,t}$$. This indicates that, in our setting, the value function of the first token in each turn is used to bootstrap the GAE objective for the preceding turn.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;In our setting, the value of the first token of each turn carries more semantic significance than the subsequent tokens, we assign it a higher weight when training the critic network.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id="critic-warmup"&gt;Critic Warmup&lt;/h4&gt;
+
+&lt;p&gt;In our setting, we warm up the critic before fine-tuning, as it is used both for bootstrapping truncated trajectories and for computing GAE. That is, we freeze the actor and update only the critic at the beginning of training. Specifically, We collect &lt;code class="language-plaintext highlighter-rouge"&gt;w_epoch × batch_size&lt;/code&gt; turns of data at the beginning. For each warmup iteration, we compute the GAE objective with current critic, sample one tenth of the collected data, train the critic, and repeat this process for &lt;code class="language-plaintext highlighter-rouge"&gt;w_iter&lt;/code&gt; iterations. We select &lt;code class="language-plaintext highlighter-rouge"&gt;w_epoch = 40&lt;/code&gt; and &lt;code class="language-plaintext highlighter-rouge"&gt;w_iter = 5&lt;/code&gt; in our experiments, and make sure that the critic loss converges to a small value before fine-tuning the actor.&lt;/p&gt;
+
+&lt;h4 id="kl-divergence-in-reward"&gt;KL-Divergence in Reward&lt;/h4&gt;
+
+&lt;p&gt;Adding a KL-divergence term $$KL(\pi\mid\pi_0)$$ in reward stabilizes training. Without it, the policy quickly drifts from $$\pi_0$$ and converges to poor solutions. KL penalty encourage local exploration around $$\pi_0$$ before divergence. We observe an interesting observation related to the KL-Divergence:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Action Hacking: The LLM’s output can be decomposed into a reasoning path and a final action. We plot the average KL-divergence between $$\pi$$ and $$\pi_0$$ for both the reasoning path tokens and the final action tokens. A common failure mode in Crafter arises when the KL divergence of the final action tokens increases significantly faster than that of the reasoning path tokens. In this case, the agent learns to exploit easily accessible rewards early in training by modifying only the final action, without meaningfully improving its underlying reasoning. This leads to poor exploration.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id="conclusion"&gt;Conclusion&lt;/h2&gt;
+
+&lt;p&gt;Verlog solves most of the engineering challenges in building LLM agents for long-horizon, multi-turn tasks. Moving forward, we hope to use this framework to explore core research problems in LLM agents, such as memory design, exploration strategies, value function learning, and handling off-policyness.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;If you find Verlog useful, please consider citing our workshop &lt;a href="https://openreview.net/forum?id=6CE5PLsZdW"&gt;paper&lt;/a&gt;. The full version is coming soon!&lt;/p&gt;
+  &lt;div class="language-plaintext highlighter-rouge"&gt;&lt;div class="highlight"&gt;&lt;pre class="highlight"&gt;&lt;code&gt;@inproceedings{
+chen2025contextlite,
+title={Context-lite Multi-turn Reinforcement Learning for {LLM} Agents},
+author={Wentse Chen and Jiayu Chen and Hao Zhu and Jeff Schneider},
+booktitle={ES-FoMo III: 3rd Workshop on Efficient Systems for Foundation Models},
+year={2025},
+url={https://openreview.net/forum?id=6CE5PLsZdW}
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;  &lt;/div&gt;
+&lt;/blockquote&gt;
+'>
+  <meta property="og:type" content="article">
+  <meta property="og:updated_time" content="2025-08-15T02:45:07+00:00">
+  <meta property="article:published_time" content="2025-08-01T00:00:00+00:00">
+  <meta property="article:modified_time" content="2025-08-15T02:45:07+00:00">
+  <meta name="revised" content="2025-08-15T02:45:07+00:00">
 
 
 <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     
-      "@type": "WebSite",
+      "@type": "BlogPosting",
+      "author": { "@type": "Person", "name": "Verlog - A Multi-turn RL framework for LLM agents" },
+      "datePublished": "2025-08-01T00:00:00+00:00",
+      "dateModified": "2025-08-15T02:45:07+00:00",
     
-    "name": "",
+    "name": "Verlog - A Multi-turn RL framework for LLM agents",
     "description": "Our team at the Department of Data and Systems Engineering, The University of Hong Kong, is dedicated to advancing research in Machine Learning, Sequential Decision Making, and Embodied AI.",
-    "headline": "",
+    "headline": "Verlog - A Multi-turn RL framework for LLM agents",
     "publisher": {
       "@type": "Organization",
       "logo": { "@type": "ImageObject", "url": "/images/icon.png" }
@@ -423,15 +742,23 @@
 
   <section class="background" data-size="1">
     <!--
-  background: ;
+  background: images/logo.png;
   dark: ;
   size: 1;
 -->
 
 
-<h1 class="center"></h1>
+<h1 class="center">Verlog - A Multi-turn RL framework for LLM agents</h1>
 
 <div class="post-info">
+  
+    
+    
+      <span data-tooltip="Author">
+        <i class="icon fa-solid fa-feather-pointed"></i>
+        <span>Wentse Chen</span>
+      </span>
+    
   
 
   
@@ -440,12 +767,29 @@
   
     <span data-tooltip="Originally published on">
       <i class="icon fa-regular fa-calendar"></i>
-      <span>August 15, 2025</span>
+      <span>August 01, 2025</span>
     </span>
   
 
   
+    <span data-tooltip="Last updated on">
+      <i class="icon fa-solid fa-clock-rotate-left"></i>
+      <span>August 15, 2025</span>
+    </span>
+  
 </div>
+
+
+  
+
+
+  <div class="tags" data-link="/blog">
+    
+      <a href="blog?search=%22tag:%20technique%22" class="tag" data-tooltip='Show items with the tag "technique"'>
+        technique
+      </a>
+    
+  </div>
   </section>
 
   
