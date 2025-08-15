@@ -1,5 +1,5 @@
 ---
-title: Verlog: A Multi-turn RL framework for LLM agents
+title: Verlog - A Multi-turn RL framework for LLM agents
 image: images/logo.png
 author: Wentse Chen
 tags: technique
