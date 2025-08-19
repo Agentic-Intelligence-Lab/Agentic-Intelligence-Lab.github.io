@@ -26,4 +26,5 @@ Meet our outstanding team members! Although based in Hong Kong, our team boasts 
 - **Zhekai Wang** (2025.06 -- present) - Peking Univeristy, Bachelor's Candidate in Theoretical and Applied Mechanics
 - **Yuxuan Li** (2025.06 -- present) - Zhejiang University, Bachelor's Candidate in Computer Science
 - **Yinhe Chen** (2025.06 -- present) - Central South University, Bachelor's Candidate in Computer Science
+- **Yang Fu** (2025.07 -- present) - Central South University, Bachelor's Candidate in Software Engineering
 - **Qijun He** (2025.08 -- present) - South University of Science and Technology, Bachelor's Candidate in Computer Science
