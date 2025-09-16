@@ -18,6 +18,8 @@ For the most up-to-date list of publications, please visit our [Google Scholar p
 <span style="background-color: #e3f2fd; color: #1565c0; padding: 2px 6px; border-radius: 3px; font-size: 0.8em;">RT</span> RL Theory | <span style="background-color: #f3e5f5; color: #7b1fa2; padding: 2px 6px; border-radius: 3px; font-size: 0.8em;">RA</span> RL Algorithm | <span style="background-color: #e8f5e8; color: #2e7d32; padding: 2px 6px; border-radius: 3px; font-size: 0.8em;">RAPP</span> RL Application | <span style="background-color: #fff3e0; color: #ef6c00; padding: 2px 6px; border-radius: 3px; font-size: 0.8em;">LLM</span> Large Language Model | <span style="background-color: #fce4ec; color: #c2185b; padding: 2px 6px; border-radius: 3px; font-size: 0.8em;">RO</span> Robotics | <span style="background-color: #f1f8e9; color: #558b2f; padding: 2px 6px; border-radius: 3px; font-size: 0.8em;">GM</span> Generative Model | <span style="background-color: #e0f7fa; color: #00838f; padding: 2px 6px; border-radius: 3px; font-size: 0.8em;">FU</span> Fusion
 
 ### Preprints and In-Submission Works:
+1. Chongyu Zhu, Mithun Vanniasinghe, Jiayu Chen, Chi-Guhn Lee, “Offline Discovery of Interpretable Skills from Multi-Task Trajectories”, submitted to IEEE International Conference on Robotics & Automation (ICRA), 2026. <span style="background-color: #f3e5f5; color: #7b1fa2; padding: 2px 6px; border-radius: 3px; font-size: 0.8em;">RA</span> <span style="background-color: #fce4ec; color: #c2185b; padding: 2px 6px; border-radius: 3px; font-size: 0.8em;">RO</span>
+
 1. Yiming Wang, Kaiyan Zhao, Ming Yang, Yan Li, Furui Liu, Jiayu Chen, and Leong Hou U, "DSAP: Enhancing Generalization in Goal-Conditioned Reinforcement Learning", submitted to Annual AAAI Conference on Artificial Intelligence (AAAI), 2026. <span style="background-color: #f3e5f5; color: #7b1fa2; padding: 2px 6px; border-radius: 3px; font-size: 0.8em;">RA</span> <span style="background-color: #e3f2fd; color: #1565c0; padding: 2px 6px; border-radius: 3px; font-size: 0.8em;">RT</span>
 
 1. Yiming Wang, Kaiyan Zhao, Xu Li, Yan Li, Jiayu Chen, Steven Morad, and Leong Hou U, “Explore to Learn: Latent Exploration through Disentangled Synergy Patterns for Reinforcement Learning in Overactuated Control”, submitted to Annual AAAI Conference on Artificial Intelligence (AAAI), 2026. <span style="background-color: #e8f5e8; color: #2e7d32; padding: 2px 6px; border-radius: 3px; font-size: 0.8em;">RAPP</span> <span style="background-color: #fce4ec; color: #c2185b; padding: 2px 6px; border-radius: 3px; font-size: 0.8em;">RO</span>
@@ -25,10 +27,6 @@ For the most up-to-date list of publications, please visit our [Google Scholar p
 1. Jiayu Chen, Le Xu, Wentse Chen, and Jeff Schneider, "[Bayes Adaptive Monte Carlo Tree Search for Offline Model-based Reinforcement Learning](https://arxiv.org/abs/2410.11234)", submitted to Annual AAAI Conference on Artificial Intelligence (AAAI), 2026. <span style="background-color: #f3e5f5; color: #7b1fa2; padding: 2px 6px; border-radius: 3px; font-size: 0.8em;">RA</span> <span style="background-color: #e0f7fa; color: #00838f; padding: 2px 6px; border-radius: 3px; font-size: 0.8em;">FU</span>
 
 1. Wentse Chen, Yuxuan Li, Shiyu Huang, Jiayu Chen, and Jeff Schneider, "[ME-IGM: Individual-Global-Max in Maximum Entropy Multi-Agent Reinforcement Learning](http://arxiv.org/abs/2406.13930)", submitted to Annual AAAI Conference on Artificial Intelligence (AAAI), 2026. <span style="background-color: #f3e5f5; color: #7b1fa2; padding: 2px 6px; border-radius: 3px; font-size: 0.8em;">RA</span>
-
-1. Ricardo Shousha, Hiro Farre, Peter Steiner, Jaemin Seo, Rohit Sonker, Jiayu Chen, Keith Erickson, Andy Rothstein, SangKyeun Kim, Z.A. Xing, Suk-Ho Hong, Yilun Zhu, and Egemen Kolemen, "Toward ITER-Relevant Robust Plasma Profile Control Using AI-Based RTCAKENN in Diagnostically Challenged Environments", submitted to Annual Meeting of the APS Division of Plasma Physics (APS-DPP), 2025. <span style="background-color: #f1f8e9; color: #558b2f; padding: 2px 6px; border-radius: 3px; font-size: 0.8em;">GM</span> <span style="background-color: #e0f7fa; color: #00838f; padding: 2px 6px; border-radius: 3px; font-size: 0.8em;">FU</span>
-
-1. Rohit Sonker, Hiro Farre, Jiayu Chen, Andy Rothstein, Aravind Venugopal, Namrata Deka, Ian Char, Ricardo Shousha, Egemen Kolemen, and Jeff Schneider, "Offline Reinforcement Learning for Rotation and Density Profile Control in Tokamaks", submitted to Annual Meeting of the APS Division of Plasma Physics (APS-DPP), 2025. <span style="background-color: #e8f5e8; color: #2e7d32; padding: 2px 6px; border-radius: 3px; font-size: 0.8em;">RAPP</span> <span style="background-color: #e0f7fa; color: #00838f; padding: 2px 6px; border-radius: 3px; font-size: 0.8em;">FU</span>
 
 1. Mingqi Yuan, Tao Yu, Wenqi Ge, Xiuyong Yao, Dapeng Li, Huijiang Wang, Jiayu Chen, Xin Jin, Bo Li, Hua Chen, Wei Zhang, and Wenjun Zeng, "[Behavior Foundation Model: Towards Next-Generation Whole-Body Control System of Humanoid Robots](https://arxiv.org/pdf/2506.20487)", submitted to IEEE Transactions on Pattern Analysis and Machine Intelligence (TPAMI). <span style="background-color: #fce4ec; color: #c2185b; padding: 2px 6px; border-radius: 3px; font-size: 0.8em;">RO</span> <span style="background-color: #e8f5e8; color: #2e7d32; padding: 2px 6px; border-radius: 3px; font-size: 0.8em;">RAPP</span>
 
@@ -51,7 +49,11 @@ For the most up-to-date list of publications, please visit our [Google Scholar p
 1. Aravind Venugopal, Jiayu Chen, Chongyi Zheng, Benjamin Eysenbach, and Jeff Schneider, "Deep Occupancy Gradients: Reinforcement Learning as Value-Aware World Model Learning", in progress. <span style="background-color: #f3e5f5; color: #7b1fa2; padding: 2px 6px; border-radius: 3px; font-size: 0.8em;">RA</span>
 
 
-### Workshop Papers:
+### Workshop Papers (without proceedings):
+
+1. Ricardo Shousha, Hiro Farre, Peter Steiner, Jaemin Seo, Rohit Sonker, Jiayu Chen, Keith Erickson, Andy Rothstein, SangKyeun Kim, Z.A. Xing, Suk-Ho Hong, Yilun Zhu, and Egemen Kolemen, "Toward ITER-Relevant Robust Plasma Profile Control Using AI-Based RTCAKENN in Diagnostically Challenged Environments", Annual Meeting of the APS Division of Plasma Physics (APS-DPP), 2025. <span style="background-color: #f1f8e9; color: #558b2f; padding: 2px 6px; border-radius: 3px; font-size: 0.8em;">GM</span> <span style="background-color: #e0f7fa; color: #00838f; padding: 2px 6px; border-radius: 3px; font-size: 0.8em;">FU</span>
+
+1. Rohit Sonker, Hiro Farre, Jiayu Chen, Andy Rothstein, Aravind Venugopal, Namrata Deka, Ian Char, Ricardo Shousha, Egemen Kolemen, and Jeff Schneider, "Offline Reinforcement Learning for Rotation and Density Profile Control in Tokamaks", Annual Meeting of the APS Division of Plasma Physics (APS-DPP), 2025. <span style="background-color: #e8f5e8; color: #2e7d32; padding: 2px 6px; border-radius: 3px; font-size: 0.8em;">RAPP</span> <span style="background-color: #e0f7fa; color: #00838f; padding: 2px 6px; border-radius: 3px; font-size: 0.8em;">FU</span>
 
 1. Wentse Chen, Jiayu Chen, Hao Zhu, and Jeff Schneider, "Context-lite Multi-turn Reinforcement Learning for LLM Agents", accepted in ICML Workshop on Efficient Systems for Foundation Models, 2025. <span style="background-color: #fff3e0; color: #ef6c00; padding: 2px 6px; border-radius: 3px; font-size: 0.8em;">LLM</span> <span style="background-color: #e8f5e8; color: #2e7d32; padding: 2px 6px; border-radius: 3px; font-size: 0.8em;">RAPP</span>
 
@@ -63,7 +65,8 @@ For the most up-to-date list of publications, please visit our [Google Scholar p
 
 1. Jiayu Chen, Marina Wagdy Wadea Haliem, Tian Lan, and Vaneet Aggarwal, "[Multi-agent Deep Covering Option Discovery](https://arxiv.org/abs/2210.03269)", accepted in ICML Reinforcement Learning for Real Life Workshop, Jul 2021. <span style="background-color: #f3e5f5; color: #7b1fa2; padding: 2px 6px; border-radius: 3px; font-size: 0.8em;">RA</span>
 
-### Conference Papers:
+
+### Conference Papers (with proceedings):
 
 1. Swetha Ganesh, Jiayu Chen, Washim Uddin Mondal, and Vaneet Aggarwal, "[Order-Optimal Global Convergence for Average Reward Actor-Critic with General Policy and Neural Critic Parametrization](https://openreview.net/forum?id=HPxElIejA5)", accepted in Uncertainty in Artificial Intelligence (UAI), 2025. <span style="background-color: #e3f2fd; color: #1565c0; padding: 2px 6px; border-radius: 3px; font-size: 0.8em;">RT</span> 
 
