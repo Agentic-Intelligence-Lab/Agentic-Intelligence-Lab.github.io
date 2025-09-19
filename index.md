@@ -18,6 +18,12 @@ We are interested in advancing the following research areas:
 
 Currently, we have three active research directions: Offline Reinforcement Learning for Controllable Nuclear Fusion, Continual Reinforcement Learning for Humanoid Robotic Control, and Learning-based Ego-centric Evolution within a Multi-agent System, of which more details are provided in the [introduction](http://agentic-intelligence-lab.org/files/research_topics.pdf).  
 
+{% include section.html %}
+
+# News
+
+- 2025-09-19: Two papers accepted at NeurIPS 2025 🎉🎉🎉 
+
 
 {% include section.html %}
 

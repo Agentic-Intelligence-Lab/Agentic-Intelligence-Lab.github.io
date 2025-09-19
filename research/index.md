@@ -36,11 +36,7 @@ For the most up-to-date list of publications, please visit our [Google Scholar p
 
 1. Jiayu Chen, Tian Lan, and Vaneet Aggarwal, "[Hierarchical Deep Counterfactual Regret Minimization](https://arxiv.org/abs/2305.17327)", submitted to Conference on Neural Information Processing Systems (NeurIPS), 2025. <span style="background-color: #f3e5f5; color: #7b1fa2; padding: 2px 6px; border-radius: 3px; font-size: 0.8em;">RA</span> <span style="background-color: #e3f2fd; color: #1565c0; padding: 2px 6px; border-radius: 3px; font-size: 0.8em;">RT</span> 
 
-1. Wentse Chen, Jiayu Chen, Fahim Tajwar, Hao Zhu, Xintong Duan, Russ Salakhutdinov, and Jeff Schneider, "Retrospective In-Context Learning for Temporal Credit Assignment with Large Language Models", submitted to Conference on Neural Information Processing Systems (NeurIPS), 2025. <span style="background-color: #fff3e0; color: #ef6c00; padding: 2px 6px; border-radius: 3px; font-size: 0.8em;">LLM</span>
-
 1. Selina Carter, Jiayu Chen, and Jeff Schneider, "Variance-free Inference of Neural Network Ensembles for Uncertainty Quantification", submitted to Conference on Neural Information Processing Systems (NeurIPS), 2025. <span style="background-color: #f3e5f5; color: #7b1fa2; padding: 2px 6px; border-radius: 3px; font-size: 0.8em;">RA</span> <span style="background-color: #e3f2fd; color: #1565c0; padding: 2px 6px; border-radius: 3px; font-size: 0.8em;">RT</span> 
-
-1. Sizhe Tang, Jiayu Chen, and Tian Lan, "MALinZero: Efficient Low-Dimensional Search for Mastering Complex Multi-Agent Planning", submitted to Conference on Neural Information Processing Systems (NeurIPS), 2025. <span style="background-color: #f3e5f5; color: #7b1fa2; padding: 2px 6px; border-radius: 3px; font-size: 0.8em;">RA</span>
 
 1. Wenyan Xu, Dawei Xiang, Rundong Wang, Yonghong Hu, Jiayu Chen, and Zhonghua Lu, "FTS-Text-MoE: A Financial Time-Series Text Language Model Based on a Mixture of Experts Mechanism", submitted to Empirical Methods in Natural Language Processing (EMNLP), 2025. <span style="background-color: #fff3e0; color: #ef6c00; padding: 2px 6px; border-radius: 3px; font-size: 0.8em;">LLM</span>
 
@@ -69,6 +65,10 @@ For the most up-to-date list of publications, please visit our [Google Scholar p
 
 
 ### Conference Papers (with proceedings):
+
+1. Wentse Chen, Jiayu Chen, Fahim Tajwar, Hao Zhu, Xintong Duan, Russ Salakhutdinov, and Jeff Schneider, "Retrospective In-Context Learning for Temporal Credit Assignment with Large Language Models", accepted in Conference on Neural Information Processing Systems (NeurIPS), 2025. <span style="background-color: #fff3e0; color: #ef6c00; padding: 2px 6px; border-radius: 3px; font-size: 0.8em;">LLM</span>
+
+1. Sizhe Tang, Jiayu Chen, and Tian Lan, "MALinZero: Efficient Low-Dimensional Search for Mastering Complex Multi-Agent Planning", accepted in Conference on Neural Information Processing Systems (NeurIPS), 2025. <span style="background-color: #f3e5f5; color: #7b1fa2; padding: 2px 6px; border-radius: 3px; font-size: 0.8em;">RA</span>
 
 1. Swetha Ganesh, Jiayu Chen, Washim Uddin Mondal, and Vaneet Aggarwal, "[Order-Optimal Global Convergence for Average Reward Actor-Critic with General Policy and Neural Critic Parametrization](https://openreview.net/forum?id=HPxElIejA5)", accepted in Uncertainty in Artificial Intelligence (UAI), 2025. <span style="background-color: #e3f2fd; color: #1565c0; padding: 2px 6px; border-radius: 3px; font-size: 0.8em;">RT</span> 
 
