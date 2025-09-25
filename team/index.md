@@ -22,6 +22,7 @@ Meet our outstanding team members! Although based in Hong Kong, our team boasts 
 
 - **Caihao Sun** (2025.06 -- present) - The University of Hong Kong, Ph.D. Candidate in Faculty of Dentistry
 - **Yichen Zhu** (2025.06 -- present) - Zhejiang University, Master's Candidate in Computer Science
+- **Xiaoquan Sun** (2025.08 -- present) - Huazhong University of Science and Technology, Master's Candidate in Control Science and Engineering
 - **Le Xu** (2025.06 -- present) - Tsinghua University, Bachelor's Candidate in Electrical Engineering 
 - **Zhekai Wang** (2025.06 -- present) - Peking Univeristy, Bachelor's Candidate in Theoretical and Applied Mechanics
 - **Yuxuan Li** (2025.06 -- present) - Zhejiang University, Bachelor's Candidate in Computer Science

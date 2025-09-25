@@ -72,7 +72,7 @@ For the most up-to-date list of publications, please visit our [Google Scholar p
 
 1. Swetha Ganesh, Jiayu Chen, Washim Uddin Mondal, and Vaneet Aggarwal, "[Order-Optimal Global Convergence for Average Reward Actor-Critic with General Policy and Neural Critic Parametrization](https://openreview.net/forum?id=HPxElIejA5)", accepted in Uncertainty in Artificial Intelligence (UAI), 2025. <span style="background-color: #e3f2fd; color: #1565c0; padding: 2px 6px; border-radius: 3px; font-size: 0.8em;">RT</span> 
 
-1. Jiayu Chen, Tian Lan, and Vaneet Aggarwal, "[Variational Offline Multi-agent Skill Discovery](https://arxiv.org/abs/2405.16386)", accepted in International Joint Conferences on Artificial Intelligence (IJCAI), 2025. <span style="background-color: #f3e5f5; color: #7b1fa2; padding: 2px 6px; border-radius: 3px; font-size: 0.8em;">RA</span>
+1. Jiayu Chen, Tian Lan, and Vaneet Aggarwal, "[Variational Offline Multi-agent Skill Discovery](https://arxiv.org/abs/2405.16386)", accepted in International Joint Conferences on Artificial Intelligence (IJCAI), 2025 (**Oral Presentation**). <span style="background-color: #f3e5f5; color: #7b1fa2; padding: 2px 6px; border-radius: 3px; font-size: 0.8em;">RA</span>
 
 1. Chang-Lin Chen, Jiayu Chen, Tian Lan, Elaine Zhao, Hongbo Dong, and Vaneet Aggarwal, "[Rack Position Optimization in Large-Scale Heterogeneous Data Centers](https://arxiv.org/html/2504.00277v1)", accepted in International Conference on Automated Planning and Scheduling (ICAPS), 2025 (**Archival and Oral Presentation**). <span style="background-color: #e8f5e8; color: #2e7d32; padding: 2px 6px; border-radius: 3px; font-size: 0.8em;">RAPP</span>
 
