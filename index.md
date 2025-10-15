@@ -22,7 +22,9 @@ Currently, we have three active research directions: Offline Reinforcement Learn
 
 # News
 
+- 2025-10-09: Our RL-LLM framework Verlog is featured by [JIQIZHIXIN](https://mp.weixin.qq.com/s/jBxNXqqjSnDzEfP5ONyrhA) 🌐🌐🌐
 - 2025-09-19: Two papers accepted at NeurIPS 2025 🎉🎉🎉 
+- 2025-07-22: Our survey on Behavior Foundation Models is featured by [JIQIZHIXIN](https://mp.weixin.qq.com/s/V9zFIZRxjL0GLE7rxNREZQ) 🌐🌐🌐
 
 
 {% include section.html %}
@@ -37,7 +39,7 @@ Currently, we have three active research directions: Offline Reinforcement Learn
 - **Fully funded Ph.D. positions** starting in **Fall 2025** have been taken. 
 - Openings for **self-financed Ph.D. students** and  **research assistants** are available **year-round**.
 - ❗❗❗ We have an available postdoc position in reinforcement learning and robotic learning.
-- ❗❗❗ We need a **remote research intern** for a project to benchmark offline RL and control methods for plasma control in nuclear fusion. Please check this [repo](https://github.com/LucasCJYSDL/Offline-RL-Kit-for-Nuclear-Fusion) for details and reach out to Dr. Jiayu Chen if interested.
+- ❗❗❗ We need several **remote research interns** to work on skill adaptation, real-to-sim, or generattive-model-based RL. Please reach out to Dr. Jiayu Chen if interested.
 
 **Qualifications for Ph.D. and Postdoctoral Researchers:**  
 Candidates should possess **strong proficiency in mathematics or programming, as well as demonstrate self-motivation and resilience**. Applicants with backgrounds in the following areas are highly preferred: Humanoid Robots, Large Language/Reasoning Models, Control Theory, Optimization Theory, Statistical Machine Learning.
