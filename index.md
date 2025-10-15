@@ -39,7 +39,7 @@ Currently, we have three active research directions: Offline Reinforcement Learn
 - **Fully funded Ph.D. positions** starting in **Fall 2025** have been taken. 
 - Openings for **self-financed Ph.D. students** and  **research assistants** are available **year-round**.
 - ❗❗❗ We have an available postdoc position in reinforcement learning and robotic learning.
-- ❗❗❗ We need several **remote research interns** to work on skill adaptation, real-to-sim, or generattive-model-based RL. Please reach out to Dr. Jiayu Chen if interested.
+- ❗❗❗ We need several **remote research interns** to work on skill adaptation, real-to-sim, or generattive-model-based RL. Please reach out to Dr. Jiayu Chen if interested. Our Ph.D. or MPhil candidates are usually selected among research interns.
 
 **Qualifications for Ph.D. and Postdoctoral Researchers:**  
 Candidates should possess **strong proficiency in mathematics or programming, as well as demonstrate self-motivation and resilience**. Applicants with backgrounds in the following areas are highly preferred: Humanoid Robots, Large Language/Reasoning Models, Control Theory, Optimization Theory, Statistical Machine Learning.
