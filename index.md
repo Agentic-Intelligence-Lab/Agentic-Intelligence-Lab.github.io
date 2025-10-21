@@ -22,6 +22,7 @@ Currently, we have three active research directions: Offline Reinforcement Learn
 
 # News
 
+- 2025-10-21: One paper accepted for the AAAI Student Abstract and Poster Program 2026, featuring an oral presentation 🎉🎉🎉
 - 2025-10-09: Our RL-LLM framework Verlog is featured by [JIQIZHIXIN](https://mp.weixin.qq.com/s/jBxNXqqjSnDzEfP5ONyrhA) 🌐🌐🌐
 - 2025-09-19: Two papers accepted at NeurIPS 2025 🎉🎉🎉 
 - 2025-07-22: Our survey on Behavior Foundation Models is featured by [JIQIZHIXIN](https://mp.weixin.qq.com/s/V9zFIZRxjL0GLE7rxNREZQ) 🌐🌐🌐

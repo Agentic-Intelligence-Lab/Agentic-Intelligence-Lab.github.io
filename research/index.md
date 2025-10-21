@@ -35,8 +35,6 @@ For the most up-to-date list of publications, please visit our [Google Scholar p
 
 1. Jiayu Chen, Le Xu, Wentse Chen, and Jeff Schneider, "[Bayes Adaptive Monte Carlo Tree Search for Offline Model-based Reinforcement Learning](https://arxiv.org/abs/2410.11234)", submitted to International Conference on Learning Representations (ICLR), 2026. <span style="background-color: #f3e5f5; color: #7b1fa2; padding: 2px 6px; border-radius: 3px; font-size: 0.8em;">RA</span> <span style="background-color: #e0f7fa; color: #00838f; padding: 2px 6px; border-radius: 3px; font-size: 0.8em;">FU</span>
 
-1. Le Xu and Jiayu Chen, “Enhancing Robustness of Offline Reinforcement Learning Under Data Corruption via Sharpness-Aware Minimization”, submitted to AAAI Student Abstract and Poster Program, 2026. <span style="background-color: #f3e5f5; color: #7b1fa2; padding: 2px 6px; border-radius: 3px; font-size: 0.8em;">RA</span>
-
 1. Chongyu Zhu, Mithun Vanniasinghe, Jiayu Chen, and Chi-Guhn Lee, “Offline Discovery of Interpretable Skills from Multi-Task Trajectories”, submitted to IEEE International Conference on Robotics & Automation (ICRA), 2026. <span style="background-color: #f3e5f5; color: #7b1fa2; padding: 2px 6px; border-radius: 3px; font-size: 0.8em;">RA</span> <span style="background-color: #fce4ec; color: #c2185b; padding: 2px 6px; border-radius: 3px; font-size: 0.8em;">RO</span>
 
 1. Yiming Wang, Kaiyan Zhao, Ming Yang, Yan Li, Furui Liu, Jiayu Chen, and Leong Hou U, "DSAP: Enhancing Generalization in Goal-Conditioned Reinforcement Learning", submitted to Annual AAAI Conference on Artificial Intelligence (AAAI), 2026. <span style="background-color: #f3e5f5; color: #7b1fa2; padding: 2px 6px; border-radius: 3px; font-size: 0.8em;">RA</span> <span style="background-color: #e3f2fd; color: #1565c0; padding: 2px 6px; border-radius: 3px; font-size: 0.8em;">RT</span>
@@ -49,9 +47,9 @@ For the most up-to-date list of publications, please visit our [Google Scholar p
 
 1. Bhargav Ganguly, Abhimanyu Shekhar, Chang-Lin Chen, Jiayu Chen, Vaneet Aggarwal, Shweta Singh, "A Deep Reinforcement Learning Approach for Circular Economy Management", submitted to Nature Sustainability. <span style="background-color: #e8f5e8; color: #2e7d32; padding: 2px 6px; border-radius: 3px; font-size: 0.8em;">RAPP</span>
 
-1. Selina Carter, Jiayu Chen, and Jeff Schneider, "Variance-free Inference of Neural Network Ensembles for Uncertainty Quantification", in progress. <span style="background-color: #f3e5f5; color: #7b1fa2; padding: 2px 6px; border-radius: 3px; font-size: 0.8em;">RA</span> <span style="background-color: #e3f2fd; color: #1565c0; padding: 2px 6px; border-radius: 3px; font-size: 0.8em;">RT</span> 
+1. Wenyan Xu, Dawei Xiang, Rundong Wang, Yonghong Hu, Jiayu Chen, and Zhonghua Lu, "FTS-Text-MoE: A Financial Time-Series Text Language Model Based on a Mixture of Experts Mechanism", submitted to AAAI Workshop on Agentic AI in Financial Services, 2026. <span style="background-color: #fff3e0; color: #ef6c00; padding: 2px 6px; border-radius: 3px; font-size: 0.8em;">LLM</span>
 
-1. Wenyan Xu, Dawei Xiang, Rundong Wang, Yonghong Hu, Jiayu Chen, and Zhonghua Lu, "FTS-Text-MoE: A Financial Time-Series Text Language Model Based on a Mixture of Experts Mechanism", in progress. <span style="background-color: #fff3e0; color: #ef6c00; padding: 2px 6px; border-radius: 3px; font-size: 0.8em;">LLM</span>
+1. Selina Carter, Jiayu Chen, and Jeff Schneider, "Variance-free Inference of Neural Network Ensembles for Uncertainty Quantification", in progress. <span style="background-color: #f3e5f5; color: #7b1fa2; padding: 2px 6px; border-radius: 3px; font-size: 0.8em;">RA</span> <span style="background-color: #e3f2fd; color: #1565c0; padding: 2px 6px; border-radius: 3px; font-size: 0.8em;">RT</span> 
 
 
 ### Workshop Papers (without proceedings):
@@ -72,6 +70,8 @@ For the most up-to-date list of publications, please visit our [Google Scholar p
 
 
 ### Conference Papers (with proceedings):
+
+1. Le Xu and Jiayu Chen, “Enhancing Robustness of Offline Reinforcement Learning Under Data Corruption via Sharpness-Aware Minimization”, accepted in AAAI Student Abstract and Poster Program, 2026 (**Oral Presentation**). <span style="background-color: #f3e5f5; color: #7b1fa2; padding: 2px 6px; border-radius: 3px; font-size: 0.8em;">RA</span>
 
 1. Wentse Chen, Jiayu Chen, Fahim Tajwar, Hao Zhu, Xintong Duan, Russ Salakhutdinov, and Jeff Schneider, "Retrospective In-Context Learning for Temporal Credit Assignment with Large Language Models", accepted in Conference on Neural Information Processing Systems (NeurIPS), 2025. <span style="background-color: #fff3e0; color: #ef6c00; padding: 2px 6px; border-radius: 3px; font-size: 0.8em;">LLM</span>
 
