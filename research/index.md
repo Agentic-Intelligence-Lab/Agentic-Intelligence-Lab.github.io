@@ -19,6 +19,8 @@ For the most up-to-date list of publications, please visit our [Google Scholar p
 
 ### Preprints and In-Submission Works:
 
+1. Xiaoquan sun, Ruijian Zhang, Kang Pang, Bingchen Miao, Yuxiang Tan, Zhen Yang, Jiayu Chen, and Ming Li, "RoboTidy : A 3D Gaussian Splatting Household Tidying Benchmark for Embodied Navigation and Action", submitted to Conference on Computer Vision and Pattern Recognition (CVPR), 2026. <span style="background-color: #fce4ec; color: #c2185b; padding: 2px 6px; border-radius: 3px; font-size: 0.8em;">RO</span> <span style="background-color: #f1f8e9; color: #558b2f; padding: 2px 6px; border-radius: 3px; font-size: 0.8em;">GM</span>
+
 1. Rohit Sonker, Hiro Josep Farre Kaga, Jiayu Chen, Andrew Rothstein, Ian Char, Ricardo Shousha, Egemen Kolemen, and Jeff Schneider, "Offline Reinforcement Learning for Rotation Profile Control in Tokamaks", submitted to Annual Learning for Dynamics and Control Conference (L4DC), 2026. <span style="background-color: #e8f5e8; color: #2e7d32; padding: 2px 6px; border-radius: 3px; font-size: 0.8em;">RAPP</span> <span style="background-color: #e0f7fa; color: #00838f; padding: 2px 6px; border-radius: 3px; font-size: 0.8em;">FU</span>
 
 1. Xudong Wu, Pangpang Liu, Vaneet Aggarwal, and Jiayu Chen, "On the Convergence of Self-Improving Online LLM Alignment", submitted to International Conference on Artificial Intelligence and Statistics (AISTATS), 2026. <span style="background-color: #e3f2fd; color: #1565c0; padding: 2px 6px; border-radius: 3px; font-size: 0.8em;">RT</span> <span style="background-color: #fff3e0; color: #ef6c00; padding: 2px 6px; border-radius: 3px; font-size: 0.8em;">LLM</span>
