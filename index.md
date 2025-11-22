@@ -15,12 +15,9 @@ We are interested in advancing the following research areas:
 - Data-driven Control for Nuclear Fusion.
 - Unified Theoretical Framework for Reinforcement Learning, Optimal Control, and Stochastic Optimization.
 
-<!-- - End-to-end multi-modal learning for Humanoid Robotic Control and its industrial applications.
-- Post-training techniques for Large Language Model agents and their applications in complex reasoning or sequential decision-making tasks.
-- Investigation of scaling laws in sequential decision-making, with particular emphasis on scaling with data (e.g., data-driven decision-making) and computation (e.g., Monte Carlo Tree Search systems like AlphaZero). -->
-<!-- - Artificial General Intelligence grounded in the principles of [The Alberta Plan](http://www.incompleteideas.net/Talks/AlbertaPlan.pdf). -->
+Currently, we have three active research directions: Offline Reinforcement Learning for Controllable Nuclear Fusion, VLAs for Humanoid Robots, and Continual Reinforcement Learning. We aim at the Next-Generation Physical AI. 
 
-Currently, we have three active research directions: Offline Reinforcement Learning for Controllable Nuclear Fusion, VLAs for Humanoid Robots, and Continual Reinforcement Learning. We aim at the Next-Generation Physical AI. Here is an interesting [reading list](https://drive.google.com/drive/folders/1BP8e_H8NX8Xuf-hc4Dbcw1t2H5op7Mx3?usp=sharing).
+<!-- Here is an interesting [reading list](https://drive.google.com/drive/folders/1BP8e_H8NX8Xuf-hc4Dbcw1t2H5op7Mx3?usp=sharing). -->
 
 <!-- and Learning-based Ego-centric Evolution within a Multi-agent System, of which more details are provided in the [introduction](http://agentic-intelligence-lab.org/files/research_topics.pdf).   -->
 
