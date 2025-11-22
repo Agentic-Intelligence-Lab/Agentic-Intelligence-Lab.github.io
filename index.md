@@ -9,19 +9,26 @@ Our team at the Department of Data and Systems Engineering, The University of Ho
 We are interested in advancing the following research areas:  
 
 <!-- - Theoretical foundations, algorithm design, and applications of (Multi-agent) Reinforcement Learning;   -->
-- Development of Robotic Foundation Models. 
-- End-to-end multi-modal learning for Humanoid Robotic Control and its industrial applications.
+- Reinforcement Learning Theory and Algorithm Design.
+- Development of Robotic Foundation Models, including VLA for Humanoid Robots and Generalist Household Robots. 
+- Post-training for Large Language Model Agents.
+- Data-driven Control for Nuclear Fusion.
+- Unified Theoretical Framework for Reinforcement Learning, Optimal Control, and Stochastic Optimization.
+
+<!-- - End-to-end multi-modal learning for Humanoid Robotic Control and its industrial applications.
 - Post-training techniques for Large Language Model agents and their applications in complex reasoning or sequential decision-making tasks.
-- Developing a unified theoretical framework for Reinforcement Learning, Optimal Control, and Stochastic Optimization.
-- Investigation of scaling laws in sequential decision-making, with particular emphasis on scaling with data (e.g., data-driven decision-making) and computation (e.g., Monte Carlo Tree Search systems like AlphaZero).
+- Investigation of scaling laws in sequential decision-making, with particular emphasis on scaling with data (e.g., data-driven decision-making) and computation (e.g., Monte Carlo Tree Search systems like AlphaZero). -->
 <!-- - Artificial General Intelligence grounded in the principles of [The Alberta Plan](http://www.incompleteideas.net/Talks/AlbertaPlan.pdf). -->
 
-Currently, we have three active research directions: Offline Reinforcement Learning for Controllable Nuclear Fusion, Continual Reinforcement Learning for Humanoid Robotic Control, and Learning-based Ego-centric Evolution within a Multi-agent System, of which more details are provided in the [introduction](http://agentic-intelligence-lab.org/files/research_topics.pdf).  
+Currently, we have three active research directions: Offline Reinforcement Learning for Controllable Nuclear Fusion, VLAs for Humanoid Robots, and Continual Reinforcement Learning. We aim at the Next-Generation Physical AI. Here is an interesting [reading list](https://drive.google.com/drive/folders/1BP8e_H8NX8Xuf-hc4Dbcw1t2H5op7Mx3?usp=sharing).
+
+<!-- and Learning-based Ego-centric Evolution within a Multi-agent System, of which more details are provided in the [introduction](http://agentic-intelligence-lab.org/files/research_topics.pdf).   -->
 
 {% include section.html %}
 
 # News
 
+- 2025-11-10: I have joined INFIFORCE as a Principal Research Scientist to lead the research on RoboBrain.
 - 2025-11-08: Two papers accepted at AAAI 2026, and one of them will be presented orally 🎉🎉🎉
 - 2025-10-21: One paper accepted for the AAAI Student Abstract and Poster Program 2026, featuring an oral presentation 🎉🎉🎉
 - 2025-10-09: Our RL-LLM framework Verlog is featured by [JIQIZHIXIN](https://mp.weixin.qq.com/s/jBxNXqqjSnDzEfP5ONyrhA) 🌐🌐🌐
@@ -38,13 +45,14 @@ Currently, we have three active research directions: Offline Reinforcement Learn
 
 <!-- - **Two fully funded Ph.D. positions** starting in **Fall 2025 (as early as July)** -->
 <!-- - Openings for **postdoctoral researchers**, **self-financed Ph.D. students**, **part-time Ph.D. students**, **research assistants**, and **visiting scholars** are available **year-round**  -->
-- **Fully funded Ph.D. positions** starting in **Fall 2025** have been taken. 
+<!-- - **Fully funded Ph.D. positions** starting in **Fall 2026** have been taken.  -->
 - Openings for **self-financed Ph.D. students** and  **research assistants** are available **year-round**.
 - ❗❗❗ We have available positions for (funded) research assistants on World Models and Robotic Foundation Models.
 - ❗❗❗ We need several **remote research interns** to work on skill adaptation, real-to-sim, generative-model-based RL, or auto-deployment of embodiment intelligence. Please reach out to Dr. Jiayu Chen if interested. Our Ph.D. or MPhil candidates are usually selected among research interns.
 
 **Qualifications for Ph.D. and Postdoctoral Researchers:**  
-Candidates should possess **strong proficiency in mathematics or programming, as well as demonstrate self-motivation and resilience**. Applicants with backgrounds in the following areas are highly preferred: Humanoid Robots, Large Language/Reasoning Models, Control Theory, Optimization Theory, Statistical Machine Learning.
+Candidates should possess **strong proficiency in mathematics or programming, as well as demonstrate self-motivation and resilience**. Applicants with backgrounds in the following areas are highly preferred: Humanoid Robots, 
+Large Language/Reasoning Models, Statistical Machine Learning.
 
 For more information, please refer to the respective categories in [openings](https://agentic-intelligence-lab.org/openings/).  
 
