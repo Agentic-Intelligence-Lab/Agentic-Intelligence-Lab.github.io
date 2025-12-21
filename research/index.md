@@ -39,8 +39,6 @@ For the most up-to-date list of publications, please visit our [Google Scholar p
 
 1. Chongyu Zhu, Mithun Vanniasinghe, Jiayu Chen, and Chi-Guhn Lee, “Offline Discovery of Interpretable Skills from Multi-Task Trajectories”, submitted to IEEE International Conference on Robotics & Automation (ICRA), 2026. <span style="background-color: #f3e5f5; color: #7b1fa2; padding: 2px 6px; border-radius: 3px; font-size: 0.8em;">RA</span> <span style="background-color: #fce4ec; color: #c2185b; padding: 2px 6px; border-radius: 3px; font-size: 0.8em;">RO</span>
 
-1. Mingqi Yuan, Tao Yu, Wenqi Ge, Xiuyong Yao, Dapeng Li, Huijiang Wang, Jiayu Chen, Xin Jin, Bo Li, Hua Chen, Wei Zhang, and Wenjun Zeng, "[Behavior Foundation Model: Towards Next-Generation Whole-Body Control System of Humanoid Robots](https://arxiv.org/pdf/2506.20487)", submitted to IEEE Transactions on Pattern Analysis and Machine Intelligence (TPAMI). <span style="background-color: #fce4ec; color: #c2185b; padding: 2px 6px; border-radius: 3px; font-size: 0.8em;">RO</span> <span style="background-color: #e8f5e8; color: #2e7d32; padding: 2px 6px; border-radius: 3px; font-size: 0.8em;">RAPP</span>
-
 1. Bhargav Ganguly, Abhimanyu Shekhar, Chang-Lin Chen, Jiayu Chen, Vaneet Aggarwal, Shweta Singh, "A Deep Reinforcement Learning Approach for Circular Economy Management", submitted to Nature Sustainability. <span style="background-color: #e8f5e8; color: #2e7d32; padding: 2px 6px; border-radius: 3px; font-size: 0.8em;">RAPP</span>
 
 1. Selina Carter, Jiayu Chen, and Jeff Schneider, "Variance-free Inference of Neural Network Ensembles for Uncertainty Quantification", in progress. <span style="background-color: #f3e5f5; color: #7b1fa2; padding: 2px 6px; border-radius: 3px; font-size: 0.8em;">RA</span> <span style="background-color: #e3f2fd; color: #1565c0; padding: 2px 6px; border-radius: 3px; font-size: 0.8em;">RT</span> 
@@ -98,6 +96,8 @@ For the most up-to-date list of publications, please visit our [Google Scholar p
 1. Jilin Mei, Jiayu Chen, Wen Yao, Xijun Zhao, and Huijing Zhao, "[Supervised Learning for Semantic Segmentation of 3D LiDAR Data](https://ieeexplore.ieee.org/abstract/document/8814002)", accepted in IEEE Intelligent Vehicles Symposium (IV), Jun 2019. <span style="background-color: #fce4ec; color: #c2185b; padding: 2px 6px; border-radius: 3px; font-size: 0.8em;">RO</span>
 
 ### Journal Papers:
+
+1. Mingqi Yuan, Tao Yu, Wenqi Ge, Xiuyong Yao, Dapeng Li, Huijiang Wang, Jiayu Chen, Xin Jin, Bo Li, Hua Chen, Wei Zhang, and Wenjun Zeng, "[Behavior Foundation Model: Towards Next-Generation Whole-Body Control System of Humanoid Robots](https://arxiv.org/pdf/2506.20487)", accepted in IEEE Transactions on Pattern Analysis and Machine Intelligence (TPAMI), 2026. <span style="background-color: #fce4ec; color: #c2185b; padding: 2px 6px; border-radius: 3px; font-size: 0.8em;">RO</span> <span style="background-color: #e8f5e8; color: #2e7d32; padding: 2px 6px; border-radius: 3px; font-size: 0.8em;">RAPP</span>
 
 1. Hyunsoo Choi, Jiayu Chen, Vaneet Aggarwal, and Zubin Jacob, "TURBO-RL: Turbulence Mitigation Using Reinforcement Learning for Severe Optical Aberrations", accepted in Optical Society of America A, 2025. <span style="background-color: #e8f5e8; color: #2e7d32; padding: 2px 6px; border-radius: 3px; font-size: 0.8em;">RAPP</span>
 

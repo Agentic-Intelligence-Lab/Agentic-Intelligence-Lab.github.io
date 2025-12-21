@@ -22,6 +22,7 @@ Currently, we have three active research directions: Offline Reinforcement Learn
 {% include section.html %}
 
 # News
+- 2025-12-21: One paper accepted at IEEE TPAMI 🎉🎉🎉
 - 2025-12-19: One paper accepted at AAMAS 2026 and will be presented orally 🎉🎉🎉
 - 2025-12-08: Check the PI's research story at [MIT_Technology_Review](https://www.mittrchina.com/news/detail/15592) 🌐🌐🌐
 - 2025-11-10: I have joined INFIFORCE as a Principal Research Scientist to lead the research on RoboBrain.
