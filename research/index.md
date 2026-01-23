@@ -21,8 +21,6 @@ For the most up-to-date list of publications, please visit our [Google Scholar p
 
 1. Xiaoquan sun, Ruijian Zhang, Kang Pang, Bingchen Miao, Yuxiang Tan, Zhen Yang, Ming Li, and Jiayu Chen, "RoboTidy : A 3D Gaussian Splatting Household Tidying Benchmark for Embodied Navigation and Action", submitted to Conference on Computer Vision and Pattern Recognition (CVPR), 2026. <span style="background-color: #fce4ec; color: #c2185b; padding: 2px 6px; border-radius: 3px; font-size: 0.8em;">RO</span> <span style="background-color: #f1f8e9; color: #558b2f; padding: 2px 6px; border-radius: 3px; font-size: 0.8em;">GM</span>
 
-1. Rohit Sonker, Hiro Josep Farre Kaga, Jiayu Chen, Andrew Rothstein, Ian Char, Ricardo Shousha, Egemen Kolemen, and Jeff Schneider, "Offline Reinforcement Learning for Rotation Profile Control in Tokamaks", submitted to Annual Learning for Dynamics and Control Conference (L4DC), 2026. <span style="background-color: #e8f5e8; color: #2e7d32; padding: 2px 6px; border-radius: 3px; font-size: 0.8em;">RAPP</span> <span style="background-color: #e0f7fa; color: #00838f; padding: 2px 6px; border-radius: 3px; font-size: 0.8em;">FU</span>
-
 1. Xudong Wu, Pangpang Liu, Vaneet Aggarwal, and Jiayu Chen, "On the Convergence of Self-Improving Online LLM Alignment", submitted to International Conference on Artificial Intelligence and Statistics (AISTATS), 2026. <span style="background-color: #e3f2fd; color: #1565c0; padding: 2px 6px; border-radius: 3px; font-size: 0.8em;">RT</span> <span style="background-color: #fff3e0; color: #ef6c00; padding: 2px 6px; border-radius: 3px; font-size: 0.8em;">LLM</span>
 
 1. Yichen Zhu, Weiyu Chen, Zhou Zhao, Jiayu Chen, and James Kwok, "Keep Refining Your Discrete Diffusion Model: A Mixture of Absorbing and Uniform Processes", submitted to International Conference on Learning Representations (ICLR), 2026. <span style="background-color: #fff3e0; color: #ef6c00; padding: 2px 6px; border-radius: 3px; font-size: 0.8em;">LLM</span> <span style="background-color: #f1f8e9; color: #558b2f; padding: 2px 6px; border-radius: 3px; font-size: 0.8em;">GM</span>
@@ -62,6 +60,8 @@ For the most up-to-date list of publications, please visit our [Google Scholar p
 
 
 ### Conference Papers (with proceedings):
+
+1. Rohit Sonker, Hiro Josep Farre Kaga, Jiayu Chen, Andrew Rothstein, Ian Char, Ricardo Shousha, Egemen Kolemen, and Jeff Schneider, "Offline Reinforcement Learning for Rotation Profile Control in Tokamaks", accepted in Annual Learning for Dynamics and Control Conference (L4DC), 2026. <span style="background-color: #e8f5e8; color: #2e7d32; padding: 2px 6px; border-radius: 3px; font-size: 0.8em;">RAPP</span> <span style="background-color: #e0f7fa; color: #00838f; padding: 2px 6px; border-radius: 3px; font-size: 0.8em;">FU</span>
 
 1. Wentse Chen, Yuxuan Li, Shiyu Huang, Jiayu Chen, and Jeff Schneider, "[ME-IGM: Individual-Global-Max in Maximum Entropy Multi-Agent Reinforcement Learning](http://arxiv.org/abs/2406.13930)", accepted in International Conference on Autonomous Agents and Multiagent Systems (AAMAS), 2026 (**Oral Presentation**). <span style="background-color: #f3e5f5; color: #7b1fa2; padding: 2px 6px; border-radius: 3px; font-size: 0.8em;">RA</span>
 
