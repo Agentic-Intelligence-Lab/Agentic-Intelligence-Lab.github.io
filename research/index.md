@@ -27,13 +27,9 @@ For the most up-to-date list of publications, please visit our [Google Scholar p
 
 1. Wentse Chen, Jiayu Chen, Hao Zhu, Fahim Tajwar, Ruslan Salakhutdinov, and Jeff Schneider, "Verlog: An Efficient Synchronized Multi-turn RL Framework for LLM Agents", submitted to International Conference on Learning Representations (ICLR), 2026. <span style="background-color: #fff3e0; color: #ef6c00; padding: 2px 6px; border-radius: 3px; font-size: 0.8em;">LLM</span> <span style="background-color: #f3e5f5; color: #7b1fa2; padding: 2px 6px; border-radius: 3px; font-size: 0.8em;">RA</span> 
 
-1. Aravind Venugopal, Jiayu Chen, Xudong Wu, Chongyi Zheng, Benjamin Eysenbach, and Jeff Schneider, "Occupancy Reward Shaping: Improving Credit Assignment for Offline Goal-Conditioned Reinforcement Learning", submitted to International Conference on Learning Representations (ICLR), 2026. <span style="background-color: #f3e5f5; color: #7b1fa2; padding: 2px 6px; border-radius: 3px; font-size: 0.8em;">RA</span>
-
 1. Jiayu Chen, Zhekai Wang, and Vaneet Aggarwal, "[Hierarchical Deep Counterfactual Regret Minimization](https://arxiv.org/abs/2305.17327)", submitted to International Conference on Learning Representations (ICLR), 2026. <span style="background-color: #f3e5f5; color: #7b1fa2; padding: 2px 6px; border-radius: 3px; font-size: 0.8em;">RA</span> <span style="background-color: #e3f2fd; color: #1565c0; padding: 2px 6px; border-radius: 3px; font-size: 0.8em;">RT</span> 
 
 1. Jiayu Chen, Le Xu, Aravind Venugopal, and Jeff Schneider, "[Policy-Driven World Model Adaptation for Robust Offline Model-based Reinforcement Learning](https://arxiv.org/abs/2505.13709)", submitted to International Conference on Learning Representations (ICLR), 2026. <span style="background-color: #f3e5f5; color: #7b1fa2; padding: 2px 6px; border-radius: 3px; font-size: 0.8em;">RA</span> <span style="background-color: #e0f7fa; color: #00838f; padding: 2px 6px; border-radius: 3px; font-size: 0.8em;">FU</span>
-
-1. Jiayu Chen, Le Xu, Wentse Chen, and Jeff Schneider, "[Bayes Adaptive Monte Carlo Tree Search for Offline Model-based Reinforcement Learning](https://arxiv.org/abs/2410.11234)", submitted to International Conference on Learning Representations (ICLR), 2026. <span style="background-color: #f3e5f5; color: #7b1fa2; padding: 2px 6px; border-radius: 3px; font-size: 0.8em;">RA</span> <span style="background-color: #e0f7fa; color: #00838f; padding: 2px 6px; border-radius: 3px; font-size: 0.8em;">FU</span>
 
 1. Chongyu Zhu, Mithun Vanniasinghe, Jiayu Chen, and Chi-Guhn Lee, “Offline Discovery of Interpretable Skills from Multi-Task Trajectories”, submitted to IEEE International Conference on Robotics & Automation (ICRA), 2026. <span style="background-color: #f3e5f5; color: #7b1fa2; padding: 2px 6px; border-radius: 3px; font-size: 0.8em;">RA</span> <span style="background-color: #fce4ec; color: #c2185b; padding: 2px 6px; border-radius: 3px; font-size: 0.8em;">RO</span>
 
@@ -60,6 +56,10 @@ For the most up-to-date list of publications, please visit our [Google Scholar p
 
 
 ### Conference Papers (with proceedings):
+
+1. Jiayu Chen, Le Xu, Wentse Chen, and Jeff Schneider, "[Bayes Adaptive Monte Carlo Tree Search for Offline Model-based Reinforcement Learning](https://arxiv.org/abs/2410.11234)", accepted in International Conference on Learning Representations (ICLR), 2026. <span style="background-color: #f3e5f5; color: #7b1fa2; padding: 2px 6px; border-radius: 3px; font-size: 0.8em;">RA</span> <span style="background-color: #e0f7fa; color: #00838f; padding: 2px 6px; border-radius: 3px; font-size: 0.8em;">FU</span>
+
+1. Aravind Venugopal, Jiayu Chen, Xudong Wu, Chongyi Zheng, Benjamin Eysenbach, and Jeff Schneider, "Occupancy Reward Shaping: Improving Credit Assignment for Offline Goal-Conditioned Reinforcement Learning", accepted in International Conference on Learning Representations (ICLR), 2026. <span style="background-color: #f3e5f5; color: #7b1fa2; padding: 2px 6px; border-radius: 3px; font-size: 0.8em;">RA</span>
 
 1. Rohit Sonker, Hiro Josep Farre Kaga, Jiayu Chen, Andrew Rothstein, Ian Char, Ricardo Shousha, Egemen Kolemen, and Jeff Schneider, "Offline Reinforcement Learning for Rotation Profile Control in Tokamaks", accepted in Annual Learning for Dynamics and Control Conference (L4DC), 2026. <span style="background-color: #e8f5e8; color: #2e7d32; padding: 2px 6px; border-radius: 3px; font-size: 0.8em;">RAPP</span> <span style="background-color: #e0f7fa; color: #00838f; padding: 2px 6px; border-radius: 3px; font-size: 0.8em;">FU</span>
 

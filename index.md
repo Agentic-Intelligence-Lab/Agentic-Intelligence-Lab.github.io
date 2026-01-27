@@ -22,6 +22,7 @@ Currently, we have three active research directions: Offline Reinforcement Learn
 {% include section.html %}
 
 # News
+- 2026-01-26: Two papers accepted at ICLR 2026 🎉🎉🎉
 - 2026-01-23: One paper on RL for Fusion accepted at L4DC 🎉🎉🎉
 - 2025-12-21: One paper accepted at IEEE TPAMI 🎉🎉🎉
 - 2025-12-19: One paper accepted at AAMAS 2026 and will be presented orally 🎉🎉🎉
