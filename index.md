@@ -47,8 +47,8 @@ Currently, we have three active research directions: Offline Reinforcement Learn
 <!-- - **Fully funded Ph.D. positions** starting in **Fall 2026** have been taken.  -->
 - Openings for **self-financed Ph.D. students** and  **research assistants** are available **year-round**.
 - ❗❗❗ Welcome to apply for summer research interns at our group through this [program](https://gradsch.hku.hk/news_and_events/news_and_future_events/summer-research-programme-2026).
-- ❗❗❗ We have available positions for (funded) research assistants on World Models and Robotic Foundation Models.
-- ❗❗❗ We are actively recruiting self-funded Ph.D. students on LLM agents.
+- ❗❗❗ We have available positions for (funded) research assistants on Video-Action Models.
+- ❗❗❗ We are actively recruiting self-funded Ph.D. students on LLM Agents.
 
 **Qualifications for Ph.D. and Postdoctoral Researchers:**  
 Candidates should possess **strong proficiency in mathematics or programming, as well as demonstrate self-motivation and resilience**. Applicants with backgrounds in the following areas are highly preferred: Humanoid Robots, 
