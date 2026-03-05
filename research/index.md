@@ -19,6 +19,16 @@ For the most up-to-date list of publications, please visit our [Google Scholar p
 
 ### Preprints and In-Submission Works:
 
+1. Xiaoquan Sun*, ZETIAN XU, Chen Cao, Zonghe Liu, Yihan Sun, Jingrui Pang, Ruijian Zhang, Zhen Yang, Kang Pang, Dingxin He, Mingqi Yuan, and Jiayu Chen, "AtomVLA: Scalable Post-Training for Robotic Manipulation via Predictive Latent World Models", submitted to IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS), 2026. <span style="background-color: #fce4ec; color: #c2185b; padding: 2px 6px; border-radius: 3px; font-size: 0.8em;">RO</span> <span style="background-color: #f1f8e9; color: #558b2f; padding: 2px 6px; border-radius: 3px; font-size: 0.8em;">GM</span> <span style="background-color: #e8f5e8; color: #2e7d32; padding: 2px 6px; border-radius: 3px; font-size: 0.8em;">RAPP</span>
+
+1. Ziyi Ding, Xianxin Lai, Weiyu Chen, Xiao-Ping Zhang, and Jiayu Chen, "CausalVAE as a Plug-in for World Models: Towards Reliable Counterfactual Dynamics", submitted to The European Conference on Computer Vision (ECCV), 2026. <span style="background-color: #fce4ec; color: #c2185b; padding: 2px 6px; border-radius: 3px; font-size: 0.8em;">RO</span> <span style="background-color: #f1f8e9; color: #558b2f; padding: 2px 6px; border-radius: 3px; font-size: 0.8em;">GM</span>
+
+1. Caihao Sun, Mingqi Yuan, Shiyuan Wang, Jeff Schneider, and Jiayu Chen, "Vision Transformers that Never Stop Learning", submitted to The European Conference on Computer Vision (ECCV), 2026. <span style="background-color: #f1f8e9; color: #558b2f; padding: 2px 6px; border-radius: 3px; font-size: 0.8em;">GM</span> <span style="background-color: #fce4ec; color: #c2185b; padding: 2px 6px; border-radius: 3px; font-size: 0.8em;">RO</span>
+
+1. Xiaoquan sun, Ruijian Zhang, Kang Pang, Bingchen Miao, Yuxiang Tan, Zhen Yang, Ming Li, and Jiayu Chen, "RoboTidy : A 3D Gaussian Splatting Household Tidying Benchmark for Embodied Navigation and Action", submitted to The European Conference on Computer Vision (ECCV), 2026. <span style="background-color: #fce4ec; color: #c2185b; padding: 2px 6px; border-radius: 3px; font-size: 0.8em;">RO</span> <span style="background-color: #f1f8e9; color: #558b2f; padding: 2px 6px; border-radius: 3px; font-size: 0.8em;">GM</span>
+
+1. Jiayu Chen, Zhekai Wang, Xudong Wu, and Vaneet Aggarwal, "[Hierarchical Deep Counterfactual Regret Minimization](https://arxiv.org/abs/2305.17327)", submitted to Reinforcement Learning Conference (RLC), 2026. <span style="background-color: #f3e5f5; color: #7b1fa2; padding: 2px 6px; border-radius: 3px; font-size: 0.8em;">RA</span> <span style="background-color: #e3f2fd; color: #1565c0; padding: 2px 6px; border-radius: 3px; font-size: 0.8em;">RT</span> 
+
 1. Xudong Wu, Pangpang Liu, Vaneet Aggarwal, and Jiayu Chen, "On the Convergence of Self-Improving Online LLM Alignment", submitted to Uncertainty in Artificial Intelligence (UAI), 2026. <span style="background-color: #e3f2fd; color: #1565c0; padding: 2px 6px; border-radius: 3px; font-size: 0.8em;">RT</span> <span style="background-color: #fff3e0; color: #ef6c00; padding: 2px 6px; border-radius: 3px; font-size: 0.8em;">LLM</span>
 
 1. Mingqi Yuan, Qi Wang, Guozheng Ma, Caihao Sun, Bo Li, Xin Jin, Yunbo Wang, Xiaokang Yang, Wenjun Zeng, Dacheng Tao, and Jiayu Chen, "Plasticine: Accelerating Research in Plasticity-Motivated Deep Reinforcement Learning", submitted to JMLR Machine Learning Open Source Software. <span style="background-color: #f3e5f5; color: #7b1fa2; padding: 2px 6px; border-radius: 3px; font-size: 0.8em;">RA</span>
@@ -35,17 +45,11 @@ For the most up-to-date list of publications, please visit our [Google Scholar p
 
 1. Chongyu Zhu, Mithun Vanniasinghe, Jiayu Chen, and Chi-Guhn Lee, “Offline Discovery of Interpretable Skills from Multi-Task Trajectories”, in progress. <span style="background-color: #f3e5f5; color: #7b1fa2; padding: 2px 6px; border-radius: 3px; font-size: 0.8em;">RA</span> <span style="background-color: #fce4ec; color: #c2185b; padding: 2px 6px; border-radius: 3px; font-size: 0.8em;">RO</span>
 
-1. Caihao Sun, Mingqi Yuan, Shiyuan Wang, Jeff Schneider, and Jiayu Chen, "Vision Transformers that Never Stop Learning", in progress. <span style="background-color: #f1f8e9; color: #558b2f; padding: 2px 6px; border-radius: 3px; font-size: 0.8em;">GM</span> <span style="background-color: #fce4ec; color: #c2185b; padding: 2px 6px; border-radius: 3px; font-size: 0.8em;">RO</span>
-
-1. Xiaoquan sun, Ruijian Zhang, Kang Pang, Bingchen Miao, Yuxiang Tan, Zhen Yang, Ming Li, and Jiayu Chen, "RoboTidy : A 3D Gaussian Splatting Household Tidying Benchmark for Embodied Navigation and Action", in progress. <span style="background-color: #fce4ec; color: #c2185b; padding: 2px 6px; border-radius: 3px; font-size: 0.8em;">RO</span> <span style="background-color: #f1f8e9; color: #558b2f; padding: 2px 6px; border-radius: 3px; font-size: 0.8em;">GM</span>
-
 1. Yichen Zhu, Weiyu Chen, Zhou Zhao, Jiayu Chen, and James Kwok, "Keep Refining Your Discrete Diffusion Model: A Mixture of Absorbing and Uniform Processes", in progress. <span style="background-color: #fff3e0; color: #ef6c00; padding: 2px 6px; border-radius: 3px; font-size: 0.8em;">LLM</span> <span style="background-color: #f1f8e9; color: #558b2f; padding: 2px 6px; border-radius: 3px; font-size: 0.8em;">GM</span>
 
-1. Jiayu Chen, Zhekai Wang, and Vaneet Aggarwal, "[Hierarchical Deep Counterfactual Regret Minimization](https://arxiv.org/abs/2305.17327)", in progress. <span style="background-color: #f3e5f5; color: #7b1fa2; padding: 2px 6px; border-radius: 3px; font-size: 0.8em;">RA</span> <span style="background-color: #e3f2fd; color: #1565c0; padding: 2px 6px; border-radius: 3px; font-size: 0.8em;">RT</span> 
+<!-- 1. Bhargav Ganguly, Abhimanyu Shekhar, Chang-Lin Chen, Jiayu Chen, Vaneet Aggarwal, Shweta Singh, "A Deep Reinforcement Learning Approach for Circular Economy Management", in progress. <span style="background-color: #e8f5e8; color: #2e7d32; padding: 2px 6px; border-radius: 3px; font-size: 0.8em;">RAPP</span>
 
-1. Bhargav Ganguly, Abhimanyu Shekhar, Chang-Lin Chen, Jiayu Chen, Vaneet Aggarwal, Shweta Singh, "A Deep Reinforcement Learning Approach for Circular Economy Management", in progress. <span style="background-color: #e8f5e8; color: #2e7d32; padding: 2px 6px; border-radius: 3px; font-size: 0.8em;">RAPP</span>
-
-1. Selina Carter, Jiayu Chen, and Jeff Schneider, "Variance-free Inference of Neural Network Ensembles for Uncertainty Quantification", in progress. <span style="background-color: #f3e5f5; color: #7b1fa2; padding: 2px 6px; border-radius: 3px; font-size: 0.8em;">RA</span> <span style="background-color: #e3f2fd; color: #1565c0; padding: 2px 6px; border-radius: 3px; font-size: 0.8em;">RT</span> 
+1. Selina Carter, Jiayu Chen, and Jeff Schneider, "Variance-free Inference of Neural Network Ensembles for Uncertainty Quantification", in progress. <span style="background-color: #f3e5f5; color: #7b1fa2; padding: 2px 6px; border-radius: 3px; font-size: 0.8em;">RA</span> <span style="background-color: #e3f2fd; color: #1565c0; padding: 2px 6px; border-radius: 3px; font-size: 0.8em;">RT</span>  -->
 
 
 ### Workshop Papers (without proceedings):
