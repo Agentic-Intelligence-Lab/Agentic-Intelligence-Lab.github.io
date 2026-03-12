@@ -19,6 +19,8 @@ For the most up-to-date list of publications, please visit our [Google Scholar p
 
 ### Preprints and In-Submission Works:
 
+1. Wenqi Ge, Junde Guo, Zhen Fu, Shunpeng Yang, Jiayu Chen, and Hua Chen, "CWI: Composite Humanoid Whole-Body Imitation System for Loco-manipulation", submitted to IEEE Robotics and Automation Letters, 2026. <span style="background-color: #fce4ec; color: #c2185b; padding: 2px 6px; border-radius: 3px; font-size: 0.8em;">RO</span> <span style="background-color: #e8f5e8; color: #2e7d32; padding: 2px 6px; border-radius: 3px; font-size: 0.8em;">RAPP</span>
+
 1. Xiaoquan Sun, Zetian Xu, Chen Cao, Zonghe Liu, Yihan Sun, Jingrui Pang, Ruijian Zhang, Zhen Yang, Kang Pang, Dingxin He, Mingqi Yuan, and Jiayu Chen, "AtomVLA: Scalable Post-Training for Robotic Manipulation via Predictive Latent World Models", submitted to IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS), 2026. <span style="background-color: #fce4ec; color: #c2185b; padding: 2px 6px; border-radius: 3px; font-size: 0.8em;">RO</span> <span style="background-color: #f1f8e9; color: #558b2f; padding: 2px 6px; border-radius: 3px; font-size: 0.8em;">GM</span> <span style="background-color: #e8f5e8; color: #2e7d32; padding: 2px 6px; border-radius: 3px; font-size: 0.8em;">RAPP</span>
 
 1. Ziyi Ding, Xianxin Lai, Weiyu Chen, Xiao-Ping Zhang, and Jiayu Chen, "CausalVAE as a Plug-in for World Models: Towards Reliable Counterfactual Dynamics", submitted to The European Conference on Computer Vision (ECCV), 2026. <span style="background-color: #fce4ec; color: #c2185b; padding: 2px 6px; border-radius: 3px; font-size: 0.8em;">RO</span> <span style="background-color: #f1f8e9; color: #558b2f; padding: 2px 6px; border-radius: 3px; font-size: 0.8em;">GM</span>
