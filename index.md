@@ -3,7 +3,9 @@
 
 # Research Areas
 
-Our team at the Department of Data and Systems Engineering, The University of Hong Kong, specializes in **Learning for Sequential Decision-Making and Robotic Control.**
+Our team at the Department of Data and Systems Engineering, The University of Hong Kong, specializes in *Learning for Sequential Decision-Making and Robotic Control.*
+
+*Our lab aims to solve long-term, challenging, and meaningful real-world research problems.*
 
 
 We are interested in advancing the following research areas:  
@@ -22,6 +24,7 @@ Currently, we have three active research directions: Offline Reinforcement Learn
 {% include section.html %}
 
 # News
+- 2026-02-10: Mithun Vanniasinghe received HKU Presidential PhD Scholarship 🔥🔥🔥
 - 2026-01-26: Two papers accepted at ICLR 2026 🎉🎉🎉
 - 2026-01-23: One paper on RL for Fusion accepted at L4DC 🎉🎉🎉
 - 2025-12-21: One paper accepted at IEEE TPAMI 🎉🎉🎉
