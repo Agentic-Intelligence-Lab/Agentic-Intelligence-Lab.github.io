@@ -24,6 +24,7 @@ Currently, we have three active research directions: Offline Reinforcement Learn
 {% include section.html %}
 
 # News
+- 2026-05-01: One paper accepted at ICML 2026 🎉🎉🎉
 - 2026-02-10: Mithun Vanniasinghe received HKU Presidential PhD Scholarship 🔥🔥🔥
 - 2026-01-26: Two papers accepted at ICLR 2026 🎉🎉🎉
 - 2026-01-23: One paper on RL for Fusion accepted at L4DC 🎉🎉🎉
