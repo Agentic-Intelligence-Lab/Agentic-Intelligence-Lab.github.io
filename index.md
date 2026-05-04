@@ -3,23 +3,19 @@
 
 # Research Areas
 
-Our team at the Department of Data and Systems Engineering, The University of Hong Kong, specializes in *Learning for Sequential Decision-Making and Robotic Control.*
+Our team at the Department of Data and Systems Engineering, The University of Hong Kong, specializes in *Agentic Intelligence*.
 
 *Our lab aims to solve long-term, challenging, and meaningful real-world research problems.*
 
 
 We are interested in advancing the following research areas:  
 
-<!-- - Theoretical foundations, algorithm design, and applications of (Multi-agent) Reinforcement Learning;   -->
+- Development of Robotic Foundation Models. 
+- Agentic Systems built upon Large Language Models.
 - Reinforcement Learning Theory and Algorithm Design.
-- Development of Robotic Foundation Models, including VLA for Humanoid Robots and Generalist Household Robots. 
-- Post-training for Large Language Model Agents.
 - Data-driven Control for Nuclear Fusion.
-- Unified Theoretical Framework for Reinforcement Learning, Optimal Control, and Stochastic Optimization.
 
-Currently, we have three active research directions: Offline Reinforcement Learning for Controllable Nuclear Fusion, VLAs for Humanoid Robots, and Continual Reinforcement Learning. We aim at the Next-Generation Physical AI. Here is an interesting reading [list](https://drive.google.com/drive/folders/1BP8e_H8NX8Xuf-hc4Dbcw1t2H5op7Mx3?usp=sharing).
-
-<!-- and Learning-based Ego-centric Evolution within a Multi-agent System, of which more details are provided in the [introduction](http://agentic-intelligence-lab.org/files/research_topics.pdf).   -->
+Grounded upon Reinforcement Learning, we aim at the Next-Generation Physical AI. Here is an interesting reading [list](https://drive.google.com/drive/folders/1BP8e_H8NX8Xuf-hc4Dbcw1t2H5op7Mx3?usp=sharing).
 
 {% include section.html %}
 
@@ -46,17 +42,11 @@ Currently, we have three active research directions: Offline Reinforcement Learn
 **Current Openings**  
 (If interested, please contact [Dr. Jiayu Chen](https://agentic-intelligence-lab.org/members/jiayu-chen.html) directly. The Ph.D. application system accepts submissions year-round.)  
 
-<!-- - **Two fully funded Ph.D. positions** starting in **Fall 2025 (as early as July)** -->
-<!-- - Openings for **postdoctoral researchers**, **self-financed Ph.D. students**, **part-time Ph.D. students**, **research assistants**, and **visiting scholars** are available **year-round**  -->
-<!-- - **Fully funded Ph.D. positions** starting in **Fall 2026** have been taken.  -->
-- Openings for **self-financed Ph.D. students** and  **research assistants** are available **year-round**.
-- ❗❗❗ Welcome to apply for summer research interns at our group through this [program](https://gradsch.hku.hk/news_and_events/news_and_future_events/summer-research-programme-2026).
-- ❗❗❗ We have available positions for (funded) research assistants on Video-Action Models.
-- ❗❗❗ We are actively recruiting self-funded Ph.D. students on LLM Agents.
+- ❗❗❗ We are actively recruiting Ph.D. students and research assistants on LLM Agents.
 
 **Qualifications for Ph.D. and Postdoctoral Researchers:**  
-Candidates should possess **strong proficiency in mathematics or programming, as well as demonstrate self-motivation and resilience**. Applicants with backgrounds in the following areas are highly preferred: Humanoid Robots, 
-Large Language/Reasoning Models, Statistical Machine Learning.
+Candidates should possess **strong proficiency in mathematics or programming, as well as demonstrate self-motivation and resilience**. Applicants with backgrounds in the following areas are highly preferred: Reinforcement Learing, Robotics, 
+Large Language/Reasoning Models.
 
 For more information, please refer to the respective categories in [openings](https://agentic-intelligence-lab.org/openings/).  
 
