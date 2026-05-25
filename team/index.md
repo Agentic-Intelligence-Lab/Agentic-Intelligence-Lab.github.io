@@ -18,26 +18,33 @@ Meet our outstanding team members! Although based in Hong Kong, our team boasts 
 
 {% include section.html %}
 
-## Research Interns
+## Postdoc
 
-- **Weiyu Chen** (2025.09 -- present) - The University of Hong Kong, MSc in Data and Systems Engineering
-- **Zetian Xu** (2025.09 -- present) - The University of Hong Kong, MSc in Data and Systems Engineering
-- **Xianxin Lai** (2025.09 -- present) - The University of Hong Kong, MSc in Data and Systems Engineering
-- **Zonghe Liu** (2025.09 -- present) - The University of Hong Kong, MSc in Data and Systems Engineering
-- **Bo Chen** (2025.11 -- present) - The University of Hong Kong, MSc in Mechanical Engineering
-- **Chen Cao** (2025.11 -- present) - The University of Hong Kong, Bachelor's Candidate in Electrical and Electronic Engineering
-- **Qixuan Li** (2025.11 -- present) - The University of Hong Kong, Bachelor's Candidate in Computer Science
-- **Liaoyuan Fan** (2025.12 -- present) - The University of Hong Kong, MSc in Computer Science
-- **Ziyi Ding** (2025.12 -- present) - Tsinghua University, Ph.D. Candidate in Data Science
-- **Caihao Sun** (2025.06 -- present) - The University of Hong Kong, Ph.D. Candidate in Faculty of Dentistry
-- **Yichen Zhu** (2025.06 -- present) - Zhejiang University, Master's Candidate in Computer Science
-- **Xiaoquan Sun** (2025.08 -- present) - Huazhong University of Science and Technology, Master's Candidate in Control Science and Engineering
-- **Le Xu** (2025.06 -- present) - Tsinghua University, Bachelor's Candidate in Electrical Engineering 
-- **Yuxuan Li** (2025.06 -- present) - Zhejiang University, Bachelor's Candidate in Computer Science
-- **Yang Fu** (2025.07 -- present) - Central South University, Bachelor's Candidate in Software Engineering
-- **Haomin Bao** (2025.07 -- present) - Chongqing University, Bachelor's Candidate in Computer Science and Technology
-- **Qijun He** (2025.08 -- present) - South University of Science and Technology, Bachelor's Candidate in Computer Science
-- **Mohammad Madadi** (2025.09 -- present) - Shahid Beheshti University, Master's Candidate in Mechanical Engineering
-- **Zhekai Wang** (2025.06 -- 2025.12) - Peking Univeristy, Bachelor's Candidate in Theoretical and Applied Mechanics
-- **Yinhe Chen** (2025.06 -- 2025.12) - Central South University, Bachelor's Candidate in Computer Science
-- **Zeyuan Ren** (2025.09 -- 2025.12) - The Hong Kong Polytechnic University, Bachelor's Candidate in Industrail and Systems Engineering
+- **Shaopeng Liu** (2026.04 -- present, [homepage](https://scholar.google.com/citations?user=OolE29kAAAAJ&hl=zh-CN)) - Ph.D. (Shandong University)
+- **Mingqi Yuan** (2026.05 -- present, [homepage](https://friedrichyuan.github.io/)) - Ph.D. (Hong Kong Polytechnic University)
+
+## Ph.D.
+
+- **Wenqi Ge** (2025.10 -- present, [homepage](https://wenqi-ge.github.io/)) - Master (South University of Science and Technology)
+- **Zhen Yang** (2025.10 -- present, [homepage](https://zcgyang.github.io/)) - Master (Beihang University)
+- **Xudong Wu** (2025.10 -- present, [homepage](https://xudongwu-0.github.io/)) - Bachelor (The University of Edinburgh & Dalian University of Technology)
+- **Le Xu** (starting in 2026.09, [homepage](https://scholar.google.com/citations?user=gE-V4aQAAAAJ&hl=en)) - Bachelor (Tsinghua University)
+
+## Core Research Intern
+
+- **Ziyi Ding** - Tsinghua University, Ph.D. Candidate 
+- **Caihao Sun** - The University of Hong Kong, Ph.D. Candidate
+- **Xiaoquan Sun** - Huazhong University of Science and Technology, Master's Candidate 
+- **Haijier Chen** - Wuhan University, Master's Candidate 
+- **Di Wu** - Tongji University, Master's Candidate 
+- **Huangzhang Hu** - Chinese University of Hong Kong (Shenzhen), Master's Candidate 
+- **Zetian Xu** - The University of Hong Kong, MSc 
+- **Xianxin Lai** - The University of Hong Kong, MSc 
+- **Zonghe Liu** - The University of Hong Kong, MSc 
+- **Bo Chen** - The University of Hong Kong, MSc 
+- **Mingzhe Li** - Beijing Normal-Hong Kong Baptist University, Undergraduate
+- **Chen Cao** - The University of Hong Kong, Undergraduate
+- **Yang Fu** - Central South University, Undergraduate
+- **Jiarun Zhu** - South University of Science and Technology, Undergraduate
+- **Yijun Hong** - South University of Science and Technology, Undergraduate
+- **Qijun He** - South University of Science and Technology, Undergraduate
