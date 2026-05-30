@@ -73,6 +73,7 @@ Continually without Forgetting?](https://arxiv.org/pdf/2605.26820)", in profress
 
 
 ### Workshop Papers (without proceedings):
+1. Tianxin Huang, Jinrui Mai, and Jiayu Chen, "Do VLMs Know What to Do After Failed Actions? A Diagnostic Probe for Embodied Error Recovery", accepted CVPR Workshop on Embodied AI, 2026. (Oral Highlight) <span style="background-color: #ede7f6; color: #4527a0; padding: 2px 6px; border-radius: 3px; font-size: 0.8em;">VLA</span> <span style="background-color: #fce4ec; color: #c2185b; padding: 2px 6px; border-radius: 3px; font-size: 0.8em;">RO</span>
 
 1. Ricardo Shousha, Hiro Farre, Peter Steiner, Jaemin Seo, Rohit Sonker, Jiayu Chen, Keith Erickson, Andy Rothstein, SangKyeun Kim, Z.A. Xing, Suk-Ho Hong, Yilun Zhu, and Egemen Kolemen, "[Toward ITER-Relevant Robust Plasma Profile Control Using AI-Based RTCAKENN in Diagnostically Challenged Environments](http://agentic-intelligence-lab.org/files/PACMAN_SET_MEETING.pdf)", Annual Meeting of the APS Division of Plasma Physics (APS-DPP), 2025.  <span style="background-color: #e0f7fa; color: #00838f; padding: 2px 6px; border-radius: 3px; font-size: 0.8em;">FU</span>
 
