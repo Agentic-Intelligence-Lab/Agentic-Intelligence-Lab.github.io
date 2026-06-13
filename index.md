@@ -20,19 +20,20 @@ Grounded upon Reinforcement Learning, we aim at the Next-Generation Physical AI.
 {% include section.html %}
 
 # News
-- 2026-06-02: One paper accepted at UAI 2026 🎉🎉🎉
-- 2026-05-01: One paper accepted at ICML 2026 🎉🎉🎉
+- 2026-06-13: One paper accepted at RAL (Wenqi) 🎉🎉🎉
+- 2026-06-02: One paper accepted at UAI 2026 (Xudong) 🎉🎉🎉
+- 2026-05-01: One paper accepted at ICML 2026 (XU Le) 🎉🎉🎉
 - 2026-02-10: Mithun Vanniasinghe received HKU Presidential PhD Scholarship 🔥🔥🔥
-- 2026-01-26: Two papers accepted at ICLR 2026 🎉🎉🎉
-- 2026-01-23: One paper on RL for Fusion accepted at L4DC 🎉🎉🎉
-- 2025-12-21: One paper accepted at IEEE TPAMI 🎉🎉🎉
-- 2025-12-19: One paper accepted at AAMAS 2026 and will be presented orally 🎉🎉🎉
+- 2026-01-26: Two papers accepted at ICLR 2026 (Aravind) 🎉🎉🎉
+- 2026-01-23: One paper on RL for Fusion accepted at L4DC (Rohit) 🎉🎉🎉
+- 2025-12-21: One paper accepted at IEEE TPAMI (Mingqi) 🎉🎉🎉
+- 2025-12-19: One paper accepted at AAMAS 2026 and will be presented orally (Wentse) 🎉🎉🎉
 - 2025-12-08: Check the PI's research story at [MIT_Technology_Review](https://www.mittrchina.com/news/detail/15592) 🌐🌐🌐
-- 2025-11-10: I have joined INFIFORCE as a Principal Research Scientist to lead the research on RoboBrain.
-- 2025-11-08: Two papers accepted at AAAI 2026, and one of them will be presented orally 🎉🎉🎉
-- 2025-10-21: One paper accepted for the AAAI Student Abstract and Poster Program 2026, featuring an oral presentation 🎉🎉🎉
+- 2025-11-10: I have joined INFIFORCE as the Chief Research Scientist to lead the research on RoboBrain.
+- 2025-11-08: Two papers accepted at AAAI 2026, and one of them will be presented orally (Yiming) 🎉🎉🎉
+- 2025-10-21: One paper accepted for the AAAI Student Abstract and Poster Program 2026, featuring an oral presentation (XU Le) 🎉🎉🎉
 - 2025-10-09: Our RL-LLM framework Verlog is featured by [JIQIZHIXIN](https://mp.weixin.qq.com/s/jBxNXqqjSnDzEfP5ONyrhA) 🌐🌐🌐
-- 2025-09-19: Two papers accepted at NeurIPS 2025 🎉🎉🎉 
+- 2025-09-19: Two papers accepted at NeurIPS 2025 (Wentse, Sizhe) 🎉🎉🎉 
 - 2025-07-22: Our survey on Behavior Foundation Models is featured by [JIQIZHIXIN](https://mp.weixin.qq.com/s/V9zFIZRxjL0GLE7rxNREZQ) 🌐🌐🌐
 
 
