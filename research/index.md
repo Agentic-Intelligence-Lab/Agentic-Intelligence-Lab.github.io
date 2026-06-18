@@ -44,11 +44,7 @@ For the most up-to-date list of publications, please visit our [Google Scholar p
 
 1. Yiheng Zhang, Yiming Wang, Kaiyan Zhao, Zhenglin Wan, Jiayu Chen, and Leong Hou U, "ANO: A Unified Framework for Robust Policy Optimization", submitted to Conference on Neural Information Processing Systems (NeurIPS), 2026. <span style="background-color: #f3e5f5; color: #7b1fa2; padding: 2px 6px; border-radius: 3px; font-size: 0.8em;">RL</span> <span style="background-color: #fff3e0; color: #ef6c00; padding: 2px 6px; border-radius: 3px; font-size: 0.8em;">LLM</span> <span style="background-color: #fce4ec; color: #c2185b; padding: 2px 6px; border-radius: 3px; font-size: 0.8em;">RO</span>
 
-1. Xiaoquan Sun, Zetian Xu, Chen Cao, Zonghe Liu, Yihan Sun, Jingrui Pang, Ruijian Zhang, Zhen Yang, Kang Pang, Dingxin He, Mingqi Yuan, and Jiayu Chen, "AtomVLA: Scalable Post-Training for Robotic Manipulation via Predictive Latent World Models", submitted to IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS), 2026. <span style="background-color: #fce4ec; color: #c2185b; padding: 2px 6px; border-radius: 3px; font-size: 0.8em;">RO</span>  <span style="background-color: #ede7f6; color: #4527a0; padding: 2px 6px; border-radius: 3px; font-size: 0.8em;">VLA</span> <span style="background-color: #f3e5f5; color: #7b1fa2; padding: 2px 6px; border-radius: 3px; font-size: 0.8em;">RL</span>
-
-1. Ziyi Ding, Xianxin Lai, Weiyu Chen, Xiao-Ping Zhang, and Jiayu Chen, "CausalVAE as a Plug-in for World Models: Towards Reliable Counterfactual Dynamics", submitted to The European Conference on Computer Vision (ECCV), 2026. <span style="background-color: #e8f5e9; color: #1b5e20; padding: 2px 6px; border-radius: 3px; font-size: 0.8em;">WM</span>
-
-1. Caihao Sun, Mingqi Yuan, Shiyuan Wang, and Jiayu Chen, "Vision Transformers that Never Stop Learning", submitted to The European Conference on Computer Vision (ECCV), 2026.  <span style="background-color: #e8eaf6; color: #283593; padding: 2px 6px; border-radius: 3px; font-size: 0.8em;">CL</span>
+1. Caihao Sun, Mingqi Yuan, Shiyuan Wang, and Jiayu Chen, "Vision Transformers that Never Stop Learning", in profress.  <span style="background-color: #e8eaf6; color: #283593; padding: 2px 6px; border-radius: 3px; font-size: 0.8em;">CL</span>
 
 1. Jiarun Zhu, Yijun Hong, Xiaoquan Sun, Zetian Xu, Mingqi Yuan, Zhiyong Wang, Wenjun Zeng, and Jiayu Chen, "[Can VLA Models Learn from Real-World Data
 Continually without Forgetting?](https://arxiv.org/pdf/2605.26820)", in profress. <span style="background-color: #e8eaf6; color: #283593; padding: 2px 6px; border-radius: 3px; font-size: 0.8em;">CL</span> <span style="background-color: #ede7f6; color: #4527a0; padding: 2px 6px; border-radius: 3px; font-size: 0.8em;">VLA</span> <span style="background-color: #fce4ec; color: #c2185b; padding: 2px 6px; border-radius: 3px; font-size: 0.8em;">RO</span> 
@@ -87,6 +83,10 @@ Continually without Forgetting?](https://arxiv.org/pdf/2605.26820)", in profress
 
 
 ### Conference Papers (with proceedings):
+
+1. Ziyi Ding, Xianxin Lai, Weiyu Chen, Xiao-Ping Zhang, and Jiayu Chen, "CausalVAE as a Plug-in for World Models: Towards Reliable Counterfactual Dynamics", accepted in The European Conference on Computer Vision (ECCV), 2026. <span style="background-color: #e8f5e9; color: #1b5e20; padding: 2px 6px; border-radius: 3px; font-size: 0.8em;">WM</span>
+
+1. Xiaoquan Sun, Zetian Xu, Chen Cao, Zonghe Liu, Yihan Sun, Jingrui Pang, Ruijian Zhang, Zhen Yang, Kang Pang, Dingxin He, Mingqi Yuan, and Jiayu Chen, "AtomVLA: Scalable Post-Training for Robotic Manipulation via Predictive Latent World Models", accepted in IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS), 2026. <span style="background-color: #fce4ec; color: #c2185b; padding: 2px 6px; border-radius: 3px; font-size: 0.8em;">RO</span>  <span style="background-color: #ede7f6; color: #4527a0; padding: 2px 6px; border-radius: 3px; font-size: 0.8em;">VLA</span> <span style="background-color: #f3e5f5; color: #7b1fa2; padding: 2px 6px; border-radius: 3px; font-size: 0.8em;">RL</span>
 
 1. Xudong Wu, Pangpang Liu, Vaneet Aggarwal, and Jiayu Chen, "On the Convergence of Self-Improving Online LLM Alignment", accepted in Uncertainty in Artificial Intelligence (UAI), 2026. <span style="background-color: #e3f2fd; color: #1565c0; padding: 2px 6px; border-radius: 3px; font-size: 0.8em;">T</span> <span style="background-color: #fff3e0; color: #ef6c00; padding: 2px 6px; border-radius: 3px; font-size: 0.8em;">LLM</span>
 

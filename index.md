@@ -20,7 +20,9 @@ Grounded upon Reinforcement Learning, we aim at the Next-Generation Physical AI.
 {% include section.html %}
 
 # News
-- 2026-06-13: One paper accepted at RAL (Wenqi) 🎉🎉🎉
+- 2026-06-18: One paper accepted at ECCV (Ziyi) 🎉🎉🎉
+- 2026-06-17: One paper accepted at IEEE IROS (Xiaoquan) 🎉🎉🎉
+- 2026-06-13: One paper accepted at IEEE RAL (Wenqi) 🎉🎉🎉
 - 2026-06-02: One paper accepted at UAI 2026 (Xudong) 🎉🎉🎉
 - 2026-05-01: One paper accepted at ICML 2026 (XU Le) 🎉🎉🎉
 - 2026-02-10: Mithun Vanniasinghe received HKU Presidential PhD Scholarship 🔥🔥🔥
