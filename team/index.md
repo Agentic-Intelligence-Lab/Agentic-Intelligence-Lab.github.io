@@ -37,13 +37,11 @@ Meet our outstanding team members! Although based in Hong Kong, our team boasts 
 - **Xiaoquan Sun** - Huazhong University of Science and Technology, Master's Candidate 
 - **Haijier Chen** - Wuhan University, Master's Candidate 
 - **Di Wu** - Tongji University, Master's Candidate 
-- **Huangzhang Hu** - Chinese University of Hong Kong (Shenzhen), Master's Candidate 
-- **Zetian Xu** - The University of Hong Kong, MSc 
+- **Huanzhang Hu** - Chinese University of Hong Kong (Shenzhen), Master's Candidate 
 - **Xianxin Lai** - The University of Hong Kong, MSc 
 - **Zonghe Liu** - The University of Hong Kong, MSc 
 - **Bo Chen** - The University of Hong Kong, MSc 
 - **Mingzhe Li** - Beijing Normal-Hong Kong Baptist University, Undergraduate
-- **Chen Cao** - The University of Hong Kong, Undergraduate
 - **Yang Fu** - Central South University, Undergraduate
 - **Jiarun Zhu** - South University of Science and Technology, Undergraduate
 - **Yijun Hong** - South University of Science and Technology, Undergraduate
