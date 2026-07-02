@@ -38,6 +38,13 @@ Grounded upon Reinforcement Learning, we aim at the Next-Generation Physical AI.
 - 2025-09-19: Two papers accepted at NeurIPS 2025 (Wentse, Sizhe) 🎉🎉🎉 
 - 2025-07-22: Our survey on Behavior Foundation Models is featured by [JIQIZHIXIN](https://mp.weixin.qq.com/s/V9zFIZRxjL0GLE7rxNREZQ) 🌐🌐🌐
 
+{% include section.html %}
+
+# Fundings
+| Funding Scheme | Research Topic | Duration |
+|----------|---------------|----------------|
+| Early Career Scheme, HK UGC | Skill-Based Continual Reinforcement Learning for Vision-Language-Action Models Empowering Generalist Robotic Agents | 2027/01–2029/12 |
+
 
 {% include section.html %}
 

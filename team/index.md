@@ -41,8 +41,14 @@ Meet our outstanding team members! Although based in Hong Kong, our team boasts 
 - **Xianxin Lai** - The University of Hong Kong, MSc 
 - **Zonghe Liu** - The University of Hong Kong, MSc 
 - **Bo Chen** - The University of Hong Kong, MSc 
+- **Jiahui Chen** - The University of Hong Kong, MSc 
 - **Mingzhe Li** - Beijing Normal-Hong Kong Baptist University, Undergraduate
+- **Yitong Zhang** - Beijing Normal-Hong Kong Baptist University, Undergraduate
 - **Yang Fu** - Central South University, Undergraduate
 - **Jiarun Zhu** - South University of Science and Technology, Undergraduate
 - **Yijun Hong** - South University of Science and Technology, Undergraduate
 - **Qijun He** - South University of Science and Technology, Undergraduate
+
+## Alumni
+
+- **Zetian Xu** - The University of Hong Kong, MSc (RIS), 2025-2026 - Noetix Robotics (Beijing)
