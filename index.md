@@ -41,8 +41,9 @@ Grounded upon Reinforcement Learning, we aim at the Next-Generation Physical AI.
 {% include section.html %}
 
 # Fundings
+
 | Funding Scheme | Research Topic | Duration |
-|----------|---------------|----------------|
+|---|---|---|
 | Early Career Scheme, HK UGC | Skill-Based Continual Reinforcement Learning for Vision-Language-Action Models Empowering Generalist Robotic Agents | 2027/01–2029/12 |
 
 
