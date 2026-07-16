@@ -19,6 +19,16 @@ Grounded upon Reinforcement Learning, we aim at the Next-Generation Physical AI.
 
 {% include section.html %}
 
+# Current Openings
+ 
+(If interested, please contact [Dr. Jiayu Chen](https://agentic-intelligence-lab.org/members/jiayu-chen.html) directly. The Ph.D. application system accepts submissions year-round.)  
+
+- ❗❗❗ We are actively recruiting Postdocs, Ph.D., MPhil, and research assistants on LLM Agents.
+
+For more information, please refer to the respective categories in [openings](https://agentic-intelligence-lab.org/openings/). 
+
+{% include section.html %} 
+
 # News
 - 2026-06-18: One paper accepted at ECCV (Ziyi) 🎉🎉🎉
 - 2026-06-17: One paper accepted at IEEE IROS (Xiaoquan) 🎉🎉🎉
@@ -45,22 +55,6 @@ Grounded upon Reinforcement Learning, we aim at the Next-Generation Physical AI.
 | Funding Scheme | Research Topic | Duration | Role |
 |---|---|---|
 | Early Career Scheme, HK UGC | Skill-Based Continual Reinforcement Learning for Vision-Language-Action Models Empowering Generalist Robotic Agents | 2027/01–2029/12 | PI |
-
-
-{% include section.html %}
-
-# How to join us
-
-**Current Openings**  
-(If interested, please contact [Dr. Jiayu Chen](https://agentic-intelligence-lab.org/members/jiayu-chen.html) directly. The Ph.D. application system accepts submissions year-round.)  
-
-- ❗❗❗ We are actively recruiting Ph.D. students and research assistants on LLM Agents.
-
-**Qualifications for Ph.D. and Postdoctoral Researchers:**  
-Candidates should possess **strong proficiency in mathematics or programming, as well as demonstrate self-motivation and resilience**. Applicants with backgrounds in the following areas are highly preferred: Reinforcement Learing, Robotics, 
-Large Language/Reasoning Models.
-
-For more information, please refer to the respective categories in [openings](https://agentic-intelligence-lab.org/openings/).  
 
 
 <!-- ---
