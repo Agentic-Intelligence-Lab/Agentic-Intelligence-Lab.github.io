@@ -1,4 +1,115 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="http://agentic-intelligence-lab.org/feed.xml" rel="self" type="application/atom+xml" /><link href="http://agentic-intelligence-lab.org/" rel="alternate" type="text/html" /><updated>2026-08-03T14:29:05+00:00</updated><id>http://agentic-intelligence-lab.org/feed.xml</id><title type="html">Agentic Intelligence Lab</title><subtitle>Our team at the Department of Data and Systems Engineering, The University of Hong Kong, is dedicated to advancing research in Machine Learning, Sequential Decision Making, and Embodied AI.</subtitle><entry><title type="html">Verlog - A Multi-turn RL framework for LLM agents</title><link href="http://agentic-intelligence-lab.org/2025/08/15/technical-post.html" rel="alternate" type="text/html" title="Verlog - A Multi-turn RL framework for LLM agents" /><published>2025-08-15T00:00:00+00:00</published><updated>2026-08-03T14:27:19+00:00</updated><id>http://agentic-intelligence-lab.org/2025/08/15/technical-post</id><content type="html" xml:base="http://agentic-intelligence-lab.org/2025/08/15/technical-post.html"><![CDATA[<div style="display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 24px; width: 100%;">
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="http://agentic-intelligence-lab.org/feed.xml" rel="self" type="application/atom+xml" /><link href="http://agentic-intelligence-lab.org/" rel="alternate" type="text/html" /><updated>2026-08-04T12:21:24+00:00</updated><id>http://agentic-intelligence-lab.org/feed.xml</id><title type="html">Agentic Intelligence Lab</title><subtitle>Our team at the Department of Data and Systems Engineering, The University of Hong Kong, is dedicated to advancing research in Machine Learning, Sequential Decision Making, and Embodied AI.</subtitle><entry><title type="html">ROMBRL — Policy-Driven World Model Adaptation for Robust Offline Model-based RL (ICML 2026)</title><link href="http://agentic-intelligence-lab.org/2026/08/04/rombrl-icml2026.html" rel="alternate" type="text/html" title="ROMBRL — Policy-Driven World Model Adaptation for Robust Offline Model-based RL (ICML 2026)" /><published>2026-08-04T00:00:00+00:00</published><updated>2026-08-04T12:19:50+00:00</updated><id>http://agentic-intelligence-lab.org/2026/08/04/rombrl-icml2026</id><content type="html" xml:base="http://agentic-intelligence-lab.org/2026/08/04/rombrl-icml2026.html"><![CDATA[<p>Our paper, <strong>“Policy-Driven World Model Adaptation for Robust Offline Model-based Reinforcement Learning”</strong>, was presented as a <strong>poster at ICML 2026</strong> in Seoul, South Korea. This is joint work between the Agentic Intelligence Lab, Tsinghua University, and the Robotics Institute at Carnegie Mellon University.</p>
+
+<ul>
+  <li><strong>Paper (arXiv):</strong> <a href="https://arxiv.org/abs/2505.13709">arxiv.org/abs/2505.13709</a></li>
+  <li><strong>OpenReview:</strong> <a href="https://openreview.net/forum?id=eB5i7caric">openreview.net/forum?id=eB5i7caric</a></li>
+  <li><strong>Project page (full results, method details, poster):</strong> <a href="https://agentic-intelligence-lab.github.io/ROMBRL/">agentic-intelligence-lab.github.io/ROMBRL</a></li>
+  <li><strong>Code:</strong> <a href="https://github.com/Agentic-Intelligence-Lab/ROMBRL">github.com/Agentic-Intelligence-Lab/ROMBRL</a></li>
+</ul>
+
+<p><a href="/files/rombrl-poster.pdf" target="_blank">
+  <img src="images/rombrl-poster.png" alt="ROMBRL ICML 2026 poster" style="width:100%; max-width:100%; height:auto; border:1px solid #ddd;" />
+</a></p>
+<p style="text-align:center; font-size:0.9em; margin-top:-0.5em;"><em>Our ICML 2026 poster — click for the full-resolution PDF.</em></p>
+
+<h2 id="tldr">TL;DR</h2>
+
+<p>Offline model-based RL (MBRL) usually learns a world model and a policy in two separate stages — first fit the model to maximize data likelihood, then optimize the policy against the fixed model. This mismatch leaves policies brittle: even small amounts of deployment-time noise can wreck performance. We propose <strong>ROMBRL</strong>, which jointly adapts the world model <em>with</em> the policy under a single <strong>constrained maximin objective</strong>, solved via <strong>Stackelberg learning dynamics</strong> with the policy as the leader and the world model as an adversarial follower. ROMBRL comes with a formal suboptimality bound and achieves state-of-the-art robustness on D4RL MuJoCo and stochastic Tokamak Control benchmarks — with almost no cost to clean-environment performance.</p>
+
+<h2 id="why-do-offline-rl-policies-fall-apart-under-a-little-noise">Why Do Offline RL Policies Fall Apart Under a Little Noise?</h2>
+
+<p>Offline MBRL is appealing because it lets us train a policy from a static dataset by rolling it out inside a <em>learned</em> simulator, rather than the real environment — no risky exploration, no expensive interaction. But nearly all existing methods follow the same two-stage recipe: first fit a world model $P_\phi$ to maximize the likelihood of observed transitions, then freeze it (or only mildly adapt it) and optimize the policy $\pi_\theta$ against it.</p>
+
+<p>That split has a quiet cost. The model is trained to <em>explain the data</em>, not to <em>support good policy learning</em> — an objective mismatch that’s easy to miss when you only evaluate in a clean, deterministic simulator. So we asked a more adversarial question: what happens to these policies once the environment doesn’t behave exactly like the simulator? We took a stable of strong offline RL baselines — CQL, EDAC, COMBO, MOBILE, and even RAMBO, which is specifically designed with an adversarial world model — and added just 5% Gaussian noise to state transitions at deployment time. Every one of them lost a substantial chunk of performance. Robustness, it turns out, is not something these methods get for free from good average returns.</p>
+
+<h2 id="the-trick-turn-model-adaptation-into-an-adversarys-move">The Trick: Turn Model Adaptation Into an Adversary’s Move</h2>
+
+<p>If the world model is going to be wrong somewhere, we’d rather it be wrong in a way our policy has already prepared for. That’s the intuition behind <strong>ROMBRL</strong>: instead of treating the world model as a fixed, passive stand-in for the environment, we make it move <em>against</em> the policy during training, so that whatever the policy learns has already survived a worst-case opponent.</p>
+
+<p>Formally, we cast offline MBRL as a constrained maximin problem:</p>
+
+<p>$$\max_\theta J(\theta, \phi’) \quad \text{s.t.} \quad \phi’ \in \arg\min_{\phi \in \Phi} J(\theta, \phi)$$</p>
+
+<p>where $\Phi$ is an uncertainty set of world models anchored to the maximum-likelihood estimate (a KL trust region around what the offline data actually supports — conservatism still matters offline, we’re not letting the model run wild). The policy maximizes its return against the <em>worst</em> model in that set; the model adversarially minimizes it.</p>
+
+<p>We solve this as a <strong>Stackelberg game</strong>: the policy is the <em>leader</em>, the world model is the <em>follower</em> that best-responds to the policy — the mirror image of online MBRL, where the model is usually adapted to help the leader rather than oppose it. Using implicit differentiation through the follower’s best response, we derive primal-dual Stackelberg update rules for $(\theta, \phi, \lambda)$, and make them practical at scale with a few tricks: the <strong>Fisher Information Matrix</strong> stands in for expensive second-order terms, the <strong>Woodbury matrix identity</strong> inverts the resulting low-rank matrix in time linear (not cubic) in the parameter count, and a <strong>gradient-mask mechanism</strong> keeps off-policy replay data from going stale as the model shifts under the policy — a subtlety that RAMBO’s simpler alternating-update scheme overlooks.</p>
+
+<p>This isn’t just an engineering trick, either: Theorem 3.1 gives a formal bound on the resulting policy’s suboptimality gap that shrinks as the offline dataset grows, so the robustness we see empirically has theoretical backing rather than being a happy accident. (We instantiate the bound concretely for both tabular MDPs and continuous MDPs with Gaussian world models — see the <a href="https://agentic-intelligence-lab.github.io/ROMBRL/">project page</a> or Section 3 of the paper for the full statements.)</p>
+
+<h2 id="from-mujoco-to-a-real-fusion-reactor">From MuJoCo to a Real Fusion Reactor</h2>
+
+<p>Gaussian noise on MuJoCo is a convenient stress test, but it’s still synthetic. To find out whether any of this matters outside a benchmark, we went looking for a control problem where the “noise” isn’t something we inject — it’s baked into the physics. Tokamak plasma control was a natural fit: confining and shaping a superheated plasma is a genuinely stochastic process, and we evaluated on tracking tasks (ion rotation, electron density, and $\beta_N$, a key economic indicator for fusion efficiency) built on an ensemble of recurrent dynamics models calibrated to real operational data from DIII-D, a working tokamak in San Diego.</p>
+
+<p>This benchmark is considerably less forgiving than D4RL MuJoCo — several strong model-based baselines (RAMBO, MOBILE, and a Bayes-adaptive MCTS baseline) that look competitive on MuJoCo degrade sharply once the dynamics get genuinely messy. ROMBRL held up: it ranked first on 2 of the 3 tracking targets, second on the third, and had by far the lowest variance across seeds of any method we tested. That gap is the clearest evidence we have that adversarial world-model adaptation isn’t just a MuJoCo party trick — it transfers to the kind of high-stakes, physically-grounded control problem where robustness actually matters.</p>
+
+<h2 id="headline-result">Headline Result</h2>
+
+<p>Across the full D4RL MuJoCo suite (OfflineRL-Kit protocol), ROMBRL matches the best clean-environment performance in the field while losing almost nothing once noise is introduced — where every other baseline gives up 11–27% of its performance:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Metric</th>
+      <th>ROMBRL (ours)</th>
+      <th>CQL</th>
+      <th>EDAC</th>
+      <th>COMBO</th>
+      <th>RAMBO</th>
+      <th>MOBILE</th>
+      <th>RORL</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Standard env.</td>
+      <td>92.8</td>
+      <td>80.4</td>
+      <td>93.0</td>
+      <td>89.3</td>
+      <td>82.7</td>
+      <td>**95.9**</td>
+      <td>89.5</td>
+    </tr>
+    <tr>
+      <td>Noisy env.</td>
+      <td>**93.4**</td>
+      <td>77.5</td>
+      <td>68.3</td>
+      <td>72.2</td>
+      <td>66.0</td>
+      <td>85.3</td>
+      <td>78.7</td>
+    </tr>
+    <tr>
+      <td>Performance drop ↓</td>
+      <td>**-0.6%**</td>
+      <td>3.6%</td>
+      <td>26.6%</td>
+      <td>19.1%</td>
+      <td>20.2%</td>
+      <td>11.1%</td>
+      <td>12.1%</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>That’s the pattern across every benchmark we tried: full D4RL MuJoCo results (12 tasks, ranks first on 7 and second on 4), RWRL-style deployment perturbations (dropped/stuck sensors, mass/friction/damping shifts), the complete Tokamak Control breakdown, and an ablation isolating exactly which piece of the Stackelberg update buys the robustness — all with statistical significance testing (Cohen’s <em>d</em>) — are laid out in full on the <strong><a href="https://agentic-intelligence-lab.github.io/ROMBRL/">project page</a></strong> and in the paper itself.</p>
+
+<h2 id="citation">Citation</h2>
+
+<p>The official PMLR proceedings for ICML 2026 (volume 306) have not been posted yet, so please cite the arXiv version for now — we’ll update this with the final proceedings entry once it’s available:</p>
+
+<div class="language-bibtex highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">@article</span><span class="p">{</span><span class="nl">chen2025rombrl</span><span class="p">,</span>
+  <span class="na">title</span>   <span class="p">=</span> <span class="s">{Policy-Driven World Model Adaptation for Robust Offline Model-based Reinforcement Learning}</span><span class="p">,</span>
+  <span class="na">author</span>  <span class="p">=</span> <span class="s">{Chen, Jiayu and Xu, Le and Venugopal, Aravind and Schneider, Jeff}</span><span class="p">,</span>
+  <span class="na">journal</span> <span class="p">=</span> <span class="s">{arXiv preprint arXiv:2505.13709}</span><span class="p">,</span>
+  <span class="na">year</span>    <span class="p">=</span> <span class="s">{2025}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="acknowledgements">Acknowledgements</h2>
+
+<p>This work was funded in part by the Department of Energy Fusion Energy Sciences under grant DE-SC0024544.</p>]]></content><author><name>Le Xu</name></author><category term="publication" /><category term="offline-rl" /><category term="robustness" /><category term="model-based-rl" /><summary type="html"><![CDATA[Our paper, “Policy-Driven World Model Adaptation for Robust Offline Model-based Reinforcement Learning”, was presented as a poster at ICML 2026 in Seoul, South Korea. This is joint work between the Agentic Intelligence Lab, Tsinghua University, and the Robotics Institute at Carnegie Mellon University.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://agentic-intelligence-lab.org/images/logo.png" /><media:content medium="image" url="http://agentic-intelligence-lab.org/images/logo.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Verlog - A Multi-turn RL framework for LLM agents</title><link href="http://agentic-intelligence-lab.org/2025/08/15/technical-post.html" rel="alternate" type="text/html" title="Verlog - A Multi-turn RL framework for LLM agents" /><published>2025-08-15T00:00:00+00:00</published><updated>2026-08-04T12:19:50+00:00</updated><id>http://agentic-intelligence-lab.org/2025/08/15/technical-post</id><content type="html" xml:base="http://agentic-intelligence-lab.org/2025/08/15/technical-post.html"><![CDATA[<div style="display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 24px; width: 100%;">
   <a href="https://github.com/WentseChen/Verlog" target="_blank" style="text-decoration: none; display: flex; align-items: center;">
     <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/github.svg" alt="GitHub" width="30" height="30" style="vertical-align: middle;" />
     <span style="vertical-align: middle; font-size: 16px; margin-left: 6px;">Source Code</span>
@@ -12,7 +123,7 @@
 
 <p>Verlog is a multi-turn reinforcement learning framework built for <strong>long-horizon LLM-agentic tasks with highly variable episode lengths</strong>. Extending <a href="https://github.com/volcengine/verl">VeRL</a> and <a href="https://github.com/balrog-ai/BALROG">BALROG</a> while following the proven design principles of <a href="https://github.com/ikostrikov/pytorch-a2c-ppo-acktr-gail">pytorch-a2c-ppo-acktr-gail</a>, it introduces specialized optimizations for stable and efficient training when episodes span from short interactions to hundreds of turns. Whereas prior frameworks like <a href="https://github.com/volcengine/verl">VeRL</a> and <a href="https://ragen-ai.github.io">RAGEN</a> effectively handle tasks with ~10 turns, and <a href="https://github.com/langfengQ/verl-agent">verl-agent</a> scales up to 50 turns, Verlog is designed to operate in environments with <strong>over 400 turns</strong>, making it uniquely suited for complex, long-term decision-making. This capability has been validated across challenging domains such as BabyAI, BabaIsAI, and Crafter, where it consistently achieves strong performance out of the box. In Crafter, for instance, episode lengths range from 70 to 400 steps with an average of about 190.</p>
 
-<p>Please kinldly check <a href="https://wentsechen.github.io/Verlog_blogpost/">https://wentsechen.github.io/Verlog_blogpost/</a> for details.</p>]]></content><author><name>Wentse Chen</name></author><category term="technique" /><summary type="html"><![CDATA[Source Code]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://agentic-intelligence-lab.org/images/crafter_zeroshot.gif" /><media:content medium="image" url="http://agentic-intelligence-lab.org/images/crafter_zeroshot.gif" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Available Research Positions at the Agentic Intelligence Lab @ The University of Hong Kong</title><link href="http://agentic-intelligence-lab.org/2025/01/03/hiring-post.html" rel="alternate" type="text/html" title="Available Research Positions at the Agentic Intelligence Lab @ The University of Hong Kong" /><published>2025-01-03T00:00:00+00:00</published><updated>2026-08-03T14:27:19+00:00</updated><id>http://agentic-intelligence-lab.org/2025/01/03/hiring-post</id><content type="html" xml:base="http://agentic-intelligence-lab.org/2025/01/03/hiring-post.html"><![CDATA[<h2 id="about-the-pi">About the PI</h2>
+<p>Please kinldly check <a href="https://wentsechen.github.io/Verlog_blogpost/">https://wentsechen.github.io/Verlog_blogpost/</a> for details.</p>]]></content><author><name>Wentse Chen</name></author><category term="technique" /><summary type="html"><![CDATA[Source Code]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://agentic-intelligence-lab.org/images/crafter_zeroshot.gif" /><media:content medium="image" url="http://agentic-intelligence-lab.org/images/crafter_zeroshot.gif" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Available Research Positions at the Agentic Intelligence Lab @ The University of Hong Kong</title><link href="http://agentic-intelligence-lab.org/2025/01/03/hiring-post.html" rel="alternate" type="text/html" title="Available Research Positions at the Agentic Intelligence Lab @ The University of Hong Kong" /><published>2025-01-03T00:00:00+00:00</published><updated>2026-08-04T12:19:50+00:00</updated><id>http://agentic-intelligence-lab.org/2025/01/03/hiring-post</id><content type="html" xml:base="http://agentic-intelligence-lab.org/2025/01/03/hiring-post.html"><![CDATA[<h2 id="about-the-pi">About the PI</h2>
 
 <p>Jiayu Chen (陈佳玉) is an incoming Tenure-Track Assistant Professor at the <a href="https://www.dase.hku.hk/">Department of Data and Systems Engineering, The University of Hong Kong</a>. Currently, he is a Postdoctoral Fellow at the <a href="https://www.cs.cmu.edu/">School of Computer Science, Carnegie Mellon University</a>, working under the supervision of <a href="https://www.cs.cmu.edu/~schneide/">Professor Jeff Schneider</a> on data-driven profile control for nuclear fusion, as part of a joint research program with the <a href="https://control.princeton.edu/">Plasma Control Group, Princeton University</a>.</p>
 
