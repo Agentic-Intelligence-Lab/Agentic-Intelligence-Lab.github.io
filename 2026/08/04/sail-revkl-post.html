@@ -39,46 +39,58 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<title>Verlog - A Multi-turn RL framework for LLM agents | Agentic Intelligence Lab</title>
+<title>SAIL-RevKL: Stable and Provable Self-Improving Online LLM Alignment | Agentic Intelligence Lab</title>
 
 <link rel="icon" href="/images/icon.png">
 
-<meta name="title" content="Verlog - A Multi-turn RL framework for LLM agents">
+<meta name="title" content="SAIL-RevKL: Stable and Provable Self-Improving Online LLM Alignment">
 <meta name="description" content="Our team at the Department of Data and Systems Engineering, The University of Hong Kong, is dedicated to advancing research in Machine Learning, Sequential Decision Making, and Embodied AI.">
 
-<meta property="og:title" content="Verlog - A Multi-turn RL framework for LLM agents">
+<meta property="og:title" content="SAIL-RevKL: Stable and Provable Self-Improving Online LLM Alignment">
 <meta property="og:site_title" content="Agentic Intelligence Lab">
 <meta property="og:description" content="Our team at the Department of Data and Systems Engineering, The University of Hong Kong, is dedicated to advancing research in Machine Learning, Sequential Decision Making, and Embodied AI.">
 <meta property="og:url" content="http://agentic-intelligence-lab.org">
 <meta property="og:image" content="/images/share.jpg">
 <meta property="og:locale" content="en_US">
 
-<meta property="twitter:title" content="Verlog - A Multi-turn RL framework for LLM agents">
+<meta property="twitter:title" content="SAIL-RevKL: Stable and Provable Self-Improving Online LLM Alignment">
 <meta property="twitter:description" content="Our team at the Department of Data and Systems Engineering, The University of Hong Kong, is dedicated to advancing research in Machine Learning, Sequential Decision Making, and Embodied AI.">
 <meta property="twitter:url" content="http://agentic-intelligence-lab.org">
 <meta property="twitter:card" content="summary_large_image">
 <meta property="twitter:image" content="/images/share.jpg">
 
 
-  <meta name="author" content='&lt;div style="display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 24px; width: 100%;"&gt;
-  &lt;a href="https://github.com/WentseChen/Verlog" target="_blank" style="text-decoration: none; display: flex; align-items: center;"&gt;
-    &lt;img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/github.svg" alt="GitHub" width="30" height="30" style="vertical-align: middle;" /&gt;
-    &lt;span style="vertical-align: middle; font-size: 16px; margin-left: 6px;"&gt;Source Code&lt;/span&gt;
-  &lt;/a&gt;
+  <meta name="author" content='&lt;p&gt;&lt;a href="https://arxiv.org/abs/2606.31524"&gt;&lt;strong&gt;Paper&lt;/strong&gt;&lt;/a&gt; · &lt;a href="https://github.com/xudongwu-0/SAIL_mujoco"&gt;&lt;strong&gt;MuJoCo Code&lt;/strong&gt;&lt;/a&gt; · &lt;a href="https://github.com/xudongwu-0/SAIL_LLM"&gt;&lt;strong&gt;LLM Code&lt;/strong&gt;&lt;/a&gt;&lt;/p&gt;
 
-  &lt;a href="https://wandb.ai/cwz19/verlog?nw=nwusercwz19" target="_blank" style="text-decoration: none; display: flex; align-items: center;"&gt;
-    &lt;img src="https://raw.githubusercontent.com/wandb/assets/main/wandb-dots-logo.svg" alt="W&amp;amp;B" width="30" height="30" style="vertical-align: middle;" /&gt;
-    &lt;span style="vertical-align: middle; font-size: 16px; margin-left: 6px;"&gt;Experiment Logs&lt;/span&gt;
-  &lt;/a&gt;
-&lt;/div&gt;
+&lt;p&gt;We are excited to share &lt;strong&gt;SAIL-RevKL&lt;/strong&gt;, our work on making self-improving online alignment more stable and theoretically grounded. The paper, &lt;em&gt;On the Convergence of Self-Improving Online LLM Alignment&lt;/em&gt;, has been accepted at &lt;strong&gt;UAI 2026&lt;/strong&gt;.&lt;/p&gt;
 
-&lt;p&gt;Verlog is a multi-turn reinforcement learning framework built for &lt;strong&gt;long-horizon LLM-agentic tasks with highly variable episode lengths&lt;/strong&gt;. Extending &lt;a href="https://github.com/volcengine/verl"&gt;VeRL&lt;/a&gt; and &lt;a href="https://github.com/balrog-ai/BALROG"&gt;BALROG&lt;/a&gt; while following the proven design principles of &lt;a href="https://github.com/ikostrikov/pytorch-a2c-ppo-acktr-gail"&gt;pytorch-a2c-ppo-acktr-gail&lt;/a&gt;, it introduces specialized optimizations for stable and efficient training when episodes span from short interactions to hundreds of turns. Whereas prior frameworks like &lt;a href="https://github.com/volcengine/verl"&gt;VeRL&lt;/a&gt; and &lt;a href="https://ragen-ai.github.io"&gt;RAGEN&lt;/a&gt; effectively handle tasks with ~10 turns, and &lt;a href="https://github.com/langfengQ/verl-agent"&gt;verl-agent&lt;/a&gt; scales up to 50 turns, Verlog is designed to operate in environments with &lt;strong&gt;over 400 turns&lt;/strong&gt;, making it uniquely suited for complex, long-term decision-making. This capability has been validated across challenging domains such as BabyAI, BabaIsAI, and Crafter, where it consistently achieves strong performance out of the box. In Crafter, for instance, episode lengths range from 70 to 400 steps with an average of about 190.&lt;/p&gt;
+&lt;h2 id="why-online-alignment"&gt;Why Online Alignment?&lt;/h2&gt;
 
-&lt;p&gt;Please kindly check &lt;a href="https://wentsechen.github.io/Verlog_blogpost/"&gt;https://wentsechen.github.io/Verlog_blogpost/&lt;/a&gt; for details.&lt;/p&gt;
+&lt;p&gt;Most language-model alignment methods learn from a fixed preference dataset. While this approach is simple and effective, the dataset may not fully represent the responses produced by the model as it continues to improve.&lt;/p&gt;
+
+&lt;p&gt;Online alignment creates a continuous feedback loop: the current model generates new responses, receives fresh preference feedback, and then learns from that feedback. &lt;a href="https://arxiv.org/abs/2406.15567"&gt;SAIL&lt;/a&gt; is an efficient framework for this setting, but an important question remained open: &lt;strong&gt;will its learning process converge reliably?&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h2 id="our-approach-sail-revkl"&gt;Our Approach: SAIL-RevKL&lt;/h2&gt;
+
+&lt;p&gt;We find that the original SAIL objective can have an unfavorable optimization landscape, which may make training unstable outside a local region. To address this issue, we introduce &lt;strong&gt;SAIL-RevKL&lt;/strong&gt;, a simple extension that adds a reverse KL regularization term.&lt;/p&gt;
+
+&lt;p&gt;Intuitively, the reverse KL term acts as a guardrail. It keeps the updated policy anchored to a stable reference policy while still allowing the model to learn from new preference feedback. This small change makes the learning problem easier to optimize and allows us to establish a global convergence guarantee within a bounded parameter space.&lt;/p&gt;
+
+&lt;h2 id="main-highlights"&gt;Main Highlights&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;We explain why vanilla SAIL only has favorable convergence properties locally.&lt;/li&gt;
+  &lt;li&gt;We introduce reverse KL regularization as a simple way to stabilize SAIL.&lt;/li&gt;
+  &lt;li&gt;We establish a global convergence guarantee with near-linear sample complexity under standard assumptions.&lt;/li&gt;
+  &lt;li&gt;We show improved training stability and performance on both continuous-control benchmarks and LLM alignment tasks.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;We evaluate SAIL-RevKL on Door Open, Walker Walk, Walker Stand, and Cheetah Run, as well as LLM alignment experiments using PKU-SafeRLHF and UltraFeedback. Across these settings, SAIL-RevKL consistently improves upon vanilla SAIL, showing that the reverse KL term is useful both theoretically and in practice.&lt;/p&gt;
+
 '>
   <meta property="og:type" content="article">
   <meta property="og:updated_time" content="2026-08-04T12:47:56+00:00">
-  <meta property="article:published_time" content="2025-08-15T00:00:00+00:00">
+  <meta property="article:published_time" content="2026-08-04T00:00:00+00:00">
   <meta property="article:modified_time" content="2026-08-04T12:47:56+00:00">
   <meta name="revised" content="2026-08-04T12:47:56+00:00">
 
@@ -88,13 +100,13 @@
     "@context": "https://schema.org",
     
       "@type": "BlogPosting",
-      "author": { "@type": "Person", "name": "Verlog - A Multi-turn RL framework for LLM agents" },
-      "datePublished": "2025-08-15T00:00:00+00:00",
+      "author": { "@type": "Person", "name": "SAIL-RevKL: Stable and Provable Self-Improving Online LLM Alignment" },
+      "datePublished": "2026-08-04T00:00:00+00:00",
       "dateModified": "2026-08-04T12:47:56+00:00",
     
-    "name": "Verlog - A Multi-turn RL framework for LLM agents",
+    "name": "SAIL-RevKL: Stable and Provable Self-Improving Online LLM Alignment",
     "description": "Our team at the Department of Data and Systems Engineering, The University of Hong Kong, is dedicated to advancing research in Machine Learning, Sequential Decision Making, and Embodied AI.",
-    "headline": "Verlog - A Multi-turn RL framework for LLM agents",
+    "headline": "SAIL-RevKL: Stable and Provable Self-Improving Online LLM Alignment",
     "publisher": {
       "@type": "Organization",
       "logo": { "@type": "ImageObject", "url": "/images/icon.png" }
@@ -445,13 +457,13 @@
 
   <section class="background" data-size="1">
     <!--
-  background: images/crafter_zeroshot.gif;
+  background: images/logo.png;
   dark: ;
   size: 1;
 -->
 
 
-<h1 class="center">Verlog - A Multi-turn RL framework for LLM agents</h1>
+<h1 class="center">SAIL-RevKL: Stable and Provable Self-Improving Online LLM Alignment</h1>
 
 <div class="post-info">
   
@@ -459,7 +471,7 @@
     
       <span data-tooltip="Author">
         <i class="icon fa-solid fa-feather-pointed"></i>
-        <span>Wentse Chen</span>
+        <span>Xudong Wu</span>
       </span>
     
   
@@ -470,15 +482,10 @@
   
     <span data-tooltip="Originally published on">
       <i class="icon fa-regular fa-calendar"></i>
-      <span>August 15, 2025</span>
+      <span>August 04, 2026</span>
     </span>
   
 
-  
-    <span data-tooltip="Last updated on">
-      <i class="icon fa-solid fa-clock-rotate-left"></i>
-      <span>August 04, 2026</span>
-    </span>
   
 </div>
 
@@ -507,21 +514,32 @@
 -->
 
 
-<div style="display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 24px; width: 100%;">
-  <a href="https://github.com/WentseChen/Verlog" target="_blank" style="text-decoration: none; display: flex; align-items: center;">
-    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/github.svg" alt="GitHub" width="30" height="30" style="vertical-align: middle;">
-    <span style="vertical-align: middle; font-size: 16px; margin-left: 6px;">Source Code</span>
-  </a>
+<p><a href="https://arxiv.org/abs/2606.31524"><strong>Paper</strong></a> · <a href="https://github.com/xudongwu-0/SAIL_mujoco"><strong>MuJoCo Code</strong></a> · <a href="https://github.com/xudongwu-0/SAIL_LLM"><strong>LLM Code</strong></a></p>
 
-  <a href="https://wandb.ai/cwz19/verlog?nw=nwusercwz19" target="_blank" style="text-decoration: none; display: flex; align-items: center;">
-    <img src="https://raw.githubusercontent.com/wandb/assets/main/wandb-dots-logo.svg" alt="W&amp;B" width="30" height="30" style="vertical-align: middle;">
-    <span style="vertical-align: middle; font-size: 16px; margin-left: 6px;">Experiment Logs</span>
-  </a>
-</div>
+<p>We are excited to share <strong>SAIL-RevKL</strong>, our work on making self-improving online alignment more stable and theoretically grounded. The paper, <em>On the Convergence of Self-Improving Online LLM Alignment</em>, has been accepted at <strong>UAI 2026</strong>.</p>
 
-<p>Verlog is a multi-turn reinforcement learning framework built for <strong>long-horizon LLM-agentic tasks with highly variable episode lengths</strong>. Extending <a href="https://github.com/volcengine/verl">VeRL</a> and <a href="https://github.com/balrog-ai/BALROG">BALROG</a> while following the proven design principles of <a href="https://github.com/ikostrikov/pytorch-a2c-ppo-acktr-gail">pytorch-a2c-ppo-acktr-gail</a>, it introduces specialized optimizations for stable and efficient training when episodes span from short interactions to hundreds of turns. Whereas prior frameworks like <a href="https://github.com/volcengine/verl">VeRL</a> and <a href="https://ragen-ai.github.io">RAGEN</a> effectively handle tasks with ~10 turns, and <a href="https://github.com/langfengQ/verl-agent">verl-agent</a> scales up to 50 turns, Verlog is designed to operate in environments with <strong>over 400 turns</strong>, making it uniquely suited for complex, long-term decision-making. This capability has been validated across challenging domains such as BabyAI, BabaIsAI, and Crafter, where it consistently achieves strong performance out of the box. In Crafter, for instance, episode lengths range from 70 to 400 steps with an average of about 190.</p>
+<h2 id="why-online-alignment">Why Online Alignment?</h2>
 
-<p>Please kindly check <a href="https://wentsechen.github.io/Verlog_blogpost/">https://wentsechen.github.io/Verlog_blogpost/</a> for details.</p>
+<p>Most language-model alignment methods learn from a fixed preference dataset. While this approach is simple and effective, the dataset may not fully represent the responses produced by the model as it continues to improve.</p>
+
+<p>Online alignment creates a continuous feedback loop: the current model generates new responses, receives fresh preference feedback, and then learns from that feedback. <a href="https://arxiv.org/abs/2406.15567">SAIL</a> is an efficient framework for this setting, but an important question remained open: <strong>will its learning process converge reliably?</strong></p>
+
+<h2 id="our-approach-sail-revkl">Our Approach: SAIL-RevKL</h2>
+
+<p>We find that the original SAIL objective can have an unfavorable optimization landscape, which may make training unstable outside a local region. To address this issue, we introduce <strong>SAIL-RevKL</strong>, a simple extension that adds a reverse KL regularization term.</p>
+
+<p>Intuitively, the reverse KL term acts as a guardrail. It keeps the updated policy anchored to a stable reference policy while still allowing the model to learn from new preference feedback. This small change makes the learning problem easier to optimize and allows us to establish a global convergence guarantee within a bounded parameter space.</p>
+
+<h2 id="main-highlights">Main Highlights</h2>
+
+<ul>
+  <li>We explain why vanilla SAIL only has favorable convergence properties locally.</li>
+  <li>We introduce reverse KL regularization as a simple way to stabilize SAIL.</li>
+  <li>We establish a global convergence guarantee with near-linear sample complexity under standard assumptions.</li>
+  <li>We show improved training stability and performance on both continuous-control benchmarks and LLM alignment tasks.</li>
+</ul>
+
+<p>We evaluate SAIL-RevKL on Door Open, Walker Walk, Walker Stand, and Cheetah Run, as well as LLM alignment experiments using PKU-SafeRLHF and UltraFeedback. Across these settings, SAIL-RevKL consistently improves upon vanilla SAIL, showing that the reverse KL term is useful both theoretically and in practice.</p>
   </section>
 
   
@@ -540,17 +558,12 @@
   <span>
     
       <i class="icon fa-solid fa-angle-left"></i> Previous post<br>
-      <a href="/2025/01/03/hiring-post.html">
-        Available Research Positions at the Agentic Intelligence Lab @ The University of Hong Kong
+      <a href="/2026/08/04/rombrl-post.html">
+        ROMBRL — Policy-Driven World Model Adaptation for Robust Offline Model-based RL (ICML 2026)
       </a>
     
   </span>
   <span>
-    
-      Next post <i class="icon fa-solid fa-angle-right"></i><br>
-      <a href="/2026/08/04/CWI-blog.html">
-        CWI — Composite Humanoid Whole-Body Imitation System for Loco-Manipulation (RA-L 2026)
-      </a>
     
   </span>
 </div>

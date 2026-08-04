@@ -1,0 +1,1275 @@
+<!DOCTYPE html>
+<html lang="en" data-dark="false">
+  <head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <!--
+  put your analytics (e.g. Google Analytics) tracking code here
+-->
+
+  <!--
+  put your search engine verification (e.g. Google Search Console) tag here
+-->
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>CWI — Composite Humanoid Whole-Body Imitation System for Loco-Manipulation (RA-L 2026) | Agentic Intelligence Lab</title>
+
+<link rel="icon" href="/images/icon.png">
+
+<meta name="title" content="CWI — Composite Humanoid Whole-Body Imitation System for Loco-Manipulation (RA-L 2026)">
+<meta name="description" content="Our team at the Department of Data and Systems Engineering, The University of Hong Kong, is dedicated to advancing research in Machine Learning, Sequential Decision Making, and Embodied AI.">
+
+<meta property="og:title" content="CWI — Composite Humanoid Whole-Body Imitation System for Loco-Manipulation (RA-L 2026)">
+<meta property="og:site_title" content="Agentic Intelligence Lab">
+<meta property="og:description" content="Our team at the Department of Data and Systems Engineering, The University of Hong Kong, is dedicated to advancing research in Machine Learning, Sequential Decision Making, and Embodied AI.">
+<meta property="og:url" content="http://agentic-intelligence-lab.org">
+<meta property="og:image" content="/images/share.jpg">
+<meta property="og:locale" content="en_US">
+
+<meta property="twitter:title" content="CWI — Composite Humanoid Whole-Body Imitation System for Loco-Manipulation (RA-L 2026)">
+<meta property="twitter:description" content="Our team at the Department of Data and Systems Engineering, The University of Hong Kong, is dedicated to advancing research in Machine Learning, Sequential Decision Making, and Embodied AI.">
+<meta property="twitter:url" content="http://agentic-intelligence-lab.org">
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:image" content="/images/share.jpg">
+
+
+  <meta name="author" content='&lt;h3 id="one-policy-two-kinds-of-motion-data"&gt;One Policy, Two Kinds of Motion Data&lt;/h3&gt;
+
+&lt;p&gt;&lt;em&gt;Accepted to IEEE Robotics and Automation Letters, June 2026.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Wenqi Ge*, Junde Guo*, Zhen Fu, Shunpeng Yang, Jiayu Chen, Hua Chen&lt;/p&gt;
+
+&lt;p&gt;LimX Dynamics · The University of Hong Kong · SUSTech · HKUST · Zhejiang University&lt;/p&gt;
+
+&lt;p&gt;&lt;sub&gt;*Equal contribution&lt;/sub&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="https://cwi-ral.github.io/CWI-RAL-Webpage/"&gt;Project page&lt;/a&gt; · &lt;a href="https://arxiv.org/abs/2606.27676"&gt;arXiv:2606.27676&lt;/a&gt; · &lt;a href="https://youtu.be/BLckpzHSI0w"&gt;Video (YouTube)&lt;/a&gt; · &lt;a href="https://www.bilibili.com/video/BV1dzKf6GEeH/"&gt;Video (Bilibili)&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src="/images/CWI/fig1-tasks.jpg" alt="Seven real-world loco-manipulation tasks performed by a LimX Oli humanoid under CWI" /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;CWI on a full-size LimX Oli: squatting to pick up toys and drop them in a basket (a-1), standing up and walking off carrying it (a-2), opening a door (b), hanging cups on a rack (c), striking a suspended drum (d), assembling a small part (e), twisting a bottle cap (f).&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;A humanoid that picks a toy off the floor and carries it across the room is solving two problems at once. The legs have to hold a commanded velocity and height while the arms swing the base around. The arms have to reach wherever the operator points, with motion that stays inside what a human body would actually produce. Push hard on one objective and the other tends to give.&lt;/p&gt;
+
+&lt;p&gt;Human motion capture is the obvious source of priors for both halves. That is also where the trouble starts.&lt;/p&gt;
+
+&lt;h2 id="where-full-body-mocap-breaks-down"&gt;Where full-body MoCap breaks down&lt;/h2&gt;
+
+&lt;p&gt;AMASS and similar corpora are not evenly useful across the body. Upper-body trajectories are rich: people reach, gesture, and handle objects in every direction, which is close to what a manipulation policy needs. Lower-body trajectories are another matter.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src="/images/CWI/fig3-amass-distribution.png" alt="Left: pelvis-height density in AMASS peaks near 0.85 to 0.90 m. Right: base linear and angular velocity scatter clusters near the origin" /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;AMASS lower-body statistics against our training command range (blue). Pelvis height piles up near standing, 0.85 to 0.90 m, while we command down to 0.17 m. Base velocities cluster at the origin, while we command up to 1.0 m/s forward and 1.2 rad/s in yaw.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Two things go wrong. The clips do not cover the corners of the command box we need for deployment, so a policy trained to track them never learns to hold 0.3 m/s at a 0.4 m squat. And many of the clips that do move are too aggressive for a robot that is carrying something, so they have to be filtered out.&lt;/p&gt;
+
+&lt;p&gt;Both standard responses to this cost something. Filtering the corpus for lower-body stability throws away the upper-body motion in those same clips, which was perfectly good. Skipping MoCap for the legs and shaping rewards or sampling joint commands instead leaves the upper body without human statistics, and the arm motion drifts away from anything a person would produce.&lt;/p&gt;
+
+&lt;h2 id="decouple-the-data-keep-the-policy-whole"&gt;Decouple the data, keep the policy whole&lt;/h2&gt;
+
+&lt;p&gt;Several existing loco-manipulation controllers decouple the &lt;em&gt;architecture&lt;/em&gt;: one policy for the legs and another for the arms, or RL for the legs and PD control on top for the arms. CWI keeps a single whole-body policy over all 31 DoF and decouples only what each half learns from.&lt;/p&gt;
+
+&lt;p&gt;The upper body trains on the full AMASS corpus with no filtering. The lower body trains on roughly ten curated expert-quality clips per class, one class for omnidirectional walking and one for squatting.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src="/images/CWI/fig2-framework.png" alt="CWI framework overview showing decoupled data sources, dual AMP discriminators, multi-critic PPO, and teacher-student distillation" /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;The CWI framework. Large-scale upper-body data drives manipulation, compact curated clips drive locomotion style through two discriminators, a multi-critic PPO stage trains the unified policy, and distillation produces a student driven by velocity/height commands plus bimanual hand poses.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;The reason the upper-body corpus needs no filtering is a change of frame. We express every upper-body reference relative to the robot’s base. Once root motion is subtracted, a clip of someone spinning or jumping still contains a clean, human-feasible arm trajectory. The instability lives in the root, and the root is exactly what we drop.&lt;/p&gt;
+
+&lt;p&gt;Two details in how the body is partitioned turn out to matter later. The waist (yaw, roll, pitch) goes into the upper-body group, so torso bending is supervised by the same AMASS clip as the arms rather than being treated as part of the locomotion problem. The neck and head come out of the reference entirely, since AMASS contains very few head motions; instead the head gets a 2-DoF command sampled within its mechanical range each episode and a separate quadratic tracking term, which lets a VR headset drive it directly at deployment.&lt;/p&gt;
+
+&lt;p&gt;The upper-body reference combines joint targets &lt;code class="language-plaintext highlighter-rouge"&gt;q_u^ref ∈ R^17&lt;/code&gt; with position, orientation, and keypoint-based pose for the shoulder, elbow, wrist, and hand links. The lower-body reference for the discriminators carries base velocity and height, the 12 leg joint positions and velocities, and hip/knee/ankle link states.&lt;/p&gt;
+
+&lt;h2 id="two-discriminators-one-per-gait-class"&gt;Two discriminators, one per gait class&lt;/h2&gt;
+
+&lt;p&gt;The lower body gets its supervision through Adversarial Motion Priors rather than frame-by-frame tracking. Each discriminator scores a four-frame window of lower-body state transitions, with upper-body signals excluded so the prior stays purely about the legs, and trains with a least-squares GAN objective plus a gradient penalty.&lt;/p&gt;
+
+&lt;p&gt;Which discriminator is active depends on the command: &lt;code class="language-plaintext highlighter-rouge"&gt;D_walk&lt;/code&gt; when the velocity command is nonzero, &lt;code class="language-plaintext highlighter-rouge"&gt;D_squat&lt;/code&gt; when it is zero and the policy is tracking height. Both feed a continuous style reward that pays off states the discriminator classifies as expert-like.&lt;/p&gt;
+
+&lt;p&gt;The important consequence is that the curated clips act as a style prior, not a tracking target. Locomotion commands are sampled uniformly across the entire deployment range during training, far outside anything the ten clips demonstrate. The discriminator answers “does this look like expert walking”, not “does this match frame 47 of clip 3”, so command coverage and motion quality stop competing for the same data.&lt;/p&gt;
+
+&lt;p&gt;Walking and squatting are distinct enough that pooling them into one discriminator averages the two modes and blurs both, which the ablations below confirm.&lt;/p&gt;
+
+&lt;h2 id="three-reward-groups-three-critics"&gt;Three reward groups, three critics&lt;/h2&gt;
+
+&lt;p&gt;The full reward splits into locomotion tracking, upper-body tracking, and style:&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Group&lt;/th&gt;
+      &lt;th&gt;Term&lt;/th&gt;
+      &lt;th&gt;Definition&lt;/th&gt;
+      &lt;th&gt;Weight&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class="language-plaintext highlighter-rouge"&gt;r_loco&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Linear velocity&lt;/td&gt;
+      &lt;td&gt;&lt;code class="language-plaintext highlighter-rouge"&gt;exp(−(v_xy − v_xy^cmd)²)&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;3.0&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt;Angular velocity&lt;/td&gt;
+      &lt;td&gt;&lt;code class="language-plaintext highlighter-rouge"&gt;exp(−(ω_z − ω_z^cmd)²)&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;2.5&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt;Height tracking&lt;/td&gt;
+      &lt;td&gt;&lt;code class="language-plaintext highlighter-rouge"&gt;exp(−(h − h^cmd)²)&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;2.5&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class="language-plaintext highlighter-rouge"&gt;r_upper&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;DoF position&lt;/td&gt;
+      &lt;td&gt;&lt;code class="language-plaintext highlighter-rouge"&gt;exp(−‖q_upper − q_ref^upper‖²/σ_q²)&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;2.0&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt;Tri-keypoint position&lt;/td&gt;
+      &lt;td&gt;&lt;code class="language-plaintext highlighter-rouge"&gt;exp(−‖p̃_u − p̃_ref^upper‖²/σ_p²)&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;3.0&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class="language-plaintext highlighter-rouge"&gt;r_style&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;AMP&lt;/td&gt;
+      &lt;td&gt;&lt;code class="language-plaintext highlighter-rouge"&gt;max(0, 1 − 0.25(D_φ^k(τ) − 1)²)&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;2.0&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;Standard regularizers (projected-gravity alignment, action smoothness, torque penalties) are assigned to whichever group they primarily affect.&lt;/p&gt;
+
+&lt;p&gt;A single critic has to explain all three signals with one value function, and the adversarial style reward is high-variance enough to drag that estimate around. We give each group its own value head, compute group-wise GAE advantages, normalize each within the minibatch, and combine them with weights before the standard PPO clipped surrogate.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src="/images/CWI/fig5-multicritic-curves.png" alt="Training curves for single-critic and multi-critic variants, showing reward, velocity tracking error, and hand position tracking error" /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;The multi-critic variant reaches a higher final reward and converges faster on both velocity and hand-position error.&lt;/em&gt;&lt;/p&gt;
+
+&lt;h2 id="distilling-down-to-two-hand-poses"&gt;Distilling down to two hand poses&lt;/h2&gt;
+
+&lt;p&gt;Single-stage RL for whole-body tracking tends to come out jerky, so we train a teacher with privileged state and the full upper-body reference, then distill.&lt;/p&gt;
+
+&lt;p&gt;The student sees only a history of proprioceptive observations plus a reduced command: velocity and height for the legs, and an 18-dimensional bimanual hand pose (a 9D keypoint feature per hand) for the arms. Distillation combines PPO on the teacher’s reward with an action-matching BC term, querying the teacher on-policy over the student’s own state distribution and annealing the imitation weight.&lt;/p&gt;
+
+&lt;p&gt;Reducing the command to hand poses is a deployment decision. A VR operator supplies end-effector targets, not joint angles, and reconstructing joint targets through online IK risks discontinuities near singularities. Distilling directly on hand poses sidesteps that and keeps the student pinned to the AMASS manifold. The cost is a small open-loop accuracy gap against the joint-command interface.&lt;/p&gt;
+
+&lt;h2 id="how-it-compares"&gt;How it compares&lt;/h2&gt;
+
+&lt;p&gt;We evaluate on a 31-DoF LimX Oli (1.65 m, 50 kg), trained in IsaacLab with commands sampled over &lt;code class="language-plaintext highlighter-rouge"&gt;v_x ∈ [−0.5, 1.0]&lt;/code&gt; m/s, &lt;code class="language-plaintext highlighter-rouge"&gt;ω_yaw ∈ [−1.2, 1.2]&lt;/code&gt; rad/s, &lt;code class="language-plaintext highlighter-rouge"&gt;h ∈ [0.17, 0.9]&lt;/code&gt; m, and the usual domain randomization over mass, friction, sensor noise, and latency. The AMASS upper-body corpus is split 85/15, and evaluation uses sequences the policy never saw.&lt;/p&gt;
+
+&lt;p&gt;Because the original works target different robots, we re-implemented every baseline on Oli (marked with *) and unified observation composition, reward terms and weights, and PD gains across all methods, so the comparison isolates framework design and data usage.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src="/images/CWI/fig4-comparison-radar.png" alt="Radar chart comparing CWI against FALCON*, HOMIE*, and HOVER* across seven metrics" /&gt;&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Metric&lt;/th&gt;
+      &lt;th&gt;CWI (ours)&lt;/th&gt;
+      &lt;th&gt;FALCON*&lt;/th&gt;
+      &lt;th&gt;HOMIE*&lt;/th&gt;
+      &lt;th&gt;HOVER*&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Success rate (%)&lt;/td&gt;
+      &lt;td&gt;98.967&lt;/td&gt;
+      &lt;td&gt;**99.073**&lt;/td&gt;
+      &lt;td&gt;90.429&lt;/td&gt;
+      &lt;td&gt;96.080&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Upper-body joint error (rad)&lt;/td&gt;
+      &lt;td&gt;**0.176**&lt;/td&gt;
+      &lt;td&gt;0.219&lt;/td&gt;
+      &lt;td&gt;0.309&lt;/td&gt;
+      &lt;td&gt;0.398&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Keybody position error (mm)&lt;/td&gt;
+      &lt;td&gt;**13.919**&lt;/td&gt;
+      &lt;td&gt;19.513&lt;/td&gt;
+      &lt;td&gt;87.720&lt;/td&gt;
+      &lt;td&gt;101.440&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Keybody orientation error (rad)&lt;/td&gt;
+      &lt;td&gt;**0.128**&lt;/td&gt;
+      &lt;td&gt;0.173&lt;/td&gt;
+      &lt;td&gt;0.962&lt;/td&gt;
+      &lt;td&gt;0.986&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Linear velocity error (m/s)&lt;/td&gt;
+      &lt;td&gt;**0.073**&lt;/td&gt;
+      &lt;td&gt;0.080&lt;/td&gt;
+      &lt;td&gt;0.187&lt;/td&gt;
+      &lt;td&gt;0.208&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Yaw rate error (rad/s)&lt;/td&gt;
+      &lt;td&gt;**0.141**&lt;/td&gt;
+      &lt;td&gt;0.168&lt;/td&gt;
+      &lt;td&gt;0.288&lt;/td&gt;
+      &lt;td&gt;0.260&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Height error (mm)&lt;/td&gt;
+      &lt;td&gt;**15.042**&lt;/td&gt;
+      &lt;td&gt;16.066&lt;/td&gt;
+      &lt;td&gt;28.014&lt;/td&gt;
+      &lt;td&gt;46.890&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;&lt;em&gt;Lower is better on every row except success rate. Position and orientation errors aggregate over all upper-body keypoints.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;FALCON* carries higher arm tracking error, consistent with its separate upper and lower policies. HOVER* loses robustness once upper-body motions are paired with base commands outside its training distribution. HOMIE* shows larger joint-level deviation, which fits a PD-controlled upper body asked to follow non-smooth references.&lt;/p&gt;
+
+&lt;p&gt;The one metric where CWI does not come first is success rate, where FALCON* leads by about a tenth of a percentage point. Our policy holds strict upper-body tracking even at the boundary of the command box, and that occasionally costs a little stability.&lt;/p&gt;
+
+&lt;h2 id="which-pieces-are-doing-the-work"&gt;Which pieces are doing the work&lt;/h2&gt;
+
+&lt;p&gt;The ablations use the deployment-interface student, so the manipulation columns report end-effector error over the two hands rather than the full-keypoint aggregate above. We add a relaxed DTW distance &lt;code class="language-plaintext highlighter-rouge"&gt;d_dtw&lt;/code&gt; against reference clips as a naturalness measure, and the 95th-percentile joint acceleration &lt;code class="language-plaintext highlighter-rouge"&gt;q̈_p95&lt;/code&gt; as a smoothness proxy.&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Variant&lt;/th&gt;
+      &lt;th&gt;v error (m/s)&lt;/th&gt;
+      &lt;th&gt;ω error (rad/s)&lt;/th&gt;
+      &lt;th&gt;h error (mm)&lt;/th&gt;
+      &lt;th&gt;EE pos (mm)&lt;/th&gt;
+      &lt;th&gt;EE rot (rad)&lt;/th&gt;
+      &lt;th&gt;d_dtw (rad)&lt;/th&gt;
+      &lt;th&gt;q̈_p95 (rad/s²)&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;CWI (full)&lt;/td&gt;
+      &lt;td&gt;0.100&lt;/td&gt;
+      &lt;td&gt;**0.1825**&lt;/td&gt;
+      &lt;td&gt;**19.65**&lt;/td&gt;
+      &lt;td&gt;**42.91**&lt;/td&gt;
+      &lt;td&gt;0.1708&lt;/td&gt;
+      &lt;td&gt;**0.452**&lt;/td&gt;
+      &lt;td&gt;**28.8**&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;w/o multi-critic&lt;/td&gt;
+      &lt;td&gt;**0.099**&lt;/td&gt;
+      &lt;td&gt;0.199&lt;/td&gt;
+      &lt;td&gt;20.64&lt;/td&gt;
+      &lt;td&gt;55.49&lt;/td&gt;
+      &lt;td&gt;0.2308&lt;/td&gt;
+      &lt;td&gt;0.520&lt;/td&gt;
+      &lt;td&gt;30.4&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;w/o distillation †&lt;/td&gt;
+      &lt;td&gt;0.099&lt;/td&gt;
+      &lt;td&gt;0.147&lt;/td&gt;
+      &lt;td&gt;19.43&lt;/td&gt;
+      &lt;td&gt;173.2&lt;/td&gt;
+      &lt;td&gt;0.6723&lt;/td&gt;
+      &lt;td&gt;0.444&lt;/td&gt;
+      &lt;td&gt;28.1&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;single AMP&lt;/td&gt;
+      &lt;td&gt;0.110&lt;/td&gt;
+      &lt;td&gt;0.192&lt;/td&gt;
+      &lt;td&gt;21.07&lt;/td&gt;
+      &lt;td&gt;42.93&lt;/td&gt;
+      &lt;td&gt;0.1702&lt;/td&gt;
+      &lt;td&gt;0.615&lt;/td&gt;
+      &lt;td&gt;35.1&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;w/o AMP&lt;/td&gt;
+      &lt;td&gt;0.125&lt;/td&gt;
+      &lt;td&gt;0.242&lt;/td&gt;
+      &lt;td&gt;22.52&lt;/td&gt;
+      &lt;td&gt;42.92&lt;/td&gt;
+      &lt;td&gt;**0.1696**&lt;/td&gt;
+      &lt;td&gt;1.413&lt;/td&gt;
+      &lt;td&gt;39.3&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;w/o AMASS upper&lt;/td&gt;
+      &lt;td&gt;0.131&lt;/td&gt;
+      &lt;td&gt;0.249&lt;/td&gt;
+      &lt;td&gt;24.20&lt;/td&gt;
+      &lt;td&gt;62.32&lt;/td&gt;
+      &lt;td&gt;0.275&lt;/td&gt;
+      &lt;td&gt;0.508&lt;/td&gt;
+      &lt;td&gt;48.2&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;&lt;sub&gt;† The single-stage variant fails upper-body tracking outright, so its locomotion numbers are reported for transparency but not ranked.&lt;/sub&gt;&lt;/p&gt;
+
+&lt;p&gt;Removing distillation is the sharpest failure. A single-stage policy cannot learn manipulation from the sparse hand-pose command alone, and end-effector error goes from 42.91 mm to 173.2 mm. The teacher has to learn whole-body control with dense references first; the student inherits it.&lt;/p&gt;
+
+&lt;p&gt;Dropping AMP barely touches command tracking but collapses gait quality: &lt;code class="language-plaintext highlighter-rouge"&gt;d_dtw&lt;/code&gt; jumps from 0.452 to 1.413 rad, with frequent stance violations and foot slips. Pooling the two discriminators into one is the same failure in milder form, with &lt;code class="language-plaintext highlighter-rouge"&gt;d_dtw&lt;/code&gt; at 0.615 and joint acceleration up from 28.8 to 35.1 rad/s². End-effector accuracy stays near 42.9 mm in both cases, so the dual-discriminator design buys lower-body style without charging manipulation for it.&lt;/p&gt;
+
+&lt;p&gt;The result we find most telling is the AMASS upper-body ablation. Swapping human references for randomly sampled joint targets degrades manipulation as expected (42.91 to 62.32 mm, joint acceleration 28.8 to 48.2 rad/s²), but it also degrades &lt;em&gt;every locomotion metric&lt;/em&gt;: velocity error 0.100 to 0.131 m/s, yaw rate 0.183 to 0.249 rad/s, height 19.65 to 24.20 mm. The architecture supplies the structural decoupling. Only the data supplies upper-body motion whose statistics the legs can absorb, and a jerky upper body is a disturbance the legs then have to reject.&lt;/p&gt;
+
+&lt;h2 id="on-the-robot"&gt;On the robot&lt;/h2&gt;
+
+&lt;p&gt;Deployment runs off a Meta Quest headset and its hand controllers, with no MoCap suit and no exoskeleton cockpit. The operator’s hand poses and a velocity/height command are the entire interface.&lt;/p&gt;
+
+&lt;p&gt;The tasks in the opening figure cover precision work (twisting a bottle cap, assembling a small part), whole-body coordination (opening a door, striking a suspended drum), and long-horizon sequences (picking up toys, placing them, then carrying the basket away). The policy holds stable locomotion throughout.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src="/images/CWI/fig6-box-lifting-coordination.png" alt="Box-lifting sequence with hand distance and waist pitch plotted over four phases" /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Four phases of a teleoperated box lift: approaching and squatting (A), grasping and starting the lift (B), raising with both hands (C), standing up with the box overhead (D). Below, left and right hand distance from the base against waist pitch over time.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Watch the waist pitch. It rises as the hands extend forward and down, then straightens as the robot comes upright with the box. The operator never sent a torso command; there is no torso command in the interface. The coupling between hand reach and torso posture is in the AMASS clips because that is how people reach, and putting the waist in the upper-body group meant one clip supervised both. The composite objective keeps that coupling intact while the legs stay stable underneath it.&lt;/p&gt;
+
+&lt;h2 id="limits-and-what-comes-next"&gt;Limits and what comes next&lt;/h2&gt;
+
+&lt;p&gt;Behavior coverage is bounded by the motion libraries and, more tightly, by the command interface. Bimanual hand poses plus velocity and height cannot express pressing a pedal with a foot or bracing against a surface with an elbow.&lt;/p&gt;
+
+&lt;p&gt;That same compactness is useful going forward. A portable teleoperation rig that works in ordinary rooms is a data collection instrument, and a small, task-oriented command space is structured supervision for higher-level autonomous policies, vision-language-action models included. Collecting multimodal demonstrations in everyday scenes is where we are taking this next.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id="citation"&gt;Citation&lt;/h2&gt;
+
+&lt;div class="language-bibtex highlighter-rouge"&gt;&lt;div class="highlight"&gt;&lt;pre class="highlight"&gt;&lt;code&gt;&lt;span class="nc"&gt;@article&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="nl"&gt;ge2026cwi&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+  &lt;span class="na"&gt;author&lt;/span&gt;  &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="s"&gt;{Ge, Wenqi and Guo, Junde and Fu, Zhen and Yang, Shunpeng
+             and Chen, Jiayu and Chen, Hua}&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+  &lt;span class="na"&gt;title&lt;/span&gt;   &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="s"&gt;{{CWI}: Composite Humanoid Whole-Body Imitation System
+             for Loco-Manipulation}&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+  &lt;span class="na"&gt;journal&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="s"&gt;{IEEE Robotics and Automation Letters}&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+  &lt;span class="na"&gt;year&lt;/span&gt;    &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="s"&gt;{2026}&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+  &lt;span class="na"&gt;doi&lt;/span&gt;     &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="s"&gt;{10.1109/LRA.2026.3710366}&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+'>
+  <meta property="og:type" content="article">
+  <meta property="og:updated_time" content="2026-08-04T12:47:56+00:00">
+  <meta property="article:published_time" content="2026-08-04T00:00:00+00:00">
+  <meta property="article:modified_time" content="2026-08-04T12:47:56+00:00">
+  <meta name="revised" content="2026-08-04T12:47:56+00:00">
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "BlogPosting",
+      "author": { "@type": "Person", "name": "CWI — Composite Humanoid Whole-Body Imitation System for Loco-Manipulation (RA-L 2026)" },
+      "datePublished": "2026-08-04T00:00:00+00:00",
+      "dateModified": "2026-08-04T12:47:56+00:00",
+    
+    "name": "CWI — Composite Humanoid Whole-Body Imitation System for Loco-Manipulation (RA-L 2026)",
+    "description": "Our team at the Department of Data and Systems Engineering, The University of Hong Kong, is dedicated to advancing research in Machine Learning, Sequential Decision Making, and Embodied AI.",
+    "headline": "CWI — Composite Humanoid Whole-Body Imitation System for Loco-Manipulation (RA-L 2026)",
+    "publisher": {
+      "@type": "Organization",
+      "logo": { "@type": "ImageObject", "url": "/images/icon.png" }
+    },
+    "url": "http://agentic-intelligence-lab.org"
+  }
+</script>
+
+<link rel="alternate" type="application/rss+xml" href="http://agentic-intelligence-lab.org/feed.xml">
+
+  <!-- Google Fonts -->
+<!-- automatically get url from fonts used in theme file -->
+
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?display=swap&&family=Barlow:ital,wght@0,200;0,400;0,500;0,600;1,200;1,400;1,500;1,600&amp;family=Roboto+Mono:ital,wght@0,200;0,400;0,500;0,600;1,200;1,400;1,500;1,600" rel="stylesheet">
+
+<!-- Font Awesome icons (load asynchronously due to size) -->
+
+<link href="https://use.fontawesome.com/releases/v6.5.0/css/all.css" rel="stylesheet" media="none" onload="this.removeAttribute('media'); this.onload = null;">
+<noscript>
+  <link href="https://use.fontawesome.com/releases/v6.5.0/css/all.css" rel="stylesheet">
+</noscript>
+
+  <!-- third party styles -->
+<!-- https://stylishthemes.github.io/Syntax-Themes/pygments/ -->
+<link href="https://cdn.jsdelivr.net/gh/StylishThemes/Syntax-Themes/pygments/css-github/pygments-tomorrow-night-eighties.css" rel="stylesheet">
+
+<!-- include all sass in styles folder -->
+
+
+  
+    <link href="/_styles/-theme.css" rel="stylesheet">
+  
+
+  
+    <link href="/_styles/alert.css" rel="stylesheet">
+  
+
+  
+    <link href="/_styles/all.css" rel="stylesheet">
+  
+
+  
+    <link href="/_styles/anchor.css" rel="stylesheet">
+  
+
+  
+    <link href="/_styles/background.css" rel="stylesheet">
+  
+
+  
+    <link href="/_styles/body.css" rel="stylesheet">
+  
+
+  
+    <link href="/_styles/bold.css" rel="stylesheet">
+  
+
+  
+    <link href="/_styles/button.css" rel="stylesheet">
+  
+
+  
+    <link href="/_styles/card.css" rel="stylesheet">
+  
+
+  
+    <link href="/_styles/checkbox.css" rel="stylesheet">
+  
+
+  
+    <link href="/_styles/citation.css" rel="stylesheet">
+  
+
+  
+    <link href="/_styles/code.css" rel="stylesheet">
+  
+
+  
+    <link href="/_styles/cols.css" rel="stylesheet">
+  
+
+  
+    <link href="/_styles/dark-toggle.css" rel="stylesheet">
+  
+
+  
+    <link href="/_styles/details.css" rel="stylesheet">
+  
+
+  
+    <link href="/_styles/feature.css" rel="stylesheet">
+  
+
+  
+    <link href="/_styles/figure.css" rel="stylesheet">
+  
+
+  
+    <link href="/_styles/float.css" rel="stylesheet">
+  
+
+  
+    <link href="/_styles/font.css" rel="stylesheet">
+  
+
+  
+    <link href="/_styles/footer.css" rel="stylesheet">
+  
+
+  
+    <link href="/_styles/form.css" rel="stylesheet">
+  
+
+  
+    <link href="/_styles/grid.css" rel="stylesheet">
+  
+
+  
+    <link href="/_styles/header.css" rel="stylesheet">
+  
+
+  
+    <link href="/_styles/heading.css" rel="stylesheet">
+  
+
+  
+    <link href="/_styles/highlight.css" rel="stylesheet">
+  
+
+  
+    <link href="/_styles/icon.css" rel="stylesheet">
+  
+
+  
+    <link href="/_styles/image.css" rel="stylesheet">
+  
+
+  
+    <link href="/_styles/link.css" rel="stylesheet">
+  
+
+  
+    <link href="/_styles/list.css" rel="stylesheet">
+  
+
+  
+    <link href="/_styles/main.css" rel="stylesheet">
+  
+
+  
+    <link href="/_styles/paragraph.css" rel="stylesheet">
+  
+
+  
+    <link href="/_styles/portrait.css" rel="stylesheet">
+  
+
+  
+    <link href="/_styles/post-excerpt.css" rel="stylesheet">
+  
+
+  
+    <link href="/_styles/post-info.css" rel="stylesheet">
+  
+
+  
+    <link href="/_styles/post-nav.css" rel="stylesheet">
+  
+
+  
+    <link href="/_styles/quote.css" rel="stylesheet">
+  
+
+  
+    <link href="/_styles/rule.css" rel="stylesheet">
+  
+
+  
+    <link href="/_styles/search-box.css" rel="stylesheet">
+  
+
+  
+    <link href="/_styles/search-info.css" rel="stylesheet">
+  
+
+  
+    <link href="/_styles/section.css" rel="stylesheet">
+  
+
+  
+    <link href="/_styles/table.css" rel="stylesheet">
+  
+
+  
+    <link href="/_styles/tags.css" rel="stylesheet">
+  
+
+  
+    <link href="/_styles/textbox.css" rel="stylesheet">
+  
+
+  
+    <link href="/_styles/tooltip.css" rel="stylesheet">
+  
+
+  
+    <link href="/_styles/util.css" rel="stylesheet">
+  
+
+
+<!-- include all css in styles folder -->
+
+
+
+  <!-- third party scripts -->
+<script src="https://unpkg.com/@popperjs/core@2" defer></script>
+<script src="https://unpkg.com/tippy.js@6" defer></script>
+<script src="https://unpkg.com/mark.js@8" defer></script>
+
+<!-- include all js in scripts folder -->
+
+
+  <script src="/_scripts/anchors.js"></script>
+
+  <script src="/_scripts/dark-mode.js"></script>
+
+  <script src="/_scripts/fetch-tags.js"></script>
+
+  <script src="/_scripts/search.js"></script>
+
+  <script src="/_scripts/site-search.js"></script>
+
+  <script src="/_scripts/table-wrap.js"></script>
+
+  <script src="/_scripts/tooltip.js"></script>
+
+
+</head>
+
+  <body>
+    
+
+
+
+
+
+
+
+<header class="background" style="--image: url('/images/header.jpg')" data-dark="true">
+  <a href="/" class="home">
+    
+      <span class="logo">
+        
+          <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="1280" height="1024" viewbox="0 0 1280 1024" xml:space="preserve">
+<desc>Created with Fabric.js 5.3.0</desc>
+<defs>
+</defs>
+<g transform="matrix(1 0 0 1 640 512)" id="background-logo">
+<rect style="stroke: none; stroke-width: 0; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(255,255,255); fill-opacity: 0; fill-rule: nonzero; opacity: 1;" paint-order="stroke" x="-640" y="-512" rx="0" ry="0" width="1280" height="1024"></rect>
+</g>
+<g transform="matrix(5.4285035800360415 0 0 5.4285035800360415 647.5698010269577 486.0171480499371)" id="logo-logo">
+<g style="" paint-order="stroke">
+		<g transform="matrix(0.31594199434376485 0 0 0.31594199434376485 5.684342e-14 14.549128839530397)">
+<path style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(233,230,43); fill-rule: nonzero; opacity: 1;" paint-order="stroke" transform=" translate(-500.0000000000001, -546.05)" d="M 383.1 326.4 L 616.9000000000001 326.4 C 673.6000000000001 326.4 719.6000000000001 372.4 719.6000000000001 429.09999999999997 L 719.6000000000001 663 C 719.6000000000001 719.7 673.6000000000001 765.7 616.9000000000001 765.7 L 383.1 765.7 C 326.40000000000003 765.7 280.40000000000003 719.7 280.40000000000003 663 L 280.40000000000003 429.2 C 280.4 372.4 326.4 326.4 383.1 326.4 z" stroke-linecap="round"></path>
+</g>
+		<g transform="matrix(0.31594199434376485 0 0 0.31594199434376485 0 0)">
+<path style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(23,23,2); fill-rule: nonzero; opacity: 1;" paint-order="stroke" transform=" translate(-500, -500)" d="M 785.6 700.9 L 755.3000000000001 706.8 C 751.2 707.5999999999999 747.0000000000001 708 742.8000000000001 708 C 725.2 708 709.0000000000001 700.9 697.1 689.2 C 694.1 689.3000000000001 690.9 689.4000000000001 687.5 689.4000000000001 C 673.2 689.4000000000001 655.4 688.2 636.7 684.1000000000001 C 620.5 680.5000000000001 605.7 675.2000000000002 592.6 668.2000000000002 C 603.2 694.7000000000002 613.3000000000001 727.4000000000002 619.1 765.7000000000002 L 380.8 765.7000000000002 C 386.6 727.4000000000002 396.7 694.7000000000002 407.3 668.2000000000002 C 394.2 675.2000000000002 379.5 680.5000000000001 363.3 684.1000000000001 C 344.6 688.2000000000002 326.8 689.4000000000001 312.5 689.4000000000001 C 309.1 689.4000000000001 305.9 689.3000000000001 302.9 689.2 C 291 700.9 274.8 708 257.2 708 C 253 708 248.79999999999998 707.6 244.7 706.8 L 214.39999999999998 700.9 L 225.7 643 L 256 648.9 C 259.4 649.6 262.7 647.3 263.4 643.9 C 263.7 642.1999999999999 263.4 640.6 262.4 639.1999999999999 C 261.4 637.8 260.09999999999997 636.9 258.4 636.4999999999999 L 228.09999999999997 630.5999999999999 L 239.39999999999998 572.6999999999999 L 269.7 578.5999999999999 C 286.8 581.8999999999999 301.59999999999997 591.6999999999999 311.4 606.1999999999999 C 314.09999999999997 610.1999999999999 316.29999999999995 614.4 318 618.8 C 354 623.8 390.5 614.5999999999999 416.4 605.1999999999999 C 397.7 600.3 381.4 589.3 369.9 574.4999999999999 L 337.79999999999995 563.6999999999999 C 325.69999999999993 559.5999999999999 317.59999999999997 548.4 317.59999999999997 535.5999999999999 L 317.59999999999997 490.69999999999993 C 317.59999999999997 477.8999999999999 325.7 466.69999999999993 337.79999999999995 462.5999999999999 L 355.19999999999993 456.7999999999999 C 366.99999999999994 406.9999999999999 407.69999999999993 368.2999999999999 458.49999999999994 359.39999999999986 C 461.59999999999997 343.1999999999999 474.09999999999997 330.1999999999999 489.99999999999994 326.29999999999984 L 489.99999999999994 301.39999999999986 C 475.99999999999994 297.09999999999985 465.69999999999993 283.9999999999999 465.69999999999993 268.59999999999985 C 465.69999999999993 249.69999999999985 481.0999999999999 234.29999999999984 499.99999999999994 234.29999999999984 C 518.9 234.29999999999984 534.3 249.69999999999985 534.3 268.59999999999985 C 534.3 283.99999999999983 524.0999999999999 297.09999999999985 509.99999999999994 301.39999999999986 L 509.99999999999994 326.29999999999984 C 526 330.1999999999998 538.4 343.09999999999985 541.5 359.39999999999986 C 592.3 368.29999999999984 633 406.9999999999999 644.8 456.79999999999984 L 662.0999999999999 462.59999999999985 C 674.1999999999999 466.59999999999985 682.3 477.89999999999986 682.3 490.6999999999999 L 682.3 535.5999999999999 C 682.3 548.3 674.1999999999999 559.5999999999999 662.0999999999999 563.6999999999999 L 630 574.5 C 618.5 589.3 602.3 600.2 583.8 605.1 C 604.6999999999999 612.7 632.5999999999999 620.2 661.5 620.2 C 668.4 620.2 675.4 619.8000000000001 682.3 618.8000000000001 C 684 614.4000000000001 686.3 610.2 688.9 606.2 C 698.6999999999999 591.7 713.4 581.9000000000001 730.6 578.6 L 760.9 572.7 L 772.1999999999999 630.6 L 741.9 636.5 C 740.1999999999999 636.8 738.8 637.7 737.9 639.2 C 736.9 640.6 736.6 642.2 736.9 643.9000000000001 C 737.6 647.3000000000001 740.9 649.6000000000001 744.3 648.9000000000001 L 774.5999999999999 643.0000000000001 L 785.6 700.9 z" stroke-linecap="round"></path>
+</g>
+		<g transform="matrix(0.31594199434376485 0 0 0.31594199434376485 -0.031594199434380243 3.1594199434377117)">
+<path style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(233,230,43); fill-rule: nonzero; opacity: 1;" paint-order="stroke" transform=" translate(-499.9, -510)" d="M 569.2 389.7 C 564.2 387 558.9000000000001 384.8 553.3000000000001 383 C 548.3000000000001 381.3 543.2 380 538.0000000000001 379.1 C 531.7000000000002 378 525.3000000000001 377.40000000000003 518.9000000000001 377.40000000000003 C 516.4000000000001 377.40000000000003 513.9000000000001 377.40000000000003 511.4000000000001 377.40000000000003 C 482.7000000000001 377.3 456.1000000000001 375.3 429.5000000000001 390.1 C 440.2000000000001 401.20000000000005 458.0000000000001 422.40000000000003 464.7000000000001 446.1 L 534.9000000000001 446.1 C 535.7 443.3 536.6000000000001 440.5 537.7 437.8 C 540 431.90000000000003 543 426.1 546.2 420.8 L 569.5 390.8 C 569.7 390.6 569.9 390.40000000000003 570.1 390.2 C 569.7 390 569.4 389.9 569.2 389.7 z M 758.5 666.4 L 747.8 668.5 C 743.5 669.4 739.4 669.2 735.6999999999999 668.1 C 719.6999999999999 663.5 710.3 643.4 720.9 628 C 722.6 625.4 724.5 623.5 726.5 621.9 C 732.6 617.1999999999999 740.1 616.3 748.4 614.8 L 744.8 596.0999999999999 L 734.0999999999999 598.1999999999999 C 729.9999999999999 598.9 726.1999999999999 600.1999999999999 722.5999999999999 601.9999999999999 C 704.5999999999999 611.0999999999999 693.4999999999999 632.6999999999999 698.5999999999999 652.7999999999998 L 698.5999999999999 652.7999999999998 C 698.6999999999999 653.2999999999998 698.8 653.7999999999998 698.8999999999999 654.1999999999998 L 698.8999999999999 654.1999999999998 C 703.6999999999998 672.6999999999998 720.2999999999998 686.4999999999998 739.4999999999999 687.7999999999998 C 740.4999999999999 687.8999999999999 741.5999999999999 687.8999999999999 742.5999999999999 687.8999999999999 C 748.0999999999999 688.0999999999999 756.4999999999999 685.8999999999999 761.9999999999999 684.9999999999999 L 758.5 666.4 z M 681.9 666.2 C 680.8 663.4000000000001 679.9 660.6 679.3 657.7 C 679 656.3000000000001 678.6999999999999 655 678.5 653.6 C 678 650.8000000000001 677.7 648.1 677.6 645.2 C 677.5 643.3000000000001 677.5 641.3000000000001 677.6 639.4000000000001 C 671 640.0000000000001 664.5 640.3000000000001 658 640.1000000000001 C 657.1 642.1000000000001 656.5 644.2000000000002 656 646.4000000000001 C 655.2 650.0000000000001 654.8 653.7 655 657.6000000000001 C 655.1 660.7000000000002 655.5 663.8000000000002 656.3 667.1000000000001 C 666.1999999999999 668.5000000000001 675.4 669.1000000000001 683.4 669.2000000000002 C 682.7 668.3 682.3 667.3 681.9 666.2 z M 650.5 639.9 C 643.2 639.5 636.1 638.6999999999999 629.1 637.6999999999999 C 628.1 639.3 627.2 640.9999999999999 626.4 642.8 C 625.1999999999999 645.5999999999999 624.1999999999999 648.5999999999999 623.5 651.8 C 623 654.3 622.7 656.8 622.5 659.5 C 631.3 662.5 640.1 664.6 648.6 666.2 C 648 663 647.8000000000001 659.9000000000001 647.7 657 C 647.6 653.1 648 649.5 648.7 646.2 C 649.2 643.9 649.8 641.9 650.5 639.9 z M 600.6 631.6 C 599.9 632.5 599.2 633.5 598.6 634.5 C 597.2 636.6 596.1 638.9 595.2 641.3 C 594.6 642.8 594.1 644.3 593.7 645.8 C 600.8000000000001 650.3 608.2 654 615.8000000000001 657 C 616.0000000000001 654.5 616.4000000000001 652.1 616.9000000000001 649.8 C 617.5000000000001 646.8 618.4000000000001 644 619.5000000000001 641.3 C 620.2000000000002 639.6999999999999 620.9000000000001 638.0999999999999 621.7000000000002 636.5999999999999 C 614.4 635.1 607.3 633.4 600.6 631.6 z M 570.2 621.5 C 570.1 621.5 570.1 621.5 570.2 621.5 C 571.9000000000001 624.5 573.7 627.8 575.5 631.4 L 575.6 631.5 C 579.4 635.2 583.4 638.6 587.6 641.6 C 588 640.5 588.4 639.4 588.8000000000001 638.3000000000001 C 589.7 636.1 590.8000000000001 633.9000000000001 592.0000000000001 631.8000000000001 C 592.5000000000001 631.0000000000001 592.9000000000001 630.3000000000001 593.5000000000001 629.5000000000001 C 584.9 627 577.1 624.3 570.2 621.5 z M 344 646.5 C 343.5 644.3 342.8 642.2 341.9 640.2 C 335.4 640.3000000000001 328.9 640.1 322.29999999999995 639.5 C 322.4 641.6 322.4 643.6 322.29999999999995 645.7 C 322.19999999999993 648.4000000000001 321.9 651.1 321.4 653.7 C 321.2 655.2 320.9 656.6 320.5 658 C 319.6 661.9 318.3 665.8 316.6 669.5 C 324.6 669.3 333.8 668.8 343.70000000000005 667.4 C 344.50000000000006 664 344.90000000000003 660.8 345.00000000000006 657.6 C 345.2 653.6 344.8 650 344 646.5 z M 302.2 639.3 C 301.2 623.5999999999999 291.2 609.1999999999999 277.4 602.1999999999999 C 273.7 600.3 269.79999999999995 598.9999999999999 265.7 598.1999999999999 L 255 596.0999999999999 L 251.4 614.8 C 259.7 616.3 267.3 617.3 273.5 622.0999999999999 C 275.5 623.5999999999999 277.3 625.5999999999999 278.9 627.9999999999999 C 289.5 643.2999999999998 280.2 663.2999999999998 264.4 667.9999999999999 C 260.59999999999997 669.0999999999999 256.4 669.3999999999999 252.09999999999997 668.4999999999999 L 241.39999999999998 666.3999999999999 L 237.79999999999998 685.0999999999999 C 243.29999999999998 685.9999999999999 251.7 688.1999999999999 257.2 687.9999999999999 C 258.3 687.9999999999999 259.4 687.9999999999999 260.5 687.8999999999999 C 280.2 686.4999999999999 297 671.8999999999999 301.3 652.8999999999999 L 301.3 652.8999999999999 C 302.2 648.4 302.6 643.8 302.2 639.3 z M 647.8 479 C 648 481 648 488.2 648 496.1 C 648 502.20000000000005 648 508.8 648 513.8000000000001 C 648 517.3000000000001 648 520.1 648 521.3000000000001 C 648 530.6 646.5 539.8000000000001 643.6 548.7 L 655.5 544.7 C 659.4 543.4000000000001 662.1 539.7 662.1 535.6 L 662.1 490.70000000000005 C 661.8 482 654.2 481.3 647.8 479 z M 626.1 466.3 L 626.1 466.3 C 620.4 435.8 601.8000000000001 409.5 576.3000000000001 393.70000000000005 C 574.7 395.30000000000007 573.0000000000001 397.20000000000005 571.1 399.30000000000007 C 569.1999999999999 401.4000000000001 567.2 403.80000000000007 565.1 406.30000000000007 C 559.1 413.70000000000005 552.6 422.70000000000005 547.7 432.50000000000006 C 545.5 436.90000000000003 543.6 441.40000000000003 542.2 446.00000000000006 L 583 446.00000000000006 C 595.3 446.00000000000006 605.4 456.00000000000006 605.4 468.40000000000003 L 605.4 517.5 C 605.4 528.9 601.5 539.3 595.1 547.7 C 589.2 555.2 581.2 561 571.9 564.2 C 567 565.9000000000001 561.6999999999999 566.8000000000001 556.1999999999999 566.8000000000001 L 443.4 566.8000000000001 C 416.29999999999995 566.8000000000001 394.2 544.7 394.2 517.6 L 394.2 468.5 C 394.2 456.2 404.2 446.1 416.59999999999997 446.1 L 457.4 446.1 C 450.5 424 433 403.8 423.29999999999995 393.8 C 395.49999999999994 410.90000000000003 375.79999999999995 440.90000000000003 372.29999999999995 474.4 C 371.09999999999997 484.2 371.79999999999995 513.1999999999999 371.59999999999997 523.4 C 372.4 558.6 401.99999999999994 588.1999999999999 438.19999999999993 588 L 561.4999999999999 588 C 563.3999999999999 588 565.1999999999999 587.9 566.9999999999999 587.8 C 577.4999999999999 586.9 587.3999999999999 583.5999999999999 595.8999999999999 578.4 C 610.5999999999999 569.5 621.5999999999999 555.1 625.9999999999999 538.1 C 625.9999999999999 538.1 625.9999999999999 538.1 625.9999999999999 538 C 627.3999999999999 532.6 628.0999999999999 527 628.0999999999999 521.4 C 627.7 507.6 629.1 479.6 626.1 466.3 z M 537.9 608 L 461.9 608 C 451.5 622.8 414.7 679.8 401 765.7 L 598.8 765.7 C 585.1 679.7 548.3 622.7 537.9 608 z M 540.3 665.1 C 536 678.8000000000001 531.8 689.3000000000001 527.5999999999999 698.4 C 523.5999999999999 707 519.5999999999999 714.1999999999999 515.3999999999999 721.5 L 484.29999999999984 721.5 C 474.59999999999985 706.1 462.49999999999983 678.2 455.39999999999986 652.1 L 544.1999999999998 652.1 L 543.1999999999998 655.3000000000001 L 540.3 665.1 z M 508.8 347.1 C 505 345.5 500.90000000000003 344.90000000000003 496.8 345.40000000000003 C 489.8 346.3 483.3 350.3 479.8 357.40000000000003 L 519.7 357.40000000000003 C 517.2 352.4 513.3 349 508.8 347.1 z M 422 624.3 C 417.1 626.0999999999999 411.8 627.8 406.3 629.5 C 406.6 630 407 630.5 407.3 631.1 C 408.6 633.1 409.7 635.2 410.6 637.4 C 411.20000000000005 638.8 411.70000000000005 640.1999999999999 412.20000000000005 641.6999999999999 C 416.40000000000003 638.5999999999999 420.50000000000006 635.3 424.30000000000007 631.4999999999999 C 424.70000000000005 630.7999999999998 425.00000000000006 630.0999999999999 425.4000000000001 629.3999999999999 C 426.9000000000001 626.5999999999999 428.4000000000001 623.9999999999999 429.80000000000007 621.4999999999999 C 427.3 622.3 424.7 623.3 422 624.3 z M 404.3 640.4 C 403.3 638.1 402.1 635.8 400.7 633.6999999999999 C 400.2 632.9999999999999 399.7 632.1999999999999 399.09999999999997 631.4999999999999 C 392.4 633.2999999999998 385.29999999999995 634.9999999999999 377.99999999999994 636.3999999999999 C 378.69999999999993 637.6999999999998 379.3999999999999 639.0999999999999 379.99999999999994 640.4999999999999 C 381.09999999999997 643.1999999999999 382.09999999999997 645.9999999999999 382.79999999999995 648.9999999999999 C 383.4 651.4999999999999 383.79999999999995 654.1999999999999 384.09999999999997 656.8999999999999 C 391.59999999999997 653.8999999999999 399.09999999999997 650.1999999999998 406.2 645.6999999999998 C 405.6 643.9 405 642.1 404.3 640.4 z M 377.2 659.4 C 377 656.5 376.7 653.6999999999999 376.09999999999997 651.1 C 375.4 648 374.4 645 373.2 642.2 C 372.5 640.6 371.59999999999997 639 370.7 637.6 C 363.7 638.7 356.59999999999997 639.5 349.3 639.9 C 350 641.8 350.6 643.8 351 646 C 351.7 649.2 352.1 652.8 352 656.6 C 352 659.6 351.7 662.8000000000001 351.1 666.1 C 359.6 664.6 368.4 662.4 377.2 659.4 z M 351.5 521.4 C 351.5 520.1 351.5 517.4 351.5 513.9 C 351.5 508.9 351.5 502.29999999999995 351.5 496.2 C 351.5 488.3 351.6 481.2 351.7 479.09999999999997 C 345.2 481.4 337.7 482.2 337.4 490.79999999999995 L 337.4 535.6999999999999 C 337.4 539.8 340 543.4999999999999 344 544.8 L 355.9 548.8 C 353 540 351.5 530.6 351.5 521.4 z M 499.7 254.3 C 498.09999999999997 254.3 496.59999999999997 254.60000000000002 495.09999999999997 255.10000000000002 C 494.99999999999994 255.10000000000002 494.9 255.20000000000002 494.79999999999995 255.20000000000002 C 494.69999999999993 255.20000000000002 494.59999999999997 255.3 494.59999999999997 255.3 C 489.29999999999995 257.40000000000003 485.49999999999994 262.5 485.49999999999994 268.6 C 485.49999999999994 276.5 491.8999999999999 282.90000000000003 499.79999999999995 282.90000000000003 C 500.09999999999997 282.90000000000003 500.49999999999994 282.90000000000003 500.79999999999995 282.90000000000003 C 505.09999999999997 282.6 508.99999999999994 280.3 511.4 277.00000000000006 C 513.1 274.70000000000005 514.1 271.80000000000007 514.1 268.70000000000005 C 514 260.7 507.6 254.3 499.7 254.3 z" stroke-linecap="round"></path>
+</g>
+		<g transform="matrix(0.31594199434376485 0 0 0.31594199434376485 -0.031594199434380243 3.1594199434377117)">
+<path style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(248,247,186); fill-rule: nonzero; opacity: 1;" paint-order="stroke" transform=" translate(-499.9, -510)" d="M 550.1 540.1 C 570.2 540.1 586.7 524.4 588 504.6 C 588 503.8 588.1 502.90000000000003 588.1 502.1 C 588.1 501.3 588.1 500.40000000000003 588 499.6 C 586.7 479.8 570.2 464.1 550.1 464.1 C 529.2 464.1 512.1 481.1 512.1 502.1 C 512.1 523.1 529.2 540.1 550.1 540.1 z M 550.1 484.1 C 560 484.1 568.1 492.20000000000005 568.1 502.1 C 568.1 512 560 520.1 550.1 520.1 C 540.2 520.1 532.1 512 532.1 502.1 C 532.2 492.2 540.2 484.1 550.1 484.1 z M 450 464.1 C 429.9 464.1 413.4 479.8 412.1 499.6 C 412.1 500.40000000000003 412 501.3 412 502.1 C 412 502.90000000000003 412 503.8 412.1 504.6 C 413.40000000000003 524.4 429.90000000000003 540.1 450 540.1 C 470.9 540.1 488 523.1 488 502.1 C 488 481.1 471 464.1 450 464.1 z M 450 520.1 C 440.1 520.1 432 512 432 502.1 C 432 492.20000000000005 440 484.1 450 484.1 C 459.9 484.1 468 492.20000000000005 468 502.1 C 468 512 459.9 520.1 450 520.1 z M 483 672.1 L 516.9 672.1 C 512.5 684.1 507.79999999999995 694 503.79999999999995 701.5 L 496.09999999999997 701.5 C 492.1 694 487.4 684.1 483 672.1 z M 521.4 608 C 526.1 617.3 533.8 633.1 542 652.2 L 516.3 652.2 C 511.99999999999994 636.8000000000001 507.29999999999995 621.7 501.99999999999994 608 L 521.4 608 z M 575.8 765.7 L 540.0999999999999 765.7 C 537.8 751.1 533.5999999999999 726.2 527.5999999999999 698.4000000000001 C 531.8 689.3000000000001 535.9999999999999 678.8000000000001 540.3 665.1000000000001 L 543.3 655.3000000000002 C 557.6 688.9 572.9 731.5 575.8 765.7 z M 575.5 631.4 C 573.6 627.9 571.8 624.6 570.1 621.5 C 570.1 621.5 570.1 621.5 570.2 621.5 C 577.2 625.3 584.5 628.7 592 631.8 C 590.8 633.9 589.7 636 588.8 638.3 C 585.4 636.6999999999999 582 634.9 578.6999999999999 633.1999999999999 C 577.6999999999999 632.6999999999999 576.6999999999999 632.0999999999999 575.6999999999999 631.4999999999999 L 575.5 631.4 z M 598.6 634.5 C 605.4 637.1 612.4 639.3 619.5 641.2 C 618.4 643.9000000000001 617.5 646.8000000000001 616.9 649.7 C 609.5 647.3000000000001 602.3 644.5 595.1999999999999 641.3000000000001 C 596.1 638.9 597.2 636.6 598.6 634.5 z M 626.4 642.8 C 633.8 644.4 641.3 645.5999999999999 648.8 646.0999999999999 C 648.0999999999999 649.3999999999999 647.8 652.9999999999999 647.8 656.8999999999999 C 639.5999999999999 655.7999999999998 631.5 653.9999999999999 623.5999999999999 651.6999999999998 C 624.2 648.6 625.2 645.6 626.4 642.8 z M 679.2 657.7 C 676.1 658 673 658.2 670 658.3000000000001 C 664.9 658.4000000000001 659.8 658.2 654.8 657.7 C 654.5999999999999 653.8000000000001 655 650 655.8 646.5 C 660.3 646.6 664.8 646.6 669.4 646.2 C 672.1 646 674.8 645.6 677.5 645.2 C 677.6 648 677.9 650.8000000000001 678.4 653.6 C 678.6 655 678.9 656.4 679.2 657.7 z M 344 646.5 C 344.8 650 345.2 653.7 345 657.5 C 336.9 658.4 328.7 658.5 320.5 657.9 C 320.8 656.5 321.1 655 321.4 653.6 C 321.79999999999995 651 322.09999999999997 648.3000000000001 322.29999999999995 645.6 C 324.19999999999993 645.9 326.09999999999997 646.1 327.99999999999994 646.2 C 333.3 646.6 338.6 646.7 344 646.5 z M 373.2 642.3 C 374.5 645.0999999999999 375.4 648 376.09999999999997 651.1999999999999 C 368.2 653.5999999999999 360.09999999999997 655.4 351.99999999999994 656.6999999999999 C 351.99999999999994 652.9 351.69999999999993 649.3 350.99999999999994 646.0999999999999 C 358.4 645.3 365.8 644 373.2 642.3 z M 400.7 633.7 C 402.09999999999997 635.8000000000001 403.3 638 404.3 640.4000000000001 C 397.3 643.6000000000001 390.1 646.5000000000001 382.8 649.0000000000001 C 382.1 646.0000000000001 381.2 643.2000000000002 380 640.5000000000001 C 387.1 638.6 394 636.3 400.7 633.7 z M 410.6 637.3 C 409.70000000000005 635.0999999999999 408.6 633 407.3 631 C 412.3 628.9 417.2 626.7 422 624.3 C 424.7 623.3 427.3 622.3 429.8 621.4 C 428.40000000000003 623.9 426.90000000000003 626.6 425.40000000000003 629.3 C 420.6 632.1 415.7 634.8 410.6 637.3 z M 648 513.8 C 648 508.79999999999995 648 502.19999999999993 648 496.09999999999997 L 662.1 496.09999999999997 L 662.1 513.8 L 648 513.8 z M 351.5 513.8 L 337.4 513.8 L 337.4 496.09999999999997 L 351.5 496.09999999999997 C 351.4 502.2 351.5 508.8 351.5 513.8 z M 508.8 347.1 L 512.8 357.5 L 498.09999999999997 357.5 L 496.9 345.5 C 500.9 344.9 505.1 345.4 508.8 347.1 z M 494.6 255.3 L 494.6 255.3 C 494.70000000000005 255.3 494.8 255.20000000000002 494.8 255.20000000000002 C 494.90000000000003 255.20000000000002 495 255.10000000000002 495.1 255.10000000000002 C 496.5 254.70000000000002 498 254.40000000000003 499.70000000000005 254.3 C 501.20000000000005 254.3 502.70000000000005 254.60000000000002 504.00000000000006 255 C 508.90000000000003 263.3 510.70000000000005 271.2 511.30000000000007 276.9 C 508.9000000000001 280.2 505.1000000000001 282.5 500.70000000000005 282.79999999999995 L 500.70000000000005 282.79999999999995 C 501.7 267.5 497.3 259 494.6 255.3 z M 546.1 420.8 C 543.3000000000001 401.5 540 387 537.9 379.1 C 543.1 380 548.1999999999999 381.3 553.1999999999999 383 C 558.6999999999999 384.8 563.9999999999999 387.1 569.0999999999999 389.7 C 569.1999999999999 390 569.3 390.4 569.3 390.8 L 546.1 420.8 z M 561.4 588 L 538 588 C 539.8 580.9 541.4 573.8 542.8 566.8 L 556 566.8 C 561.5 566.8 566.8 565.9 571.7 564.1999999999999 C 570.3000000000001 571.9999999999999 568.7 579.8 566.8000000000001 587.6999999999999 C 565.1 587.9 563.2 588 561.4 588 z M 565 406.3 C 567.1 403.8 569.1 401.40000000000003 571 399.3 C 572.9 409.7 574.8 422.2 576.2 436.3 C 576.5 439.40000000000003 576.8000000000001 442.6 577.1 446 L 549 446 C 548.8 443.9 548.6 441.9 548.4 439.9 C 548.1999999999999 437.4 547.9 434.9 547.6 432.5 C 552.6 422.8 559 413.7 565 406.3 z M 264.3 668 L 260.40000000000003 687.8 C 259.3 687.9 258.20000000000005 687.9 257.1 687.9 C 251.60000000000002 688.1 243.20000000000002 685.9 237.70000000000002 685 L 241.3 666.3 L 252 668.4 C 256.4 669.4 260.6 669.2 264.3 668 z M 277.4 602.2 L 273.4 622.1 C 267.29999999999995 617.3000000000001 259.7 616.4 251.29999999999998 614.8000000000001 L 254.89999999999998 596.1 L 265.59999999999997 598.2 C 269.8 599 273.7 600.3 277.4 602.2 z M 748.4 614.8 C 740.1999999999999 616.3 732.6 617.3 726.5 621.9 L 722.6 602 C 726.2 600.2 730.1 598.9 734.1 598.2 L 744.8000000000001 596.1 L 748.4 614.8 z M 762.1 685.1 C 756.6 686 748.2 688.2 742.7 688 C 741.7 688 740.6 688 739.6 687.9 L 735.7 668.1 C 739.4000000000001 669.2 743.5 669.4 747.8000000000001 668.5 L 758.5000000000001 666.4 L 762.1 685.1 z" stroke-linecap="round"></path>
+</g>
+</g>
+</g>
+</svg>
+        
+      </span>
+    
+    
+      <span class="title-text" data-tooltip="Home">
+        
+          <span class="title">Agentic Intelligence Lab</span>
+        
+        
+      </span>
+    
+  </a>
+
+  <input class="nav-toggle" type="checkbox" aria-label="show/hide nav">
+
+  <nav>
+    
+    
+      
+        <a href="/research/" data-tooltip="Published Works">
+          Research
+        </a>
+      
+    
+      
+        <a href="/openings/" data-tooltip="Available Positions">
+          Openings
+        </a>
+      
+    
+      
+        <a href="/team/" data-tooltip="About Our Team">
+          Team
+        </a>
+      
+    
+      
+        <a href="/blog/" data-tooltip="Check Our Original Content">
+          Blog
+        </a>
+      
+    
+      
+        <a href="/contact/" data-tooltip="Email and Address">
+          Contact
+        </a>
+      
+    
+  </nav>
+</header>
+
+    <main>
+      <!--
+  modify main content of page:
+  - add section breaks
+  - attach section properties
+  - filter out blank sections
+-->
+
+
+
+
+
+
+  
+  
+  
+
+  <section class="background" data-size="1">
+    <!--
+  background: images/CWI/fig1-tasks.jpg;
+  dark: ;
+  size: 1;
+-->
+
+
+<h1 class="center">CWI — Composite Humanoid Whole-Body Imitation System for Loco-Manipulation (RA-L 2026)</h1>
+
+<div class="post-info">
+  
+    
+    
+      <span data-tooltip="Author">
+        <i class="icon fa-solid fa-feather-pointed"></i>
+        <span>Wenqi Ge</span>
+      </span>
+    
+  
+
+  
+  
+
+  
+    <span data-tooltip="Originally published on">
+      <i class="icon fa-regular fa-calendar"></i>
+      <span>August 04, 2026</span>
+    </span>
+  
+
+  
+</div>
+
+
+  
+
+
+  <div class="tags" data-link="/blog">
+    
+      <a href="blog?search=%22tag:%20publication%22" class="tag" data-tooltip='Show items with the tag "publication"'>
+        publication
+      </a>
+    
+      <a href="blog?search=%22tag:%20robotics%22" class="tag" data-tooltip='Show items with the tag "robotics"'>
+        robotics
+      </a>
+    
+      <a href="blog?search=%22tag:%20humanoid%22" class="tag" data-tooltip='Show items with the tag "humanoid"'>
+        humanoid
+      </a>
+    
+      <a href="blog?search=%22tag:%20loco-manipulation%22" class="tag" data-tooltip='Show items with the tag "loco-manipulation"'>
+        loco-manipulation
+      </a>
+    
+  </div>
+  </section>
+
+  
+  
+  
+
+  <section class="background" data-size="page">
+    <!--
+  background: ;
+  dark: ;
+  size: ;
+-->
+
+
+<h3 id="one-policy-two-kinds-of-motion-data">One Policy, Two Kinds of Motion Data</h3>
+
+<p><em>Accepted to IEEE Robotics and Automation Letters, June 2026.</em></p>
+
+<p>Wenqi Ge*, Junde Guo*, Zhen Fu, Shunpeng Yang, Jiayu Chen, Hua Chen</p>
+
+<p>LimX Dynamics · The University of Hong Kong · SUSTech · HKUST · Zhejiang University</p>
+
+<p><sub>*Equal contribution</sub></p>
+
+<p><a href="https://cwi-ral.github.io/CWI-RAL-Webpage/">Project page</a> · <a href="https://arxiv.org/abs/2606.27676">arXiv:2606.27676</a> · <a href="https://youtu.be/BLckpzHSI0w">Video (YouTube)</a> · <a href="https://www.bilibili.com/video/BV1dzKf6GEeH/">Video (Bilibili)</a></p>
+
+<p><img src="/images/CWI/fig1-tasks.jpg" alt="Seven real-world loco-manipulation tasks performed by a LimX Oli humanoid under CWI"></p>
+
+<p><em>CWI on a full-size LimX Oli: squatting to pick up toys and drop them in a basket (a-1), standing up and walking off carrying it (a-2), opening a door (b), hanging cups on a rack (c), striking a suspended drum (d), assembling a small part (e), twisting a bottle cap (f).</em></p>
+
+<p>A humanoid that picks a toy off the floor and carries it across the room is solving two problems at once. The legs have to hold a commanded velocity and height while the arms swing the base around. The arms have to reach wherever the operator points, with motion that stays inside what a human body would actually produce. Push hard on one objective and the other tends to give.</p>
+
+<p>Human motion capture is the obvious source of priors for both halves. That is also where the trouble starts.</p>
+
+<h2 id="where-full-body-mocap-breaks-down">Where full-body MoCap breaks down</h2>
+
+<p>AMASS and similar corpora are not evenly useful across the body. Upper-body trajectories are rich: people reach, gesture, and handle objects in every direction, which is close to what a manipulation policy needs. Lower-body trajectories are another matter.</p>
+
+<p><img src="/images/CWI/fig3-amass-distribution.png" alt="Left: pelvis-height density in AMASS peaks near 0.85 to 0.90 m. Right: base linear and angular velocity scatter clusters near the origin"></p>
+
+<p><em>AMASS lower-body statistics against our training command range (blue). Pelvis height piles up near standing, 0.85 to 0.90 m, while we command down to 0.17 m. Base velocities cluster at the origin, while we command up to 1.0 m/s forward and 1.2 rad/s in yaw.</em></p>
+
+<p>Two things go wrong. The clips do not cover the corners of the command box we need for deployment, so a policy trained to track them never learns to hold 0.3 m/s at a 0.4 m squat. And many of the clips that do move are too aggressive for a robot that is carrying something, so they have to be filtered out.</p>
+
+<p>Both standard responses to this cost something. Filtering the corpus for lower-body stability throws away the upper-body motion in those same clips, which was perfectly good. Skipping MoCap for the legs and shaping rewards or sampling joint commands instead leaves the upper body without human statistics, and the arm motion drifts away from anything a person would produce.</p>
+
+<h2 id="decouple-the-data-keep-the-policy-whole">Decouple the data, keep the policy whole</h2>
+
+<p>Several existing loco-manipulation controllers decouple the <em>architecture</em>: one policy for the legs and another for the arms, or RL for the legs and PD control on top for the arms. CWI keeps a single whole-body policy over all 31 DoF and decouples only what each half learns from.</p>
+
+<p>The upper body trains on the full AMASS corpus with no filtering. The lower body trains on roughly ten curated expert-quality clips per class, one class for omnidirectional walking and one for squatting.</p>
+
+<p><img src="/images/CWI/fig2-framework.png" alt="CWI framework overview showing decoupled data sources, dual AMP discriminators, multi-critic PPO, and teacher-student distillation"></p>
+
+<p><em>The CWI framework. Large-scale upper-body data drives manipulation, compact curated clips drive locomotion style through two discriminators, a multi-critic PPO stage trains the unified policy, and distillation produces a student driven by velocity/height commands plus bimanual hand poses.</em></p>
+
+<p>The reason the upper-body corpus needs no filtering is a change of frame. We express every upper-body reference relative to the robot’s base. Once root motion is subtracted, a clip of someone spinning or jumping still contains a clean, human-feasible arm trajectory. The instability lives in the root, and the root is exactly what we drop.</p>
+
+<p>Two details in how the body is partitioned turn out to matter later. The waist (yaw, roll, pitch) goes into the upper-body group, so torso bending is supervised by the same AMASS clip as the arms rather than being treated as part of the locomotion problem. The neck and head come out of the reference entirely, since AMASS contains very few head motions; instead the head gets a 2-DoF command sampled within its mechanical range each episode and a separate quadratic tracking term, which lets a VR headset drive it directly at deployment.</p>
+
+<p>The upper-body reference combines joint targets <code class="language-plaintext highlighter-rouge">q_u^ref ∈ R^17</code> with position, orientation, and keypoint-based pose for the shoulder, elbow, wrist, and hand links. The lower-body reference for the discriminators carries base velocity and height, the 12 leg joint positions and velocities, and hip/knee/ankle link states.</p>
+
+<h2 id="two-discriminators-one-per-gait-class">Two discriminators, one per gait class</h2>
+
+<p>The lower body gets its supervision through Adversarial Motion Priors rather than frame-by-frame tracking. Each discriminator scores a four-frame window of lower-body state transitions, with upper-body signals excluded so the prior stays purely about the legs, and trains with a least-squares GAN objective plus a gradient penalty.</p>
+
+<p>Which discriminator is active depends on the command: <code class="language-plaintext highlighter-rouge">D_walk</code> when the velocity command is nonzero, <code class="language-plaintext highlighter-rouge">D_squat</code> when it is zero and the policy is tracking height. Both feed a continuous style reward that pays off states the discriminator classifies as expert-like.</p>
+
+<p>The important consequence is that the curated clips act as a style prior, not a tracking target. Locomotion commands are sampled uniformly across the entire deployment range during training, far outside anything the ten clips demonstrate. The discriminator answers “does this look like expert walking”, not “does this match frame 47 of clip 3”, so command coverage and motion quality stop competing for the same data.</p>
+
+<p>Walking and squatting are distinct enough that pooling them into one discriminator averages the two modes and blurs both, which the ablations below confirm.</p>
+
+<h2 id="three-reward-groups-three-critics">Three reward groups, three critics</h2>
+
+<p>The full reward splits into locomotion tracking, upper-body tracking, and style:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Group</th>
+      <th>Term</th>
+      <th>Definition</th>
+      <th>Weight</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">r_loco</code></td>
+      <td>Linear velocity</td>
+      <td><code class="language-plaintext highlighter-rouge">exp(−(v_xy − v_xy^cmd)²)</code></td>
+      <td>3.0</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>Angular velocity</td>
+      <td><code class="language-plaintext highlighter-rouge">exp(−(ω_z − ω_z^cmd)²)</code></td>
+      <td>2.5</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>Height tracking</td>
+      <td><code class="language-plaintext highlighter-rouge">exp(−(h − h^cmd)²)</code></td>
+      <td>2.5</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">r_upper</code></td>
+      <td>DoF position</td>
+      <td><code class="language-plaintext highlighter-rouge">exp(−‖q_upper − q_ref^upper‖²/σ_q²)</code></td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>Tri-keypoint position</td>
+      <td><code class="language-plaintext highlighter-rouge">exp(−‖p̃_u − p̃_ref^upper‖²/σ_p²)</code></td>
+      <td>3.0</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">r_style</code></td>
+      <td>AMP</td>
+      <td><code class="language-plaintext highlighter-rouge">max(0, 1 − 0.25(D_φ^k(τ) − 1)²)</code></td>
+      <td>2.0</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Standard regularizers (projected-gravity alignment, action smoothness, torque penalties) are assigned to whichever group they primarily affect.</p>
+
+<p>A single critic has to explain all three signals with one value function, and the adversarial style reward is high-variance enough to drag that estimate around. We give each group its own value head, compute group-wise GAE advantages, normalize each within the minibatch, and combine them with weights before the standard PPO clipped surrogate.</p>
+
+<p><img src="/images/CWI/fig5-multicritic-curves.png" alt="Training curves for single-critic and multi-critic variants, showing reward, velocity tracking error, and hand position tracking error"></p>
+
+<p><em>The multi-critic variant reaches a higher final reward and converges faster on both velocity and hand-position error.</em></p>
+
+<h2 id="distilling-down-to-two-hand-poses">Distilling down to two hand poses</h2>
+
+<p>Single-stage RL for whole-body tracking tends to come out jerky, so we train a teacher with privileged state and the full upper-body reference, then distill.</p>
+
+<p>The student sees only a history of proprioceptive observations plus a reduced command: velocity and height for the legs, and an 18-dimensional bimanual hand pose (a 9D keypoint feature per hand) for the arms. Distillation combines PPO on the teacher’s reward with an action-matching BC term, querying the teacher on-policy over the student’s own state distribution and annealing the imitation weight.</p>
+
+<p>Reducing the command to hand poses is a deployment decision. A VR operator supplies end-effector targets, not joint angles, and reconstructing joint targets through online IK risks discontinuities near singularities. Distilling directly on hand poses sidesteps that and keeps the student pinned to the AMASS manifold. The cost is a small open-loop accuracy gap against the joint-command interface.</p>
+
+<h2 id="how-it-compares">How it compares</h2>
+
+<p>We evaluate on a 31-DoF LimX Oli (1.65 m, 50 kg), trained in IsaacLab with commands sampled over <code class="language-plaintext highlighter-rouge">v_x ∈ [−0.5, 1.0]</code> m/s, <code class="language-plaintext highlighter-rouge">ω_yaw ∈ [−1.2, 1.2]</code> rad/s, <code class="language-plaintext highlighter-rouge">h ∈ [0.17, 0.9]</code> m, and the usual domain randomization over mass, friction, sensor noise, and latency. The AMASS upper-body corpus is split 85/15, and evaluation uses sequences the policy never saw.</p>
+
+<p>Because the original works target different robots, we re-implemented every baseline on Oli (marked with *) and unified observation composition, reward terms and weights, and PD gains across all methods, so the comparison isolates framework design and data usage.</p>
+
+<p><img src="/images/CWI/fig4-comparison-radar.png" alt="Radar chart comparing CWI against FALCON*, HOMIE*, and HOVER* across seven metrics"></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Metric</th>
+      <th>CWI (ours)</th>
+      <th>FALCON*</th>
+      <th>HOMIE*</th>
+      <th>HOVER*</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Success rate (%)</td>
+      <td>98.967</td>
+      <td><strong>99.073</strong></td>
+      <td>90.429</td>
+      <td>96.080</td>
+    </tr>
+    <tr>
+      <td>Upper-body joint error (rad)</td>
+      <td><strong>0.176</strong></td>
+      <td>0.219</td>
+      <td>0.309</td>
+      <td>0.398</td>
+    </tr>
+    <tr>
+      <td>Keybody position error (mm)</td>
+      <td><strong>13.919</strong></td>
+      <td>19.513</td>
+      <td>87.720</td>
+      <td>101.440</td>
+    </tr>
+    <tr>
+      <td>Keybody orientation error (rad)</td>
+      <td><strong>0.128</strong></td>
+      <td>0.173</td>
+      <td>0.962</td>
+      <td>0.986</td>
+    </tr>
+    <tr>
+      <td>Linear velocity error (m/s)</td>
+      <td><strong>0.073</strong></td>
+      <td>0.080</td>
+      <td>0.187</td>
+      <td>0.208</td>
+    </tr>
+    <tr>
+      <td>Yaw rate error (rad/s)</td>
+      <td><strong>0.141</strong></td>
+      <td>0.168</td>
+      <td>0.288</td>
+      <td>0.260</td>
+    </tr>
+    <tr>
+      <td>Height error (mm)</td>
+      <td><strong>15.042</strong></td>
+      <td>16.066</td>
+      <td>28.014</td>
+      <td>46.890</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><em>Lower is better on every row except success rate. Position and orientation errors aggregate over all upper-body keypoints.</em></p>
+
+<p>FALCON* carries higher arm tracking error, consistent with its separate upper and lower policies. HOVER* loses robustness once upper-body motions are paired with base commands outside its training distribution. HOMIE* shows larger joint-level deviation, which fits a PD-controlled upper body asked to follow non-smooth references.</p>
+
+<p>The one metric where CWI does not come first is success rate, where FALCON* leads by about a tenth of a percentage point. Our policy holds strict upper-body tracking even at the boundary of the command box, and that occasionally costs a little stability.</p>
+
+<h2 id="which-pieces-are-doing-the-work">Which pieces are doing the work</h2>
+
+<p>The ablations use the deployment-interface student, so the manipulation columns report end-effector error over the two hands rather than the full-keypoint aggregate above. We add a relaxed DTW distance <code class="language-plaintext highlighter-rouge">d_dtw</code> against reference clips as a naturalness measure, and the 95th-percentile joint acceleration <code class="language-plaintext highlighter-rouge">q̈_p95</code> as a smoothness proxy.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Variant</th>
+      <th>v error (m/s)</th>
+      <th>ω error (rad/s)</th>
+      <th>h error (mm)</th>
+      <th>EE pos (mm)</th>
+      <th>EE rot (rad)</th>
+      <th>d_dtw (rad)</th>
+      <th>q̈_p95 (rad/s²)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>CWI (full)</td>
+      <td>0.100</td>
+      <td><strong>0.1825</strong></td>
+      <td><strong>19.65</strong></td>
+      <td><strong>42.91</strong></td>
+      <td>0.1708</td>
+      <td><strong>0.452</strong></td>
+      <td><strong>28.8</strong></td>
+    </tr>
+    <tr>
+      <td>w/o multi-critic</td>
+      <td><strong>0.099</strong></td>
+      <td>0.199</td>
+      <td>20.64</td>
+      <td>55.49</td>
+      <td>0.2308</td>
+      <td>0.520</td>
+      <td>30.4</td>
+    </tr>
+    <tr>
+      <td>w/o distillation †</td>
+      <td>0.099</td>
+      <td>0.147</td>
+      <td>19.43</td>
+      <td>173.2</td>
+      <td>0.6723</td>
+      <td>0.444</td>
+      <td>28.1</td>
+    </tr>
+    <tr>
+      <td>single AMP</td>
+      <td>0.110</td>
+      <td>0.192</td>
+      <td>21.07</td>
+      <td>42.93</td>
+      <td>0.1702</td>
+      <td>0.615</td>
+      <td>35.1</td>
+    </tr>
+    <tr>
+      <td>w/o AMP</td>
+      <td>0.125</td>
+      <td>0.242</td>
+      <td>22.52</td>
+      <td>42.92</td>
+      <td><strong>0.1696</strong></td>
+      <td>1.413</td>
+      <td>39.3</td>
+    </tr>
+    <tr>
+      <td>w/o AMASS upper</td>
+      <td>0.131</td>
+      <td>0.249</td>
+      <td>24.20</td>
+      <td>62.32</td>
+      <td>0.275</td>
+      <td>0.508</td>
+      <td>48.2</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><sub>† The single-stage variant fails upper-body tracking outright, so its locomotion numbers are reported for transparency but not ranked.</sub></p>
+
+<p>Removing distillation is the sharpest failure. A single-stage policy cannot learn manipulation from the sparse hand-pose command alone, and end-effector error goes from 42.91 mm to 173.2 mm. The teacher has to learn whole-body control with dense references first; the student inherits it.</p>
+
+<p>Dropping AMP barely touches command tracking but collapses gait quality: <code class="language-plaintext highlighter-rouge">d_dtw</code> jumps from 0.452 to 1.413 rad, with frequent stance violations and foot slips. Pooling the two discriminators into one is the same failure in milder form, with <code class="language-plaintext highlighter-rouge">d_dtw</code> at 0.615 and joint acceleration up from 28.8 to 35.1 rad/s². End-effector accuracy stays near 42.9 mm in both cases, so the dual-discriminator design buys lower-body style without charging manipulation for it.</p>
+
+<p>The result we find most telling is the AMASS upper-body ablation. Swapping human references for randomly sampled joint targets degrades manipulation as expected (42.91 to 62.32 mm, joint acceleration 28.8 to 48.2 rad/s²), but it also degrades <em>every locomotion metric</em>: velocity error 0.100 to 0.131 m/s, yaw rate 0.183 to 0.249 rad/s, height 19.65 to 24.20 mm. The architecture supplies the structural decoupling. Only the data supplies upper-body motion whose statistics the legs can absorb, and a jerky upper body is a disturbance the legs then have to reject.</p>
+
+<h2 id="on-the-robot">On the robot</h2>
+
+<p>Deployment runs off a Meta Quest headset and its hand controllers, with no MoCap suit and no exoskeleton cockpit. The operator’s hand poses and a velocity/height command are the entire interface.</p>
+
+<p>The tasks in the opening figure cover precision work (twisting a bottle cap, assembling a small part), whole-body coordination (opening a door, striking a suspended drum), and long-horizon sequences (picking up toys, placing them, then carrying the basket away). The policy holds stable locomotion throughout.</p>
+
+<p><img src="/images/CWI/fig6-box-lifting-coordination.png" alt="Box-lifting sequence with hand distance and waist pitch plotted over four phases"></p>
+
+<p><em>Four phases of a teleoperated box lift: approaching and squatting (A), grasping and starting the lift (B), raising with both hands (C), standing up with the box overhead (D). Below, left and right hand distance from the base against waist pitch over time.</em></p>
+
+<p>Watch the waist pitch. It rises as the hands extend forward and down, then straightens as the robot comes upright with the box. The operator never sent a torso command; there is no torso command in the interface. The coupling between hand reach and torso posture is in the AMASS clips because that is how people reach, and putting the waist in the upper-body group meant one clip supervised both. The composite objective keeps that coupling intact while the legs stay stable underneath it.</p>
+
+<h2 id="limits-and-what-comes-next">Limits and what comes next</h2>
+
+<p>Behavior coverage is bounded by the motion libraries and, more tightly, by the command interface. Bimanual hand poses plus velocity and height cannot express pressing a pedal with a foot or bracing against a surface with an elbow.</p>
+
+<p>That same compactness is useful going forward. A portable teleoperation rig that works in ordinary rooms is a data collection instrument, and a small, task-oriented command space is structured supervision for higher-level autonomous policies, vision-language-action models included. Collecting multimodal demonstrations in everyday scenes is where we are taking this next.</p>
+
+<hr>
+
+<h2 id="citation">Citation</h2>
+
+<div class="language-bibtex highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">@article</span><span class="p">{</span><span class="nl">ge2026cwi</span><span class="p">,</span>
+  <span class="na">author</span>  <span class="p">=</span> <span class="s">{Ge, Wenqi and Guo, Junde and Fu, Zhen and Yang, Shunpeng
+             and Chen, Jiayu and Chen, Hua}</span><span class="p">,</span>
+  <span class="na">title</span>   <span class="p">=</span> <span class="s">{{CWI}: Composite Humanoid Whole-Body Imitation System
+             for Loco-Manipulation}</span><span class="p">,</span>
+  <span class="na">journal</span> <span class="p">=</span> <span class="s">{IEEE Robotics and Automation Letters}</span><span class="p">,</span>
+  <span class="na">year</span>    <span class="p">=</span> <span class="s">{2026}</span><span class="p">,</span>
+  <span class="na">doi</span>     <span class="p">=</span> <span class="s">{10.1109/LRA.2026.3710366}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+  </section>
+
+  
+  
+  
+
+  <section class="background" data-size="page">
+    <!--
+  background: ;
+  dark: ;
+  size: ;
+-->
+
+
+<div class="post-nav">
+  <span>
+    
+      <i class="icon fa-solid fa-angle-left"></i> Previous post<br>
+      <a href="/2025/08/15/technical-post.html">
+        Verlog - A Multi-turn RL framework for LLM agents
+      </a>
+    
+  </span>
+  <span>
+    
+      Next post <i class="icon fa-solid fa-angle-right"></i><br>
+      <a href="/2026/08/04/rombrl-post.html">
+        ROMBRL — Policy-Driven World Model Adaptation for Robust Offline Model-based RL (ICML 2026)
+      </a>
+    
+  </span>
+</div>
+  </section>
+
+
+    </main>
+    
+
+
+<footer class="background" style="--image: url('/images/header.jpg')" data-dark="true" data-size="wide">
+  <!--
+    <div>
+      Extra details like contact info or address
+    </div>
+  -->
+
+  <div>
+    
+      
+      
+      
+
+
+
+  <div class="button-wrapper">
+    <a class="button" href="mailto:agentic.intelligence.lab@gmail.com" data-tooltip="Email" data-style="bare" aria-label="Email">
+      <i class="icon fa-solid fa-envelope"></i>
+      
+    </a>
+  </div>
+
+
+    
+      
+      
+      
+
+
+
+  <div class="button-wrapper">
+    <a class="button" href="https://scholar.google.com/citations?user=k0KJm7kAAAAJ" data-tooltip="Google Scholar" data-style="bare" aria-label="Google Scholar">
+      <i class="icon fa-brands fa-google"></i>
+      
+    </a>
+  </div>
+
+
+    
+      
+      
+      
+
+
+
+  <div class="button-wrapper">
+    <a class="button" href="https://github.com/Agentic-Intelligence-Lab" data-tooltip="GitHub" data-style="bare" aria-label="GitHub">
+      <i class="icon fa-brands fa-github"></i>
+      
+    </a>
+  </div>
+
+
+    
+      
+      
+      
+
+
+
+  <div class="button-wrapper">
+    <a class="button" href="https://twitter.com/AgenticLab" data-tooltip="Twitter" data-style="bare" aria-label="Twitter">
+      <i class="icon fa-brands fa-twitter"></i>
+      
+    </a>
+  </div>
+
+
+    
+  </div>
+
+  <div>
+    © 2026
+    Agentic Intelligence Lab
+      |   Built with
+    <a href="https://github.com/greenelab/lab-website-template">
+      Lab Website Template
+    </a>
+  </div>
+
+  <input type="checkbox" class="dark-toggle" data-tooltip="Dark mode" aria-label="toggle dark mode" oninput="onDarkToggleChange(event)">
+</footer>
+
+  </body>
+</html>
