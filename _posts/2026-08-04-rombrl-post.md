@@ -3,6 +3,8 @@ title: ROMBRL — Policy-Driven World Model Adaptation for Robust Offline Model-
 image: images/logo.png
 author: Le Xu
 tags: publication offline-rl robustness model-based-rl
+redirect_from:
+  - /2026/08/04/rombrl-icml2026.html
 ---
 
 Our paper, **"Policy-Driven World Model Adaptation for Robust Offline Model-based Reinforcement Learning"**, was presented as a **poster at ICML 2026** in Seoul, South Korea. This is joint work between the Agentic Intelligence Lab, Tsinghua University, and the Robotics Institute at Carnegie Mellon University.
@@ -13,7 +15,7 @@ Our paper, **"Policy-Driven World Model Adaptation for Robust Offline Model-base
 - **Code:** [github.com/Agentic-Intelligence-Lab/ROMBRL](https://github.com/Agentic-Intelligence-Lab/ROMBRL)
 
 <a href="/files/rombrl-poster.pdf" target="_blank">
-  <img src="images/rombrl-poster.png" alt="ROMBRL ICML 2026 poster" style="width:100%; max-width:100%; height:auto; border:1px solid #ddd;">
+  <img src="/images/rombrl-poster.png" alt="ROMBRL ICML 2026 poster" style="width:100%; max-width:100%; height:auto; border:1px solid #ddd;">
 </a>
 <p style="text-align:center; font-size:0.9em; margin-top:-0.5em;"><em>Our ICML 2026 poster — click for the full-resolution PDF.</em></p>
 
