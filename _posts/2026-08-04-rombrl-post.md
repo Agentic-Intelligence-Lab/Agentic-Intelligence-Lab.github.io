@@ -7,7 +7,7 @@ redirect_from:
   - /2026/08/04/rombrl-icml2026.html
 ---
 
-Our paper, **"Policy-Driven World Model Adaptation for Robust Offline Model-based Reinforcement Learning"**, was presented as a **poster at ICML 2026** in Seoul, South Korea. This is joint work between the Agentic Intelligence Lab, Tsinghua University, and the Robotics Institute at Carnegie Mellon University.
+Our paper, **"Policy-Driven World Model Adaptation for Robust Offline Model-based Reinforcement Learning"**, was presented as a **poster at ICML 2026** in Seoul, South Korea. This is joint work between the Agentic Intelligence Lab at the University of Hong Kong, Tsinghua University, and the Robotics Institute at Carnegie Mellon University.
 
 - **Paper (arXiv):** [arxiv.org/abs/2505.13709](https://arxiv.org/abs/2505.13709)
 - **OpenReview:** [openreview.net/forum?id=eB5i7caric](https://openreview.net/forum?id=eB5i7caric)
@@ -25,7 +25,7 @@ Offline model-based RL (MBRL) usually learns a world model and a policy in two s
 
 ## Why Do Offline RL Policies Fall Apart Under a Little Noise?
 
-Offline MBRL is appealing because it lets us train a policy from a static dataset by rolling it out inside a *learned* simulator, rather than the real environment — no risky exploration, no expensive interaction. But nearly all existing methods follow the same two-stage recipe: first fit a world model $P_\phi$ to maximize the likelihood of observed transitions, then freeze it (or only mildly adapt it) and optimize the policy $\pi_\theta$ against it.
+Offline MBRL is appealing because it lets us train a policy from a static dataset by rolling it out inside a *learned* simulator, rather than the real environment — no risky exploration, no expensive interaction. But nearly all existing methods follow the same two-stage recipe: first fit a world model $P\_\phi$ to maximize the likelihood of observed transitions, then freeze it (or only mildly adapt it) and optimize the policy $\pi\_\theta$ against it.
 
 That split has a quiet cost. The model is trained to *explain the data*, not to *support good policy learning* — an objective mismatch that's easy to miss when you only evaluate in a clean, deterministic simulator. So we asked a more adversarial question: what happens to these policies once the environment doesn't behave exactly like the simulator? We took a stable of strong offline RL baselines — CQL, EDAC, COMBO, MOBILE, and even RAMBO, which is specifically designed with an adversarial world model — and added just 5% Gaussian noise to state transitions at deployment time.
 
@@ -40,17 +40,17 @@ If the world model is going to be wrong somewhere, we'd rather it be wrong in a 
 
 Formally, we cast offline MBRL as a constrained maximin problem:
 
-$$\max_\theta J(\theta, \phi') \quad \text{s.t.} \quad \phi' \in \arg\min_{\phi \in \Phi} J(\theta, \phi)$$
+$$\max\_\theta J(\theta, \phi') \quad \text{s.t.} \quad \phi' \in \arg\min\_{\phi \in \Phi} J(\theta, \phi)$$
 
 where $\Phi$ is an uncertainty set of world models $\phi \in \mathcal{M}$ anchored to the maximum-likelihood estimate $\hat\phi$ — a KL trust region around what the offline data actually supports:
 
-$$\mathbb{E}_{(s,a)\sim\mathcal{D}}\left[ \mathrm{KL}\left(P_{\hat\phi}(\cdot \vert s,a) \,\Vert\, P_\phi(\cdot \vert s,a)\right) \right] \le \epsilon$$
+$$\mathbb{E}\_{(s,a)\sim\mathcal{D}}\left[ \mathrm{KL}\left(P\_{\hat\phi}(\cdot \vert s,a) \,\Vert\, P\_\phi(\cdot \vert s,a)\right) \right] \le \epsilon$$
 
 (conservatism still matters offline, we're not letting the model run wild). The policy maximizes its return against the *worst* model in that set; the model adversarially minimizes it.
 
 We solve this as a **Stackelberg game**: the policy is the *leader*, the world model is the *follower* that best-responds to the policy — the mirror image of online MBRL, where the model is usually adapted to help the leader rather than oppose it. Using implicit differentiation through the follower's best response, we derive primal-dual Stackelberg update rules for $(\theta, \phi, \lambda)$, and make them practical at scale with a few tricks:
 
-- The **Fisher Information Matrix** stands in for expensive second-order terms, using $\mathbb{E}[\nabla^2 \log P_\phi] = -\mathbb{E}[\nabla \log P_\phi \nabla \log P_\phi^\top]$ to avoid an explicit Hessian.
+- The **Fisher Information Matrix** stands in for expensive second-order terms, using $\mathbb{E}[\nabla^2 \log P\_\phi] = -\mathbb{E}[\nabla \log P\_\phi \nabla \log P\_\phi^\top]$ to avoid an explicit Hessian.
 - The **Woodbury matrix identity** inverts the resulting low-rank matrix in time linear (not cubic) in the parameter count.
 - A **gradient-mask mechanism** keeps off-policy replay data from going stale as the model shifts under the policy — a subtlety that RAMBO's simpler alternating-update scheme overlooks.
 
@@ -71,13 +71,13 @@ Gaussian noise on MuJoCo is a convenient stress test, but it's still synthetic. 
 <img src="/images/rombrl-tokamak.png" alt="ROMBRL applied to Tokamak plasma control" style="width:100%; max-width:650px; display:block; margin:1.5em auto;">
 <p style="text-align:center; font-size:0.9em; margin-top:-1em;"><em>An RL controller trained on a surrogate dynamics model drives plasma profiles toward a target using actuators such as power, torque, and ECH.</em></p>
 
-Tokamak plasma control was a natural fit: confining and shaping a superheated plasma is a genuinely stochastic process. We evaluated on tracking tasks (ion rotation, electron density, and $\beta_N$, a key economic indicator for fusion efficiency) built on an ensemble of recurrent dynamics models calibrated to real operational data from DIII-D, a working tokamak in San Diego.
+Tokamak plasma control was a natural fit: confining and shaping a superheated plasma is a genuinely stochastic process. We evaluated on tracking tasks (ion rotation, electron density, and $\beta\_N$, a key economic indicator for fusion efficiency) built on an ensemble of recurrent dynamics models calibrated to real operational data from DIII-D, a working tokamak in San Diego.
 
 This benchmark is considerably less forgiving than D4RL MuJoCo — several strong model-based baselines (RAMBO, MOBILE, and a Bayes-adaptive MCTS baseline, BAMCTS) that look competitive on MuJoCo degrade sharply once the dynamics get genuinely messy:
 
 | Tracking Target | ROMBRL (ours) | CQL | EDAC | COMBO | RAMBO | MOBILE | BAMCTS |
 |---|---|---|---|---|---|---|---|
-| $\beta_N$ | **-70.9*** (0.9) | -78.4 (3.1) | -63.4 (1.7) | -84.3 (7.6) | -121.1 (19.9) | -133.9 (10.1) | -111.3 (24.3) |
+| $\beta\_N$ | **-70.9*** (0.9) | -78.4 (3.1) | -63.4 (1.7) | -84.3 (7.6) | -121.1 (19.9) | -133.9 (10.1) | -111.3 (24.3) |
 | Density | **-60.0** (1.9) | -87.3 (12.5) | -112.5 (11.1) | -67.0* (3.1) | -81.3 (15.7) | -75.3 (4.3) | -79.6 (13.8) |
 | Rotation | **-10.6** (3.7) | -39.2* (10.1) | -95.4 (64.3) | -69.6 (25.9) | -300.3 (260.5) | -257.6 (153.7) | -305.6 (242.6) |
 | Average Return | **-47.1** (1.2) | -68.3* (6.8) | -90.4 (11.5) | -73.6 (5.8) | -167.6 (91.6) | -155.5 (47.7) | -165.5 (84.5) |
