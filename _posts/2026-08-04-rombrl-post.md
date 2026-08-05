@@ -44,7 +44,7 @@ $$\max_\theta J(\theta, \phi') \quad \text{s.t.} \quad \phi' \in \arg\min_{\phi 
 
 where $\Phi$ is an uncertainty set of world models $\phi \in \mathcal{M}$ anchored to the maximum-likelihood estimate $\hat\phi$ — a KL trust region around what the offline data actually supports:
 
-$$\mathbb{E}_{(s,a)\sim\mathcal{D}}\left[ \mathrm{KL}\!\left(P_{\hat\phi}(\cdot|s,a) \,\|\, P_\phi(\cdot|s,a)\right) \right] \le \epsilon$$
+$$\mathbb{E}_{(s,a)\sim\mathcal{D}}\left[ \mathrm{KL}\left(P_{\hat\phi}(\cdot|s,a) \,\|\, P_\phi(\cdot|s,a)\right) \right] \le \epsilon$$
 
 (conservatism still matters offline, we're not letting the model run wild). The policy maximizes its return against the *worst* model in that set; the model adversarially minimizes it.
 
