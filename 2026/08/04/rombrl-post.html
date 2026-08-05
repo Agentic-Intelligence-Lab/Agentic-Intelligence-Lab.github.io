@@ -78,10 +78,6 @@
 
 &lt;p&gt;Offline model-based RL (MBRL) usually learns a world model and a policy in two separate stages — first fit the model to maximize data likelihood, then optimize the policy against the fixed model. This mismatch leaves policies brittle: even small amounts of deployment-time noise can wreck performance. We propose &lt;strong&gt;ROMBRL&lt;/strong&gt;, which jointly adapts the world model &lt;em&gt;with&lt;/em&gt; the policy under a single &lt;strong&gt;constrained maximin objective&lt;/strong&gt;, solved via &lt;strong&gt;Stackelberg learning dynamics&lt;/strong&gt; with the policy as the leader and the world model as an adversarial follower. ROMBRL comes with a formal suboptimality bound and achieves state-of-the-art robustness on D4RL MuJoCo and stochastic Tokamak Control benchmarks — with almost no cost to clean-environment performance.&lt;/p&gt;
 
-&lt;blockquote&gt;
-  &lt;p&gt;&lt;strong&gt;Abstract.&lt;/strong&gt; Offline reinforcement learning (RL) offers a powerful paradigm for data-driven control. Compared to model-free approaches, offline model-based RL (MBRL) explicitly learns a world model from a static dataset and uses it as a surrogate simulator, improving data efficiency and enabling potential generalization beyond the dataset support. However, most existing offline MBRL methods follow a two-stage training procedure: first learning a world model by maximizing the likelihood of the observed transitions, then optimizing a policy to maximize its expected return under the learned model. This objective mismatch results in a world model that is not necessarily optimized for effective policy learning. Moreover, we observe that policies learned via offline MBRL often lack robustness during deployment, and small adversarial noise in the environment can lead to significant performance degradation. To address these, we propose a framework that dynamically adapts the world model alongside the policy under a unified learning objective aimed at improving robustness. At the core of our method is a maximin optimization problem, which we solve by innovatively utilizing Stackelberg learning dynamics. We provide theoretical analysis to support our design and introduce computationally efficient implementations. We benchmark our algorithm on twelve noisy D4RL MuJoCo tasks and three stochastic Tokamak Control tasks, demonstrating its state-of-the-art performance.&lt;/p&gt;
-&lt;/blockquote&gt;
-
 &lt;h2 id="why-do-offline-rl-policies-fall-apart-under-a-little-noise"&gt;Why Do Offline RL Policies Fall Apart Under a Little Noise?&lt;/h2&gt;
 
 &lt;p&gt;Offline MBRL is appealing because it lets us train a policy from a static dataset by rolling it out inside a &lt;em&gt;learned&lt;/em&gt; simulator, rather than the real environment — no risky exploration, no expensive interaction. But nearly all existing methods follow the same two-stage recipe: first fit a world model $P_\phi$ to maximize the likelihood of observed transitions, then freeze it (or only mildly adapt it) and optimize the policy $\pi_\theta$ against it.&lt;/p&gt;
@@ -101,17 +97,19 @@
 
 &lt;p&gt;$$\max_\theta J(\theta, \phi’) \quad \text{s.t.} \quad \phi’ \in \arg\min_{\phi \in \Phi} J(\theta, \phi)$$&lt;/p&gt;
 
+&lt;p&gt;where $\Phi$ is an uncertainty set of world models $\phi \in \mathcal{M}$ anchored to the maximum-likelihood estimate $\hat\phi$ — a KL trust region around what the offline data actually supports:&lt;/p&gt;
+
 &lt;table&gt;
   &lt;tbody&gt;
     &lt;tr&gt;
-      &lt;td&gt;$$\Phi = \left{ \phi \in \mathcal{M} \;:\; \mathbb{E}&lt;em&gt;{(s,a)\sim\mathcal{D}}\left[ \mathrm{KL}!\left(P&lt;/em&gt;{\hat\phi}(\cdot&lt;/td&gt;
+      &lt;td&gt;$$\mathbb{E}&lt;em&gt;{(s,a)\sim\mathcal{D}}\left[ \mathrm{KL}!\left(P&lt;/em&gt;{\hat\phi}(\cdot&lt;/td&gt;
       &lt;td&gt;s,a) \,|\, P_\phi(\cdot&lt;/td&gt;
-      &lt;td&gt;s,a)\right) \right] \le \epsilon \right}$$&lt;/td&gt;
+      &lt;td&gt;s,a)\right) \right] \le \epsilon$$&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;p&gt;where $\Phi$ is an uncertainty set of world models anchored to the maximum-likelihood estimate — a KL trust region around what the offline data actually supports (conservatism still matters offline, we’re not letting the model run wild). The policy maximizes its return against the &lt;em&gt;worst&lt;/em&gt; model in that set; the model adversarially minimizes it.&lt;/p&gt;
+&lt;p&gt;(conservatism still matters offline, we’re not letting the model run wild). The policy maximizes its return against the &lt;em&gt;worst&lt;/em&gt; model in that set; the model adversarially minimizes it.&lt;/p&gt;
 
 &lt;p&gt;We solve this as a &lt;strong&gt;Stackelberg game&lt;/strong&gt;: the policy is the &lt;em&gt;leader&lt;/em&gt;, the world model is the &lt;em&gt;follower&lt;/em&gt; that best-responds to the policy — the mirror image of online MBRL, where the model is usually adapted to help the leader rather than oppose it. Using implicit differentiation through the follower’s best response, we derive primal-dual Stackelberg update rules for $(\theta, \phi, \lambda)$, and make them practical at scale with a few tricks:&lt;/p&gt;
 
@@ -130,7 +128,7 @@
 &lt;table&gt;
   &lt;tbody&gt;
     &lt;tr&gt;
-      &lt;td&gt;$$J(\theta^&lt;em&gt;, \phi^&lt;/em&gt;) - J(\hat\theta, \phi^*) \;\le\; \frac{\sqrt{C}}{(1-\gamma)^2} \sqrt{4\epsilon + c\left(\sqrt{\frac{\log(2&lt;/td&gt;
+      &lt;td&gt;$$J(\theta^{\ast}, \phi^{\ast}) - J(\hat\theta, \phi^{\ast}) \;\le\; \frac{\sqrt{C}}{(1-\gamma)^2} \sqrt{4\epsilon + c\left(\sqrt{\frac{\log(2&lt;/td&gt;
       &lt;td&gt;\Phi&lt;/td&gt;
       &lt;td&gt;/\delta)}{N}} + \frac{\log(2&lt;/td&gt;
       &lt;td&gt;\Phi&lt;/td&gt;
@@ -388,10 +386,10 @@
 &lt;p&gt;This work was funded in part by the Department of Energy Fusion Energy Sciences under grant DE-SC0024544.&lt;/p&gt;
 '>
   <meta property="og:type" content="article">
-  <meta property="og:updated_time" content="2026-08-05T02:08:52+00:00">
+  <meta property="og:updated_time" content="2026-08-05T02:33:07+00:00">
   <meta property="article:published_time" content="2026-08-04T00:00:00+00:00">
-  <meta property="article:modified_time" content="2026-08-05T02:08:52+00:00">
-  <meta name="revised" content="2026-08-05T02:08:52+00:00">
+  <meta property="article:modified_time" content="2026-08-05T02:33:07+00:00">
+  <meta name="revised" content="2026-08-05T02:33:07+00:00">
 
 
 <script type="application/ld+json">
@@ -401,7 +399,7 @@
       "@type": "BlogPosting",
       "author": { "@type": "Person", "name": "ROMBRL — Policy-Driven World Model Adaptation for Robust Offline Model-based RL (ICML 2026)" },
       "datePublished": "2026-08-04T00:00:00+00:00",
-      "dateModified": "2026-08-05T02:08:52+00:00",
+      "dateModified": "2026-08-05T02:33:07+00:00",
     
     "name": "ROMBRL — Policy-Driven World Model Adaptation for Robust Offline Model-based RL (ICML 2026)",
     "description": "Our team at the Department of Data and Systems Engineering, The University of Hong Kong, is dedicated to advancing research in Machine Learning, Sequential Decision Making, and Embodied AI.",
@@ -857,10 +855,6 @@
 
 <p>Offline model-based RL (MBRL) usually learns a world model and a policy in two separate stages — first fit the model to maximize data likelihood, then optimize the policy against the fixed model. This mismatch leaves policies brittle: even small amounts of deployment-time noise can wreck performance. We propose <strong>ROMBRL</strong>, which jointly adapts the world model <em>with</em> the policy under a single <strong>constrained maximin objective</strong>, solved via <strong>Stackelberg learning dynamics</strong> with the policy as the leader and the world model as an adversarial follower. ROMBRL comes with a formal suboptimality bound and achieves state-of-the-art robustness on D4RL MuJoCo and stochastic Tokamak Control benchmarks — with almost no cost to clean-environment performance.</p>
 
-<blockquote>
-  <p><strong>Abstract.</strong> Offline reinforcement learning (RL) offers a powerful paradigm for data-driven control. Compared to model-free approaches, offline model-based RL (MBRL) explicitly learns a world model from a static dataset and uses it as a surrogate simulator, improving data efficiency and enabling potential generalization beyond the dataset support. However, most existing offline MBRL methods follow a two-stage training procedure: first learning a world model by maximizing the likelihood of the observed transitions, then optimizing a policy to maximize its expected return under the learned model. This objective mismatch results in a world model that is not necessarily optimized for effective policy learning. Moreover, we observe that policies learned via offline MBRL often lack robustness during deployment, and small adversarial noise in the environment can lead to significant performance degradation. To address these, we propose a framework that dynamically adapts the world model alongside the policy under a unified learning objective aimed at improving robustness. At the core of our method is a maximin optimization problem, which we solve by innovatively utilizing Stackelberg learning dynamics. We provide theoretical analysis to support our design and introduce computationally efficient implementations. We benchmark our algorithm on twelve noisy D4RL MuJoCo tasks and three stochastic Tokamak Control tasks, demonstrating its state-of-the-art performance.</p>
-</blockquote>
-
 <h2 id="why-do-offline-rl-policies-fall-apart-under-a-little-noise">Why Do Offline RL Policies Fall Apart Under a Little Noise?</h2>
 
 <p>Offline MBRL is appealing because it lets us train a policy from a static dataset by rolling it out inside a <em>learned</em> simulator, rather than the real environment — no risky exploration, no expensive interaction. But nearly all existing methods follow the same two-stage recipe: first fit a world model $P_\phi$ to maximize the likelihood of observed transitions, then freeze it (or only mildly adapt it) and optimize the policy $\pi_\theta$ against it.</p>
@@ -880,17 +874,19 @@
 
 <p>$$\max_\theta J(\theta, \phi’) \quad \text{s.t.} \quad \phi’ \in \arg\min_{\phi \in \Phi} J(\theta, \phi)$$</p>
 
+<p>where $\Phi$ is an uncertainty set of world models $\phi \in \mathcal{M}$ anchored to the maximum-likelihood estimate $\hat\phi$ — a KL trust region around what the offline data actually supports:</p>
+
 <table>
   <tbody>
     <tr>
-      <td>$$\Phi = \left{ \phi \in \mathcal{M} \;:\; \mathbb{E}<em>{(s,a)\sim\mathcal{D}}\left[ \mathrm{KL}!\left(P</em>{\hat\phi}(\cdot</td>
+      <td>$$\mathbb{E}<em>{(s,a)\sim\mathcal{D}}\left[ \mathrm{KL}!\left(P</em>{\hat\phi}(\cdot</td>
       <td>s,a) \,|\, P_\phi(\cdot</td>
-      <td>s,a)\right) \right] \le \epsilon \right}$$</td>
+      <td>s,a)\right) \right] \le \epsilon$$</td>
     </tr>
   </tbody>
 </table>
 
-<p>where $\Phi$ is an uncertainty set of world models anchored to the maximum-likelihood estimate — a KL trust region around what the offline data actually supports (conservatism still matters offline, we’re not letting the model run wild). The policy maximizes its return against the <em>worst</em> model in that set; the model adversarially minimizes it.</p>
+<p>(conservatism still matters offline, we’re not letting the model run wild). The policy maximizes its return against the <em>worst</em> model in that set; the model adversarially minimizes it.</p>
 
 <p>We solve this as a <strong>Stackelberg game</strong>: the policy is the <em>leader</em>, the world model is the <em>follower</em> that best-responds to the policy — the mirror image of online MBRL, where the model is usually adapted to help the leader rather than oppose it. Using implicit differentiation through the follower’s best response, we derive primal-dual Stackelberg update rules for $(\theta, \phi, \lambda)$, and make them practical at scale with a few tricks:</p>
 
@@ -909,7 +905,7 @@
 <table>
   <tbody>
     <tr>
-      <td>$$J(\theta^<em>, \phi^</em>) - J(\hat\theta, \phi^*) \;\le\; \frac{\sqrt{C}}{(1-\gamma)^2} \sqrt{4\epsilon + c\left(\sqrt{\frac{\log(2</td>
+      <td>$$J(\theta^{\ast}, \phi^{\ast}) - J(\hat\theta, \phi^{\ast}) \;\le\; \frac{\sqrt{C}}{(1-\gamma)^2} \sqrt{4\epsilon + c\left(\sqrt{\frac{\log(2</td>
       <td>\Phi</td>
       <td>/\delta)}{N}} + \frac{\log(2</td>
       <td>\Phi</td>
