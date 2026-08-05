@@ -1,6 +1,6 @@
 ---
 title: ROMBRL — Policy-Driven World Model Adaptation for Robust Offline Model-based RL (ICML 2026)
-image: images/rombrl-poster.png
+image: images/rombrl-cover.png
 author: Le Xu
 tags: publication offline-rl robustness model-based-rl
 redirect_from:
@@ -44,7 +44,7 @@ $$\max_\theta J(\theta, \phi') \quad \text{s.t.} \quad \phi' \in \arg\min_{\phi 
 
 where $\Phi$ is an uncertainty set of world models $\phi \in \mathcal{M}$ anchored to the maximum-likelihood estimate $\hat\phi$ — a KL trust region around what the offline data actually supports:
 
-$$\mathbb{E}_{(s,a)\sim\mathcal{D}}\left[ \mathrm{KL}\left(P_{\hat\phi}(\cdot|s,a) \,\|\, P_\phi(\cdot|s,a)\right) \right] \le \epsilon$$
+$$\mathbb{E}_{(s,a)\sim\mathcal{D}}\left[ \mathrm{KL}\left(P_{\hat\phi}(\cdot \vert s,a) \,\Vert\, P_\phi(\cdot \vert s,a)\right) \right] \le \epsilon$$
 
 (conservatism still matters offline, we're not letting the model run wild). The policy maximizes its return against the *worst* model in that set; the model adversarially minimizes it.
 
@@ -60,9 +60,9 @@ The full algorithm, **ROMBRL**, is summarized in Appendix J of the paper.
 
 Theorem 3.1 gives a formal bound on the resulting policy's suboptimality gap, assuming the true environment lies in the uncertainty set $\Phi$ with probability at least $1 - \delta/2$:
 
-$$J(\theta^{\ast}, \phi^{\ast}) - J(\hat\theta, \phi^{\ast}) \;\le\; \frac{\sqrt{C}}{(1-\gamma)^2} \sqrt{4\epsilon + c\left(\sqrt{\frac{\log(2|\Phi|/\delta)}{N}} + \frac{\log(2|\Phi|/\delta)}{N}\right)}$$
+$$J(\theta^{\ast}, \phi^{\ast}) - J(\hat\theta, \phi^{\ast}) \;\le\; \frac{\sqrt{C}}{(1-\gamma)^2} \sqrt{4\epsilon + c\left(\sqrt{\frac{\log(2\vert\Phi\vert/\delta)}{N}} + \frac{\log(2\vert\Phi\vert/\delta)}{N}\right)}$$
 
-where $N$ is the offline dataset size, $|\Phi|$ the covering number of the uncertainty set, $C$ a concentrability coefficient, and $\epsilon$ the uncertainty-set radius — so the gap shrinks as the dataset grows, giving a formal robustness guarantee rather than a purely heuristic one. Theorems 3.2 and 3.3 instantiate this bound for tabular MDPs and for continuous MDPs with Gaussian world models respectively, characterizing how $\epsilon$ should scale with dataset size and dimensionality.
+where $N$ is the offline dataset size, $\vert\Phi\vert$ the covering number of the uncertainty set, $C$ a concentrability coefficient, and $\epsilon$ the uncertainty-set radius — so the gap shrinks as the dataset grows, giving a formal robustness guarantee rather than a purely heuristic one. Theorems 3.2 and 3.3 instantiate this bound for tabular MDPs and for continuous MDPs with Gaussian world models respectively, characterizing how $\epsilon$ should scale with dataset size and dimensionality.
 
 ## From MuJoCo to a Real Fusion Reactor
 
