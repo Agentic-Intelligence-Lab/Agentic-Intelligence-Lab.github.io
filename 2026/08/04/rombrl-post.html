@@ -99,15 +99,7 @@
 
 &lt;p&gt;where $\Phi$ is an uncertainty set of world models $\phi \in \mathcal{M}$ anchored to the maximum-likelihood estimate $\hat\phi$ — a KL trust region around what the offline data actually supports:&lt;/p&gt;
 
-&lt;table&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;$$\mathbb{E}&lt;em&gt;{(s,a)\sim\mathcal{D}}\left[ \mathrm{KL}\left(P&lt;/em&gt;{\hat\phi}(\cdot&lt;/td&gt;
-      &lt;td&gt;s,a) \,|\, P_\phi(\cdot&lt;/td&gt;
-      &lt;td&gt;s,a)\right) \right] \le \epsilon$$&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
+&lt;p&gt;$$\mathbb{E}&lt;em&gt;{(s,a)\sim\mathcal{D}}\left[ \mathrm{KL}\left(P&lt;/em&gt;{\hat\phi}(\cdot \vert s,a) \,\Vert\, P_\phi(\cdot \vert s,a)\right) \right] \le \epsilon$$&lt;/p&gt;
 
 &lt;p&gt;(conservatism still matters offline, we’re not letting the model run wild). The policy maximizes its return against the &lt;em&gt;worst&lt;/em&gt; model in that set; the model adversarially minimizes it.&lt;/p&gt;
 
@@ -125,27 +117,9 @@
 
 &lt;p&gt;Theorem 3.1 gives a formal bound on the resulting policy’s suboptimality gap, assuming the true environment lies in the uncertainty set $\Phi$ with probability at least $1 - \delta/2$:&lt;/p&gt;
 
-&lt;table&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;$$J(\theta^{\ast}, \phi^{\ast}) - J(\hat\theta, \phi^{\ast}) \;\le\; \frac{\sqrt{C}}{(1-\gamma)^2} \sqrt{4\epsilon + c\left(\sqrt{\frac{\log(2&lt;/td&gt;
-      &lt;td&gt;\Phi&lt;/td&gt;
-      &lt;td&gt;/\delta)}{N}} + \frac{\log(2&lt;/td&gt;
-      &lt;td&gt;\Phi&lt;/td&gt;
-      &lt;td&gt;/\delta)}{N}\right)}$$&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
+&lt;p&gt;$$J(\theta^{\ast}, \phi^{\ast}) - J(\hat\theta, \phi^{\ast}) \;\le\; \frac{\sqrt{C}}{(1-\gamma)^2} \sqrt{4\epsilon + c\left(\sqrt{\frac{\log(2\vert\Phi\vert/\delta)}{N}} + \frac{\log(2\vert\Phi\vert/\delta)}{N}\right)}$$&lt;/p&gt;
 
-&lt;table&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;where $N$ is the offline dataset size, $&lt;/td&gt;
-      &lt;td&gt;\Phi&lt;/td&gt;
-      &lt;td&gt;$ the covering number of the uncertainty set, $C$ a concentrability coefficient, and $\epsilon$ the uncertainty-set radius — so the gap shrinks as the dataset grows, giving a formal robustness guarantee rather than a purely heuristic one. Theorems 3.2 and 3.3 instantiate this bound for tabular MDPs and for continuous MDPs with Gaussian world models respectively, characterizing how $\epsilon$ should scale with dataset size and dimensionality.&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
+&lt;p&gt;where $N$ is the offline dataset size, $\vert\Phi\vert$ the covering number of the uncertainty set, $C$ a concentrability coefficient, and $\epsilon$ the uncertainty-set radius — so the gap shrinks as the dataset grows, giving a formal robustness guarantee rather than a purely heuristic one. Theorems 3.2 and 3.3 instantiate this bound for tabular MDPs and for continuous MDPs with Gaussian world models respectively, characterizing how $\epsilon$ should scale with dataset size and dimensionality.&lt;/p&gt;
 
 &lt;h2 id="from-mujoco-to-a-real-fusion-reactor"&gt;From MuJoCo to a Real Fusion Reactor&lt;/h2&gt;
 
@@ -386,10 +360,10 @@
 &lt;p&gt;This work was funded in part by the Department of Energy Fusion Energy Sciences under grant DE-SC0024544.&lt;/p&gt;
 '>
   <meta property="og:type" content="article">
-  <meta property="og:updated_time" content="2026-08-05T03:13:49+00:00">
+  <meta property="og:updated_time" content="2026-08-05T06:25:00+00:00">
   <meta property="article:published_time" content="2026-08-04T00:00:00+00:00">
-  <meta property="article:modified_time" content="2026-08-05T03:13:49+00:00">
-  <meta name="revised" content="2026-08-05T03:13:49+00:00">
+  <meta property="article:modified_time" content="2026-08-05T06:25:00+00:00">
+  <meta name="revised" content="2026-08-05T06:25:00+00:00">
 
 
 <script type="application/ld+json">
@@ -399,7 +373,7 @@
       "@type": "BlogPosting",
       "author": { "@type": "Person", "name": "ROMBRL — Policy-Driven World Model Adaptation for Robust Offline Model-based RL (ICML 2026)" },
       "datePublished": "2026-08-04T00:00:00+00:00",
-      "dateModified": "2026-08-05T03:13:49+00:00",
+      "dateModified": "2026-08-05T06:25:00+00:00",
     
     "name": "ROMBRL — Policy-Driven World Model Adaptation for Robust Offline Model-based RL (ICML 2026)",
     "description": "Our team at the Department of Data and Systems Engineering, The University of Hong Kong, is dedicated to advancing research in Machine Learning, Sequential Decision Making, and Embodied AI.",
@@ -755,7 +729,7 @@
 
   <section class="background" data-size="1">
     <!--
-  background: images/rombrl-poster.png;
+  background: images/rombrl-cover.png;
   dark: ;
   size: 1;
 -->
@@ -876,15 +850,7 @@
 
 <p>where $\Phi$ is an uncertainty set of world models $\phi \in \mathcal{M}$ anchored to the maximum-likelihood estimate $\hat\phi$ — a KL trust region around what the offline data actually supports:</p>
 
-<table>
-  <tbody>
-    <tr>
-      <td>$$\mathbb{E}<em>{(s,a)\sim\mathcal{D}}\left[ \mathrm{KL}\left(P</em>{\hat\phi}(\cdot</td>
-      <td>s,a) \,|\, P_\phi(\cdot</td>
-      <td>s,a)\right) \right] \le \epsilon$$</td>
-    </tr>
-  </tbody>
-</table>
+<p>$$\mathbb{E}<em>{(s,a)\sim\mathcal{D}}\left[ \mathrm{KL}\left(P</em>{\hat\phi}(\cdot \vert s,a) \,\Vert\, P_\phi(\cdot \vert s,a)\right) \right] \le \epsilon$$</p>
 
 <p>(conservatism still matters offline, we’re not letting the model run wild). The policy maximizes its return against the <em>worst</em> model in that set; the model adversarially minimizes it.</p>
 
@@ -902,27 +868,9 @@
 
 <p>Theorem 3.1 gives a formal bound on the resulting policy’s suboptimality gap, assuming the true environment lies in the uncertainty set $\Phi$ with probability at least $1 - \delta/2$:</p>
 
-<table>
-  <tbody>
-    <tr>
-      <td>$$J(\theta^{\ast}, \phi^{\ast}) - J(\hat\theta, \phi^{\ast}) \;\le\; \frac{\sqrt{C}}{(1-\gamma)^2} \sqrt{4\epsilon + c\left(\sqrt{\frac{\log(2</td>
-      <td>\Phi</td>
-      <td>/\delta)}{N}} + \frac{\log(2</td>
-      <td>\Phi</td>
-      <td>/\delta)}{N}\right)}$$</td>
-    </tr>
-  </tbody>
-</table>
+<p>$$J(\theta^{\ast}, \phi^{\ast}) - J(\hat\theta, \phi^{\ast}) \;\le\; \frac{\sqrt{C}}{(1-\gamma)^2} \sqrt{4\epsilon + c\left(\sqrt{\frac{\log(2\vert\Phi\vert/\delta)}{N}} + \frac{\log(2\vert\Phi\vert/\delta)}{N}\right)}$$</p>
 
-<table>
-  <tbody>
-    <tr>
-      <td>where $N$ is the offline dataset size, $</td>
-      <td>\Phi</td>
-      <td>$ the covering number of the uncertainty set, $C$ a concentrability coefficient, and $\epsilon$ the uncertainty-set radius — so the gap shrinks as the dataset grows, giving a formal robustness guarantee rather than a purely heuristic one. Theorems 3.2 and 3.3 instantiate this bound for tabular MDPs and for continuous MDPs with Gaussian world models respectively, characterizing how $\epsilon$ should scale with dataset size and dimensionality.</td>
-    </tr>
-  </tbody>
-</table>
+<p>where $N$ is the offline dataset size, $\vert\Phi\vert$ the covering number of the uncertainty set, $C$ a concentrability coefficient, and $\epsilon$ the uncertainty-set radius — so the gap shrinks as the dataset grows, giving a formal robustness guarantee rather than a purely heuristic one. Theorems 3.2 and 3.3 instantiate this bound for tabular MDPs and for continuous MDPs with Gaussian world models respectively, characterizing how $\epsilon$ should scale with dataset size and dimensionality.</p>
 
 <h2 id="from-mujoco-to-a-real-fusion-reactor">From MuJoCo to a Real Fusion Reactor</h2>
 
