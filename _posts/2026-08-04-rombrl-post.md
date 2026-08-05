@@ -1,6 +1,6 @@
 ---
 title: ROMBRL — Policy-Driven World Model Adaptation for Robust Offline Model-based RL (ICML 2026)
-image: images/rombrl-poster.png
+image: images/rombrl-cover.png
 author: Le Xu
 tags: publication offline-rl robustness model-based-rl
 redirect_from:
