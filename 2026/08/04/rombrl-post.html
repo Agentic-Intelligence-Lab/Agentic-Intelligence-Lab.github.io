@@ -60,7 +60,7 @@
 <meta property="twitter:image" content="/images/share.jpg">
 
 
-  <meta name="author" content='&lt;p&gt;Our paper, &lt;strong&gt;“Policy-Driven World Model Adaptation for Robust Offline Model-based Reinforcement Learning”&lt;/strong&gt;, was presented as a &lt;strong&gt;poster at ICML 2026&lt;/strong&gt; in Seoul, South Korea. This is joint work between the Agentic Intelligence Lab, Tsinghua University, and the Robotics Institute at Carnegie Mellon University.&lt;/p&gt;
+  <meta name="author" content='&lt;p&gt;Our paper, &lt;strong&gt;“Policy-Driven World Model Adaptation for Robust Offline Model-based Reinforcement Learning”&lt;/strong&gt;, was presented as a &lt;strong&gt;poster at ICML 2026&lt;/strong&gt; in Seoul, South Korea. This is joint work between the Agentic Intelligence Lab at the University of Hong Kong, Tsinghua University, and the Robotics Institute at Carnegie Mellon University.&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;&lt;strong&gt;Paper (arXiv):&lt;/strong&gt; &lt;a href="https://arxiv.org/abs/2505.13709"&gt;arxiv.org/abs/2505.13709&lt;/a&gt;&lt;/li&gt;
@@ -99,7 +99,7 @@
 
 &lt;p&gt;where $\Phi$ is an uncertainty set of world models $\phi \in \mathcal{M}$ anchored to the maximum-likelihood estimate $\hat\phi$ — a KL trust region around what the offline data actually supports:&lt;/p&gt;
 
-&lt;p&gt;$$\mathbb{E}&lt;em&gt;{(s,a)\sim\mathcal{D}}\left[ \mathrm{KL}\left(P&lt;/em&gt;{\hat\phi}(\cdot \vert s,a) \,\Vert\, P_\phi(\cdot \vert s,a)\right) \right] \le \epsilon$$&lt;/p&gt;
+&lt;p&gt;$$\mathbb{E}_{(s,a)\sim\mathcal{D}}\left[ \mathrm{KL}\left(P_{\hat\phi}(\cdot \vert s,a) \,\Vert\, P_\phi(\cdot \vert s,a)\right) \right] \le \epsilon$$&lt;/p&gt;
 
 &lt;p&gt;(conservatism still matters offline, we’re not letting the model run wild). The policy maximizes its return against the &lt;em&gt;worst&lt;/em&gt; model in that set; the model adversarially minimizes it.&lt;/p&gt;
 
@@ -360,10 +360,10 @@
 &lt;p&gt;This work was funded in part by the Department of Energy Fusion Energy Sciences under grant DE-SC0024544.&lt;/p&gt;
 '>
   <meta property="og:type" content="article">
-  <meta property="og:updated_time" content="2026-08-05T06:25:00+00:00">
+  <meta property="og:updated_time" content="2026-08-05T06:54:36+00:00">
   <meta property="article:published_time" content="2026-08-04T00:00:00+00:00">
-  <meta property="article:modified_time" content="2026-08-05T06:25:00+00:00">
-  <meta name="revised" content="2026-08-05T06:25:00+00:00">
+  <meta property="article:modified_time" content="2026-08-05T06:54:36+00:00">
+  <meta name="revised" content="2026-08-05T06:54:36+00:00">
 
 
 <script type="application/ld+json">
@@ -373,7 +373,7 @@
       "@type": "BlogPosting",
       "author": { "@type": "Person", "name": "ROMBRL — Policy-Driven World Model Adaptation for Robust Offline Model-based RL (ICML 2026)" },
       "datePublished": "2026-08-04T00:00:00+00:00",
-      "dateModified": "2026-08-05T06:25:00+00:00",
+      "dateModified": "2026-08-05T06:54:36+00:00",
     
     "name": "ROMBRL — Policy-Driven World Model Adaptation for Robust Offline Model-based RL (ICML 2026)",
     "description": "Our team at the Department of Data and Systems Engineering, The University of Hong Kong, is dedicated to advancing research in Machine Learning, Sequential Decision Making, and Embodied AI.",
@@ -803,7 +803,7 @@
 -->
 
 
-<p>Our paper, <strong>“Policy-Driven World Model Adaptation for Robust Offline Model-based Reinforcement Learning”</strong>, was presented as a <strong>poster at ICML 2026</strong> in Seoul, South Korea. This is joint work between the Agentic Intelligence Lab, Tsinghua University, and the Robotics Institute at Carnegie Mellon University.</p>
+<p>Our paper, <strong>“Policy-Driven World Model Adaptation for Robust Offline Model-based Reinforcement Learning”</strong>, was presented as a <strong>poster at ICML 2026</strong> in Seoul, South Korea. This is joint work between the Agentic Intelligence Lab at the University of Hong Kong, Tsinghua University, and the Robotics Institute at Carnegie Mellon University.</p>
 
 <ul>
   <li>
@@ -850,7 +850,7 @@
 
 <p>where $\Phi$ is an uncertainty set of world models $\phi \in \mathcal{M}$ anchored to the maximum-likelihood estimate $\hat\phi$ — a KL trust region around what the offline data actually supports:</p>
 
-<p>$$\mathbb{E}<em>{(s,a)\sim\mathcal{D}}\left[ \mathrm{KL}\left(P</em>{\hat\phi}(\cdot \vert s,a) \,\Vert\, P_\phi(\cdot \vert s,a)\right) \right] \le \epsilon$$</p>
+<p>$$\mathbb{E}_{(s,a)\sim\mathcal{D}}\left[ \mathrm{KL}\left(P_{\hat\phi}(\cdot \vert s,a) \,\Vert\, P_\phi(\cdot \vert s,a)\right) \right] \le \epsilon$$</p>
 
 <p>(conservatism still matters offline, we’re not letting the model run wild). The policy maximizes its return against the <em>worst</em> model in that set; the model adversarially minimizes it.</p>
 
