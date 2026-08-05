@@ -23,8 +23,6 @@ Our paper, **"Policy-Driven World Model Adaptation for Robust Offline Model-base
 
 Offline model-based RL (MBRL) usually learns a world model and a policy in two separate stages — first fit the model to maximize data likelihood, then optimize the policy against the fixed model. This mismatch leaves policies brittle: even small amounts of deployment-time noise can wreck performance. We propose **ROMBRL**, which jointly adapts the world model *with* the policy under a single **constrained maximin objective**, solved via **Stackelberg learning dynamics** with the policy as the leader and the world model as an adversarial follower. ROMBRL comes with a formal suboptimality bound and achieves state-of-the-art robustness on D4RL MuJoCo and stochastic Tokamak Control benchmarks — with almost no cost to clean-environment performance.
 
-> **Abstract.** Offline reinforcement learning (RL) offers a powerful paradigm for data-driven control. Compared to model-free approaches, offline model-based RL (MBRL) explicitly learns a world model from a static dataset and uses it as a surrogate simulator, improving data efficiency and enabling potential generalization beyond the dataset support. However, most existing offline MBRL methods follow a two-stage training procedure: first learning a world model by maximizing the likelihood of the observed transitions, then optimizing a policy to maximize its expected return under the learned model. This objective mismatch results in a world model that is not necessarily optimized for effective policy learning. Moreover, we observe that policies learned via offline MBRL often lack robustness during deployment, and small adversarial noise in the environment can lead to significant performance degradation. To address these, we propose a framework that dynamically adapts the world model alongside the policy under a unified learning objective aimed at improving robustness. At the core of our method is a maximin optimization problem, which we solve by innovatively utilizing Stackelberg learning dynamics. We provide theoretical analysis to support our design and introduce computationally efficient implementations. We benchmark our algorithm on twelve noisy D4RL MuJoCo tasks and three stochastic Tokamak Control tasks, demonstrating its state-of-the-art performance.
-
 ## Why Do Offline RL Policies Fall Apart Under a Little Noise?
 
 Offline MBRL is appealing because it lets us train a policy from a static dataset by rolling it out inside a *learned* simulator, rather than the real environment — no risky exploration, no expensive interaction. But nearly all existing methods follow the same two-stage recipe: first fit a world model $P_\phi$ to maximize the likelihood of observed transitions, then freeze it (or only mildly adapt it) and optimize the policy $\pi_\theta$ against it.
@@ -44,9 +42,11 @@ Formally, we cast offline MBRL as a constrained maximin problem:
 
 $$\max_\theta J(\theta, \phi') \quad \text{s.t.} \quad \phi' \in \arg\min_{\phi \in \Phi} J(\theta, \phi)$$
 
-$$\Phi = \left\{ \phi \in \mathcal{M} \;:\; \mathbb{E}_{(s,a)\sim\mathcal{D}}\left[ \mathrm{KL}\!\left(P_{\hat\phi}(\cdot|s,a) \,\|\, P_\phi(\cdot|s,a)\right) \right] \le \epsilon \right\}$$
+where $\Phi$ is an uncertainty set of world models $\phi \in \mathcal{M}$ anchored to the maximum-likelihood estimate $\hat\phi$ — a KL trust region around what the offline data actually supports:
 
-where $\Phi$ is an uncertainty set of world models anchored to the maximum-likelihood estimate — a KL trust region around what the offline data actually supports (conservatism still matters offline, we're not letting the model run wild). The policy maximizes its return against the *worst* model in that set; the model adversarially minimizes it.
+$$\mathbb{E}_{(s,a)\sim\mathcal{D}}\left[ \mathrm{KL}\!\left(P_{\hat\phi}(\cdot|s,a) \,\|\, P_\phi(\cdot|s,a)\right) \right] \le \epsilon$$
+
+(conservatism still matters offline, we're not letting the model run wild). The policy maximizes its return against the *worst* model in that set; the model adversarially minimizes it.
 
 We solve this as a **Stackelberg game**: the policy is the *leader*, the world model is the *follower* that best-responds to the policy — the mirror image of online MBRL, where the model is usually adapted to help the leader rather than oppose it. Using implicit differentiation through the follower's best response, we derive primal-dual Stackelberg update rules for $(\theta, \phi, \lambda)$, and make them practical at scale with a few tricks:
 
@@ -60,7 +60,7 @@ The full algorithm, **ROMBRL**, is summarized in Appendix J of the paper.
 
 Theorem 3.1 gives a formal bound on the resulting policy's suboptimality gap, assuming the true environment lies in the uncertainty set $\Phi$ with probability at least $1 - \delta/2$:
 
-$$J(\theta^*, \phi^*) - J(\hat\theta, \phi^*) \;\le\; \frac{\sqrt{C}}{(1-\gamma)^2} \sqrt{4\epsilon + c\left(\sqrt{\frac{\log(2|\Phi|/\delta)}{N}} + \frac{\log(2|\Phi|/\delta)}{N}\right)}$$
+$$J(\theta^{\ast}, \phi^{\ast}) - J(\hat\theta, \phi^{\ast}) \;\le\; \frac{\sqrt{C}}{(1-\gamma)^2} \sqrt{4\epsilon + c\left(\sqrt{\frac{\log(2|\Phi|/\delta)}{N}} + \frac{\log(2|\Phi|/\delta)}{N}\right)}$$
 
 where $N$ is the offline dataset size, $|\Phi|$ the covering number of the uncertainty set, $C$ a concentrability coefficient, and $\epsilon$ the uncertainty-set radius — so the gap shrinks as the dataset grows, giving a formal robustness guarantee rather than a purely heuristic one. Theorems 3.2 and 3.3 instantiate this bound for tabular MDPs and for continuous MDPs with Gaussian world models respectively, characterizing how $\epsilon$ should scale with dataset size and dimensionality.
 
