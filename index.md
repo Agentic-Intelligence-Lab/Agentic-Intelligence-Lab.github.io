@@ -15,7 +15,9 @@ We are interested in advancing the following research areas:
 - Reinforcement Learning Theory and Algorithm Design.
 - Data-driven Control for Nuclear Fusion.
 
-Grounded upon Reinforcement Learning, we aim at the Next-Generation Physical AI. Here is an interesting reading [list](https://drive.google.com/drive/folders/1BP8e_H8NX8Xuf-hc4Dbcw1t2H5op7Mx3?usp=sharing).
+Embodied AI expands the data and learning sources of multimodal LLMs through real-world interaction — so we pursue both, under the banner of Agentic Intelligence.
+
+<!-- Grounded upon Reinforcement Learning, we aim at the Next-Generation Physical AI. Here is an interesting reading [list](https://drive.google.com/drive/folders/1BP8e_H8NX8Xuf-hc4Dbcw1t2H5op7Mx3?usp=sharing). -->
 
 {% include section.html %}
 
