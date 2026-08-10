@@ -491,11 +491,29 @@
 
 <p>Tsinghua Shenzhen International Graduate School · The University of Hong Kong · INFIFORCE Intelligent Technology</p>
 
-<p><a href="https://arxiv.org/pdf/2604.07712">Paper</a></p>
+<div class="button-wrapper">
+    <a class="button" href="https://arxiv.org/pdf/2604.07712" data-tooltip="Paper" data-style="" aria-label="Paper">
+      <i class="icon fa-solid fa-scroll"></i>
+      
+        <span>Read the paper</span>
+      
+    </a>
+  </div>
 
-<p><img src="/images/CausalVAE/method-overview.png" alt="The forward pipeline and CausalVAE module from the paper"></p>
+<figure class="figure">
+  <a class="figure-image" aria-label="The forward pipeline inserts CausalVAE between the encoder and action-conditioned transition. The module maps the backbone latent through an encoder, a learned directed acyclic graph DAG , and a decoder.">
+    <img src="/preview/pr-6/images/CausalVAE/method-overview.png" style="
+        width: 100%;
+        max-height: unset;
+      " alt="The forward pipeline inserts CausalVAE between the encoder and action-conditioned transition. The module maps the backbone latent through an encoder, a learned directed acyclic graph DAG , and a decoder." loading="lazy" onerror="this.src = '/preview/pr-6/images/fallback.svg'; this.onerror = null;">
+  </a>
+  
+    <figcaption class="figure-caption">
+      The forward pipeline inserts CausalVAE between the encoder and action-conditioned transition. The module maps the backbone latent through an encoder, a learned directed acyclic graph (DAG), and a decoder.
 
-<p><em>The forward pipeline inserts CausalVAE between the encoder and action-conditioned transition. The module maps the backbone latent through an encoder, a learned directed acyclic graph (DAG), and a decoder.</em></p>
+    </figcaption>
+  
+</figure>
 
 <p>A world model should not only say what happens next. It should also know what would happen if something changed.</p>
 
@@ -509,21 +527,58 @@
 
 <p>We introduce a CausalVAE-inspired structural branch directly in latent space. The original encoder still maps an observation to a latent state, and the original action-conditioned transition still predicts the next latent. Between them, our plug-in organizes latent factors through a learned DAG:</p>
 
-<p><code class="language-plaintext highlighter-rouge">observation o_t → encoder E → latent z_t → CausalVAE → transition F → future ẑ_{t+1}</code></p>
+<div class="alert" style="--color: #0ea5e9">
+  
+  <i class="icon fa-solid fa-circle-info"></i>
+  <div class="alert-content">
+    <p><strong>Plug-in design:</strong> observation <em>oₜ</em> → encoder <em>E</em> → latent <em>zₜ</em> → CausalVAE → transition <em>F</em> → future <em>ẑₜ₊₁</em>.</p>
+
+  </div>
+</div>
 
 <p>The key is modularity. The same structural branch can sit on AE, VAE, modular, or graph-network dynamics backbones. A differentiable acyclicity penalty keeps the learned adjacency close to a DAG, while a lightweight alignment head anchors latent coordinates to simulator state during training. Neither simulator state nor the alignment head is needed at inference.</p>
 
 <h2 id="a-three-stage-training-strategy">A three-stage training strategy</h2>
 
-<p><img src="/images/CausalVAE/training-strategy.png" alt="Three-stage training strategy from the paper"></p>
+<figure class="figure">
+  <a class="figure-image" aria-label="Stage 1 trains the predictive backbone. Stage 2 freezes the encoder and transition while fitting the structural branch. Stage 3 freezes the encoder and CausalVAE while tuning the transition on multi-step objectives.">
+    <img src="/preview/pr-6/images/CausalVAE/training-strategy.png" style="
+        width: min(100%, 720px);
+        max-height: unset;
+      " alt="Stage 1 trains the predictive backbone. Stage 2 freezes the encoder and transition while fitting the structural branch. Stage 3 freezes the encoder and CausalVAE while tuning the transition on multi-step objectives." loading="lazy" onerror="this.src = '/preview/pr-6/images/fallback.svg'; this.onerror = null;">
+  </a>
+  
+    <figcaption class="figure-caption">
+      Stage 1 trains the predictive backbone. Stage 2 freezes the encoder and transition while fitting the structural branch. Stage 3 freezes the encoder and CausalVAE while tuning the transition on multi-step objectives.
 
-<p><em>Stage 1 trains the predictive backbone. Stage 2 freezes the encoder and transition while fitting the structural branch. Stage 3 freezes the encoder and CausalVAE while tuning the transition on multi-step objectives.</em></p>
+    </figcaption>
+  
+</figure>
 
-<p><strong>Stage 1 — Predict first.</strong> Train the encoder and transition backbone on standard world-model objectives.</p>
+<div class="cols" style="--cols: 3">
+  
+    
+    <div>
+<h3 id="01--predict">01 · Predict</h3>
 
-<p><strong>Stage 2 — Structure second.</strong> Freeze the backbone and learn the causal branch with reconstruction, KL, alignment, and DAG constraints.</p>
+<p>Train the encoder and transition backbone on standard world-model objectives.</p>
+</div>
+  
+    
+    <div>
+<h3 id="02--structure">02 · Structure</h3>
 
-<p><strong>Stage 3 — Refine the transition.</strong> Freeze the encoder and CausalVAE, then tune the transition with an α-gated mixture and multi-step supervision.</p>
+<p>Freeze the backbone and learn the causal branch with reconstruction, KL, alignment, and DAG constraints.</p>
+</div>
+  
+    
+    <div>
+<h3 id="03--refine">03 · Refine</h3>
+
+<p>Freeze the encoder and CausalVAE, then tune the transition with an α-gated mixture and multi-step supervision.</p>
+</div>
+  
+</div>
 
 <p>This staged design lets the backbone first acquire predictive competence, gives the structural branch a stable representation to organize, and finally adapts the transition to the causally structured latent without retraining the entire system from scratch.</p>
 
@@ -531,9 +586,20 @@
 
 <p>We evaluate four domains—Physics 3-body, Chemistry, 2D Shapes, and 3D Cubes—using state-, object-, and mechanism-level interventions. Each factual transition is paired with a re-simulated counterfactual target.</p>
 
-<p><img src="/images/CausalVAE/counterfactual-task-construction.png" alt="Counterfactual task construction and evaluation pipeline from the paper"></p>
+<figure class="figure">
+  <a class="figure-image" aria-label="Counterfactual examples are created by applying a controlled do-intervention and re-simulating the next state. CF-H 1 and CF-MRR measure whether the model retrieves the correct alternative future.">
+    <img src="/preview/pr-6/images/CausalVAE/counterfactual-task-construction.png" style="
+        width: 100%;
+        max-height: unset;
+      " alt="Counterfactual examples are created by applying a controlled do-intervention and re-simulating the next state. CF-H 1 and CF-MRR measure whether the model retrieves the correct alternative future." loading="lazy" onerror="this.src = '/preview/pr-6/images/fallback.svg'; this.onerror = null;">
+  </a>
+  
+    <figcaption class="figure-caption">
+      Counterfactual examples are created by applying a controlled do-intervention and re-simulating the next state. CF-H@1 and CF-MRR measure whether the model retrieves the correct alternative future.
 
-<p><em>Counterfactual examples are created by applying a controlled do-intervention and re-simulating the next state. CF-H@1 and CF-MRR measure whether the model retrieves the correct alternative future.</em></p>
+    </figcaption>
+  
+</figure>
 
 <p>The evaluation asks a direct question: among candidate futures, does the model retrieve the one produced by the intervention? Factual H@1 and MRR track ordinary prediction, while CF-H@1 and CF-MRR isolate counterfactual retrieval.</p>
 
@@ -601,9 +667,20 @@
 
 <p>The learned structure is also interpretable at the mechanism-trend level. On Physics, its strongest edges align with a first-order template derived from the locally linearized dynamics. This is evidence of meaningful physical interaction trends—not a claim that a local DAG exactly recovers the full nonlinear law.</p>
 
-<p><img src="/images/CausalVAE/gt-vs-learned.png" alt="Ground-truth first-order physical structure and learned causal structure from the paper"></p>
+<figure class="figure">
+  <a class="figure-image" aria-label="The learned adjacency recovers the main first-order interaction pattern of the Physics system. The comparison is local and approximate by design.">
+    <img src="/preview/pr-6/images/CausalVAE/gt-vs-learned.png" style="
+        width: min(100%, 860px);
+        max-height: unset;
+      " alt="The learned adjacency recovers the main first-order interaction pattern of the Physics system. The comparison is local and approximate by design." loading="lazy" onerror="this.src = '/preview/pr-6/images/fallback.svg'; this.onerror = null;">
+  </a>
+  
+    <figcaption class="figure-caption">
+      The learned adjacency recovers the main first-order interaction pattern of the Physics system. The comparison is local and approximate by design.
 
-<p><em>The learned adjacency recovers the main first-order interaction pattern of the Physics system. The comparison is local and approximate by design.</em></p>
+    </figcaption>
+  
+</figure>
 
 <h2 id="where-the-plug-in-breaks-the-host-latent-still-matters">Where the plug-in breaks: the host latent still matters</h2>
 
@@ -636,7 +713,14 @@
 
 <h2 id="the-takeaway">The takeaway</h2>
 
-<p><strong>Structure can be added without starting over.</strong> CausalVAE offers a modular path from predictive world models toward intervention-aware ones: keep the backbone, organize its latent variables, and train the bridge carefully. The result is not uniformly better everywhere—but where ordinary dynamics confuse correlation with mechanism, explicit causal structure can make the alternative future much easier to find.</p>
+<div class="alert" style="--color: #0ea5e9">
+  
+  <i class="icon fa-solid fa-circle-info"></i>
+  <div class="alert-content">
+    <p><strong>Structure can be added without starting over.</strong> Keep the predictive backbone, organize its latent variables, and train the causal bridge carefully. Where ordinary dynamics confuse correlation with mechanism, explicit causal structure can make the alternative future much easier to find.</p>
+
+  </div>
+</div>
 
 <p><a href="https://arxiv.org/pdf/2604.07712">Read the ECCV 2026 paper</a></p>
   </section>

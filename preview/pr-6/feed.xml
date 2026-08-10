@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="/preview/pr-6/feed.xml" rel="self" type="application/atom+xml" /><link href="/preview/pr-6/" rel="alternate" type="text/html" /><updated>2026-08-10T11:26:17+00:00</updated><id>/preview/pr-6/feed.xml</id><title type="html">Agentic Intelligence Lab</title><subtitle>Our team at the Department of Data and Systems Engineering, The University of Hong Kong, is dedicated to advancing research in Machine Learning, Sequential Decision Making, and Embodied AI.</subtitle><entry><title type="html">CausalVAE as a Plug-in for World Models: Towards Reliable Counterfactual Dynamics (ECCV 2026)</title><link href="/preview/pr-6/2026/08/10/causalvae-world-models.html" rel="alternate" type="text/html" title="CausalVAE as a Plug-in for World Models: Towards Reliable Counterfactual Dynamics (ECCV 2026)" /><published>2026-08-10T00:00:00+00:00</published><updated>2026-08-10T11:24:01+00:00</updated><id>/preview/pr-6/2026/08/10/causalvae-world-models</id><content type="html" xml:base="/preview/pr-6/2026/08/10/causalvae-world-models.html"><![CDATA[<h3 id="predicting-is-not-yet-understanding">Predicting Is Not Yet Understanding</h3>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="/preview/pr-6/feed.xml" rel="self" type="application/atom+xml" /><link href="/preview/pr-6/" rel="alternate" type="text/html" /><updated>2026-08-10T11:39:02+00:00</updated><id>/preview/pr-6/feed.xml</id><title type="html">Agentic Intelligence Lab</title><subtitle>Our team at the Department of Data and Systems Engineering, The University of Hong Kong, is dedicated to advancing research in Machine Learning, Sequential Decision Making, and Embodied AI.</subtitle><entry><title type="html">CausalVAE as a Plug-in for World Models: Towards Reliable Counterfactual Dynamics (ECCV 2026)</title><link href="/preview/pr-6/2026/08/10/causalvae-world-models.html" rel="alternate" type="text/html" title="CausalVAE as a Plug-in for World Models: Towards Reliable Counterfactual Dynamics (ECCV 2026)" /><published>2026-08-10T00:00:00+00:00</published><updated>2026-08-10T11:36:43+00:00</updated><id>/preview/pr-6/2026/08/10/causalvae-world-models</id><content type="html" xml:base="/preview/pr-6/2026/08/10/causalvae-world-models.html"><![CDATA[<h3 id="predicting-is-not-yet-understanding">Predicting Is Not Yet Understanding</h3>
 
 <p><em>ECCV 2026 · Causal World Models</em></p>
 
@@ -6,11 +6,29 @@
 
 <p>Tsinghua Shenzhen International Graduate School · The University of Hong Kong · INFIFORCE Intelligent Technology</p>
 
-<p><a href="https://arxiv.org/pdf/2604.07712">Paper</a></p>
+<div class="button-wrapper">
+    <a class="button" href="https://arxiv.org/pdf/2604.07712" data-tooltip="Paper" data-style="" aria-label="Paper">
+      <i class="icon fa-solid fa-scroll"></i>
+      
+        <span>Read the paper</span>
+      
+    </a>
+  </div>
 
-<p><img src="/images/CausalVAE/method-overview.png" alt="The forward pipeline and CausalVAE module from the paper" /></p>
+<figure class="figure">
+  <a class="figure-image" aria-label="The forward pipeline inserts CausalVAE between the encoder and action-conditioned transition. The module maps the backbone latent through an encoder, a learned directed acyclic graph DAG , and a decoder.">
+    <img src="/preview/pr-6/images/CausalVAE/method-overview.png" style="
+        width: 100%;
+        max-height: unset;
+      " alt="The forward pipeline inserts CausalVAE between the encoder and action-conditioned transition. The module maps the backbone latent through an encoder, a learned directed acyclic graph DAG , and a decoder." loading="lazy" onerror="this.src = '/preview/pr-6/images/fallback.svg'; this.onerror = null;" />
+  </a>
+  
+    <figcaption class="figure-caption">
+      The forward pipeline inserts CausalVAE between the encoder and action-conditioned transition. The module maps the backbone latent through an encoder, a learned directed acyclic graph (DAG), and a decoder.
 
-<p><em>The forward pipeline inserts CausalVAE between the encoder and action-conditioned transition. The module maps the backbone latent through an encoder, a learned directed acyclic graph (DAG), and a decoder.</em></p>
+    </figcaption>
+  
+</figure>
 
 <p>A world model should not only say what happens next. It should also know what would happen if something changed.</p>
 
@@ -24,21 +42,58 @@
 
 <p>We introduce a CausalVAE-inspired structural branch directly in latent space. The original encoder still maps an observation to a latent state, and the original action-conditioned transition still predicts the next latent. Between them, our plug-in organizes latent factors through a learned DAG:</p>
 
-<p><code class="language-plaintext highlighter-rouge">observation o_t → encoder E → latent z_t → CausalVAE → transition F → future ẑ_{t+1}</code></p>
+<div class="alert" style="--color: #0ea5e9">
+  
+  <i class="icon fa-solid fa-circle-info"></i>
+  <div class="alert-content">
+    <p><strong>Plug-in design:</strong> observation <em>oₜ</em> → encoder <em>E</em> → latent <em>zₜ</em> → CausalVAE → transition <em>F</em> → future <em>ẑₜ₊₁</em>.</p>
+
+  </div>
+</div>
 
 <p>The key is modularity. The same structural branch can sit on AE, VAE, modular, or graph-network dynamics backbones. A differentiable acyclicity penalty keeps the learned adjacency close to a DAG, while a lightweight alignment head anchors latent coordinates to simulator state during training. Neither simulator state nor the alignment head is needed at inference.</p>
 
 <h2 id="a-three-stage-training-strategy">A three-stage training strategy</h2>
 
-<p><img src="/images/CausalVAE/training-strategy.png" alt="Three-stage training strategy from the paper" /></p>
+<figure class="figure">
+  <a class="figure-image" aria-label="Stage 1 trains the predictive backbone. Stage 2 freezes the encoder and transition while fitting the structural branch. Stage 3 freezes the encoder and CausalVAE while tuning the transition on multi-step objectives.">
+    <img src="/preview/pr-6/images/CausalVAE/training-strategy.png" style="
+        width: min(100%, 720px);
+        max-height: unset;
+      " alt="Stage 1 trains the predictive backbone. Stage 2 freezes the encoder and transition while fitting the structural branch. Stage 3 freezes the encoder and CausalVAE while tuning the transition on multi-step objectives." loading="lazy" onerror="this.src = '/preview/pr-6/images/fallback.svg'; this.onerror = null;" />
+  </a>
+  
+    <figcaption class="figure-caption">
+      Stage 1 trains the predictive backbone. Stage 2 freezes the encoder and transition while fitting the structural branch. Stage 3 freezes the encoder and CausalVAE while tuning the transition on multi-step objectives.
 
-<p><em>Stage 1 trains the predictive backbone. Stage 2 freezes the encoder and transition while fitting the structural branch. Stage 3 freezes the encoder and CausalVAE while tuning the transition on multi-step objectives.</em></p>
+    </figcaption>
+  
+</figure>
 
-<p><strong>Stage 1 — Predict first.</strong> Train the encoder and transition backbone on standard world-model objectives.</p>
+<div class="cols" style="--cols: 3">
+  
+    
+    <div>
+<h3 id="01--predict">01 · Predict</h3>
 
-<p><strong>Stage 2 — Structure second.</strong> Freeze the backbone and learn the causal branch with reconstruction, KL, alignment, and DAG constraints.</p>
+<p>Train the encoder and transition backbone on standard world-model objectives.</p>
+</div>
+  
+    
+    <div>
+<h3 id="02--structure">02 · Structure</h3>
 
-<p><strong>Stage 3 — Refine the transition.</strong> Freeze the encoder and CausalVAE, then tune the transition with an α-gated mixture and multi-step supervision.</p>
+<p>Freeze the backbone and learn the causal branch with reconstruction, KL, alignment, and DAG constraints.</p>
+</div>
+  
+    
+    <div>
+<h3 id="03--refine">03 · Refine</h3>
+
+<p>Freeze the encoder and CausalVAE, then tune the transition with an α-gated mixture and multi-step supervision.</p>
+</div>
+  
+</div>
 
 <p>This staged design lets the backbone first acquire predictive competence, gives the structural branch a stable representation to organize, and finally adapts the transition to the causally structured latent without retraining the entire system from scratch.</p>
 
@@ -46,9 +101,20 @@
 
 <p>We evaluate four domains—Physics 3-body, Chemistry, 2D Shapes, and 3D Cubes—using state-, object-, and mechanism-level interventions. Each factual transition is paired with a re-simulated counterfactual target.</p>
 
-<p><img src="/images/CausalVAE/counterfactual-task-construction.png" alt="Counterfactual task construction and evaluation pipeline from the paper" /></p>
+<figure class="figure">
+  <a class="figure-image" aria-label="Counterfactual examples are created by applying a controlled do-intervention and re-simulating the next state. CF-H 1 and CF-MRR measure whether the model retrieves the correct alternative future.">
+    <img src="/preview/pr-6/images/CausalVAE/counterfactual-task-construction.png" style="
+        width: 100%;
+        max-height: unset;
+      " alt="Counterfactual examples are created by applying a controlled do-intervention and re-simulating the next state. CF-H 1 and CF-MRR measure whether the model retrieves the correct alternative future." loading="lazy" onerror="this.src = '/preview/pr-6/images/fallback.svg'; this.onerror = null;" />
+  </a>
+  
+    <figcaption class="figure-caption">
+      Counterfactual examples are created by applying a controlled do-intervention and re-simulating the next state. CF-H@1 and CF-MRR measure whether the model retrieves the correct alternative future.
 
-<p><em>Counterfactual examples are created by applying a controlled do-intervention and re-simulating the next state. CF-H@1 and CF-MRR measure whether the model retrieves the correct alternative future.</em></p>
+    </figcaption>
+  
+</figure>
 
 <p>The evaluation asks a direct question: among candidate futures, does the model retrieve the one produced by the intervention? Factual H@1 and MRR track ordinary prediction, while CF-H@1 and CF-MRR isolate counterfactual retrieval.</p>
 
@@ -112,9 +178,20 @@
 
 <p>The learned structure is also interpretable at the mechanism-trend level. On Physics, its strongest edges align with a first-order template derived from the locally linearized dynamics. This is evidence of meaningful physical interaction trends—not a claim that a local DAG exactly recovers the full nonlinear law.</p>
 
-<p><img src="/images/CausalVAE/gt-vs-learned.png" alt="Ground-truth first-order physical structure and learned causal structure from the paper" /></p>
+<figure class="figure">
+  <a class="figure-image" aria-label="The learned adjacency recovers the main first-order interaction pattern of the Physics system. The comparison is local and approximate by design.">
+    <img src="/preview/pr-6/images/CausalVAE/gt-vs-learned.png" style="
+        width: min(100%, 860px);
+        max-height: unset;
+      " alt="The learned adjacency recovers the main first-order interaction pattern of the Physics system. The comparison is local and approximate by design." loading="lazy" onerror="this.src = '/preview/pr-6/images/fallback.svg'; this.onerror = null;" />
+  </a>
+  
+    <figcaption class="figure-caption">
+      The learned adjacency recovers the main first-order interaction pattern of the Physics system. The comparison is local and approximate by design.
 
-<p><em>The learned adjacency recovers the main first-order interaction pattern of the Physics system. The comparison is local and approximate by design.</em></p>
+    </figcaption>
+  
+</figure>
 
 <h2 id="where-the-plug-in-breaks-the-host-latent-still-matters">Where the plug-in breaks: the host latent still matters</h2>
 
@@ -147,9 +224,16 @@
 
 <h2 id="the-takeaway">The takeaway</h2>
 
-<p><strong>Structure can be added without starting over.</strong> CausalVAE offers a modular path from predictive world models toward intervention-aware ones: keep the backbone, organize its latent variables, and train the bridge carefully. The result is not uniformly better everywhere—but where ordinary dynamics confuse correlation with mechanism, explicit causal structure can make the alternative future much easier to find.</p>
+<div class="alert" style="--color: #0ea5e9">
+  
+  <i class="icon fa-solid fa-circle-info"></i>
+  <div class="alert-content">
+    <p><strong>Structure can be added without starting over.</strong> Keep the predictive backbone, organize its latent variables, and train the causal bridge carefully. Where ordinary dynamics confuse correlation with mechanism, explicit causal structure can make the alternative future much easier to find.</p>
 
-<p><a href="https://arxiv.org/pdf/2604.07712">Read the ECCV 2026 paper</a></p>]]></content><author><name></name></author><category term="publication" /><category term="world-models" /><category term="causal-learning" /><category term="counterfactuals" /><summary type="html"><![CDATA[Predicting Is Not Yet Understanding]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="/preview/pr-6/images/CausalVAE/method-overview.png" /><media:content medium="image" url="/preview/pr-6/images/CausalVAE/method-overview.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">CWI — Composite Humanoid Whole-Body Imitation System for Loco-Manipulation (RA-L 2026)</title><link href="/preview/pr-6/2026/08/04/CWI-blog.html" rel="alternate" type="text/html" title="CWI — Composite Humanoid Whole-Body Imitation System for Loco-Manipulation (RA-L 2026)" /><published>2026-08-04T00:00:00+00:00</published><updated>2026-08-10T11:24:01+00:00</updated><id>/preview/pr-6/2026/08/04/CWI-blog</id><content type="html" xml:base="/preview/pr-6/2026/08/04/CWI-blog.html"><![CDATA[<h3 id="one-policy-two-kinds-of-motion-data">One Policy, Two Kinds of Motion Data</h3>
+  </div>
+</div>
+
+<p><a href="https://arxiv.org/pdf/2604.07712">Read the ECCV 2026 paper</a></p>]]></content><author><name></name></author><category term="publication" /><category term="world-models" /><category term="causal-learning" /><category term="counterfactuals" /><summary type="html"><![CDATA[Predicting Is Not Yet Understanding]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="/preview/pr-6/images/CausalVAE/method-overview.png" /><media:content medium="image" url="/preview/pr-6/images/CausalVAE/method-overview.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">CWI — Composite Humanoid Whole-Body Imitation System for Loco-Manipulation (RA-L 2026)</title><link href="/preview/pr-6/2026/08/04/CWI-blog.html" rel="alternate" type="text/html" title="CWI — Composite Humanoid Whole-Body Imitation System for Loco-Manipulation (RA-L 2026)" /><published>2026-08-04T00:00:00+00:00</published><updated>2026-08-10T11:36:43+00:00</updated><id>/preview/pr-6/2026/08/04/CWI-blog</id><content type="html" xml:base="/preview/pr-6/2026/08/04/CWI-blog.html"><![CDATA[<h3 id="one-policy-two-kinds-of-motion-data">One Policy, Two Kinds of Motion Data</h3>
 
 <p><em>Accepted to IEEE Robotics and Automation Letters, June 2026.</em></p>
 
@@ -473,7 +557,7 @@
   <span class="na">year</span>    <span class="p">=</span> <span class="s">{2026}</span><span class="p">,</span>
   <span class="na">doi</span>     <span class="p">=</span> <span class="s">{10.1109/LRA.2026.3710366}</span>
 <span class="p">}</span>
-</code></pre></div></div>]]></content><author><name>Wenqi Ge</name></author><category term="publication" /><category term="robotics" /><category term="humanoid" /><category term="loco-manipulation" /><summary type="html"><![CDATA[One Policy, Two Kinds of Motion Data]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="/preview/pr-6/images/CWI/fig1-tasks.jpg" /><media:content medium="image" url="/preview/pr-6/images/CWI/fig1-tasks.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">ROMBRL — Policy-Driven World Model Adaptation for Robust Offline Model-based RL (ICML 2026)</title><link href="/preview/pr-6/2026/08/04/rombrl-post.html" rel="alternate" type="text/html" title="ROMBRL — Policy-Driven World Model Adaptation for Robust Offline Model-based RL (ICML 2026)" /><published>2026-08-04T00:00:00+00:00</published><updated>2026-08-10T11:24:01+00:00</updated><id>/preview/pr-6/2026/08/04/rombrl-post</id><content type="html" xml:base="/preview/pr-6/2026/08/04/rombrl-post.html"><![CDATA[<p>Our paper, <strong>“Policy-Driven World Model Adaptation for Robust Offline Model-based Reinforcement Learning”</strong>, was presented as a <strong>poster at ICML 2026</strong> in Seoul, South Korea. This is joint work between the Agentic Intelligence Lab at the University of Hong Kong, Tsinghua University, and the Robotics Institute at Carnegie Mellon University.</p>
+</code></pre></div></div>]]></content><author><name>Wenqi Ge</name></author><category term="publication" /><category term="robotics" /><category term="humanoid" /><category term="loco-manipulation" /><summary type="html"><![CDATA[One Policy, Two Kinds of Motion Data]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="/preview/pr-6/images/CWI/fig1-tasks.jpg" /><media:content medium="image" url="/preview/pr-6/images/CWI/fig1-tasks.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">ROMBRL — Policy-Driven World Model Adaptation for Robust Offline Model-based RL (ICML 2026)</title><link href="/preview/pr-6/2026/08/04/rombrl-post.html" rel="alternate" type="text/html" title="ROMBRL — Policy-Driven World Model Adaptation for Robust Offline Model-based RL (ICML 2026)" /><published>2026-08-04T00:00:00+00:00</published><updated>2026-08-10T11:36:43+00:00</updated><id>/preview/pr-6/2026/08/04/rombrl-post</id><content type="html" xml:base="/preview/pr-6/2026/08/04/rombrl-post.html"><![CDATA[<p>Our paper, <strong>“Policy-Driven World Model Adaptation for Robust Offline Model-based Reinforcement Learning”</strong>, was presented as a <strong>poster at ICML 2026</strong> in Seoul, South Korea. This is joint work between the Agentic Intelligence Lab at the University of Hong Kong, Tsinghua University, and the Robotics Institute at Carnegie Mellon University.</p>
 
 <ul>
   <li><strong>Paper (arXiv):</strong> <a href="https://arxiv.org/abs/2505.13709">arxiv.org/abs/2505.13709</a></li>
@@ -770,7 +854,7 @@
 
 <h2 id="acknowledgements">Acknowledgements</h2>
 
-<p>This work was funded in part by the Department of Energy Fusion Energy Sciences under grant DE-SC0024544.</p>]]></content><author><name>Le Xu</name></author><category term="publication" /><category term="offline-rl" /><category term="robustness" /><category term="model-based-rl" /><summary type="html"><![CDATA[Our paper, “Policy-Driven World Model Adaptation for Robust Offline Model-based Reinforcement Learning”, was presented as a poster at ICML 2026 in Seoul, South Korea. This is joint work between the Agentic Intelligence Lab at the University of Hong Kong, Tsinghua University, and the Robotics Institute at Carnegie Mellon University.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="/preview/pr-6/images/rombrl-cover.png" /><media:content medium="image" url="/preview/pr-6/images/rombrl-cover.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">SAIL-RevKL: Stable and Provable Self-Improving Online LLM Alignment</title><link href="/preview/pr-6/2026/08/04/sail-revkl-post.html" rel="alternate" type="text/html" title="SAIL-RevKL: Stable and Provable Self-Improving Online LLM Alignment" /><published>2026-08-04T00:00:00+00:00</published><updated>2026-08-10T11:24:01+00:00</updated><id>/preview/pr-6/2026/08/04/sail-revkl-post</id><content type="html" xml:base="/preview/pr-6/2026/08/04/sail-revkl-post.html"><![CDATA[<p><a href="https://arxiv.org/abs/2606.31524"><strong>Paper</strong></a> · <a href="https://github.com/xudongwu-0/SAIL_mujoco"><strong>MuJoCo Code</strong></a> · <a href="https://github.com/xudongwu-0/SAIL_LLM"><strong>LLM Code</strong></a></p>
+<p>This work was funded in part by the Department of Energy Fusion Energy Sciences under grant DE-SC0024544.</p>]]></content><author><name>Le Xu</name></author><category term="publication" /><category term="offline-rl" /><category term="robustness" /><category term="model-based-rl" /><summary type="html"><![CDATA[Our paper, “Policy-Driven World Model Adaptation for Robust Offline Model-based Reinforcement Learning”, was presented as a poster at ICML 2026 in Seoul, South Korea. This is joint work between the Agentic Intelligence Lab at the University of Hong Kong, Tsinghua University, and the Robotics Institute at Carnegie Mellon University.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="/preview/pr-6/images/rombrl-cover.png" /><media:content medium="image" url="/preview/pr-6/images/rombrl-cover.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">SAIL-RevKL: Stable and Provable Self-Improving Online LLM Alignment</title><link href="/preview/pr-6/2026/08/04/sail-revkl-post.html" rel="alternate" type="text/html" title="SAIL-RevKL: Stable and Provable Self-Improving Online LLM Alignment" /><published>2026-08-04T00:00:00+00:00</published><updated>2026-08-10T11:36:43+00:00</updated><id>/preview/pr-6/2026/08/04/sail-revkl-post</id><content type="html" xml:base="/preview/pr-6/2026/08/04/sail-revkl-post.html"><![CDATA[<p><a href="https://arxiv.org/abs/2606.31524"><strong>Paper</strong></a> · <a href="https://github.com/xudongwu-0/SAIL_mujoco"><strong>MuJoCo Code</strong></a> · <a href="https://github.com/xudongwu-0/SAIL_LLM"><strong>LLM Code</strong></a></p>
 
 <p>We are excited to share <strong>SAIL-RevKL</strong>, our work on making self-improving online alignment more stable and theoretically grounded. The paper, <em>On the Convergence of Self-Improving Online LLM Alignment</em>, has been accepted at <strong>UAI 2026</strong>.</p>
 
@@ -795,7 +879,7 @@
   <li>We show improved training stability and performance on both continuous-control benchmarks and LLM alignment tasks.</li>
 </ul>
 
-<p>We evaluate SAIL-RevKL on Door Open, Walker Walk, Walker Stand, and Cheetah Run, as well as LLM alignment experiments using PKU-SafeRLHF and UltraFeedback. Across these settings, SAIL-RevKL consistently improves upon vanilla SAIL, showing that the reverse KL term is useful both theoretically and in practice.</p>]]></content><author><name>Xudong Wu</name></author><category term="technique" /><summary type="html"><![CDATA[Paper · MuJoCo Code · LLM Code]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="/preview/pr-6/images/logo.png" /><media:content medium="image" url="/preview/pr-6/images/logo.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Verlog - A Multi-turn RL framework for LLM agents</title><link href="/preview/pr-6/2025/08/15/technical-post.html" rel="alternate" type="text/html" title="Verlog - A Multi-turn RL framework for LLM agents" /><published>2025-08-15T00:00:00+00:00</published><updated>2026-08-10T11:24:01+00:00</updated><id>/preview/pr-6/2025/08/15/technical-post</id><content type="html" xml:base="/preview/pr-6/2025/08/15/technical-post.html"><![CDATA[<div style="display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 24px; width: 100%;">
+<p>We evaluate SAIL-RevKL on Door Open, Walker Walk, Walker Stand, and Cheetah Run, as well as LLM alignment experiments using PKU-SafeRLHF and UltraFeedback. Across these settings, SAIL-RevKL consistently improves upon vanilla SAIL, showing that the reverse KL term is useful both theoretically and in practice.</p>]]></content><author><name>Xudong Wu</name></author><category term="technique" /><summary type="html"><![CDATA[Paper · MuJoCo Code · LLM Code]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="/preview/pr-6/images/logo.png" /><media:content medium="image" url="/preview/pr-6/images/logo.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Verlog - A Multi-turn RL framework for LLM agents</title><link href="/preview/pr-6/2025/08/15/technical-post.html" rel="alternate" type="text/html" title="Verlog - A Multi-turn RL framework for LLM agents" /><published>2025-08-15T00:00:00+00:00</published><updated>2026-08-10T11:36:43+00:00</updated><id>/preview/pr-6/2025/08/15/technical-post</id><content type="html" xml:base="/preview/pr-6/2025/08/15/technical-post.html"><![CDATA[<div style="display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 24px; width: 100%;">
   <a href="https://github.com/WentseChen/Verlog" target="_blank" style="text-decoration: none; display: flex; align-items: center;">
     <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/github.svg" alt="GitHub" width="30" height="30" style="vertical-align: middle;" />
     <span style="vertical-align: middle; font-size: 16px; margin-left: 6px;">Source Code</span>
@@ -809,7 +893,7 @@
 
 <p>Verlog is a multi-turn reinforcement learning framework built for <strong>long-horizon LLM-agentic tasks with highly variable episode lengths</strong>. Extending <a href="https://github.com/volcengine/verl">VeRL</a> and <a href="https://github.com/balrog-ai/BALROG">BALROG</a> while following the proven design principles of <a href="https://github.com/ikostrikov/pytorch-a2c-ppo-acktr-gail">pytorch-a2c-ppo-acktr-gail</a>, it introduces specialized optimizations for stable and efficient training when episodes span from short interactions to hundreds of turns. Whereas prior frameworks like <a href="https://github.com/volcengine/verl">VeRL</a> and <a href="https://ragen-ai.github.io">RAGEN</a> effectively handle tasks with ~10 turns, and <a href="https://github.com/langfengQ/verl-agent">verl-agent</a> scales up to 50 turns, Verlog is designed to operate in environments with <strong>over 400 turns</strong>, making it uniquely suited for complex, long-term decision-making. This capability has been validated across challenging domains such as BabyAI, BabaIsAI, and Crafter, where it consistently achieves strong performance out of the box. In Crafter, for instance, episode lengths range from 70 to 400 steps with an average of about 190.</p>
 
-<p>Please kindly check <a href="https://wentsechen.github.io/Verlog_blogpost/">https://wentsechen.github.io/Verlog_blogpost/</a> for details.</p>]]></content><author><name>Wentse Chen</name></author><category term="technique" /><summary type="html"><![CDATA[Source Code]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="/preview/pr-6/images/crafter_zeroshot.gif" /><media:content medium="image" url="/preview/pr-6/images/crafter_zeroshot.gif" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Available Research Positions at the Agentic Intelligence Lab @ The University of Hong Kong</title><link href="/preview/pr-6/2025/01/03/hiring-post.html" rel="alternate" type="text/html" title="Available Research Positions at the Agentic Intelligence Lab @ The University of Hong Kong" /><published>2025-01-03T00:00:00+00:00</published><updated>2026-08-10T11:24:01+00:00</updated><id>/preview/pr-6/2025/01/03/hiring-post</id><content type="html" xml:base="/preview/pr-6/2025/01/03/hiring-post.html"><![CDATA[<h2 id="about-the-pi">About the PI</h2>
+<p>Please kindly check <a href="https://wentsechen.github.io/Verlog_blogpost/">https://wentsechen.github.io/Verlog_blogpost/</a> for details.</p>]]></content><author><name>Wentse Chen</name></author><category term="technique" /><summary type="html"><![CDATA[Source Code]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="/preview/pr-6/images/crafter_zeroshot.gif" /><media:content medium="image" url="/preview/pr-6/images/crafter_zeroshot.gif" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Available Research Positions at the Agentic Intelligence Lab @ The University of Hong Kong</title><link href="/preview/pr-6/2025/01/03/hiring-post.html" rel="alternate" type="text/html" title="Available Research Positions at the Agentic Intelligence Lab @ The University of Hong Kong" /><published>2025-01-03T00:00:00+00:00</published><updated>2026-08-10T11:36:43+00:00</updated><id>/preview/pr-6/2025/01/03/hiring-post</id><content type="html" xml:base="/preview/pr-6/2025/01/03/hiring-post.html"><![CDATA[<h2 id="about-the-pi">About the PI</h2>
 
 <p>Jiayu Chen (陈佳玉) is an incoming Tenure-Track Assistant Professor at the <a href="https://www.dase.hku.hk/">Department of Data and Systems Engineering, The University of Hong Kong</a>. Currently, he is a Postdoctoral Fellow at the <a href="https://www.cs.cmu.edu/">School of Computer Science, Carnegie Mellon University</a>, working under the supervision of <a href="https://www.cs.cmu.edu/~schneide/">Professor Jeff Schneider</a> on data-driven profile control for nuclear fusion, as part of a joint research program with the <a href="https://control.princeton.edu/">Plasma Control Group, Princeton University</a>.</p>
 
