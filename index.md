@@ -57,6 +57,7 @@ For more information, please refer to the respective categories in [openings](ht
 | Funding Scheme | Research Topic | Duration | Role |
 |---|---|---|
 | Early Career Scheme, HK UGC | Skill-Based Continual Reinforcement Learning for Vision-Language-Action Models Empowering Generalist Robotic Agents | 2027/01–2029/12 | PI |
+| 国家自然科学基金青年科学基金项目（C类） | 自主进化的具身智能体：视觉-语言-动作模型的持续学习机理研究 | 2026/09-2029/08 | PI |
 
 
 <!-- ---
