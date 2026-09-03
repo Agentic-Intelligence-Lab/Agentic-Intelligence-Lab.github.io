@@ -27,7 +27,7 @@ Embodied AI expands the data and learning sources of multimodal LLMs through rea
 
 - ❗❗❗ We are actively recruiting Postdocs, Ph.D., MPhil, and research assistants on LLM Agents.
 
-For more information, please refer to the respective categories in [openings](https://agentic-intelligence-lab.org/openings/). 
+For more information (including graduation requirements and internship policies), please refer to the respective categories in [openings](https://agentic-intelligence-lab.org/openings/). 
 
 {% include section.html %} 
 

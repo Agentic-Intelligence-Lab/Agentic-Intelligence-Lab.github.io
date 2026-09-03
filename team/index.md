@@ -28,7 +28,12 @@ Meet our outstanding team members! Although based in Hong Kong, our team boasts 
 - **Wenqi Ge** (2025.10 -- present, [homepage](https://wenqi-ge.github.io/)) - Master (South University of Science and Technology)
 - **Zhen Yang** (2025.10 -- present, [homepage](https://zcgyang.github.io/)) - Master (Beihang University)
 - **Xudong Wu** (2025.10 -- present, [homepage](https://xudongwu-0.github.io/)) - Bachelor (The University of Edinburgh & Dalian University of Technology)
-- **Le Xu** (starting in 2026.09, [homepage](https://scholar.google.com/citations?user=gE-V4aQAAAAJ&hl=en)) - Bachelor (Tsinghua University)
+- **Le Xu** (2026.09 -- present, [homepage](https://scholar.google.com/citations?user=gE-V4aQAAAAJ&hl=en)) - Bachelor (Tsinghua University)
+
+## MPhil
+
+- **Yang Fu** (2026.09 -- present) - Bachelor (Central South University)
+- **Qijun He** (2026.09 -- present) - Bachelor (South University of Science and Technology)
 
 ## Core Research Intern
 
