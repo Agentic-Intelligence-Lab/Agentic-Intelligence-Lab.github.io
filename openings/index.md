@@ -7,7 +7,7 @@ nav:
 
 # Join Us Now
 
-If interested, please contact [Dr. Jiayu Chen](https://agentic-intelligence-lab.org/members/jiayu-chen.html) directly.
+If interested, please check the [lab academic regulations](https://agentic-intelligence-lab.org/files/Lab_Regulation.pdf) and contact [Dr. Jiayu Chen](https://agentic-intelligence-lab.org/members/jiayu-chen.html) directly.
 
 {% include section.html %}
 
