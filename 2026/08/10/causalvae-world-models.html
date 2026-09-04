@@ -39,74 +39,39 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<title>SAIL-RevKL: Stable and Provable Self-Improving Online LLM Alignment | Agentic Intelligence Lab</title>
+<title>CausalVAE as a Plug-in for World Models: Towards Reliable Counterfactual Dynamics (ECCV 2026) | Agentic Intelligence Lab</title>
 
 <link rel="icon" href="/images/icon.png">
 
-<meta name="title" content="SAIL-RevKL: Stable and Provable Self-Improving Online LLM Alignment">
+<meta name="title" content="CausalVAE as a Plug-in for World Models: Towards Reliable Counterfactual Dynamics (ECCV 2026)">
 <meta name="description" content="Our team at the Department of Data and Systems Engineering, The University of Hong Kong, is dedicated to advancing research in Machine Learning, Sequential Decision Making, and Embodied AI.">
 
-<meta property="og:title" content="SAIL-RevKL: Stable and Provable Self-Improving Online LLM Alignment">
+<meta property="og:title" content="CausalVAE as a Plug-in for World Models: Towards Reliable Counterfactual Dynamics (ECCV 2026)">
 <meta property="og:site_title" content="Agentic Intelligence Lab">
 <meta property="og:description" content="Our team at the Department of Data and Systems Engineering, The University of Hong Kong, is dedicated to advancing research in Machine Learning, Sequential Decision Making, and Embodied AI.">
 <meta property="og:url" content="http://agentic-intelligence-lab.org">
 <meta property="og:image" content="/images/share.jpg">
 <meta property="og:locale" content="en_US">
 
-<meta property="twitter:title" content="SAIL-RevKL: Stable and Provable Self-Improving Online LLM Alignment">
+<meta property="twitter:title" content="CausalVAE as a Plug-in for World Models: Towards Reliable Counterfactual Dynamics (ECCV 2026)">
 <meta property="twitter:description" content="Our team at the Department of Data and Systems Engineering, The University of Hong Kong, is dedicated to advancing research in Machine Learning, Sequential Decision Making, and Embodied AI.">
 <meta property="twitter:url" content="http://agentic-intelligence-lab.org">
 <meta property="twitter:card" content="summary_large_image">
 <meta property="twitter:image" content="/images/share.jpg">
 
 
-  <meta name="author" content='&lt;p&gt;&lt;a href="https://arxiv.org/abs/2606.31524"&gt;&lt;strong&gt;Paper&lt;/strong&gt;&lt;/a&gt; · &lt;a href="https://github.com/xudongwu-0/SAIL_mujoco"&gt;&lt;strong&gt;MuJoCo Code&lt;/strong&gt;&lt;/a&gt; · &lt;a href="https://github.com/xudongwu-0/SAIL_LLM"&gt;&lt;strong&gt;LLM Code&lt;/strong&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;We are excited to share &lt;strong&gt;SAIL-RevKL&lt;/strong&gt;, our work on making self-improving online alignment more stable and theoretically grounded. The paper, &lt;em&gt;On the Convergence of Self-Improving Online LLM Alignment&lt;/em&gt;, has been accepted at &lt;strong&gt;UAI 2026&lt;/strong&gt;.&lt;/p&gt;
-
-&lt;h2 id="why-online-alignment"&gt;Why Online Alignment?&lt;/h2&gt;
-
-&lt;p&gt;Most language-model alignment methods learn from a fixed preference dataset. While this approach is simple and effective, the dataset may not fully represent the responses produced by the model as it continues to improve.&lt;/p&gt;
-
-&lt;p&gt;Online alignment creates a continuous feedback loop: the current model generates new responses, receives fresh preference feedback, and then learns from that feedback. &lt;a href="https://arxiv.org/abs/2406.15567"&gt;SAIL&lt;/a&gt; is an efficient framework for this setting, but an important question remained open: &lt;strong&gt;will its learning process converge reliably?&lt;/strong&gt;&lt;/p&gt;
-
-&lt;h2 id="our-approach-sail-revkl"&gt;Our Approach: SAIL-RevKL&lt;/h2&gt;
-
-&lt;p&gt;We find that the original SAIL objective can have an unfavorable optimization landscape, which may make training unstable outside a local region. To address this issue, we introduce &lt;strong&gt;SAIL-RevKL&lt;/strong&gt;, a simple extension that adds a reverse KL regularization term.&lt;/p&gt;
-
-&lt;p&gt;Intuitively, the reverse KL term acts as a guardrail. It keeps the updated policy anchored to a stable reference policy while still allowing the model to learn from new preference feedback. This small change makes the learning problem easier to optimize and allows us to establish a global convergence guarantee within a bounded parameter space.&lt;/p&gt;
-
-&lt;h2 id="main-highlights"&gt;Main Highlights&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;We explain why vanilla SAIL only has favorable convergence properties locally.&lt;/li&gt;
-  &lt;li&gt;We introduce reverse KL regularization as a simple way to stabilize SAIL.&lt;/li&gt;
-  &lt;li&gt;We establish a global convergence guarantee with near-linear sample complexity under standard assumptions.&lt;/li&gt;
-  &lt;li&gt;We show improved training stability and performance on both continuous-control benchmarks and LLM alignment tasks.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;We evaluate SAIL-RevKL on Door Open, Walker Walk, Walker Stand, and Cheetah Run, as well as LLM alignment experiments using PKU-SafeRLHF and UltraFeedback. Across these settings, SAIL-RevKL consistently improves upon vanilla SAIL, showing that the reverse KL term is useful both theoretically and in practice.&lt;/p&gt;
-
-'>
-  <meta property="og:type" content="article">
-  <meta property="og:updated_time" content="2026-09-04T02:49:34+00:00">
-  <meta property="article:published_time" content="2026-08-04T00:00:00+00:00">
-  <meta property="article:modified_time" content="2026-09-04T02:49:34+00:00">
-  <meta name="revised" content="2026-09-04T02:49:34+00:00">
+  <meta property="og:type" content="website">
 
 
 <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     
-      "@type": "BlogPosting",
-      "author": { "@type": "Person", "name": "SAIL-RevKL: Stable and Provable Self-Improving Online LLM Alignment" },
-      "datePublished": "2026-08-04T00:00:00+00:00",
-      "dateModified": "2026-09-04T02:49:34+00:00",
+      "@type": "WebSite",
     
-    "name": "SAIL-RevKL: Stable and Provable Self-Improving Online LLM Alignment",
+    "name": "CausalVAE as a Plug-in for World Models: Towards Reliable Counterfactual Dynamics (ECCV 2026)",
     "description": "Our team at the Department of Data and Systems Engineering, The University of Hong Kong, is dedicated to advancing research in Machine Learning, Sequential Decision Making, and Embodied AI.",
-    "headline": "SAIL-RevKL: Stable and Provable Self-Improving Online LLM Alignment",
+    "headline": "CausalVAE as a Plug-in for World Models: Towards Reliable Counterfactual Dynamics (ECCV 2026)",
     "publisher": {
       "@type": "Organization",
       "logo": { "@type": "ImageObject", "url": "/images/icon.png" }
@@ -457,23 +422,15 @@
 
   <section class="background" data-size="1">
     <!--
-  background: images/logo.png;
+  background: images/CausalVAE/method-overview.png;
   dark: ;
   size: 1;
 -->
 
 
-<h1 class="center">SAIL-RevKL: Stable and Provable Self-Improving Online LLM Alignment</h1>
+<h1 class="center">CausalVAE as a Plug-in for World Models: Towards Reliable Counterfactual Dynamics (ECCV 2026)</h1>
 
 <div class="post-info">
-  
-    
-    
-      <span data-tooltip="Author">
-        <i class="icon fa-solid fa-feather-pointed"></i>
-        <span>Xudong Wu</span>
-      </span>
-    
   
 
   
@@ -482,7 +439,7 @@
   
     <span data-tooltip="Originally published on">
       <i class="icon fa-regular fa-calendar"></i>
-      <span>August 04, 2026</span>
+      <span>August 10, 2026</span>
     </span>
   
 
@@ -500,8 +457,20 @@
 
   <div class="tags" data-link="/blog">
     
-      <a href="blog?search=%22tag:%20technique%22" class="tag" data-tooltip='Show items with the tag "technique"'>
-        technique
+      <a href="blog?search=%22tag:%20publication%22" class="tag" data-tooltip='Show items with the tag "publication"'>
+        publication
+      </a>
+    
+      <a href="blog?search=%22tag:%20world-models%22" class="tag" data-tooltip='Show items with the tag "world-models"'>
+        world-models
+      </a>
+    
+      <a href="blog?search=%22tag:%20causal-learning%22" class="tag" data-tooltip='Show items with the tag "causal-learning"'>
+        causal-learning
+      </a>
+    
+      <a href="blog?search=%22tag:%20counterfactuals%22" class="tag" data-tooltip='Show items with the tag "counterfactuals"'>
+        counterfactuals
       </a>
     
   </div>
@@ -519,32 +488,246 @@
 -->
 
 
-<p><a href="https://arxiv.org/abs/2606.31524"><strong>Paper</strong></a> · <a href="https://github.com/xudongwu-0/SAIL_mujoco"><strong>MuJoCo Code</strong></a> · <a href="https://github.com/xudongwu-0/SAIL_LLM"><strong>LLM Code</strong></a></p>
+<h3 id="predicting-is-not-yet-understanding">Predicting Is Not Yet Understanding</h3>
 
-<p>We are excited to share <strong>SAIL-RevKL</strong>, our work on making self-improving online alignment more stable and theoretically grounded. The paper, <em>On the Convergence of Self-Improving Online LLM Alignment</em>, has been accepted at <strong>UAI 2026</strong>.</p>
+<p><em>ECCV 2026 · Causal World Models</em></p>
 
-<h2 id="why-online-alignment">Why Online Alignment?</h2>
+<p>Ziyi Ding, Xianxin Lai, Weiyu Chen, Xiao-Ping Zhang, Jiayu Chen</p>
 
-<p>Most language-model alignment methods learn from a fixed preference dataset. While this approach is simple and effective, the dataset may not fully represent the responses produced by the model as it continues to improve.</p>
+<p>Tsinghua Shenzhen International Graduate School · The University of Hong Kong · INFIFORCE Intelligent Technology</p>
 
-<p>Online alignment creates a continuous feedback loop: the current model generates new responses, receives fresh preference feedback, and then learns from that feedback. <a href="https://arxiv.org/abs/2406.15567">SAIL</a> is an efficient framework for this setting, but an important question remained open: <strong>will its learning process converge reliably?</strong></p>
+<div class="button-wrapper">
+    <a class="button" href="https://arxiv.org/pdf/2604.07712" data-tooltip="Paper" data-style="" aria-label="Paper">
+      <i class="icon fa-solid fa-scroll"></i>
+      
+        <span>Read the paper</span>
+      
+    </a>
+  </div>
 
-<h2 id="our-approach-sail-revkl">Our Approach: SAIL-RevKL</h2>
+<figure class="figure">
+  <a class="figure-image" aria-label="The forward pipeline inserts CausalVAE between the encoder and action-conditioned transition. The module maps the backbone latent through an encoder, a learned directed acyclic graph DAG , and a decoder.">
+    <img src="/images/CausalVAE/method-overview.png" style="
+        width: 100%;
+        max-height: unset;
+      " alt="The forward pipeline inserts CausalVAE between the encoder and action-conditioned transition. The module maps the backbone latent through an encoder, a learned directed acyclic graph DAG , and a decoder." loading="lazy" onerror="this.src = '/images/fallback.svg'; this.onerror = null;">
+  </a>
+  
+    <figcaption class="figure-caption">
+      The forward pipeline inserts CausalVAE between the encoder and action-conditioned transition. The module maps the backbone latent through an encoder, a learned directed acyclic graph (DAG), and a decoder.
 
-<p>We find that the original SAIL objective can have an unfavorable optimization landscape, which may make training unstable outside a local region. To address this issue, we introduce <strong>SAIL-RevKL</strong>, a simple extension that adds a reverse KL regularization term.</p>
+    </figcaption>
+  
+</figure>
 
-<p>Intuitively, the reverse KL term acts as a guardrail. It keeps the updated policy anchored to a stable reference policy while still allowing the model to learn from new preference feedback. This small change makes the learning problem easier to optimize and allows us to establish a global convergence guarantee within a bounded parameter space.</p>
+<p>A world model should not only say what happens next. It should also know what would happen if something changed.</p>
 
-<h2 id="main-highlights">Main Highlights</h2>
+<p>Latent world models compress images into compact states and roll them forward under actions. That recipe works well for factual prediction: given what actually happened, retrieve or generate the most likely future. But the same latent can be unreliable under an intervention, because features that are useful for prediction are not necessarily separated into causes and effects.</p>
 
+<p>A counterfactual query is more demanding. If we move one object, change its velocity, or alter a mechanism, the model must update the variables downstream of that change while leaving unrelated factors alone. In an entangled latent space, the intervention often becomes a diffuse perturbation: too much changes, too little changes, or the effect travels along the wrong path.</p>
+
+<p>Our question is simple: <strong>can we add explicit causal structure to an existing world model without redesigning the predictive backbone?</strong></p>
+
+<h2 id="attach-causal-structure-where-the-world-model-already-reasons">Attach causal structure where the world model already reasons</h2>
+
+<p>We introduce a CausalVAE-inspired structural branch directly in latent space. The original encoder still maps an observation to a latent state, and the original action-conditioned transition still predicts the next latent. Between them, our plug-in organizes latent factors through a learned DAG:</p>
+
+<div class="alert" style="--color: #0ea5e9">
+  
+  <i class="icon fa-solid fa-circle-info"></i>
+  <div class="alert-content">
+    <p><strong>Plug-in design:</strong> observation <em>oₜ</em> → encoder <em>E</em> → latent <em>zₜ</em> → CausalVAE → transition <em>F</em> → future <em>ẑₜ₊₁</em>.</p>
+
+  </div>
+</div>
+
+<p>The key is modularity. The same structural branch can sit on AE, VAE, modular, or graph-network dynamics backbones. A differentiable acyclicity penalty keeps the learned adjacency close to a DAG, while a lightweight alignment head anchors latent coordinates to simulator state during training. Neither simulator state nor the alignment head is needed at inference.</p>
+
+<h2 id="a-three-stage-training-strategy">A three-stage training strategy</h2>
+
+<figure class="figure">
+  <a class="figure-image" aria-label="Stage 1 trains the predictive backbone. Stage 2 freezes the encoder and transition while fitting the structural branch. Stage 3 freezes the encoder and CausalVAE while tuning the transition on multi-step objectives.">
+    <img src="/images/CausalVAE/training-strategy.png" style="
+        width: min(100%, 720px);
+        max-height: unset;
+      " alt="Stage 1 trains the predictive backbone. Stage 2 freezes the encoder and transition while fitting the structural branch. Stage 3 freezes the encoder and CausalVAE while tuning the transition on multi-step objectives." loading="lazy" onerror="this.src = '/images/fallback.svg'; this.onerror = null;">
+  </a>
+  
+    <figcaption class="figure-caption">
+      Stage 1 trains the predictive backbone. Stage 2 freezes the encoder and transition while fitting the structural branch. Stage 3 freezes the encoder and CausalVAE while tuning the transition on multi-step objectives.
+
+    </figcaption>
+  
+</figure>
+
+<div class="cols" style="--cols: 3">
+  
+    
+    <div>
+<h3 id="01--predict">01 · Predict</h3>
+
+<p>Train the encoder and transition backbone on standard world-model objectives.</p>
+</div>
+  
+    
+    <div>
+<h3 id="02--structure">02 · Structure</h3>
+
+<p>Freeze the backbone and learn the causal branch with reconstruction, KL, alignment, and DAG constraints.</p>
+</div>
+  
+    
+    <div>
+<h3 id="03--refine">03 · Refine</h3>
+
+<p>Freeze the encoder and CausalVAE, then tune the transition with an α-gated mixture and multi-step supervision.</p>
+</div>
+  
+</div>
+
+<p>This staged design lets the backbone first acquire predictive competence, gives the structural branch a stable representation to organize, and finally adapts the transition to the causally structured latent without retraining the entire system from scratch.</p>
+
+<h2 id="intervene-re-simulate-then-retrieve-the-right-future">Intervene, re-simulate, then retrieve the right future</h2>
+
+<p>We evaluate four domains—Physics 3-body, Chemistry, 2D Shapes, and 3D Cubes—using state-, object-, and mechanism-level interventions. Each factual transition is paired with a re-simulated counterfactual target.</p>
+
+<figure class="figure">
+  <a class="figure-image" aria-label="Counterfactual examples are created by applying a controlled do-intervention and re-simulating the next state. CF-H 1 and CF-MRR measure whether the model retrieves the correct alternative future.">
+    <img src="/images/CausalVAE/counterfactual-task-construction.png" style="
+        width: 100%;
+        max-height: unset;
+      " alt="Counterfactual examples are created by applying a controlled do-intervention and re-simulating the next state. CF-H 1 and CF-MRR measure whether the model retrieves the correct alternative future." loading="lazy" onerror="this.src = '/images/fallback.svg'; this.onerror = null;">
+  </a>
+  
+    <figcaption class="figure-caption">
+      Counterfactual examples are created by applying a controlled do-intervention and re-simulating the next state. CF-H@1 and CF-MRR measure whether the model retrieves the correct alternative future.
+
+    </figcaption>
+  
+</figure>
+
+<p>The evaluation asks a direct question: among candidate futures, does the model retrieve the one produced by the intervention? Factual H@1 and MRR track ordinary prediction, while CF-H@1 and CF-MRR isolate counterfactual retrieval.</p>
+
+<h2 id="the-largest-gains-appear-where-ordinary-dynamics-are-intervention-fragile">The largest gains appear where ordinary dynamics are intervention-fragile</h2>
+
+<p>Across four benchmarks and eight paired backbones, the plug-in generally keeps factual retrieval competitive and improves CF-H@1 on <strong>21 of 32 backbone–benchmark pairs</strong>. Physics shows the clearest effect: GNN–NLL rises from <strong>11.0 to 41.0 CF-H@1</strong>, a gain of 30.0 points, while AE–NLL rises from <strong>10.5 to 41.0</strong>, a gain of 30.5 points.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Physics 3-body backbone</th>
+      <th style="text-align: right">Baseline CF-H@1</th>
+      <th style="text-align: right">
 <ul>
-  <li>We explain why vanilla SAIL only has favorable convergence properties locally.</li>
-  <li>We introduce reverse KL regularization as a simple way to stabilize SAIL.</li>
-  <li>We establish a global convergence guarantee with near-linear sample complexity under standard assumptions.</li>
-  <li>We show improved training stability and performance on both continuous-control benchmarks and LLM alignment tasks.</li>
+  <li>CausalVAE</li>
 </ul>
+</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>AE · Contrastive</td>
+      <td style="text-align: right">10.0</td>
+      <td style="text-align: right">24.0</td>
+    </tr>
+    <tr>
+      <td>AE · NLL</td>
+      <td style="text-align: right">10.5</td>
+      <td style="text-align: right"><strong>41.0</strong></td>
+    </tr>
+    <tr>
+      <td>VAE · Contrastive</td>
+      <td style="text-align: right">8.5</td>
+      <td style="text-align: right">8.5</td>
+    </tr>
+    <tr>
+      <td>VAE · NLL</td>
+      <td style="text-align: right">10.5</td>
+      <td style="text-align: right">13.0</td>
+    </tr>
+    <tr>
+      <td>Modular · Contrastive</td>
+      <td style="text-align: right">22.5</td>
+      <td style="text-align: right">25.0</td>
+    </tr>
+    <tr>
+      <td>Modular · NLL</td>
+      <td style="text-align: right">14.5</td>
+      <td style="text-align: right">22.0</td>
+    </tr>
+    <tr>
+      <td>GNN · Contrastive</td>
+      <td style="text-align: right">11.5</td>
+      <td style="text-align: right">15.0</td>
+    </tr>
+    <tr>
+      <td>GNN · NLL</td>
+      <td style="text-align: right">11.0</td>
+      <td style="text-align: right"><strong>41.0</strong></td>
+    </tr>
+  </tbody>
+</table>
 
-<p>We evaluate SAIL-RevKL on Door Open, Walker Walk, Walker Stand, and Cheetah Run, as well as LLM alignment experiments using PKU-SafeRLHF and UltraFeedback. Across these settings, SAIL-RevKL consistently improves upon vanilla SAIL, showing that the reverse KL term is useful both theoretically and in practice.</p>
+<p>In the matched Physics comparison, the plug-in adds approximately 1M parameters.</p>
+
+<p>The learned structure is also interpretable at the mechanism-trend level. On Physics, its strongest edges align with a first-order template derived from the locally linearized dynamics. This is evidence of meaningful physical interaction trends—not a claim that a local DAG exactly recovers the full nonlinear law.</p>
+
+<figure class="figure">
+  <a class="figure-image" aria-label="The learned adjacency recovers the main first-order interaction pattern of the Physics system. The comparison is local and approximate by design.">
+    <img src="/images/CausalVAE/gt-vs-learned.png" style="
+        width: min(100%, 860px);
+        max-height: unset;
+      " alt="The learned adjacency recovers the main first-order interaction pattern of the Physics system. The comparison is local and approximate by design." loading="lazy" onerror="this.src = '/images/fallback.svg'; this.onerror = null;">
+  </a>
+  
+    <figcaption class="figure-caption">
+      The learned adjacency recovers the main first-order interaction pattern of the Physics system. The comparison is local and approximate by design.
+
+    </figcaption>
+  
+</figure>
+
+<h2 id="where-the-plug-in-breaks-the-host-latent-still-matters">Where the plug-in breaks: the host latent still matters</h2>
+
+<p>The gains are not universal. Chemistry exposes a capacity bottleneck: some backbones compress <code class="language-plaintext highlighter-rouge">5^5 = 3,125</code> global color configurations into a five-dimensional code. Passing that code through another structured encode–decode path can erase class-discriminative directions. In this setting, causal regularization has too little representational room to help.</p>
+
+<p>For AE–Contrastive on Chemistry, increasing the latent dimension changes the CF-H@1 gain monotonically:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Latent dimension</th>
+      <th style="text-align: right">5</th>
+      <th style="text-align: right">16</th>
+      <th style="text-align: right">32</th>
+      <th style="text-align: right">128</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>CF-H@1 change</td>
+      <td style="text-align: right">−16.7</td>
+      <td style="text-align: right">−9.2</td>
+      <td style="text-align: right">−1.5</td>
+      <td style="text-align: right">+3.5</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>The practical lesson is specific: use the plug-in when the backbone latent can still carry the relevant causal factors, and validate it per domain. Long-horizon drift and strongly nonlinear regimes remain open problems.</p>
+
+<h2 id="the-takeaway">The takeaway</h2>
+
+<div class="alert" style="--color: #0ea5e9">
+  
+  <i class="icon fa-solid fa-circle-info"></i>
+  <div class="alert-content">
+    <p><strong>Structure can be added without starting over.</strong> Keep the predictive backbone, organize its latent variables, and train the causal bridge carefully. Where ordinary dynamics confuse correlation with mechanism, explicit causal structure can make the alternative future much easier to find.</p>
+
+  </div>
+</div>
+
+<p><a href="https://arxiv.org/pdf/2604.07712">Read the ECCV 2026 paper</a></p>
   </section>
 
   
@@ -563,17 +746,12 @@
   <span>
     
       <i class="icon fa-solid fa-angle-left"></i> Previous post<br>
-      <a href="/2026/08/04/rombrl-post.html">
-        ROMBRL — Policy-Driven World Model Adaptation for Robust Offline Model-based RL (ICML 2026)
+      <a href="/2026/08/04/sail-revkl-post.html">
+        SAIL-RevKL: Stable and Provable Self-Improving Online LLM Alignment
       </a>
     
   </span>
   <span>
-    
-      Next post <i class="icon fa-solid fa-angle-right"></i><br>
-      <a href="/2026/08/10/causalvae-world-models.html">
-        CausalVAE as a Plug-in for World Models: Towards Reliable Counterfactual Dynamics (ECCV 2026)
-      </a>
     
   </span>
 </div>
