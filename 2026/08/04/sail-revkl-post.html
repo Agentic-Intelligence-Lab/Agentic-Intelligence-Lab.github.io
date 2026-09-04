@@ -39,60 +39,494 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<title>SAIL-RevKL: Stable and Provable Self-Improving Online LLM Alignment | Agentic Intelligence Lab</title>
+<title>SAIL-RevKL: Stable and Provable Self-Improving Online LLM Alignment (UAI 2026) | Agentic Intelligence Lab</title>
 
 <link rel="icon" href="/images/icon.png">
 
-<meta name="title" content="SAIL-RevKL: Stable and Provable Self-Improving Online LLM Alignment">
+<meta name="title" content="SAIL-RevKL: Stable and Provable Self-Improving Online LLM Alignment (UAI 2026)">
 <meta name="description" content="Our team at the Department of Data and Systems Engineering, The University of Hong Kong, is dedicated to advancing research in Machine Learning, Sequential Decision Making, and Embodied AI.">
 
-<meta property="og:title" content="SAIL-RevKL: Stable and Provable Self-Improving Online LLM Alignment">
+<meta property="og:title" content="SAIL-RevKL: Stable and Provable Self-Improving Online LLM Alignment (UAI 2026)">
 <meta property="og:site_title" content="Agentic Intelligence Lab">
 <meta property="og:description" content="Our team at the Department of Data and Systems Engineering, The University of Hong Kong, is dedicated to advancing research in Machine Learning, Sequential Decision Making, and Embodied AI.">
 <meta property="og:url" content="http://agentic-intelligence-lab.org">
 <meta property="og:image" content="/images/share.jpg">
 <meta property="og:locale" content="en_US">
 
-<meta property="twitter:title" content="SAIL-RevKL: Stable and Provable Self-Improving Online LLM Alignment">
+<meta property="twitter:title" content="SAIL-RevKL: Stable and Provable Self-Improving Online LLM Alignment (UAI 2026)">
 <meta property="twitter:description" content="Our team at the Department of Data and Systems Engineering, The University of Hong Kong, is dedicated to advancing research in Machine Learning, Sequential Decision Making, and Embodied AI.">
 <meta property="twitter:url" content="http://agentic-intelligence-lab.org">
 <meta property="twitter:card" content="summary_large_image">
 <meta property="twitter:image" content="/images/share.jpg">
 
 
-  <meta name="author" content='&lt;p&gt;&lt;a href="https://arxiv.org/abs/2606.31524"&gt;&lt;strong&gt;Paper&lt;/strong&gt;&lt;/a&gt; · &lt;a href="https://github.com/xudongwu-0/SAIL_mujoco"&gt;&lt;strong&gt;MuJoCo Code&lt;/strong&gt;&lt;/a&gt; · &lt;a href="https://github.com/xudongwu-0/SAIL_LLM"&gt;&lt;strong&gt;LLM Code&lt;/strong&gt;&lt;/a&gt;&lt;/p&gt;
+  <meta name="author" content="&lt;p&gt;Our paper, &lt;strong&gt;“On the Convergence of Self-Improving Online LLM Alignment,”&lt;/strong&gt; appeared at the &lt;strong&gt;42nd Conference on Uncertainty in Artificial Intelligence (UAI 2026)&lt;/strong&gt;. It addresses a basic theoretical gap behind self-improving alignment.&lt;/p&gt;
 
-&lt;p&gt;We are excited to share &lt;strong&gt;SAIL-RevKL&lt;/strong&gt;, our work on making self-improving online alignment more stable and theoretically grounded. The paper, &lt;em&gt;On the Convergence of Self-Improving Online LLM Alignment&lt;/em&gt;, has been accepted at &lt;strong&gt;UAI 2026&lt;/strong&gt;.&lt;/p&gt;
+&lt;h2 id=&quot;research-question&quot;&gt;Research Question&lt;/h2&gt;
 
-&lt;h2 id="why-online-alignment"&gt;Why Online Alignment?&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;Can we establish a global convergence guarantee for online RLHF formulated as a bilevel optimization problem?&lt;/strong&gt;&lt;/p&gt;
 
-&lt;p&gt;Most language-model alignment methods learn from a fixed preference dataset. While this approach is simple and effective, the dataset may not fully represent the responses produced by the model as it continues to improve.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://proceedings.mlr.press/v337/wu26c.html&quot;&gt;&lt;strong&gt;Proceedings&lt;/strong&gt;&lt;/a&gt; · &lt;a href=&quot;https://arxiv.org/abs/2606.31524&quot;&gt;&lt;strong&gt;arXiv&lt;/strong&gt;&lt;/a&gt; · &lt;a href=&quot;/images/sail-revkl-poster.png&quot;&gt;&lt;strong&gt;Poster&lt;/strong&gt;&lt;/a&gt; · &lt;a href=&quot;https://github.com/xudongwu-0/SAIL_mujoco&quot;&gt;&lt;strong&gt;MuJoCo Code&lt;/strong&gt;&lt;/a&gt; · &lt;a href=&quot;https://github.com/xudongwu-0/SAIL_LLM&quot;&gt;** Code**&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;Online alignment creates a continuous feedback loop: the current model generates new responses, receives fresh preference feedback, and then learns from that feedback. &lt;a href="https://arxiv.org/abs/2406.15567"&gt;SAIL&lt;/a&gt; is an efficient framework for this setting, but an important question remained open: &lt;strong&gt;will its learning process converge reliably?&lt;/strong&gt;&lt;/p&gt;
+&lt;figure class=&quot;figure&quot;&gt;
+  &lt;a href=&quot;/images/sail-revkl-poster.png&quot; class=&quot;figure-image&quot; aria-label=&quot;Our UAI 2026 poster. Click the image to open it at full resolution.&quot;&gt;
+    &lt;img src=&quot;/images/sail-revkl-poster.png&quot; style=&quot;
+        width: 100%;
+        max-height: unset;
+      &quot; alt=&quot;Our UAI 2026 poster. Click the image to open it at full resolution.&quot; loading=&quot;lazy&quot; onerror=&quot;this.src = '/images/fallback.svg'; this.onerror = null;&quot; /&gt;
+  &lt;/a&gt;
+  
+    &lt;figcaption class=&quot;figure-caption&quot;&gt;
+      Our UAI 2026 poster. Click the image to open it at full resolution.
 
-&lt;h2 id="our-approach-sail-revkl"&gt;Our Approach: SAIL-RevKL&lt;/h2&gt;
+    &lt;/figcaption&gt;
+  
+&lt;/figure&gt;
 
-&lt;p&gt;We find that the original SAIL objective can have an unfavorable optimization landscape, which may make training unstable outside a local region. To address this issue, we introduce &lt;strong&gt;SAIL-RevKL&lt;/strong&gt;, a simple extension that adds a reverse KL regularization term.&lt;/p&gt;
+&lt;h2 id=&quot;tldr&quot;&gt;TL;DR&lt;/h2&gt;
 
-&lt;p&gt;Intuitively, the reverse KL term acts as a guardrail. It keeps the updated policy anchored to a stable reference policy while still allowing the model to learn from new preference feedback. This small change makes the learning problem easier to optimize and allows us to establish a global convergence guarantee within a bounded parameter space.&lt;/p&gt;
+&lt;p&gt;Our answer is conditional but positive. We first show that the original &lt;strong&gt;Self-Improving Alignment (SAIL)&lt;/strong&gt; objective is guaranteed to have favorable curvature only near its initialization. We then introduce &lt;strong&gt;SAIL-RevKL&lt;/strong&gt;, which adds&lt;/p&gt;
 
-&lt;h2 id="main-highlights"&gt;Main Highlights&lt;/h2&gt;
+&lt;p&gt;$$
+\gamma\,\mathbb{E}_x!\left[
+D_{\mathrm{KL}}!\left(
+\pi_{\mathrm{ref}}(\cdot\mid x)\,\Vert\,\pi_\theta(\cdot\mid x)
+\right)
+\right]
+$$&lt;/p&gt;
 
-&lt;ul&gt;
-  &lt;li&gt;We explain why vanilla SAIL only has favorable convergence properties locally.&lt;/li&gt;
-  &lt;li&gt;We introduce reverse KL regularization as a simple way to stabilize SAIL.&lt;/li&gt;
-  &lt;li&gt;We establish a global convergence guarantee with near-linear sample complexity under standard assumptions.&lt;/li&gt;
-  &lt;li&gt;We show improved training stability and performance on both continuous-control benchmarks and LLM alignment tasks.&lt;/li&gt;
-&lt;/ul&gt;
+&lt;p&gt;as a penalty. For a fixed reference and a log-linear policy, the Hessian of this reverse KL is the Fisher information matrix. With enough regularization, that positive curvature dominates the adverse curvature of SAIL throughout the full bounded parameter region. This yields global strong concavity and a Polyak-Lojasiewicz (PL) condition for the regularized surrogate, together with near-linear dependence on the inverse target accuracy.&lt;/p&gt;
 
-&lt;p&gt;We evaluate SAIL-RevKL on Door Open, Walker Walk, Walker Stand, and Cheetah Run, as well as LLM alignment experiments using PKU-SafeRLHF and UltraFeedback. Across these settings, SAIL-RevKL consistently improves upon vanilla SAIL, showing that the reverse KL term is useful both theoretically and in practice.&lt;/p&gt;
+&lt;h2 id=&quot;why-bilevel-formulated-online-rlhf-is-hard&quot;&gt;Why Bilevel-Formulated Online RLHF Is Hard&lt;/h2&gt;
 
-'>
+&lt;p&gt;Offline preference optimization trains on a fixed dataset. Online RLHF instead couples two learning problems: a reward model is fitted from preferences over responses generated by the current policy, and the policy is updated against that learned reward. This interaction is naturally formulated as a bilevel optimization problem because the solution of one level determines the objective and data distribution of the other.&lt;/p&gt;
+
+&lt;p&gt;SAIL uses the reward-policy equivalence to reduce this computationally expensive bilevel problem to an efficient single-level surrogate. If $\mathcal{D}_\theta$ denotes the policy-dependent response and preference distribution, that surrogate has the form&lt;/p&gt;
+
+&lt;p&gt;$$
+J(\theta)
+=
+\mathbb{E}_{(x,y_w,y_l)\sim\mathcal{D}_\theta}
+!\left[
+\log\sigma!\left(
+\beta\log\frac{\pi_\theta(y_w\mid x)}{\pi_{\mathrm{SFT}}(y_w\mid x)}
+-
+\beta\log\frac{\pi_\theta(y_l\mid x)}{\pi_{\mathrm{SFT}}(y_l\mid x)}
+\right)
+\right].
+$$&lt;/p&gt;
+
+&lt;p&gt;This dependence matters. Standard performance-difference arguments assume that the reward or evaluation measure is independent of the policy appearing inside the advantage. That assumption no longer holds here, so convergence cannot be inherited directly from ordinary policy-gradient analysis. We instead analyze the geometry of $J$ itself.&lt;/p&gt;
+
+&lt;p&gt;The negative Hessian of $J$ decomposes into four terms. Some are stabilizing, while interaction terms can become unfavorable as $\theta$ moves away from the initial SFT parameters $\theta_0$. The proof must therefore control the objective’s curvature throughout the region the algorithm may visit, not only at its starting point.&lt;/p&gt;
+
+&lt;div class=&quot;alert&quot; style=&quot;--color: #0ea5e9&quot;&gt;
+  
+  &lt;i class=&quot;icon fa-solid fa-circle-info&quot;&gt;&lt;/i&gt;
+  &lt;div class=&quot;alert-content&quot;&gt;
+    &lt;p&gt;&lt;strong&gt;Hint: why the research question is hard.&lt;/strong&gt; In this bilevel formulation of online RLHF, the reward-learning level depends on data from the current policy, while the policy-update level depends on the learned reward. The two levels therefore evolve together, so a fixed-data convergence argument does not directly apply.&lt;/p&gt;
+
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;assumptions-and-scope&quot;&gt;Assumptions and Scope&lt;/h2&gt;
+
+&lt;p&gt;The global theorem is explicit about its scope. It applies to the following setting:&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Assumption&lt;/th&gt;
+      &lt;th&gt;Mathematical condition&lt;/th&gt;
+      &lt;th&gt;Role in the analysis&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;**A1: Log-linear policy**&lt;/td&gt;
+      &lt;td&gt;$\pi_\theta(a\mid s)\propto\exp(\theta^\top\psi(s,a))$, with $\max_{s,a}\Vert\psi(s,a)\Vert_2\le 1$ and $\Vert\theta-\theta_0\Vert_2\le B_\theta$&lt;/td&gt;
+      &lt;td&gt;Makes the objective’s curvature analyzable on a bounded parameter set.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;**A2: Informative features**&lt;/td&gt;
+      &lt;td&gt;$F_\rho(\theta)\succeq\mu_F I$ uniformly over the feasible set&lt;/td&gt;
+      &lt;td&gt;Ensures the Fisher curvature is positive in every parameter direction.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;**A3: Smooth objective**&lt;/td&gt;
+      &lt;td&gt;$J_\gamma$ is $L$-smooth&lt;/td&gt;
+      &lt;td&gt;Controls the change of the gradient and permits a stable stepsize.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;**A4: Stochastic gradients**&lt;/td&gt;
+      &lt;td&gt;Each sample gradient is unbiased and has variance at most $\sigma_g^2$&lt;/td&gt;
+      &lt;td&gt;Makes the mini-batch noise decay as $\sigma_g^2/B_s$.&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;Two construction choices are also essential. The reference policy $\pi_{\mathrm{ref}}$ is fixed during the analyzed update, and projected gradient ascent keeps every iterate inside $\Theta$, the radius-$B_\theta$ Euclidean ball centered at $\theta_0$.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Scope of the result.&lt;/strong&gt; The word “global” below means global &lt;strong&gt;within this full bounded feasible set&lt;/strong&gt;. The LoRA experiments test whether the method remains useful beyond these assumptions; the last-layer-only experiments are the closest empirical match to A1.&lt;/p&gt;
+
+&lt;h2 id=&quot;core-theorem-global-convergence-of-sail-revkl&quot;&gt;Core Theorem: Global Convergence of SAIL-RevKL&lt;/h2&gt;
+
+&lt;p&gt;The original SAIL surrogate is guaranteed to have favorable geometry only near its initialization. We add a reverse-KL penalty and optimize&lt;/p&gt;
+
+&lt;p&gt;$$
+J_\gamma(\theta)
+=
+J(\theta)
+-
+\gamma\,\mathbb{E}_x!\left[
+D_{\mathrm{KL}}!\left(
+\pi_{\mathrm{ref}}(\cdot\mid x)\,\Vert\,\pi_\theta(\cdot\mid x)
+\right)
+\right].
+$$&lt;/p&gt;
+
+&lt;p&gt;For a fixed reference and a log-linear policy, the reverse-KL Hessian is the Fisher information matrix, so&lt;/p&gt;
+
+&lt;p&gt;$$
+-\nabla^2J_\gamma(\theta)
+=
+-\nabla^2J(\theta)+\gamma F(\theta).
+$$&lt;/p&gt;
+
+&lt;h3 id=&quot;theorem-global-convergence-on-the-feasible-set&quot;&gt;Theorem (Global convergence on the feasible set)&lt;/h3&gt;
+
+&lt;p&gt;Let $\Theta$ be the radius-$B_\theta$ Euclidean ball centered at $\theta_0$. Suppose A1-A4 hold, $\pi_{\mathrm{ref}}$ remains fixed during optimization, and projected updates keep every iterate in $\Theta$. Choose $\gamma$ sufficiently large to satisfy the explicit curvature threshold in Theorem 2 of the paper, so that the Fisher term dominates the adverse curvature of the original SAIL objective throughout $\Theta$.&lt;/p&gt;
+
+&lt;p&gt;Then $J_\gamma$ is $\mu$-strongly concave on all of $\Theta$ and satisfies the PL inequality&lt;/p&gt;
+
+&lt;p&gt;$$
+\Vert\nabla J_\gamma(\theta)\Vert_2^2
+\ge
+2\mu\left(J_\gamma(\theta_\gamma^{\ast})-J_\gamma(\theta)\right),
+\qquad \theta\in\Theta,
+$$&lt;/p&gt;
+
+&lt;p&gt;where $\theta_\gamma^{\ast}=\arg\max_{\theta\in\Theta}J_\gamma(\theta)$ is the unique maximizer. Moreover, for projected mini-batch stochastic gradient ascent with a valid constant stepsize, there exist constants $q\in(0,1)$ and $C&amp;gt;0$ such that&lt;/p&gt;
+
+&lt;p&gt;$$
+\mathbb{E}!\left[
+J_\gamma(\theta_\gamma^{\ast})-J_\gamma(\theta_T)
+\right]
+\le
+q^T\left(J_\gamma(\theta_\gamma^{\ast})-J_\gamma(\theta_0)\right)
++
+\frac{C\sigma_g^2}{B_s}.
+$$&lt;/p&gt;
+
+&lt;p&gt;Thus the optimization error decreases geometrically until it reaches the mini-batch noise floor. Taking $B_s=\widetilde{\mathcal{O}}(\varepsilon^{-1})$ and $T=\widetilde{\mathcal{O}}(\log\varepsilon^{-1})$ gives an $\varepsilon$ expected function-value gap with total sample complexity&lt;/p&gt;
+
+&lt;p&gt;$$
+\widetilde{\mathcal{O}}!\left(
+\varepsilon^{-1}\log\varepsilon^{-1}
+\right).
+$$&lt;/p&gt;
+
+&lt;div class=&quot;alert&quot; style=&quot;--color: #0ea5e9&quot;&gt;
+  
+  &lt;i class=&quot;icon fa-solid fa-circle-info&quot;&gt;&lt;/i&gt;
+  &lt;div class=&quot;alert-content&quot;&gt;
+    &lt;p&gt;&lt;strong&gt;Hint: what the theorem answers.&lt;/strong&gt; For the SAIL reduction of bilevel-formulated online RLHF, reverse KL turns a local convergence certificate into a global, non-asymptotic guarantee over the entire bounded feasible set.&lt;/p&gt;
+
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p&gt;The theorem is proved in a deliberately controlled log-linear setting. We next test whether the same regularized objective is useful when training real language models.&lt;/p&gt;
+
+&lt;h2 id=&quot;llm-alignment-results&quot;&gt;LLM Alignment Results&lt;/h2&gt;
+
+&lt;p&gt;The main experiments use LoRA fine-tuning and GPT-4 as an LLM judge. PKU-SafeRLHF evaluates the balance between helpfulness and harmlessness, while UltraFeedback focuses on general instruction following. Pairwise win rate is the primary comparison below; tie rate and mean GPT score difference are reported separately because they capture different aspects of the judge outcomes.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;PKU-SafeRLHF, Qwen 0.5B&lt;/strong&gt;&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Method&lt;/th&gt;
+      &lt;th style=&quot;text-align: right&quot;&gt;Pairwise win rate&lt;/th&gt;
+      &lt;th style=&quot;text-align: right&quot;&gt;Tie rate&lt;/th&gt;
+      &lt;th style=&quot;text-align: right&quot;&gt;Mean GPT score difference&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;DPO&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;26.0%&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;14.0%&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;-2.209&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;SAIL&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;29.0%&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0.0%&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;-2.004&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;**SAIL-RevKL**&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;**43.0%**&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;6.0%&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;**-0.885**&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;&lt;strong&gt;UltraFeedback&lt;/strong&gt;&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Backbone&lt;/th&gt;
+      &lt;th&gt;Method&lt;/th&gt;
+      &lt;th style=&quot;text-align: right&quot;&gt;Pairwise win rate&lt;/th&gt;
+      &lt;th style=&quot;text-align: right&quot;&gt;Tie rate&lt;/th&gt;
+      &lt;th style=&quot;text-align: right&quot;&gt;Mean GPT score difference&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Qwen 0.5B&lt;/td&gt;
+      &lt;td&gt;DPO&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0.0%&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;7.0%&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;-2.580&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Qwen 0.5B&lt;/td&gt;
+      &lt;td&gt;SAIL&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;1.0%&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;8.0%&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;-2.110&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Qwen 0.5B&lt;/td&gt;
+      &lt;td&gt;**SAIL-RevKL**&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;**3.0%**&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;**18.0%**&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;**-1.300**&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Phi-3 3.8B&lt;/td&gt;
+      &lt;td&gt;DPO&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;11.0%&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;15.0%&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;-1.160&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Phi-3 3.8B&lt;/td&gt;
+      &lt;td&gt;SAIL&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;15.0%&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;**60.0%**&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;**-0.150**&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Phi-3 3.8B&lt;/td&gt;
+      &lt;td&gt;**SAIL-RevKL**&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;**30.0%**&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;40.0%&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;-0.300&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;LLaMA-3 8B&lt;/td&gt;
+      &lt;td&gt;DPO&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;22.0%&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;24.0%&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;-0.930&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;LLaMA-3 8B&lt;/td&gt;
+      &lt;td&gt;SAIL&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;23.0%&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;**29.0%**&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;-0.700&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;LLaMA-3 8B&lt;/td&gt;
+      &lt;td&gt;**SAIL-RevKL**&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;**34.0%**&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;**29.0%**&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;**-0.230**&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;The headline comparison is the pairwise win rate against vanilla SAIL: &lt;strong&gt;43% vs. 29%&lt;/strong&gt; on Qwen with PKU-SafeRLHF, &lt;strong&gt;30% vs. 15%&lt;/strong&gt; on Phi-3 with UltraFeedback, and &lt;strong&gt;34% vs. 23%&lt;/strong&gt; on LLaMA-3 with UltraFeedback.&lt;/p&gt;
+
+&lt;h3 id=&quot;a-theory-aligned-test&quot;&gt;A theory-aligned test&lt;/h3&gt;
+
+&lt;p&gt;LoRA changes nonlinear features and is not a direct instantiation of the log-linear policy in A1. We therefore also freeze each backbone and train only its final linear layer on UltraFeedback U10. This isolates the regime that most closely matches the theory.&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Backbone&lt;/th&gt;
+      &lt;th&gt;Method&lt;/th&gt;
+      &lt;th style=&quot;text-align: right&quot;&gt;$\gamma$&lt;/th&gt;
+      &lt;th style=&quot;text-align: right&quot;&gt;Win rate&lt;/th&gt;
+      &lt;th style=&quot;text-align: right&quot;&gt;Lose rate&lt;/th&gt;
+      &lt;th style=&quot;text-align: right&quot;&gt;Tie rate&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Qwen 0.5B&lt;/td&gt;
+      &lt;td&gt;DPO&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;-&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;1.0%&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;91.0%&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;8.0%&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Qwen 0.5B&lt;/td&gt;
+      &lt;td&gt;SAIL&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;-&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;1.0%&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;93.0%&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;6.0%&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Qwen 0.5B&lt;/td&gt;
+      &lt;td&gt;SAIL-RevKL&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;$10^{-3}$&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;3.0%&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;91.0%&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;6.0%&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Qwen 0.5B&lt;/td&gt;
+      &lt;td&gt;**SAIL-RevKL**&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;$10^{-2}$&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;**4.0%**&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;86.0%&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;10.0%&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Qwen 0.5B&lt;/td&gt;
+      &lt;td&gt;SAIL-RevKL&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;$10^{-1}$&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;3.0%&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;**83.0%**&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;**14.0%**&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Phi-3 3.8B&lt;/td&gt;
+      &lt;td&gt;DPO&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;-&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;13.0%&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;**37.0%**&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;**50.0%**&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Phi-3 3.8B&lt;/td&gt;
+      &lt;td&gt;SAIL&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;-&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;16.0%&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;40.0%&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;44.0%&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Phi-3 3.8B&lt;/td&gt;
+      &lt;td&gt;SAIL-RevKL&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;$10^{-3}$&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;16.0%&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;40.0%&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;44.0%&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Phi-3 3.8B&lt;/td&gt;
+      &lt;td&gt;SAIL-RevKL&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;$10^{-2}$&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;21.0%&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;43.0%&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;36.0%&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Phi-3 3.8B&lt;/td&gt;
+      &lt;td&gt;**SAIL-RevKL**&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;$10^{-1}$&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;**23.0%**&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;43.0%&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;34.0%&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;LLaMA-3 8B&lt;/td&gt;
+      &lt;td&gt;DPO&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;-&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0.0%&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;93.0%&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;7.0%&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;LLaMA-3 8B&lt;/td&gt;
+      &lt;td&gt;SAIL&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;-&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;5.0%&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;69.0%&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;26.0%&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;LLaMA-3 8B&lt;/td&gt;
+      &lt;td&gt;SAIL-RevKL&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;$10^{-3}$&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;7.0%&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;67.0%&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;26.0%&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;LLaMA-3 8B&lt;/td&gt;
+      &lt;td&gt;SAIL-RevKL&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;$10^{-2}$&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;7.0%&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;**58.0%**&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;**35.0%**&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;LLaMA-3 8B&lt;/td&gt;
+      &lt;td&gt;**SAIL-RevKL**&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;$10^{-1}$&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;**13.0%**&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;59.0%&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;28.0%&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;SAIL-RevKL improves the best win rate over vanilla SAIL on all three backbones. The preferred coefficient is scale-dependent: $10^{-2}$ for Qwen 0.5B and $10^{-1}$ for Phi-3 3.8B and LLaMA-3 8B. This is consistent with the theory’s curvature-bias trade-off and shows why $\gamma$ should be tuned rather than treated as a universal constant.&lt;/p&gt;
+
+&lt;div class=&quot;alert&quot; style=&quot;--color: #0ea5e9&quot;&gt;
+  
+  &lt;i class=&quot;icon fa-solid fa-circle-info&quot;&gt;&lt;/i&gt;
+  &lt;div class=&quot;alert-content&quot;&gt;
+    &lt;p&gt;&lt;strong&gt;Hint: how to read the evidence.&lt;/strong&gt; The LoRA results show that SAIL-RevKL improves pairwise win rates beyond the policy class covered by the theorem, but they do not prove global convergence for LoRA. Frozen-last-layer training is the closer empirical check of the log-linear regime.&lt;/p&gt;
+
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;citation&quot;&gt;Citation&lt;/h2&gt;
+
+&lt;div class=&quot;language-bibtex highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nc&quot;&gt;@inproceedings&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;wu2026convergence&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;title&lt;/span&gt;     &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;{On the Convergence of Self-Improving Online {LLM} Alignment}&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;author&lt;/span&gt;    &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;{Wu, Xudong and Liu, Pangpang and Aggarwal, Vaneet and Chen, Jiayu}&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;booktitle&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;{Proceedings of the 42nd Conference on Uncertainty in Artificial Intelligence}&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;pages&lt;/span&gt;     &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;{7433--7467}&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;year&lt;/span&gt;      &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;{2026}&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;volume&lt;/span&gt;    &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;{337}&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;series&lt;/span&gt;    &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;{Proceedings of Machine Learning Research}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;acknowledgements&quot;&gt;Acknowledgements&lt;/h2&gt;
+
+&lt;p&gt;This work was supported in part by the Seed Fund for PI Research, Basic Research, from The University of Hong Kong under Project Code 2502251784.&lt;/p&gt;
+">
   <meta property="og:type" content="article">
-  <meta property="og:updated_time" content="2026-09-04T02:49:34+00:00">
+  <meta property="og:updated_time" content="2026-09-04T02:49:51+00:00">
   <meta property="article:published_time" content="2026-08-04T00:00:00+00:00">
-  <meta property="article:modified_time" content="2026-09-04T02:49:34+00:00">
-  <meta name="revised" content="2026-09-04T02:49:34+00:00">
+  <meta property="article:modified_time" content="2026-09-04T02:49:51+00:00">
+  <meta name="revised" content="2026-09-04T02:49:51+00:00">
 
 
 <script type="application/ld+json">
@@ -100,13 +534,13 @@
     "@context": "https://schema.org",
     
       "@type": "BlogPosting",
-      "author": { "@type": "Person", "name": "SAIL-RevKL: Stable and Provable Self-Improving Online LLM Alignment" },
+      "author": { "@type": "Person", "name": "SAIL-RevKL: Stable and Provable Self-Improving Online LLM Alignment (UAI 2026)" },
       "datePublished": "2026-08-04T00:00:00+00:00",
-      "dateModified": "2026-09-04T02:49:34+00:00",
+      "dateModified": "2026-09-04T02:49:51+00:00",
     
-    "name": "SAIL-RevKL: Stable and Provable Self-Improving Online LLM Alignment",
+    "name": "SAIL-RevKL: Stable and Provable Self-Improving Online LLM Alignment (UAI 2026)",
     "description": "Our team at the Department of Data and Systems Engineering, The University of Hong Kong, is dedicated to advancing research in Machine Learning, Sequential Decision Making, and Embodied AI.",
-    "headline": "SAIL-RevKL: Stable and Provable Self-Improving Online LLM Alignment",
+    "headline": "SAIL-RevKL: Stable and Provable Self-Improving Online LLM Alignment (UAI 2026)",
     "publisher": {
       "@type": "Organization",
       "logo": { "@type": "ImageObject", "url": "/images/icon.png" }
@@ -345,6 +779,7 @@
   <script src="/_scripts/tooltip.js"></script>
 
 
+<script>MathJax={"tex":{"inlineMath":[["$","$"],["\\(","\\)"]],"displayMath":[["$$","$$"],["\\[","\\]"]]},"svg":{"fontCache":"global"}}</script><script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 
   <body>
@@ -463,7 +898,7 @@
 -->
 
 
-<h1 class="center">SAIL-RevKL: Stable and Provable Self-Improving Online LLM Alignment</h1>
+<h1 class="center">SAIL-RevKL: Stable and Provable Self-Improving Online LLM Alignment (UAI 2026)</h1>
 
 <div class="post-info">
   
@@ -500,8 +935,20 @@
 
   <div class="tags" data-link="/blog">
     
-      <a href="blog?search=%22tag:%20technique%22" class="tag" data-tooltip='Show items with the tag "technique"'>
-        technique
+      <a href="blog?search=%22tag:%20publication%22" class="tag" data-tooltip='Show items with the tag "publication"'>
+        publication
+      </a>
+    
+      <a href="blog?search=%22tag:%20llm-alignment%22" class="tag" data-tooltip='Show items with the tag "llm-alignment"'>
+        llm-alignment
+      </a>
+    
+      <a href="blog?search=%22tag:%20optimization%22" class="tag" data-tooltip='Show items with the tag "optimization"'>
+        optimization
+      </a>
+    
+      <a href="blog?search=%22tag:%20theory%22" class="tag" data-tooltip='Show items with the tag "theory"'>
+        theory
       </a>
     
   </div>
@@ -519,32 +966,467 @@
 -->
 
 
-<p><a href="https://arxiv.org/abs/2606.31524"><strong>Paper</strong></a> · <a href="https://github.com/xudongwu-0/SAIL_mujoco"><strong>MuJoCo Code</strong></a> · <a href="https://github.com/xudongwu-0/SAIL_LLM"><strong>LLM Code</strong></a></p>
+<p>Our paper, <strong>“On the Convergence of Self-Improving Online LLM Alignment,”</strong> appeared at the <strong>42nd Conference on Uncertainty in Artificial Intelligence (UAI 2026)</strong>. It addresses a basic theoretical gap behind self-improving alignment.</p>
 
-<p>We are excited to share <strong>SAIL-RevKL</strong>, our work on making self-improving online alignment more stable and theoretically grounded. The paper, <em>On the Convergence of Self-Improving Online LLM Alignment</em>, has been accepted at <strong>UAI 2026</strong>.</p>
+<h2 id="research-question">Research Question</h2>
 
-<h2 id="why-online-alignment">Why Online Alignment?</h2>
+<p><strong>Can we establish a global convergence guarantee for online RLHF formulated as a bilevel optimization problem?</strong></p>
 
-<p>Most language-model alignment methods learn from a fixed preference dataset. While this approach is simple and effective, the dataset may not fully represent the responses produced by the model as it continues to improve.</p>
+<p><a href="https://proceedings.mlr.press/v337/wu26c.html"><strong>Proceedings</strong></a> · <a href="https://arxiv.org/abs/2606.31524"><strong>arXiv</strong></a> · <a href="/images/sail-revkl-poster.png"><strong>Poster</strong></a> · <a href="https://github.com/xudongwu-0/SAIL_mujoco"><strong>MuJoCo Code</strong></a> · <a href="https://github.com/xudongwu-0/SAIL_LLM">** Code**</a></p>
 
-<p>Online alignment creates a continuous feedback loop: the current model generates new responses, receives fresh preference feedback, and then learns from that feedback. <a href="https://arxiv.org/abs/2406.15567">SAIL</a> is an efficient framework for this setting, but an important question remained open: <strong>will its learning process converge reliably?</strong></p>
+<figure class="figure">
+  <a href="/images/sail-revkl-poster.png" class="figure-image" aria-label="Our UAI 2026 poster. Click the image to open it at full resolution.">
+    <img src="/images/sail-revkl-poster.png" style="
+        width: 100%;
+        max-height: unset;
+      " alt="Our UAI 2026 poster. Click the image to open it at full resolution." loading="lazy" onerror="this.src = '/images/fallback.svg'; this.onerror = null;">
+  </a>
+  
+    <figcaption class="figure-caption">
+      Our UAI 2026 poster. Click the image to open it at full resolution.
 
-<h2 id="our-approach-sail-revkl">Our Approach: SAIL-RevKL</h2>
+    </figcaption>
+  
+</figure>
 
-<p>We find that the original SAIL objective can have an unfavorable optimization landscape, which may make training unstable outside a local region. To address this issue, we introduce <strong>SAIL-RevKL</strong>, a simple extension that adds a reverse KL regularization term.</p>
+<h2 id="tldr">TL;DR</h2>
 
-<p>Intuitively, the reverse KL term acts as a guardrail. It keeps the updated policy anchored to a stable reference policy while still allowing the model to learn from new preference feedback. This small change makes the learning problem easier to optimize and allows us to establish a global convergence guarantee within a bounded parameter space.</p>
+<p>Our answer is conditional but positive. We first show that the original <strong>Self-Improving Alignment (SAIL)</strong> objective is guaranteed to have favorable curvature only near its initialization. We then introduce <strong>SAIL-RevKL</strong>, which adds</p>
 
-<h2 id="main-highlights">Main Highlights</h2>
+<p>$$
+\gamma\,\mathbb{E}_x!\left[
+D_{\mathrm{KL}}!\left(
+\pi_{\mathrm{ref}}(\cdot\mid x)\,\Vert\,\pi_\theta(\cdot\mid x)
+\right)
+\right]
+$$</p>
 
-<ul>
-  <li>We explain why vanilla SAIL only has favorable convergence properties locally.</li>
-  <li>We introduce reverse KL regularization as a simple way to stabilize SAIL.</li>
-  <li>We establish a global convergence guarantee with near-linear sample complexity under standard assumptions.</li>
-  <li>We show improved training stability and performance on both continuous-control benchmarks and LLM alignment tasks.</li>
-</ul>
+<p>as a penalty. For a fixed reference and a log-linear policy, the Hessian of this reverse KL is the Fisher information matrix. With enough regularization, that positive curvature dominates the adverse curvature of SAIL throughout the full bounded parameter region. This yields global strong concavity and a Polyak-Lojasiewicz (PL) condition for the regularized surrogate, together with near-linear dependence on the inverse target accuracy.</p>
 
-<p>We evaluate SAIL-RevKL on Door Open, Walker Walk, Walker Stand, and Cheetah Run, as well as LLM alignment experiments using PKU-SafeRLHF and UltraFeedback. Across these settings, SAIL-RevKL consistently improves upon vanilla SAIL, showing that the reverse KL term is useful both theoretically and in practice.</p>
+<h2 id="why-bilevel-formulated-online-rlhf-is-hard">Why Bilevel-Formulated Online RLHF Is Hard</h2>
+
+<p>Offline preference optimization trains on a fixed dataset. Online RLHF instead couples two learning problems: a reward model is fitted from preferences over responses generated by the current policy, and the policy is updated against that learned reward. This interaction is naturally formulated as a bilevel optimization problem because the solution of one level determines the objective and data distribution of the other.</p>
+
+<p>SAIL uses the reward-policy equivalence to reduce this computationally expensive bilevel problem to an efficient single-level surrogate. If $\mathcal{D}_\theta$ denotes the policy-dependent response and preference distribution, that surrogate has the form</p>
+
+<p>$$
+J(\theta)
+=
+\mathbb{E}_{(x,y_w,y_l)\sim\mathcal{D}_\theta}
+!\left[
+\log\sigma!\left(
+\beta\log\frac{\pi_\theta(y_w\mid x)}{\pi_{\mathrm{SFT}}(y_w\mid x)}
+-
+\beta\log\frac{\pi_\theta(y_l\mid x)}{\pi_{\mathrm{SFT}}(y_l\mid x)}
+\right)
+\right].
+$$</p>
+
+<p>This dependence matters. Standard performance-difference arguments assume that the reward or evaluation measure is independent of the policy appearing inside the advantage. That assumption no longer holds here, so convergence cannot be inherited directly from ordinary policy-gradient analysis. We instead analyze the geometry of $J$ itself.</p>
+
+<p>The negative Hessian of $J$ decomposes into four terms. Some are stabilizing, while interaction terms can become unfavorable as $\theta$ moves away from the initial SFT parameters $\theta_0$. The proof must therefore control the objective’s curvature throughout the region the algorithm may visit, not only at its starting point.</p>
+
+<div class="alert" style="--color: #0ea5e9">
+  
+  <i class="icon fa-solid fa-circle-info"></i>
+  <div class="alert-content">
+    <p><strong>Hint: why the research question is hard.</strong> In this bilevel formulation of online RLHF, the reward-learning level depends on data from the current policy, while the policy-update level depends on the learned reward. The two levels therefore evolve together, so a fixed-data convergence argument does not directly apply.</p>
+
+  </div>
+</div>
+
+<h2 id="assumptions-and-scope">Assumptions and Scope</h2>
+
+<p>The global theorem is explicit about its scope. It applies to the following setting:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Assumption</th>
+      <th>Mathematical condition</th>
+      <th>Role in the analysis</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>A1: Log-linear policy</strong></td>
+      <td>$\pi_\theta(a\mid s)\propto\exp(\theta^\top\psi(s,a))$, with $\max_{s,a}\Vert\psi(s,a)\Vert_2\le 1$ and $\Vert\theta-\theta_0\Vert_2\le B_\theta$</td>
+      <td>Makes the objective’s curvature analyzable on a bounded parameter set.</td>
+    </tr>
+    <tr>
+      <td><strong>A2: Informative features</strong></td>
+      <td>$F_\rho(\theta)\succeq\mu_F I$ uniformly over the feasible set</td>
+      <td>Ensures the Fisher curvature is positive in every parameter direction.</td>
+    </tr>
+    <tr>
+      <td><strong>A3: Smooth objective</strong></td>
+      <td>$J_\gamma$ is $L$-smooth</td>
+      <td>Controls the change of the gradient and permits a stable stepsize.</td>
+    </tr>
+    <tr>
+      <td><strong>A4: Stochastic gradients</strong></td>
+      <td>Each sample gradient is unbiased and has variance at most $\sigma_g^2$</td>
+      <td>Makes the mini-batch noise decay as $\sigma_g^2/B_s$.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Two construction choices are also essential. The reference policy $\pi_{\mathrm{ref}}$ is fixed during the analyzed update, and projected gradient ascent keeps every iterate inside $\Theta$, the radius-$B_\theta$ Euclidean ball centered at $\theta_0$.</p>
+
+<p><strong>Scope of the result.</strong> The word “global” below means global <strong>within this full bounded feasible set</strong>. The LoRA experiments test whether the method remains useful beyond these assumptions; the last-layer-only experiments are the closest empirical match to A1.</p>
+
+<h2 id="core-theorem-global-convergence-of-sail-revkl">Core Theorem: Global Convergence of SAIL-RevKL</h2>
+
+<p>The original SAIL surrogate is guaranteed to have favorable geometry only near its initialization. We add a reverse-KL penalty and optimize</p>
+
+<p>$$
+J_\gamma(\theta)
+=
+J(\theta)
+-
+\gamma\,\mathbb{E}_x!\left[
+D_{\mathrm{KL}}!\left(
+\pi_{\mathrm{ref}}(\cdot\mid x)\,\Vert\,\pi_\theta(\cdot\mid x)
+\right)
+\right].
+$$</p>
+
+<p>For a fixed reference and a log-linear policy, the reverse-KL Hessian is the Fisher information matrix, so</p>
+
+<p>$$
+-\nabla^2J_\gamma(\theta)
+=
+-\nabla^2J(\theta)+\gamma F(\theta).
+$$</p>
+
+<h3 id="theorem-global-convergence-on-the-feasible-set">Theorem (Global convergence on the feasible set)</h3>
+
+<p>Let $\Theta$ be the radius-$B_\theta$ Euclidean ball centered at $\theta_0$. Suppose A1-A4 hold, $\pi_{\mathrm{ref}}$ remains fixed during optimization, and projected updates keep every iterate in $\Theta$. Choose $\gamma$ sufficiently large to satisfy the explicit curvature threshold in Theorem 2 of the paper, so that the Fisher term dominates the adverse curvature of the original SAIL objective throughout $\Theta$.</p>
+
+<p>Then $J_\gamma$ is $\mu$-strongly concave on all of $\Theta$ and satisfies the PL inequality</p>
+
+<p>$$
+\Vert\nabla J_\gamma(\theta)\Vert_2^2
+\ge
+2\mu\left(J_\gamma(\theta_\gamma^{\ast})-J_\gamma(\theta)\right),
+\qquad \theta\in\Theta,
+$$</p>
+
+<p>where $\theta_\gamma^{\ast}=\arg\max_{\theta\in\Theta}J_\gamma(\theta)$ is the unique maximizer. Moreover, for projected mini-batch stochastic gradient ascent with a valid constant stepsize, there exist constants $q\in(0,1)$ and $C&gt;0$ such that</p>
+
+<p>$$
+\mathbb{E}!\left[
+J_\gamma(\theta_\gamma^{\ast})-J_\gamma(\theta_T)
+\right]
+\le
+q^T\left(J_\gamma(\theta_\gamma^{\ast})-J_\gamma(\theta_0)\right)
++
+\frac{C\sigma_g^2}{B_s}.
+$$</p>
+
+<p>Thus the optimization error decreases geometrically until it reaches the mini-batch noise floor. Taking $B_s=\widetilde{\mathcal{O}}(\varepsilon^{-1})$ and $T=\widetilde{\mathcal{O}}(\log\varepsilon^{-1})$ gives an $\varepsilon$ expected function-value gap with total sample complexity</p>
+
+<p>$$
+\widetilde{\mathcal{O}}!\left(
+\varepsilon^{-1}\log\varepsilon^{-1}
+\right).
+$$</p>
+
+<div class="alert" style="--color: #0ea5e9">
+  
+  <i class="icon fa-solid fa-circle-info"></i>
+  <div class="alert-content">
+    <p><strong>Hint: what the theorem answers.</strong> For the SAIL reduction of bilevel-formulated online RLHF, reverse KL turns a local convergence certificate into a global, non-asymptotic guarantee over the entire bounded feasible set.</p>
+
+  </div>
+</div>
+
+<p>The theorem is proved in a deliberately controlled log-linear setting. We next test whether the same regularized objective is useful when training real language models.</p>
+
+<h2 id="llm-alignment-results">LLM Alignment Results</h2>
+
+<p>The main experiments use LoRA fine-tuning and GPT-4 as an LLM judge. PKU-SafeRLHF evaluates the balance between helpfulness and harmlessness, while UltraFeedback focuses on general instruction following. Pairwise win rate is the primary comparison below; tie rate and mean GPT score difference are reported separately because they capture different aspects of the judge outcomes.</p>
+
+<p><strong>PKU-SafeRLHF, Qwen 0.5B</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Method</th>
+      <th style="text-align: right">Pairwise win rate</th>
+      <th style="text-align: right">Tie rate</th>
+      <th style="text-align: right">Mean GPT score difference</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>DPO</td>
+      <td style="text-align: right">26.0%</td>
+      <td style="text-align: right">14.0%</td>
+      <td style="text-align: right">-2.209</td>
+    </tr>
+    <tr>
+      <td>SAIL</td>
+      <td style="text-align: right">29.0%</td>
+      <td style="text-align: right">0.0%</td>
+      <td style="text-align: right">-2.004</td>
+    </tr>
+    <tr>
+      <td><strong>SAIL-RevKL</strong></td>
+      <td style="text-align: right"><strong>43.0%</strong></td>
+      <td style="text-align: right">6.0%</td>
+      <td style="text-align: right"><strong>-0.885</strong></td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>UltraFeedback</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Backbone</th>
+      <th>Method</th>
+      <th style="text-align: right">Pairwise win rate</th>
+      <th style="text-align: right">Tie rate</th>
+      <th style="text-align: right">Mean GPT score difference</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Qwen 0.5B</td>
+      <td>DPO</td>
+      <td style="text-align: right">0.0%</td>
+      <td style="text-align: right">7.0%</td>
+      <td style="text-align: right">-2.580</td>
+    </tr>
+    <tr>
+      <td>Qwen 0.5B</td>
+      <td>SAIL</td>
+      <td style="text-align: right">1.0%</td>
+      <td style="text-align: right">8.0%</td>
+      <td style="text-align: right">-2.110</td>
+    </tr>
+    <tr>
+      <td>Qwen 0.5B</td>
+      <td><strong>SAIL-RevKL</strong></td>
+      <td style="text-align: right"><strong>3.0%</strong></td>
+      <td style="text-align: right"><strong>18.0%</strong></td>
+      <td style="text-align: right"><strong>-1.300</strong></td>
+    </tr>
+    <tr>
+      <td>Phi-3 3.8B</td>
+      <td>DPO</td>
+      <td style="text-align: right">11.0%</td>
+      <td style="text-align: right">15.0%</td>
+      <td style="text-align: right">-1.160</td>
+    </tr>
+    <tr>
+      <td>Phi-3 3.8B</td>
+      <td>SAIL</td>
+      <td style="text-align: right">15.0%</td>
+      <td style="text-align: right"><strong>60.0%</strong></td>
+      <td style="text-align: right"><strong>-0.150</strong></td>
+    </tr>
+    <tr>
+      <td>Phi-3 3.8B</td>
+      <td><strong>SAIL-RevKL</strong></td>
+      <td style="text-align: right"><strong>30.0%</strong></td>
+      <td style="text-align: right">40.0%</td>
+      <td style="text-align: right">-0.300</td>
+    </tr>
+    <tr>
+      <td>LLaMA-3 8B</td>
+      <td>DPO</td>
+      <td style="text-align: right">22.0%</td>
+      <td style="text-align: right">24.0%</td>
+      <td style="text-align: right">-0.930</td>
+    </tr>
+    <tr>
+      <td>LLaMA-3 8B</td>
+      <td>SAIL</td>
+      <td style="text-align: right">23.0%</td>
+      <td style="text-align: right"><strong>29.0%</strong></td>
+      <td style="text-align: right">-0.700</td>
+    </tr>
+    <tr>
+      <td>LLaMA-3 8B</td>
+      <td><strong>SAIL-RevKL</strong></td>
+      <td style="text-align: right"><strong>34.0%</strong></td>
+      <td style="text-align: right"><strong>29.0%</strong></td>
+      <td style="text-align: right"><strong>-0.230</strong></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>The headline comparison is the pairwise win rate against vanilla SAIL: <strong>43% vs. 29%</strong> on Qwen with PKU-SafeRLHF, <strong>30% vs. 15%</strong> on Phi-3 with UltraFeedback, and <strong>34% vs. 23%</strong> on LLaMA-3 with UltraFeedback.</p>
+
+<h3 id="a-theory-aligned-test">A theory-aligned test</h3>
+
+<p>LoRA changes nonlinear features and is not a direct instantiation of the log-linear policy in A1. We therefore also freeze each backbone and train only its final linear layer on UltraFeedback U10. This isolates the regime that most closely matches the theory.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Backbone</th>
+      <th>Method</th>
+      <th style="text-align: right">$\gamma$</th>
+      <th style="text-align: right">Win rate</th>
+      <th style="text-align: right">Lose rate</th>
+      <th style="text-align: right">Tie rate</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Qwen 0.5B</td>
+      <td>DPO</td>
+      <td style="text-align: right">-</td>
+      <td style="text-align: right">1.0%</td>
+      <td style="text-align: right">91.0%</td>
+      <td style="text-align: right">8.0%</td>
+    </tr>
+    <tr>
+      <td>Qwen 0.5B</td>
+      <td>SAIL</td>
+      <td style="text-align: right">-</td>
+      <td style="text-align: right">1.0%</td>
+      <td style="text-align: right">93.0%</td>
+      <td style="text-align: right">6.0%</td>
+    </tr>
+    <tr>
+      <td>Qwen 0.5B</td>
+      <td>SAIL-RevKL</td>
+      <td style="text-align: right">$10^{-3}$</td>
+      <td style="text-align: right">3.0%</td>
+      <td style="text-align: right">91.0%</td>
+      <td style="text-align: right">6.0%</td>
+    </tr>
+    <tr>
+      <td>Qwen 0.5B</td>
+      <td><strong>SAIL-RevKL</strong></td>
+      <td style="text-align: right">$10^{-2}$</td>
+      <td style="text-align: right"><strong>4.0%</strong></td>
+      <td style="text-align: right">86.0%</td>
+      <td style="text-align: right">10.0%</td>
+    </tr>
+    <tr>
+      <td>Qwen 0.5B</td>
+      <td>SAIL-RevKL</td>
+      <td style="text-align: right">$10^{-1}$</td>
+      <td style="text-align: right">3.0%</td>
+      <td style="text-align: right"><strong>83.0%</strong></td>
+      <td style="text-align: right"><strong>14.0%</strong></td>
+    </tr>
+    <tr>
+      <td>Phi-3 3.8B</td>
+      <td>DPO</td>
+      <td style="text-align: right">-</td>
+      <td style="text-align: right">13.0%</td>
+      <td style="text-align: right"><strong>37.0%</strong></td>
+      <td style="text-align: right"><strong>50.0%</strong></td>
+    </tr>
+    <tr>
+      <td>Phi-3 3.8B</td>
+      <td>SAIL</td>
+      <td style="text-align: right">-</td>
+      <td style="text-align: right">16.0%</td>
+      <td style="text-align: right">40.0%</td>
+      <td style="text-align: right">44.0%</td>
+    </tr>
+    <tr>
+      <td>Phi-3 3.8B</td>
+      <td>SAIL-RevKL</td>
+      <td style="text-align: right">$10^{-3}$</td>
+      <td style="text-align: right">16.0%</td>
+      <td style="text-align: right">40.0%</td>
+      <td style="text-align: right">44.0%</td>
+    </tr>
+    <tr>
+      <td>Phi-3 3.8B</td>
+      <td>SAIL-RevKL</td>
+      <td style="text-align: right">$10^{-2}$</td>
+      <td style="text-align: right">21.0%</td>
+      <td style="text-align: right">43.0%</td>
+      <td style="text-align: right">36.0%</td>
+    </tr>
+    <tr>
+      <td>Phi-3 3.8B</td>
+      <td><strong>SAIL-RevKL</strong></td>
+      <td style="text-align: right">$10^{-1}$</td>
+      <td style="text-align: right"><strong>23.0%</strong></td>
+      <td style="text-align: right">43.0%</td>
+      <td style="text-align: right">34.0%</td>
+    </tr>
+    <tr>
+      <td>LLaMA-3 8B</td>
+      <td>DPO</td>
+      <td style="text-align: right">-</td>
+      <td style="text-align: right">0.0%</td>
+      <td style="text-align: right">93.0%</td>
+      <td style="text-align: right">7.0%</td>
+    </tr>
+    <tr>
+      <td>LLaMA-3 8B</td>
+      <td>SAIL</td>
+      <td style="text-align: right">-</td>
+      <td style="text-align: right">5.0%</td>
+      <td style="text-align: right">69.0%</td>
+      <td style="text-align: right">26.0%</td>
+    </tr>
+    <tr>
+      <td>LLaMA-3 8B</td>
+      <td>SAIL-RevKL</td>
+      <td style="text-align: right">$10^{-3}$</td>
+      <td style="text-align: right">7.0%</td>
+      <td style="text-align: right">67.0%</td>
+      <td style="text-align: right">26.0%</td>
+    </tr>
+    <tr>
+      <td>LLaMA-3 8B</td>
+      <td>SAIL-RevKL</td>
+      <td style="text-align: right">$10^{-2}$</td>
+      <td style="text-align: right">7.0%</td>
+      <td style="text-align: right"><strong>58.0%</strong></td>
+      <td style="text-align: right"><strong>35.0%</strong></td>
+    </tr>
+    <tr>
+      <td>LLaMA-3 8B</td>
+      <td><strong>SAIL-RevKL</strong></td>
+      <td style="text-align: right">$10^{-1}$</td>
+      <td style="text-align: right"><strong>13.0%</strong></td>
+      <td style="text-align: right">59.0%</td>
+      <td style="text-align: right">28.0%</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>SAIL-RevKL improves the best win rate over vanilla SAIL on all three backbones. The preferred coefficient is scale-dependent: $10^{-2}$ for Qwen 0.5B and $10^{-1}$ for Phi-3 3.8B and LLaMA-3 8B. This is consistent with the theory’s curvature-bias trade-off and shows why $\gamma$ should be tuned rather than treated as a universal constant.</p>
+
+<div class="alert" style="--color: #0ea5e9">
+  
+  <i class="icon fa-solid fa-circle-info"></i>
+  <div class="alert-content">
+    <p><strong>Hint: how to read the evidence.</strong> The LoRA results show that SAIL-RevKL improves pairwise win rates beyond the policy class covered by the theorem, but they do not prove global convergence for LoRA. Frozen-last-layer training is the closer empirical check of the log-linear regime.</p>
+
+  </div>
+</div>
+
+<h2 id="citation">Citation</h2>
+
+<div class="language-bibtex highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">@inproceedings</span><span class="p">{</span><span class="nl">wu2026convergence</span><span class="p">,</span>
+  <span class="na">title</span>     <span class="p">=</span> <span class="s">{On the Convergence of Self-Improving Online {LLM} Alignment}</span><span class="p">,</span>
+  <span class="na">author</span>    <span class="p">=</span> <span class="s">{Wu, Xudong and Liu, Pangpang and Aggarwal, Vaneet and Chen, Jiayu}</span><span class="p">,</span>
+  <span class="na">booktitle</span> <span class="p">=</span> <span class="s">{Proceedings of the 42nd Conference on Uncertainty in Artificial Intelligence}</span><span class="p">,</span>
+  <span class="na">pages</span>     <span class="p">=</span> <span class="s">{7433--7467}</span><span class="p">,</span>
+  <span class="na">year</span>      <span class="p">=</span> <span class="s">{2026}</span><span class="p">,</span>
+  <span class="na">volume</span>    <span class="p">=</span> <span class="s">{337}</span><span class="p">,</span>
+  <span class="na">series</span>    <span class="p">=</span> <span class="s">{Proceedings of Machine Learning Research}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="acknowledgements">Acknowledgements</h2>
+
+<p>This work was supported in part by the Seed Fund for PI Research, Basic Research, from The University of Hong Kong under Project Code 2502251784.</p>
   </section>
 
   

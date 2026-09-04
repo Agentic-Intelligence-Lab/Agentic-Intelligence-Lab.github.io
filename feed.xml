@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="http://agentic-intelligence-lab.org/feed.xml" rel="self" type="application/atom+xml" /><link href="http://agentic-intelligence-lab.org/" rel="alternate" type="text/html" /><updated>2026-09-04T02:50:29+00:00</updated><id>http://agentic-intelligence-lab.org/feed.xml</id><title type="html">Agentic Intelligence Lab</title><subtitle>Our team at the Department of Data and Systems Engineering, The University of Hong Kong, is dedicated to advancing research in Machine Learning, Sequential Decision Making, and Embodied AI.</subtitle><entry><title type="html">CausalVAE as a Plug-in for World Models: Towards Reliable Counterfactual Dynamics (ECCV 2026)</title><link href="http://agentic-intelligence-lab.org/2026/08/10/causalvae-world-models.html" rel="alternate" type="text/html" title="CausalVAE as a Plug-in for World Models: Towards Reliable Counterfactual Dynamics (ECCV 2026)" /><published>2026-08-10T00:00:00+00:00</published><updated>2026-09-04T02:49:34+00:00</updated><id>http://agentic-intelligence-lab.org/2026/08/10/causalvae-world-models</id><content type="html" xml:base="http://agentic-intelligence-lab.org/2026/08/10/causalvae-world-models.html"><![CDATA[<h3 id="predicting-is-not-yet-understanding">Predicting Is Not Yet Understanding</h3>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="http://agentic-intelligence-lab.org/feed.xml" rel="self" type="application/atom+xml" /><link href="http://agentic-intelligence-lab.org/" rel="alternate" type="text/html" /><updated>2026-09-04T02:51:02+00:00</updated><id>http://agentic-intelligence-lab.org/feed.xml</id><title type="html">Agentic Intelligence Lab</title><subtitle>Our team at the Department of Data and Systems Engineering, The University of Hong Kong, is dedicated to advancing research in Machine Learning, Sequential Decision Making, and Embodied AI.</subtitle><entry><title type="html">CausalVAE as a Plug-in for World Models: Towards Reliable Counterfactual Dynamics (ECCV 2026)</title><link href="http://agentic-intelligence-lab.org/2026/08/10/causalvae-world-models.html" rel="alternate" type="text/html" title="CausalVAE as a Plug-in for World Models: Towards Reliable Counterfactual Dynamics (ECCV 2026)" /><published>2026-08-10T00:00:00+00:00</published><updated>2026-09-04T02:49:51+00:00</updated><id>http://agentic-intelligence-lab.org/2026/08/10/causalvae-world-models</id><content type="html" xml:base="http://agentic-intelligence-lab.org/2026/08/10/causalvae-world-models.html"><![CDATA[<h3 id="predicting-is-not-yet-understanding">Predicting Is Not Yet Understanding</h3>
 
 <p><em>ECCV 2026 · Causal World Models</em></p>
 
@@ -233,7 +233,7 @@
   </div>
 </div>
 
-<p><a href="https://arxiv.org/pdf/2604.07712">Read the ECCV 2026 paper</a></p>]]></content><author><name></name></author><category term="publication" /><category term="world-models" /><category term="causal-learning" /><category term="counterfactuals" /><summary type="html"><![CDATA[Predicting Is Not Yet Understanding]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://agentic-intelligence-lab.org/images/CausalVAE/method-overview.png" /><media:content medium="image" url="http://agentic-intelligence-lab.org/images/CausalVAE/method-overview.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">CWI — Composite Humanoid Whole-Body Imitation System for Loco-Manipulation (RA-L 2026)</title><link href="http://agentic-intelligence-lab.org/2026/08/04/CWI-blog.html" rel="alternate" type="text/html" title="CWI — Composite Humanoid Whole-Body Imitation System for Loco-Manipulation (RA-L 2026)" /><published>2026-08-04T00:00:00+00:00</published><updated>2026-09-04T02:49:34+00:00</updated><id>http://agentic-intelligence-lab.org/2026/08/04/CWI-blog</id><content type="html" xml:base="http://agentic-intelligence-lab.org/2026/08/04/CWI-blog.html"><![CDATA[<h3 id="one-policy-two-kinds-of-motion-data">One Policy, Two Kinds of Motion Data</h3>
+<p><a href="https://arxiv.org/pdf/2604.07712">Read the ECCV 2026 paper</a></p>]]></content><author><name></name></author><category term="publication" /><category term="world-models" /><category term="causal-learning" /><category term="counterfactuals" /><summary type="html"><![CDATA[Predicting Is Not Yet Understanding]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://agentic-intelligence-lab.org/images/CausalVAE/method-overview.png" /><media:content medium="image" url="http://agentic-intelligence-lab.org/images/CausalVAE/method-overview.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">CWI — Composite Humanoid Whole-Body Imitation System for Loco-Manipulation (RA-L 2026)</title><link href="http://agentic-intelligence-lab.org/2026/08/04/CWI-blog.html" rel="alternate" type="text/html" title="CWI — Composite Humanoid Whole-Body Imitation System for Loco-Manipulation (RA-L 2026)" /><published>2026-08-04T00:00:00+00:00</published><updated>2026-09-04T02:49:51+00:00</updated><id>http://agentic-intelligence-lab.org/2026/08/04/CWI-blog</id><content type="html" xml:base="http://agentic-intelligence-lab.org/2026/08/04/CWI-blog.html"><![CDATA[<h3 id="one-policy-two-kinds-of-motion-data">One Policy, Two Kinds of Motion Data</h3>
 
 <p><em>Accepted to IEEE Robotics and Automation Letters, June 2026.</em></p>
 
@@ -557,7 +557,7 @@
   <span class="na">year</span>    <span class="p">=</span> <span class="s">{2026}</span><span class="p">,</span>
   <span class="na">doi</span>     <span class="p">=</span> <span class="s">{10.1109/LRA.2026.3710366}</span>
 <span class="p">}</span>
-</code></pre></div></div>]]></content><author><name>Wenqi Ge</name></author><category term="publication" /><category term="robotics" /><category term="humanoid" /><category term="loco-manipulation" /><summary type="html"><![CDATA[One Policy, Two Kinds of Motion Data]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://agentic-intelligence-lab.org/images/CWI/fig1-tasks.jpg" /><media:content medium="image" url="http://agentic-intelligence-lab.org/images/CWI/fig1-tasks.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">ROMBRL — Policy-Driven World Model Adaptation for Robust Offline Model-based RL (ICML 2026)</title><link href="http://agentic-intelligence-lab.org/2026/08/04/rombrl-post.html" rel="alternate" type="text/html" title="ROMBRL — Policy-Driven World Model Adaptation for Robust Offline Model-based RL (ICML 2026)" /><published>2026-08-04T00:00:00+00:00</published><updated>2026-09-04T02:49:34+00:00</updated><id>http://agentic-intelligence-lab.org/2026/08/04/rombrl-post</id><content type="html" xml:base="http://agentic-intelligence-lab.org/2026/08/04/rombrl-post.html"><![CDATA[<p>Our paper, <strong>“Policy-Driven World Model Adaptation for Robust Offline Model-based Reinforcement Learning”</strong>, was presented as a <strong>poster at ICML 2026</strong> in Seoul, South Korea. This is joint work between the Agentic Intelligence Lab at the University of Hong Kong, Tsinghua University, and the Robotics Institute at Carnegie Mellon University.</p>
+</code></pre></div></div>]]></content><author><name>Wenqi Ge</name></author><category term="publication" /><category term="robotics" /><category term="humanoid" /><category term="loco-manipulation" /><summary type="html"><![CDATA[One Policy, Two Kinds of Motion Data]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://agentic-intelligence-lab.org/images/CWI/fig1-tasks.jpg" /><media:content medium="image" url="http://agentic-intelligence-lab.org/images/CWI/fig1-tasks.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">ROMBRL — Policy-Driven World Model Adaptation for Robust Offline Model-based RL (ICML 2026)</title><link href="http://agentic-intelligence-lab.org/2026/08/04/rombrl-post.html" rel="alternate" type="text/html" title="ROMBRL — Policy-Driven World Model Adaptation for Robust Offline Model-based RL (ICML 2026)" /><published>2026-08-04T00:00:00+00:00</published><updated>2026-09-04T02:49:51+00:00</updated><id>http://agentic-intelligence-lab.org/2026/08/04/rombrl-post</id><content type="html" xml:base="http://agentic-intelligence-lab.org/2026/08/04/rombrl-post.html"><![CDATA[<p>Our paper, <strong>“Policy-Driven World Model Adaptation for Robust Offline Model-based Reinforcement Learning”</strong>, was presented as a <strong>poster at ICML 2026</strong> in Seoul, South Korea. This is joint work between the Agentic Intelligence Lab at the University of Hong Kong, Tsinghua University, and the Robotics Institute at Carnegie Mellon University.</p>
 
 <ul>
   <li><strong>Paper (arXiv):</strong> <a href="https://arxiv.org/abs/2505.13709">arxiv.org/abs/2505.13709</a></li>
@@ -854,32 +854,467 @@
 
 <h2 id="acknowledgements">Acknowledgements</h2>
 
-<p>This work was funded in part by the Department of Energy Fusion Energy Sciences under grant DE-SC0024544.</p>]]></content><author><name>Le Xu</name></author><category term="publication" /><category term="offline-rl" /><category term="robustness" /><category term="model-based-rl" /><summary type="html"><![CDATA[Our paper, “Policy-Driven World Model Adaptation for Robust Offline Model-based Reinforcement Learning”, was presented as a poster at ICML 2026 in Seoul, South Korea. This is joint work between the Agentic Intelligence Lab at the University of Hong Kong, Tsinghua University, and the Robotics Institute at Carnegie Mellon University.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://agentic-intelligence-lab.org/images/rombrl-cover.png" /><media:content medium="image" url="http://agentic-intelligence-lab.org/images/rombrl-cover.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">SAIL-RevKL: Stable and Provable Self-Improving Online LLM Alignment</title><link href="http://agentic-intelligence-lab.org/2026/08/04/sail-revkl-post.html" rel="alternate" type="text/html" title="SAIL-RevKL: Stable and Provable Self-Improving Online LLM Alignment" /><published>2026-08-04T00:00:00+00:00</published><updated>2026-09-04T02:49:34+00:00</updated><id>http://agentic-intelligence-lab.org/2026/08/04/sail-revkl-post</id><content type="html" xml:base="http://agentic-intelligence-lab.org/2026/08/04/sail-revkl-post.html"><![CDATA[<p><a href="https://arxiv.org/abs/2606.31524"><strong>Paper</strong></a> · <a href="https://github.com/xudongwu-0/SAIL_mujoco"><strong>MuJoCo Code</strong></a> · <a href="https://github.com/xudongwu-0/SAIL_LLM"><strong>LLM Code</strong></a></p>
+<p>This work was funded in part by the Department of Energy Fusion Energy Sciences under grant DE-SC0024544.</p>]]></content><author><name>Le Xu</name></author><category term="publication" /><category term="offline-rl" /><category term="robustness" /><category term="model-based-rl" /><summary type="html"><![CDATA[Our paper, “Policy-Driven World Model Adaptation for Robust Offline Model-based Reinforcement Learning”, was presented as a poster at ICML 2026 in Seoul, South Korea. This is joint work between the Agentic Intelligence Lab at the University of Hong Kong, Tsinghua University, and the Robotics Institute at Carnegie Mellon University.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://agentic-intelligence-lab.org/images/rombrl-cover.png" /><media:content medium="image" url="http://agentic-intelligence-lab.org/images/rombrl-cover.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">SAIL-RevKL: Stable and Provable Self-Improving Online LLM Alignment (UAI 2026)</title><link href="http://agentic-intelligence-lab.org/2026/08/04/sail-revkl-post.html" rel="alternate" type="text/html" title="SAIL-RevKL: Stable and Provable Self-Improving Online LLM Alignment (UAI 2026)" /><published>2026-08-04T00:00:00+00:00</published><updated>2026-09-04T02:49:51+00:00</updated><id>http://agentic-intelligence-lab.org/2026/08/04/sail-revkl-post</id><content type="html" xml:base="http://agentic-intelligence-lab.org/2026/08/04/sail-revkl-post.html"><![CDATA[<p>Our paper, <strong>“On the Convergence of Self-Improving Online LLM Alignment,”</strong> appeared at the <strong>42nd Conference on Uncertainty in Artificial Intelligence (UAI 2026)</strong>. It addresses a basic theoretical gap behind self-improving alignment.</p>
 
-<p>We are excited to share <strong>SAIL-RevKL</strong>, our work on making self-improving online alignment more stable and theoretically grounded. The paper, <em>On the Convergence of Self-Improving Online LLM Alignment</em>, has been accepted at <strong>UAI 2026</strong>.</p>
+<h2 id="research-question">Research Question</h2>
 
-<h2 id="why-online-alignment">Why Online Alignment?</h2>
+<p><strong>Can we establish a global convergence guarantee for online RLHF formulated as a bilevel optimization problem?</strong></p>
 
-<p>Most language-model alignment methods learn from a fixed preference dataset. While this approach is simple and effective, the dataset may not fully represent the responses produced by the model as it continues to improve.</p>
+<p><a href="https://proceedings.mlr.press/v337/wu26c.html"><strong>Proceedings</strong></a> · <a href="https://arxiv.org/abs/2606.31524"><strong>arXiv</strong></a> · <a href="/images/sail-revkl-poster.png"><strong>Poster</strong></a> · <a href="https://github.com/xudongwu-0/SAIL_mujoco"><strong>MuJoCo Code</strong></a> · <a href="https://github.com/xudongwu-0/SAIL_LLM">** Code**</a></p>
 
-<p>Online alignment creates a continuous feedback loop: the current model generates new responses, receives fresh preference feedback, and then learns from that feedback. <a href="https://arxiv.org/abs/2406.15567">SAIL</a> is an efficient framework for this setting, but an important question remained open: <strong>will its learning process converge reliably?</strong></p>
+<figure class="figure">
+  <a href="/images/sail-revkl-poster.png" class="figure-image" aria-label="Our UAI 2026 poster. Click the image to open it at full resolution.">
+    <img src="/images/sail-revkl-poster.png" style="
+        width: 100%;
+        max-height: unset;
+      " alt="Our UAI 2026 poster. Click the image to open it at full resolution." loading="lazy" onerror="this.src = '/images/fallback.svg'; this.onerror = null;" />
+  </a>
+  
+    <figcaption class="figure-caption">
+      Our UAI 2026 poster. Click the image to open it at full resolution.
 
-<h2 id="our-approach-sail-revkl">Our Approach: SAIL-RevKL</h2>
+    </figcaption>
+  
+</figure>
 
-<p>We find that the original SAIL objective can have an unfavorable optimization landscape, which may make training unstable outside a local region. To address this issue, we introduce <strong>SAIL-RevKL</strong>, a simple extension that adds a reverse KL regularization term.</p>
+<h2 id="tldr">TL;DR</h2>
 
-<p>Intuitively, the reverse KL term acts as a guardrail. It keeps the updated policy anchored to a stable reference policy while still allowing the model to learn from new preference feedback. This small change makes the learning problem easier to optimize and allows us to establish a global convergence guarantee within a bounded parameter space.</p>
+<p>Our answer is conditional but positive. We first show that the original <strong>Self-Improving Alignment (SAIL)</strong> objective is guaranteed to have favorable curvature only near its initialization. We then introduce <strong>SAIL-RevKL</strong>, which adds</p>
 
-<h2 id="main-highlights">Main Highlights</h2>
+<p>$$
+\gamma\,\mathbb{E}_x!\left[
+D_{\mathrm{KL}}!\left(
+\pi_{\mathrm{ref}}(\cdot\mid x)\,\Vert\,\pi_\theta(\cdot\mid x)
+\right)
+\right]
+$$</p>
 
-<ul>
-  <li>We explain why vanilla SAIL only has favorable convergence properties locally.</li>
-  <li>We introduce reverse KL regularization as a simple way to stabilize SAIL.</li>
-  <li>We establish a global convergence guarantee with near-linear sample complexity under standard assumptions.</li>
-  <li>We show improved training stability and performance on both continuous-control benchmarks and LLM alignment tasks.</li>
-</ul>
+<p>as a penalty. For a fixed reference and a log-linear policy, the Hessian of this reverse KL is the Fisher information matrix. With enough regularization, that positive curvature dominates the adverse curvature of SAIL throughout the full bounded parameter region. This yields global strong concavity and a Polyak-Lojasiewicz (PL) condition for the regularized surrogate, together with near-linear dependence on the inverse target accuracy.</p>
 
-<p>We evaluate SAIL-RevKL on Door Open, Walker Walk, Walker Stand, and Cheetah Run, as well as LLM alignment experiments using PKU-SafeRLHF and UltraFeedback. Across these settings, SAIL-RevKL consistently improves upon vanilla SAIL, showing that the reverse KL term is useful both theoretically and in practice.</p>]]></content><author><name>Xudong Wu</name></author><category term="technique" /><summary type="html"><![CDATA[Paper · MuJoCo Code · LLM Code]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://agentic-intelligence-lab.org/images/logo.png" /><media:content medium="image" url="http://agentic-intelligence-lab.org/images/logo.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Verlog - A Multi-turn RL framework for LLM agents</title><link href="http://agentic-intelligence-lab.org/2025/08/15/technical-post.html" rel="alternate" type="text/html" title="Verlog - A Multi-turn RL framework for LLM agents" /><published>2025-08-15T00:00:00+00:00</published><updated>2026-09-04T02:49:34+00:00</updated><id>http://agentic-intelligence-lab.org/2025/08/15/technical-post</id><content type="html" xml:base="http://agentic-intelligence-lab.org/2025/08/15/technical-post.html"><![CDATA[<div style="display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 24px; width: 100%;">
+<h2 id="why-bilevel-formulated-online-rlhf-is-hard">Why Bilevel-Formulated Online RLHF Is Hard</h2>
+
+<p>Offline preference optimization trains on a fixed dataset. Online RLHF instead couples two learning problems: a reward model is fitted from preferences over responses generated by the current policy, and the policy is updated against that learned reward. This interaction is naturally formulated as a bilevel optimization problem because the solution of one level determines the objective and data distribution of the other.</p>
+
+<p>SAIL uses the reward-policy equivalence to reduce this computationally expensive bilevel problem to an efficient single-level surrogate. If $\mathcal{D}_\theta$ denotes the policy-dependent response and preference distribution, that surrogate has the form</p>
+
+<p>$$
+J(\theta)
+=
+\mathbb{E}_{(x,y_w,y_l)\sim\mathcal{D}_\theta}
+!\left[
+\log\sigma!\left(
+\beta\log\frac{\pi_\theta(y_w\mid x)}{\pi_{\mathrm{SFT}}(y_w\mid x)}
+-
+\beta\log\frac{\pi_\theta(y_l\mid x)}{\pi_{\mathrm{SFT}}(y_l\mid x)}
+\right)
+\right].
+$$</p>
+
+<p>This dependence matters. Standard performance-difference arguments assume that the reward or evaluation measure is independent of the policy appearing inside the advantage. That assumption no longer holds here, so convergence cannot be inherited directly from ordinary policy-gradient analysis. We instead analyze the geometry of $J$ itself.</p>
+
+<p>The negative Hessian of $J$ decomposes into four terms. Some are stabilizing, while interaction terms can become unfavorable as $\theta$ moves away from the initial SFT parameters $\theta_0$. The proof must therefore control the objective’s curvature throughout the region the algorithm may visit, not only at its starting point.</p>
+
+<div class="alert" style="--color: #0ea5e9">
+  
+  <i class="icon fa-solid fa-circle-info"></i>
+  <div class="alert-content">
+    <p><strong>Hint: why the research question is hard.</strong> In this bilevel formulation of online RLHF, the reward-learning level depends on data from the current policy, while the policy-update level depends on the learned reward. The two levels therefore evolve together, so a fixed-data convergence argument does not directly apply.</p>
+
+  </div>
+</div>
+
+<h2 id="assumptions-and-scope">Assumptions and Scope</h2>
+
+<p>The global theorem is explicit about its scope. It applies to the following setting:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Assumption</th>
+      <th>Mathematical condition</th>
+      <th>Role in the analysis</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>**A1: Log-linear policy**</td>
+      <td>$\pi_\theta(a\mid s)\propto\exp(\theta^\top\psi(s,a))$, with $\max_{s,a}\Vert\psi(s,a)\Vert_2\le 1$ and $\Vert\theta-\theta_0\Vert_2\le B_\theta$</td>
+      <td>Makes the objective’s curvature analyzable on a bounded parameter set.</td>
+    </tr>
+    <tr>
+      <td>**A2: Informative features**</td>
+      <td>$F_\rho(\theta)\succeq\mu_F I$ uniformly over the feasible set</td>
+      <td>Ensures the Fisher curvature is positive in every parameter direction.</td>
+    </tr>
+    <tr>
+      <td>**A3: Smooth objective**</td>
+      <td>$J_\gamma$ is $L$-smooth</td>
+      <td>Controls the change of the gradient and permits a stable stepsize.</td>
+    </tr>
+    <tr>
+      <td>**A4: Stochastic gradients**</td>
+      <td>Each sample gradient is unbiased and has variance at most $\sigma_g^2$</td>
+      <td>Makes the mini-batch noise decay as $\sigma_g^2/B_s$.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Two construction choices are also essential. The reference policy $\pi_{\mathrm{ref}}$ is fixed during the analyzed update, and projected gradient ascent keeps every iterate inside $\Theta$, the radius-$B_\theta$ Euclidean ball centered at $\theta_0$.</p>
+
+<p><strong>Scope of the result.</strong> The word “global” below means global <strong>within this full bounded feasible set</strong>. The LoRA experiments test whether the method remains useful beyond these assumptions; the last-layer-only experiments are the closest empirical match to A1.</p>
+
+<h2 id="core-theorem-global-convergence-of-sail-revkl">Core Theorem: Global Convergence of SAIL-RevKL</h2>
+
+<p>The original SAIL surrogate is guaranteed to have favorable geometry only near its initialization. We add a reverse-KL penalty and optimize</p>
+
+<p>$$
+J_\gamma(\theta)
+=
+J(\theta)
+-
+\gamma\,\mathbb{E}_x!\left[
+D_{\mathrm{KL}}!\left(
+\pi_{\mathrm{ref}}(\cdot\mid x)\,\Vert\,\pi_\theta(\cdot\mid x)
+\right)
+\right].
+$$</p>
+
+<p>For a fixed reference and a log-linear policy, the reverse-KL Hessian is the Fisher information matrix, so</p>
+
+<p>$$
+-\nabla^2J_\gamma(\theta)
+=
+-\nabla^2J(\theta)+\gamma F(\theta).
+$$</p>
+
+<h3 id="theorem-global-convergence-on-the-feasible-set">Theorem (Global convergence on the feasible set)</h3>
+
+<p>Let $\Theta$ be the radius-$B_\theta$ Euclidean ball centered at $\theta_0$. Suppose A1-A4 hold, $\pi_{\mathrm{ref}}$ remains fixed during optimization, and projected updates keep every iterate in $\Theta$. Choose $\gamma$ sufficiently large to satisfy the explicit curvature threshold in Theorem 2 of the paper, so that the Fisher term dominates the adverse curvature of the original SAIL objective throughout $\Theta$.</p>
+
+<p>Then $J_\gamma$ is $\mu$-strongly concave on all of $\Theta$ and satisfies the PL inequality</p>
+
+<p>$$
+\Vert\nabla J_\gamma(\theta)\Vert_2^2
+\ge
+2\mu\left(J_\gamma(\theta_\gamma^{\ast})-J_\gamma(\theta)\right),
+\qquad \theta\in\Theta,
+$$</p>
+
+<p>where $\theta_\gamma^{\ast}=\arg\max_{\theta\in\Theta}J_\gamma(\theta)$ is the unique maximizer. Moreover, for projected mini-batch stochastic gradient ascent with a valid constant stepsize, there exist constants $q\in(0,1)$ and $C&gt;0$ such that</p>
+
+<p>$$
+\mathbb{E}!\left[
+J_\gamma(\theta_\gamma^{\ast})-J_\gamma(\theta_T)
+\right]
+\le
+q^T\left(J_\gamma(\theta_\gamma^{\ast})-J_\gamma(\theta_0)\right)
++
+\frac{C\sigma_g^2}{B_s}.
+$$</p>
+
+<p>Thus the optimization error decreases geometrically until it reaches the mini-batch noise floor. Taking $B_s=\widetilde{\mathcal{O}}(\varepsilon^{-1})$ and $T=\widetilde{\mathcal{O}}(\log\varepsilon^{-1})$ gives an $\varepsilon$ expected function-value gap with total sample complexity</p>
+
+<p>$$
+\widetilde{\mathcal{O}}!\left(
+\varepsilon^{-1}\log\varepsilon^{-1}
+\right).
+$$</p>
+
+<div class="alert" style="--color: #0ea5e9">
+  
+  <i class="icon fa-solid fa-circle-info"></i>
+  <div class="alert-content">
+    <p><strong>Hint: what the theorem answers.</strong> For the SAIL reduction of bilevel-formulated online RLHF, reverse KL turns a local convergence certificate into a global, non-asymptotic guarantee over the entire bounded feasible set.</p>
+
+  </div>
+</div>
+
+<p>The theorem is proved in a deliberately controlled log-linear setting. We next test whether the same regularized objective is useful when training real language models.</p>
+
+<h2 id="llm-alignment-results">LLM Alignment Results</h2>
+
+<p>The main experiments use LoRA fine-tuning and GPT-4 as an LLM judge. PKU-SafeRLHF evaluates the balance between helpfulness and harmlessness, while UltraFeedback focuses on general instruction following. Pairwise win rate is the primary comparison below; tie rate and mean GPT score difference are reported separately because they capture different aspects of the judge outcomes.</p>
+
+<p><strong>PKU-SafeRLHF, Qwen 0.5B</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Method</th>
+      <th style="text-align: right">Pairwise win rate</th>
+      <th style="text-align: right">Tie rate</th>
+      <th style="text-align: right">Mean GPT score difference</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>DPO</td>
+      <td style="text-align: right">26.0%</td>
+      <td style="text-align: right">14.0%</td>
+      <td style="text-align: right">-2.209</td>
+    </tr>
+    <tr>
+      <td>SAIL</td>
+      <td style="text-align: right">29.0%</td>
+      <td style="text-align: right">0.0%</td>
+      <td style="text-align: right">-2.004</td>
+    </tr>
+    <tr>
+      <td>**SAIL-RevKL**</td>
+      <td style="text-align: right">**43.0%**</td>
+      <td style="text-align: right">6.0%</td>
+      <td style="text-align: right">**-0.885**</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>UltraFeedback</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Backbone</th>
+      <th>Method</th>
+      <th style="text-align: right">Pairwise win rate</th>
+      <th style="text-align: right">Tie rate</th>
+      <th style="text-align: right">Mean GPT score difference</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Qwen 0.5B</td>
+      <td>DPO</td>
+      <td style="text-align: right">0.0%</td>
+      <td style="text-align: right">7.0%</td>
+      <td style="text-align: right">-2.580</td>
+    </tr>
+    <tr>
+      <td>Qwen 0.5B</td>
+      <td>SAIL</td>
+      <td style="text-align: right">1.0%</td>
+      <td style="text-align: right">8.0%</td>
+      <td style="text-align: right">-2.110</td>
+    </tr>
+    <tr>
+      <td>Qwen 0.5B</td>
+      <td>**SAIL-RevKL**</td>
+      <td style="text-align: right">**3.0%**</td>
+      <td style="text-align: right">**18.0%**</td>
+      <td style="text-align: right">**-1.300**</td>
+    </tr>
+    <tr>
+      <td>Phi-3 3.8B</td>
+      <td>DPO</td>
+      <td style="text-align: right">11.0%</td>
+      <td style="text-align: right">15.0%</td>
+      <td style="text-align: right">-1.160</td>
+    </tr>
+    <tr>
+      <td>Phi-3 3.8B</td>
+      <td>SAIL</td>
+      <td style="text-align: right">15.0%</td>
+      <td style="text-align: right">**60.0%**</td>
+      <td style="text-align: right">**-0.150**</td>
+    </tr>
+    <tr>
+      <td>Phi-3 3.8B</td>
+      <td>**SAIL-RevKL**</td>
+      <td style="text-align: right">**30.0%**</td>
+      <td style="text-align: right">40.0%</td>
+      <td style="text-align: right">-0.300</td>
+    </tr>
+    <tr>
+      <td>LLaMA-3 8B</td>
+      <td>DPO</td>
+      <td style="text-align: right">22.0%</td>
+      <td style="text-align: right">24.0%</td>
+      <td style="text-align: right">-0.930</td>
+    </tr>
+    <tr>
+      <td>LLaMA-3 8B</td>
+      <td>SAIL</td>
+      <td style="text-align: right">23.0%</td>
+      <td style="text-align: right">**29.0%**</td>
+      <td style="text-align: right">-0.700</td>
+    </tr>
+    <tr>
+      <td>LLaMA-3 8B</td>
+      <td>**SAIL-RevKL**</td>
+      <td style="text-align: right">**34.0%**</td>
+      <td style="text-align: right">**29.0%**</td>
+      <td style="text-align: right">**-0.230**</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>The headline comparison is the pairwise win rate against vanilla SAIL: <strong>43% vs. 29%</strong> on Qwen with PKU-SafeRLHF, <strong>30% vs. 15%</strong> on Phi-3 with UltraFeedback, and <strong>34% vs. 23%</strong> on LLaMA-3 with UltraFeedback.</p>
+
+<h3 id="a-theory-aligned-test">A theory-aligned test</h3>
+
+<p>LoRA changes nonlinear features and is not a direct instantiation of the log-linear policy in A1. We therefore also freeze each backbone and train only its final linear layer on UltraFeedback U10. This isolates the regime that most closely matches the theory.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Backbone</th>
+      <th>Method</th>
+      <th style="text-align: right">$\gamma$</th>
+      <th style="text-align: right">Win rate</th>
+      <th style="text-align: right">Lose rate</th>
+      <th style="text-align: right">Tie rate</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Qwen 0.5B</td>
+      <td>DPO</td>
+      <td style="text-align: right">-</td>
+      <td style="text-align: right">1.0%</td>
+      <td style="text-align: right">91.0%</td>
+      <td style="text-align: right">8.0%</td>
+    </tr>
+    <tr>
+      <td>Qwen 0.5B</td>
+      <td>SAIL</td>
+      <td style="text-align: right">-</td>
+      <td style="text-align: right">1.0%</td>
+      <td style="text-align: right">93.0%</td>
+      <td style="text-align: right">6.0%</td>
+    </tr>
+    <tr>
+      <td>Qwen 0.5B</td>
+      <td>SAIL-RevKL</td>
+      <td style="text-align: right">$10^{-3}$</td>
+      <td style="text-align: right">3.0%</td>
+      <td style="text-align: right">91.0%</td>
+      <td style="text-align: right">6.0%</td>
+    </tr>
+    <tr>
+      <td>Qwen 0.5B</td>
+      <td>**SAIL-RevKL**</td>
+      <td style="text-align: right">$10^{-2}$</td>
+      <td style="text-align: right">**4.0%**</td>
+      <td style="text-align: right">86.0%</td>
+      <td style="text-align: right">10.0%</td>
+    </tr>
+    <tr>
+      <td>Qwen 0.5B</td>
+      <td>SAIL-RevKL</td>
+      <td style="text-align: right">$10^{-1}$</td>
+      <td style="text-align: right">3.0%</td>
+      <td style="text-align: right">**83.0%**</td>
+      <td style="text-align: right">**14.0%**</td>
+    </tr>
+    <tr>
+      <td>Phi-3 3.8B</td>
+      <td>DPO</td>
+      <td style="text-align: right">-</td>
+      <td style="text-align: right">13.0%</td>
+      <td style="text-align: right">**37.0%**</td>
+      <td style="text-align: right">**50.0%**</td>
+    </tr>
+    <tr>
+      <td>Phi-3 3.8B</td>
+      <td>SAIL</td>
+      <td style="text-align: right">-</td>
+      <td style="text-align: right">16.0%</td>
+      <td style="text-align: right">40.0%</td>
+      <td style="text-align: right">44.0%</td>
+    </tr>
+    <tr>
+      <td>Phi-3 3.8B</td>
+      <td>SAIL-RevKL</td>
+      <td style="text-align: right">$10^{-3}$</td>
+      <td style="text-align: right">16.0%</td>
+      <td style="text-align: right">40.0%</td>
+      <td style="text-align: right">44.0%</td>
+    </tr>
+    <tr>
+      <td>Phi-3 3.8B</td>
+      <td>SAIL-RevKL</td>
+      <td style="text-align: right">$10^{-2}$</td>
+      <td style="text-align: right">21.0%</td>
+      <td style="text-align: right">43.0%</td>
+      <td style="text-align: right">36.0%</td>
+    </tr>
+    <tr>
+      <td>Phi-3 3.8B</td>
+      <td>**SAIL-RevKL**</td>
+      <td style="text-align: right">$10^{-1}$</td>
+      <td style="text-align: right">**23.0%**</td>
+      <td style="text-align: right">43.0%</td>
+      <td style="text-align: right">34.0%</td>
+    </tr>
+    <tr>
+      <td>LLaMA-3 8B</td>
+      <td>DPO</td>
+      <td style="text-align: right">-</td>
+      <td style="text-align: right">0.0%</td>
+      <td style="text-align: right">93.0%</td>
+      <td style="text-align: right">7.0%</td>
+    </tr>
+    <tr>
+      <td>LLaMA-3 8B</td>
+      <td>SAIL</td>
+      <td style="text-align: right">-</td>
+      <td style="text-align: right">5.0%</td>
+      <td style="text-align: right">69.0%</td>
+      <td style="text-align: right">26.0%</td>
+    </tr>
+    <tr>
+      <td>LLaMA-3 8B</td>
+      <td>SAIL-RevKL</td>
+      <td style="text-align: right">$10^{-3}$</td>
+      <td style="text-align: right">7.0%</td>
+      <td style="text-align: right">67.0%</td>
+      <td style="text-align: right">26.0%</td>
+    </tr>
+    <tr>
+      <td>LLaMA-3 8B</td>
+      <td>SAIL-RevKL</td>
+      <td style="text-align: right">$10^{-2}$</td>
+      <td style="text-align: right">7.0%</td>
+      <td style="text-align: right">**58.0%**</td>
+      <td style="text-align: right">**35.0%**</td>
+    </tr>
+    <tr>
+      <td>LLaMA-3 8B</td>
+      <td>**SAIL-RevKL**</td>
+      <td style="text-align: right">$10^{-1}$</td>
+      <td style="text-align: right">**13.0%**</td>
+      <td style="text-align: right">59.0%</td>
+      <td style="text-align: right">28.0%</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>SAIL-RevKL improves the best win rate over vanilla SAIL on all three backbones. The preferred coefficient is scale-dependent: $10^{-2}$ for Qwen 0.5B and $10^{-1}$ for Phi-3 3.8B and LLaMA-3 8B. This is consistent with the theory’s curvature-bias trade-off and shows why $\gamma$ should be tuned rather than treated as a universal constant.</p>
+
+<div class="alert" style="--color: #0ea5e9">
+  
+  <i class="icon fa-solid fa-circle-info"></i>
+  <div class="alert-content">
+    <p><strong>Hint: how to read the evidence.</strong> The LoRA results show that SAIL-RevKL improves pairwise win rates beyond the policy class covered by the theorem, but they do not prove global convergence for LoRA. Frozen-last-layer training is the closer empirical check of the log-linear regime.</p>
+
+  </div>
+</div>
+
+<h2 id="citation">Citation</h2>
+
+<div class="language-bibtex highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">@inproceedings</span><span class="p">{</span><span class="nl">wu2026convergence</span><span class="p">,</span>
+  <span class="na">title</span>     <span class="p">=</span> <span class="s">{On the Convergence of Self-Improving Online {LLM} Alignment}</span><span class="p">,</span>
+  <span class="na">author</span>    <span class="p">=</span> <span class="s">{Wu, Xudong and Liu, Pangpang and Aggarwal, Vaneet and Chen, Jiayu}</span><span class="p">,</span>
+  <span class="na">booktitle</span> <span class="p">=</span> <span class="s">{Proceedings of the 42nd Conference on Uncertainty in Artificial Intelligence}</span><span class="p">,</span>
+  <span class="na">pages</span>     <span class="p">=</span> <span class="s">{7433--7467}</span><span class="p">,</span>
+  <span class="na">year</span>      <span class="p">=</span> <span class="s">{2026}</span><span class="p">,</span>
+  <span class="na">volume</span>    <span class="p">=</span> <span class="s">{337}</span><span class="p">,</span>
+  <span class="na">series</span>    <span class="p">=</span> <span class="s">{Proceedings of Machine Learning Research}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="acknowledgements">Acknowledgements</h2>
+
+<p>This work was supported in part by the Seed Fund for PI Research, Basic Research, from The University of Hong Kong under Project Code 2502251784.</p>]]></content><author><name>Xudong Wu</name></author><category term="publication" /><category term="llm-alignment" /><category term="optimization" /><category term="theory" /><summary type="html"><![CDATA[Our paper, “On the Convergence of Self-Improving Online LLM Alignment,” appeared at the 42nd Conference on Uncertainty in Artificial Intelligence (UAI 2026). It addresses a basic theoretical gap behind self-improving alignment.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://agentic-intelligence-lab.org/images/logo.png" /><media:content medium="image" url="http://agentic-intelligence-lab.org/images/logo.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Verlog - A Multi-turn RL framework for LLM agents</title><link href="http://agentic-intelligence-lab.org/2025/08/15/technical-post.html" rel="alternate" type="text/html" title="Verlog - A Multi-turn RL framework for LLM agents" /><published>2025-08-15T00:00:00+00:00</published><updated>2026-09-04T02:49:51+00:00</updated><id>http://agentic-intelligence-lab.org/2025/08/15/technical-post</id><content type="html" xml:base="http://agentic-intelligence-lab.org/2025/08/15/technical-post.html"><![CDATA[<div style="display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 24px; width: 100%;">
   <a href="https://github.com/WentseChen/Verlog" target="_blank" style="text-decoration: none; display: flex; align-items: center;">
     <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/github.svg" alt="GitHub" width="30" height="30" style="vertical-align: middle;" />
     <span style="vertical-align: middle; font-size: 16px; margin-left: 6px;">Source Code</span>
@@ -893,7 +1328,7 @@
 
 <p>Verlog is a multi-turn reinforcement learning framework built for <strong>long-horizon LLM-agentic tasks with highly variable episode lengths</strong>. Extending <a href="https://github.com/volcengine/verl">VeRL</a> and <a href="https://github.com/balrog-ai/BALROG">BALROG</a> while following the proven design principles of <a href="https://github.com/ikostrikov/pytorch-a2c-ppo-acktr-gail">pytorch-a2c-ppo-acktr-gail</a>, it introduces specialized optimizations for stable and efficient training when episodes span from short interactions to hundreds of turns. Whereas prior frameworks like <a href="https://github.com/volcengine/verl">VeRL</a> and <a href="https://ragen-ai.github.io">RAGEN</a> effectively handle tasks with ~10 turns, and <a href="https://github.com/langfengQ/verl-agent">verl-agent</a> scales up to 50 turns, Verlog is designed to operate in environments with <strong>over 400 turns</strong>, making it uniquely suited for complex, long-term decision-making. This capability has been validated across challenging domains such as BabyAI, BabaIsAI, and Crafter, where it consistently achieves strong performance out of the box. In Crafter, for instance, episode lengths range from 70 to 400 steps with an average of about 190.</p>
 
-<p>Please kindly check <a href="https://wentsechen.github.io/Verlog_blogpost/">https://wentsechen.github.io/Verlog_blogpost/</a> for details.</p>]]></content><author><name>Wentse Chen</name></author><category term="technique" /><summary type="html"><![CDATA[Source Code]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://agentic-intelligence-lab.org/images/crafter_zeroshot.gif" /><media:content medium="image" url="http://agentic-intelligence-lab.org/images/crafter_zeroshot.gif" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Available Research Positions at the Agentic Intelligence Lab @ The University of Hong Kong</title><link href="http://agentic-intelligence-lab.org/2025/01/03/hiring-post.html" rel="alternate" type="text/html" title="Available Research Positions at the Agentic Intelligence Lab @ The University of Hong Kong" /><published>2025-01-03T00:00:00+00:00</published><updated>2026-09-04T02:49:34+00:00</updated><id>http://agentic-intelligence-lab.org/2025/01/03/hiring-post</id><content type="html" xml:base="http://agentic-intelligence-lab.org/2025/01/03/hiring-post.html"><![CDATA[<h2 id="about-the-pi">About the PI</h2>
+<p>Please kindly check <a href="https://wentsechen.github.io/Verlog_blogpost/">https://wentsechen.github.io/Verlog_blogpost/</a> for details.</p>]]></content><author><name>Wentse Chen</name></author><category term="technique" /><summary type="html"><![CDATA[Source Code]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://agentic-intelligence-lab.org/images/crafter_zeroshot.gif" /><media:content medium="image" url="http://agentic-intelligence-lab.org/images/crafter_zeroshot.gif" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Available Research Positions at the Agentic Intelligence Lab @ The University of Hong Kong</title><link href="http://agentic-intelligence-lab.org/2025/01/03/hiring-post.html" rel="alternate" type="text/html" title="Available Research Positions at the Agentic Intelligence Lab @ The University of Hong Kong" /><published>2025-01-03T00:00:00+00:00</published><updated>2026-09-04T02:49:51+00:00</updated><id>http://agentic-intelligence-lab.org/2025/01/03/hiring-post</id><content type="html" xml:base="http://agentic-intelligence-lab.org/2025/01/03/hiring-post.html"><![CDATA[<h2 id="about-the-pi">About the PI</h2>
 
 <p>Jiayu Chen (陈佳玉) is an incoming Tenure-Track Assistant Professor at the <a href="https://www.dase.hku.hk/">Department of Data and Systems Engineering, The University of Hong Kong</a>. Currently, he is a Postdoctoral Fellow at the <a href="https://www.cs.cmu.edu/">School of Computer Science, Carnegie Mellon University</a>, working under the supervision of <a href="https://www.cs.cmu.edu/~schneide/">Professor Jeff Schneider</a> on data-driven profile control for nuclear fusion, as part of a joint research program with the <a href="https://control.princeton.edu/">Plasma Control Group, Princeton University</a>.</p>
 
