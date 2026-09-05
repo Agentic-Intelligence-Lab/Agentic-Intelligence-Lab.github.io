@@ -2,6 +2,7 @@
 title: "CausalVAE as a Plug-in for World Models: Towards Reliable Counterfactual Dynamics (ECCV 2026)"
 image: images/CausalVAE/method-overview.png
 tags: publication world-models causal-learning counterfactuals
+author: Ziyi Ding
 ---
 
 ### Predicting Is Not Yet Understanding
