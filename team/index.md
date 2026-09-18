@@ -40,19 +40,16 @@ Meet our outstanding team members! Although based in Hong Kong, our team boasts 
 - **Ziyi Ding** - Tsinghua University, Ph.D. Candidate 
 - **Caihao Sun** - The University of Hong Kong, Ph.D. Candidate
 - **Xiaoquan Sun** - Huazhong University of Science and Technology, Master's Candidate 
-- **Haijier Chen** - Wuhan University, Master's Candidate 
 - **Di Wu** - Tongji University, Master's Candidate 
 - **Huanzhang Hu** - Chinese University of Hong Kong (Shenzhen), Master's Candidate 
-- **Zonghe Liu** - The University of Hong Kong, MSc 
+- **Yutong Liu** - Chinese University of Hong Kong (Shenzhen), Master's Candidate 
+- **Zeyuan Ren** - Chinese University of Hong Kong, MSc 
+- **Xianxin Lai** - The University of Hong Kong, MSc 
 - **Bo Chen** - The University of Hong Kong, MSc 
 - **Jiahui Chen** - The University of Hong Kong, MSc 
 - **Dongchen Zheng** - The University of Hong Kong, MSc 
-- **Mingzhe Li** - Beijing Normal-Hong Kong Baptist University, Undergraduate
-- **Yitong Zhang** - Beijing Normal-Hong Kong Baptist University, Undergraduate
-- **Yang Fu** - Central South University, Undergraduate
-- **Jiarun Zhu** - South University of Science and Technology, Undergraduate
 - **Yijun Hong** - South University of Science and Technology, Undergraduate
-- **Qijun He** - South University of Science and Technology, Undergraduate
+- **Mohammad Madadi** - Sharif University of Technology, Undergraduate
 
 ## Alumni
 
