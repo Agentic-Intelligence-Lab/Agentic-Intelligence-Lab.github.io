@@ -48,8 +48,11 @@ Meet our outstanding team members! Although based in Hong Kong, our team boasts 
 - **Bo Chen** - The University of Hong Kong, MSc 
 - **Jiahui Chen** - The University of Hong Kong, MSc 
 - **Dongchen Zheng** - The University of Hong Kong, MSc 
+- **Xuhao Fan** - The University of Hong Kong, MSc 
+- **Tianhao Qian** - Southeast University, Undergraduate
 - **Yijun Hong** - South University of Science and Technology, Undergraduate
 - **Mohammad Madadi** - Sharif University of Technology, Undergraduate
+- **Yuming Zhuang** - Beihang University, Undergraduate
 
 ## Alumni
 
