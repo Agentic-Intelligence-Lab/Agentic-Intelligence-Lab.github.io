@@ -32,6 +32,7 @@ For more information (including graduation requirements and internship policies)
 {% include section.html %} 
 
 # News
+- 2026-09-25: Three papers accepted at NeurIPS (Xudong, Yang, Haomin, Rohit) 🎉🎉🎉🎉🎉🎉
 - 2026-09-05: One paper accepted at CoRL (Mingqi) 🎉🎉🎉
 - 2026-06-18: One paper accepted at ECCV (Ziyi) 🎉🎉🎉
 - 2026-06-17: One paper accepted at IEEE IROS (Xiaoquan) 🎉🎉🎉
