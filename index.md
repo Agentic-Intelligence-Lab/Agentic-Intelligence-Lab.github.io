@@ -25,7 +25,7 @@ Embodied AI expands the data and learning sources of multimodal LLMs through rea
  
 (If interested, please contact [Dr. Jiayu Chen](https://agentic-intelligence-lab.org/members/jiayu-chen.html) directly. The Ph.D. application system accepts submissions year-round.)  
 
-- ❗❗❗ We are actively recruiting Postdocs, Ph.D., MPhil, and research assistants on LLM Agents.
+- ❗❗❗ We are actively recruiting Postdocs, Ph.D.s, and MPhils with backgroud on Nuclear Fusion.
 
 For more information (including graduation requirements and internship policies), please refer to the respective categories in [openings](https://agentic-intelligence-lab.org/openings/). 
 
