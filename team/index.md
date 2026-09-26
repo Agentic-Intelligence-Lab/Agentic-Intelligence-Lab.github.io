@@ -57,3 +57,4 @@ Meet our outstanding team members! Although based in Hong Kong, our team boasts 
 ## Alumni
 
 - **Zetian Xu** - The University of Hong Kong, MSc (RIS), 2025-2026 - Noetix Robotics (Beijing)
+- **Haomin Bao** - Chongqing University, Undergraduate, 2025-2026 - MPhil, HKU CDS
