@@ -114,6 +114,8 @@ For the most up-to-date list of publications, please visit our [Google Scholar p
 
 ### Selected Preprints:
 
+1. Shijie Pan, Xudong Wu, Qixiu Cheng, Jiayu Chen, and Wenjie Huang, "Target-based Semi-amortized Dynamic Programming for Complex Crowd Evacuation", submitted to Decision Analysis. <span style="background-color: #e3f2fd; color: #1565c0; padding: 2px 6px; border-radius: 3px; font-size: 0.8em;">T</span>
+
 1. Tianhao Qian, Guilin Qi, and Jiayu Chen, "Relative Kinetic Utility: Calibrating Cross-Layer Credit for Global Structured LLM Pruning", submitted to International Conference on Learning Representations (ICLR), 2027. <span style="background-color: #fff3e0; color: #ef6c00; padding: 2px 6px; border-radius: 3px; font-size: 0.8em;">LLM</span>
 
 1. Tianhao Qian, Jiayu Chen, Zhenyu Sun, and Lixu Wang, "PAC-CF: Calibrating Irreversible Frontier Pruning in LLM-Guided Search", submitted to International Conference on Learning Representations (ICLR), 2027. <span style="background-color: #fff3e0; color: #ef6c00; padding: 2px 6px; border-radius: 3px; font-size: 0.8em;">LLM</span>
