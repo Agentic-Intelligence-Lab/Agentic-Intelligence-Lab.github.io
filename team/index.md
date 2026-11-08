@@ -20,7 +20,7 @@ Meet our outstanding team members! Although based in Hong Kong, our team boasts 
 
 ## Postdoc
 
-- **Shaopeng Liu** (2026.04 -- present, [homepage](https://scholar.google.com/citations?user=OolE29kAAAAJ&hl=zh-CN)) - Ph.D. (Shandong University)
+- **Yiming Wang** (2026.11 -- present, [homepage](https://scholar.google.com/citations?user=2HcAwzcAAAAJ&hl=zh-CN)) - Ph.D. (University of Macao)
 - **Mingqi Yuan** (2026.05 -- present, [homepage](https://friedrichyuan.github.io/)) - Ph.D. (Hong Kong Polytechnic University)
 
 ## Ph.D.
@@ -56,6 +56,7 @@ Meet our outstanding team members! Although based in Hong Kong, our team boasts 
 
 ## Alumni
 
+- **Shaopeng Liu** - Postdoc, 2026.04-2026.10 - Postdoc, HKU CDS
 - **Zetian Xu** - The University of Hong Kong, MSc (RIS), 2025-2026 - Noetix Robotics (Beijing)
 - **Haomin Bao** - Chongqing University, Undergraduate, 2025-2026 - MPhil, HKU CDS
 - **Yuxuan Li** - Zhejiang University, Undergraduate, 2025-2026 - PhD, HKUST (Guangzhou)
