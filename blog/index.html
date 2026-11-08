@@ -561,11 +561,89 @@
         counterfactuals
       </a>
     
+      <a href="/blog/?search=%22tag:%20vla%22" class="tag" data-tooltip='Show items with the tag "vla"'>
+        vla
+      </a>
+    
+      <a href="/blog/?search=%22tag:%20gpt-6-astra%22" class="tag" data-tooltip='Show items with the tag "gpt-6-astra"'>
+        gpt-6-astra
+      </a>
+    
   </div>
 
 <div class="search-info"></div>
 
 <h3 id="2026">2026</h3>
+
+<div class="post-excerpt-container">
+  <div class="post-excerpt">
+    
+    
+    
+
+    
+      <a href="/2026/11/08/gpt-6-astra-vla-weight-editing.html" class="post-excerpt-image" aria-label="GPT-6-Astra Edits a VLA Policy Directly">
+        <img src="/images/gpt-6-astra-vla-weight-editing/workflow.png" alt="GPT-6-Astra Edits a VLA Policy Directly" loading="lazy" onerror="this.src = '/images/fallback.svg'; this.onerror = null;">
+      </a>
+    
+
+    <div class="post-excerpt-text">
+      <a href="/2026/11/08/gpt-6-astra-vla-weight-editing.html">GPT-6-Astra Edits a VLA Policy Directly</a>
+
+      <div class="post-info">
+  
+    
+    
+      <span data-tooltip="Author">
+        <i class="icon fa-solid fa-feather-pointed"></i>
+        <span>Xiaoquan Sun</span>
+      </span>
+    
+  
+
+  
+  
+
+  
+    <span data-tooltip="Originally published on">
+      <i class="icon fa-regular fa-calendar"></i>
+      <span>November 08, 2026</span>
+    </span>
+  
+
+  
+</div>
+
+
+  
+
+
+  <div class="tags" data-link="/blog">
+    
+      <a href="blog?search=%22tag:%20vla%22" class="tag" data-tooltip='Show items with the tag "vla"'>
+        vla
+      </a>
+    
+      <a href="blog?search=%22tag:%20gpt-6-astra%22" class="tag" data-tooltip='Show items with the tag "gpt-6-astra"'>
+        gpt-6-astra
+      </a>
+    
+  </div>
+
+
+
+
+
+      
+      
+      <p data-search="link rel stylesheet href files gpt-6-astra-vla-weight-editing post.css p em The University of Hong Kong em p p We downloaded a VLA a href https: huggingface.co StarVLA Qwen3-VL-OFT-LIBERO-4in1 checkpoint a trained on the LIBERO benchmark and selected the task strong Put both moka pots on the stove strong under a lighting perturbation from the strong Light Conditions strong category of LIBERO-PLUS. The original checkpoint achieved a strong S strong uccess strong R strong ate strong SR strong of 3 50 6 . We then gave GPT-6-Astra access to strong all parameters of the checkpoint strong and provided it with the results of each experiment, including both successful and failed trials. GPT-6-Astra iteratively edited the weights without gradient-based training. After strong 25 rounds strong , the edited policy achieved an strong SR of 18 50 36 strong an improvement of strong 30 percentage points strong . p div class video-pair id pair-0-agentview div class video-columns div class video-panel div class video-label span VLA checkpoint span span class outcome failure Failure span div div class video-views div class video-view video autoplay muted playsinline preload auto poster images gpt-6-astra-vla-weight-editing baseline init00 agentview poster.png aria-label Baseline VLA, third-person view, Failure source src files gpt-6-astra-vla-weight-editing baseline init00 agentview.mp4 type video mp4 a href files gpt-6-astra-vla-weight-editing baseline init00 agentview.mp4 Download video a video div class camera-label Third-person view div div div class video-view video autoplay muted playsinline preload auto poster images gpt-6-astra-vla-weight-editing baseline init00 wrist poster.png aria-label Baseline VLA, wrist view, Failure source src files gpt-6-astra-vla-weight-editing baseline init00 wrist.mp4 type video mp4 a href files gpt-6-astra-vla-weight-editing baseline init00 wrist.mp4 Download video a video div class camera-label Wrist view div div div div div class video-panel div class video-label span VLA checkpoint strong edited by GPT-6-Astra strong span span class outcome success Success span div div class video-views div class video-view video autoplay muted playsinline preload auto poster images gpt-6-astra-vla-weight-editing edited init00 agentview poster.png aria-label Edited VLA, third-person view, Success source src files gpt-6-astra-vla-weight-editing edited init00 agentview.mp4 type video mp4 a href files gpt-6-astra-vla-weight-editing edited init00 agentview.mp4 Download video a video div class camera-label Third-person view div div div class video-view video autoplay muted playsinline preload auto poster images gpt-6-astra-vla-weight-editing edited init00 wrist poster.png aria-label Edited VLA, wrist view, Success source src files gpt-6-astra-vla-weight-editing edited init00 wrist.mp4 type video mp4 a href files gpt-6-astra-vla-weight-editing edited init00 wrist.mp4 Download video a video div class camera-label Wrist view div div div div div div p We give GPT-6-Astra access to all model parameters and a simulator evaluation interface. It can inspect weights and analyze successful and failed trials after each round, along with execution trajectories and robot state records, to decide which parameters to edit next and by how much. The experiment follows a cycle of proposing edits, running evaluations, and analyzing feedback. After completing the editing rounds, we evaluate the edited VLA checkpoint over 50 trials. The process uses no gradient-based training, but it remains an optimization procedure driven by experimental feedback. The weights remain fixed throughout evaluation. p figure class figure id weight-editing-workflow a class figure-image href images gpt-6-astra-vla-weight-editing workflow.png img src images gpt-6-astra-vla-weight-editing workflow.png style width:100 ;aspect-ratio:1600 680;object-fit:cover;object-position:top;max-height:unset alt Offline weight editing loop: GPT-6-Astra edits a VLA checkpoint, evaluates it in LIBERO-PLUS, and receives rollout feedback including successes, failures and trajectories. a figcaption class figure-caption strong Figure 1. Workflow for editing VLA checkpoint weights with GPT-6-Astra strong . GPT-6-Astra uses simulator feedback to guide iterative weight updates. figcaption figure h2 id weight-edits-and-transfer-performance Weight edits and transfer performance h2 p Compared with the original VLA checkpoint, the edited version contains 76,858,078 modified parameter values, representing strong 1.71 strong of the model s parameters, across 27 tensors. The modifications mainly affect the MLPs in language layers 34 35 and visual blocks 18 23. p p The language edits attenuate a selected MLP output direction with coefficients of 0.50 and 0.55. In the final round, GPT-6-Astra scales the first-layer weights and biases of six visual MLPs by 0.5 and their second-layer weights by 2.0, leaving the second-layer biases unchanged. These factors apply to the checkpoint entering that round. Because GELU is nonlinear, the two scalings do not simply cancel. The improvement in strong SR strong reflects the accumulated edits and cannot be attributed solely to the final visual adjustment. p p We then evaluated the fixed edited checkpoint on nine additional LIBERO-PLUS lighting tasks whose results had not been used to guide editing or checkpoint selection, with 50 trials per task. Compared with the original VLA checkpoint, strong SR strong decreased from 96.67 435 450 to 88.22 397 450 . Performance declined on five tasks, remained unchanged on three, and improved on one. p p These results suggest that the edits adapt the policy to the task supplying feedback, without producing a broad improvement across tasks. A plausible explanation is that changes to shared representations favor behaviors useful for the target task while disrupting behaviors required elsewhere. In robot control, even a small action change can alter subsequent observations and the rest of the trajectory. The current evidence therefore supports task-specific improvement accompanied by performance losses on other tasks, rather than a general increase in robustness. Separate tests of the visual and language modifications are needed to understand their contributions. p table id editing-round-results caption strong Table 1. Edited Parameters and Success Rate Across Editing Rounds strong caption thead tr th scope col Round th th scope col 0 th th scope col 5 th th scope col 10 th th scope col 15 th th scope col 20 th th scope col 25 th tr thead tbody tr th scope row Edited Parameters th td 0 td td 0.3280 td td 0.5794 td td 0.5883 td td 1.1473 td td 1.7067 td tr tr th scope row strong SR strong th td 3 50 6 td td 6 50 12 td td 14 50 28 td td 14 50 28 td td 16 50 32 td td 18 50 36 td tr tbody table h2 id acknowledgments Acknowledgments h2 p We thank the teams behind a href https: rikiyat.github.io blog weight-space-programming Sparks of Weight-Space Programming a , a href https: github.com starVLA starVLA StarVLA a , and a href https: github.com sylvestf LIBERO-plus LIBERO-Plus a for these excellent projects. p script src files gpt-6-astra-vla-weight-editing video-autoplay.js defer script">
+        
+
+
+      </p>
+    </div>
+  </div>
+</div>
 
 <div class="post-excerpt-container">
   <div class="post-excerpt">
@@ -606,7 +684,7 @@
   
     <span data-tooltip="Last updated on">
       <i class="icon fa-solid fa-clock-rotate-left"></i>
-      <span>October 10, 2026</span>
+      <span>November 08, 2026</span>
     </span>
   
 </div>
@@ -688,7 +766,7 @@
   
     <span data-tooltip="Last updated on">
       <i class="icon fa-solid fa-clock-rotate-left"></i>
-      <span>October 10, 2026</span>
+      <span>November 08, 2026</span>
     </span>
   
 </div>
@@ -770,7 +848,7 @@
   
     <span data-tooltip="Last updated on">
       <i class="icon fa-solid fa-clock-rotate-left"></i>
-      <span>October 10, 2026</span>
+      <span>November 08, 2026</span>
     </span>
   
 </div>
@@ -852,7 +930,7 @@
   
     <span data-tooltip="Last updated on">
       <i class="icon fa-solid fa-clock-rotate-left"></i>
-      <span>October 10, 2026</span>
+      <span>November 08, 2026</span>
     </span>
   
 </div>
@@ -936,7 +1014,7 @@
   
     <span data-tooltip="Last updated on">
       <i class="icon fa-solid fa-clock-rotate-left"></i>
-      <span>October 10, 2026</span>
+      <span>November 08, 2026</span>
     </span>
   
 </div>
@@ -1011,7 +1089,7 @@
   
     <span data-tooltip="Last updated on">
       <i class="icon fa-solid fa-clock-rotate-left"></i>
-      <span>October 10, 2026</span>
+      <span>November 08, 2026</span>
     </span>
   
 </div>
