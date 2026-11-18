@@ -13,7 +13,7 @@ Our lab is part of the Department of [Department of Data and Systems Engineering
   include button.html
   type="email"
   text="Email"
-  link="agentic.intelligence.lab@gmail.com"
+  link="jiayuc@hku.hk"
 %}
 {%
   include button.html
