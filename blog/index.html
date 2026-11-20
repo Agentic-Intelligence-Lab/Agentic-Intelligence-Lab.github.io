@@ -569,11 +569,95 @@
         gpt-6-astra
       </a>
     
+      <a href="/blog/?search=%22tag:%20language-agents%22" class="tag" data-tooltip='Show items with the tag "language-agents"'>
+        language-agents
+      </a>
+    
+      <a href="/blog/?search=%22tag:%20reinforcement-learning%22" class="tag" data-tooltip='Show items with the tag "reinforcement-learning"'>
+        reinforcement-learning
+      </a>
+    
+      <a href="/blog/?search=%22tag:%20agent-harness%22" class="tag" data-tooltip='Show items with the tag "agent-harness"'>
+        agent-harness
+      </a>
+    
   </div>
 
 <div class="search-info"></div>
 
 <h3 id="2026">2026</h3>
+
+<div class="post-excerpt-container">
+  <div class="post-excerpt">
+    
+    
+    
+
+    
+      <a href="/2026/11/20/jomoha.html" class="post-excerpt-image" aria-label="JoMoHa: How Should We Optimize Model Weights and the Harness Together">
+        <img src="/images/jomoha/overview.png" alt="JoMoHa: How Should We Optimize Model Weights and the Harness Together" loading="lazy" onerror="this.src = '/images/fallback.svg'; this.onerror = null;">
+      </a>
+    
+
+    <div class="post-excerpt-text">
+      <a href="/2026/11/20/jomoha.html">JoMoHa: How Should We Optimize Model Weights and the Harness Together?</a>
+
+      <div class="post-info">
+  
+    
+    
+      <span data-tooltip="Author">
+        <i class="icon fa-solid fa-feather-pointed"></i>
+        <span>Xudong Wu</span>
+      </span>
+    
+  
+
+  
+  
+
+  
+    <span data-tooltip="Originally published on">
+      <i class="icon fa-regular fa-calendar"></i>
+      <span>November 20, 2026</span>
+    </span>
+  
+
+  
+</div>
+
+
+  
+
+
+  <div class="tags" data-link="/blog">
+    
+      <a href="blog?search=%22tag:%20language-agents%22" class="tag" data-tooltip='Show items with the tag "language-agents"'>
+        language-agents
+      </a>
+    
+      <a href="blog?search=%22tag:%20reinforcement-learning%22" class="tag" data-tooltip='Show items with the tag "reinforcement-learning"'>
+        reinforcement-learning
+      </a>
+    
+      <a href="blog?search=%22tag:%20agent-harness%22" class="tag" data-tooltip='Show items with the tag "agent-harness"'>
+        agent-harness
+      </a>
+    
+  </div>
+
+
+
+
+
+      
+      
+      <p data-search="p em Joint work by Xudong Wu, Guangchen Lan, Mingqi Yuan, and Jiayu Chen, from The University of Hong Kong and Salesforce. em p p strong TL;DR: strong A harness that works well for one model checkpoint can get in the way of the next. With JoMoHa, the harness writer and the task Solver learn from the same execution. They share the task reward, but each has a critic that estimates expected return in the context of the collaboration. JoMoHa reaches strong 97.0 strong on ALFWorld and averages strong 70.3 strong across three benchmarks. p p a href https: arxiv.org abs 2611.11499 Paper a a href https: github.com xudongwu-0 coevolve Code a a href https: xudongwu-0.github.io blog 2026 11 jomoha Original research blog a p figure class figure a href images jomoha research-poster.png class figure-image aria-label JoMoHa at a glance: why alternating updates can fail and how the two policies learn together. img src images jomoha research-poster.png style width: auto; max-height: unset; alt JoMoHa at a glance: why alternating updates can fail and how the two policies learn together. loading lazy onerror this.src images fallback.svg ; this.onerror null; a figcaption class figure-caption JoMoHa at a glance: why alternating updates can fail and how the two policies learn together. figcaption figure h2 id what-goes-wrong-when-we-alternate What goes wrong when we alternate h2 p The sponge was already clean. All the Solver had to do was put it on a cart. But the harness, the code that tracks progress and guides the model through the task, had missed the update and kept sending the Solver back to clean it. The run hit the strong 50-turn limit strong . Without that harness, the same Solver finished in strong 14 turns strong . p p That was one failure in a long-phase alternating training run on ALFWorld. We trained the Solver with the harness fixed, then trained the harness writer with the Solver fixed. Success initially rose from strong 83.0 to 90.5 strong , then fell to strong 31.5 strong . When we evaluated earlier and later Solver checkpoints with the same learned harness, it interfered more with the later Solver. But the later Solver did worse on its own, too. The harness affects not just how a model executes a task, but also what it experiences during training. p h2 id what-should-the-two-policies-learn-from-each-other What should the two policies learn from each other h2 p To our knowledge, JoMoHa is the first reinforcement-learning framework to jointly train a policy that writes executable harnesses and a policy that acts under them. In each paired task attempt, the strong Engineer strong generates a harness and the strong Solver strong uses it. Both learn from the same task reward, each updating from the tokens it generated. p p The reward tells us what happened to the pair, but it does not set the same expectation for both roles. We give each policy its own strong critic strong . Each estimates expected return from the policy s history and a short summary of the task, training version, and execution conditions. This extra context is for the critics, not the policies: it lets each learner compare the outcome with what was expected under the conditions in which the pair worked. p p We also normalize returns separately for each role, since writing a program and acting over many turns can give returns on different scales. We weight updates using the partner s recorded trajectory to account for how its policy has changed. And extra Solver updates let it adapt to sampled harnesses without another change to the Engineer s weights. p figure class figure a href images jomoha overview.png class figure-image aria-label JoMoHa s training loop: shared task reward, separate critics, and coordinated updates paper Figure 3 . img src images jomoha overview.png style width: auto; max-height: unset; alt JoMoHa s training loop: shared task reward, separate critics, and coordinated updates paper Figure 3 . loading lazy onerror this.src images fallback.svg ; this.onerror null; a figcaption class figure-caption JoMoHa s training loop: shared task reward, separate critics, and coordinated updates paper Figure 3 . figcaption figure h2 id does-coordination-improve-the-pair Does coordination improve the pair h2 p On ALFWorld, joint training without the coordination mechanisms reached strong 88.5 strong . Adding critic context alone brought it to strong 92.5 strong , the largest gain among the individual additions. The full method reached strong 97.0 strong . p p The harness itself improved, too. With the later Solver s weights held fixed, replacing the initial harness with the later one raised success from strong 92.5 to 96.5 strong in the cross-checkpoint evaluation. In the main comparison, JoMoHa led the evaluated methods on ALFWorld, WebShop, and DBBench, averaging strong 70.3 strong . p figure class figure a href images jomoha alfworld-training.png class figure-image aria-label ALFWorld learning curves comparing JoMoHa with the frozen-Engineer, weight-only, and harness-only variants paper Figure 1 . img src images jomoha alfworld-training.png style width: auto; max-height: unset; alt ALFWorld learning curves comparing JoMoHa with the frozen-Engineer, weight-only, and harness-only variants paper Figure 1 . loading lazy onerror this.src images fallback.svg ; this.onerror null; a figcaption class figure-caption ALFWorld learning curves comparing JoMoHa with the frozen-Engineer, weight-only, and harness-only variants paper Figure 1 . figcaption figure p em Paper figures reproduced from a href https: arxiv.org abs 2611.11499 JoMoHa a under a href https: creativecommons.org licenses by 4.0 CC BY 4.0 a . em p">
+        JoMoHa jointly trains the policy that writes an agent's harness and the policy that uses it, learning from one shared task attempt.
+      </p>
+    </div>
+  </div>
+</div>
 
 <div class="post-excerpt-container">
   <div class="post-excerpt">
@@ -614,7 +698,7 @@
   
     <span data-tooltip="Last updated on">
       <i class="icon fa-solid fa-clock-rotate-left"></i>
-      <span>November 18, 2026</span>
+      <span>November 20, 2026</span>
     </span>
   
 </div>
@@ -689,7 +773,7 @@
   
     <span data-tooltip="Last updated on">
       <i class="icon fa-solid fa-clock-rotate-left"></i>
-      <span>November 18, 2026</span>
+      <span>November 20, 2026</span>
     </span>
   
 </div>
@@ -771,7 +855,7 @@
   
     <span data-tooltip="Last updated on">
       <i class="icon fa-solid fa-clock-rotate-left"></i>
-      <span>November 18, 2026</span>
+      <span>November 20, 2026</span>
     </span>
   
 </div>
@@ -853,7 +937,7 @@
   
     <span data-tooltip="Last updated on">
       <i class="icon fa-solid fa-clock-rotate-left"></i>
-      <span>November 18, 2026</span>
+      <span>November 20, 2026</span>
     </span>
   
 </div>
@@ -935,7 +1019,7 @@
   
     <span data-tooltip="Last updated on">
       <i class="icon fa-solid fa-clock-rotate-left"></i>
-      <span>November 18, 2026</span>
+      <span>November 20, 2026</span>
     </span>
   
 </div>
@@ -1019,7 +1103,7 @@
   
     <span data-tooltip="Last updated on">
       <i class="icon fa-solid fa-clock-rotate-left"></i>
-      <span>November 18, 2026</span>
+      <span>November 20, 2026</span>
     </span>
   
 </div>
@@ -1094,7 +1178,7 @@
   
     <span data-tooltip="Last updated on">
       <i class="icon fa-solid fa-clock-rotate-left"></i>
-      <span>November 18, 2026</span>
+      <span>November 20, 2026</span>
     </span>
   
 </div>
